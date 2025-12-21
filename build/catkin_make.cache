@@ -1,0 +1,2 @@
+ergodic_search:fly_order:uav_simulator/Utils/cmake_utils:uav_simulator/Utils/multi_map_server:uav_simulator/Utils/odom_visualization:uav_simulator/Utils/pose_utils:uav_simulator/Utils/quadrotor_msgs:uav_simulator/Utils/rviz_plugins:uav_simulator/Utils/uav_utils:uav_simulator/Utils/waypoint_generator:uav_simulator/fake_drone:uav_simulator/local_sensing:uav_simulator/map_generator:uav_simulator/mockamap:uav_simulator/so3_control:uav_simulator/so3_quadrotor_simulator
+-DCATKIN_DEVEL_PREFIX=/home/cyc/MDEC/devel -DCMAKE_INSTALL_PREFIX=/home/cyc/MDEC/install -G Unix Makefiles
