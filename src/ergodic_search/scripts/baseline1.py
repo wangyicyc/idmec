@@ -1,0 +1,120 @@
+
+import os
+os.environ["JAX_ENABLE_X64"] = "True"
+import sys 
+sys.path.append('..')
+# 增广拉格朗日法优化器
+from multiRobots_lib.solver import al_iLQR 
+from multiRobots_lib.augument_lagrange_func import loss_traj_single, eq_constr_single, ineq_constr_single, loss_compare_single
+from multiRobots_lib.data_collect import save_ergodic_metrics_to_excel, append_metric, traj_to_rosbag, path_to_rosbag
+import logging
+from multiRobots_lib.plot_utils import plot_trajs_old
+from multiRobots_lib.tools import exchange_info_old, optimize_trajs, update_accumulated_time
+from multiRobots_lib.decay_utils import update_beta_single
+from multiRobots_lib.data2bag import CommandToRosbag, MapINfoToMarkers, PathToRosbag
+from IPython.display import clear_output
+from multiRobots_lib.hyper_params import (
+    opt_args,
+    target_distr,
+    robot_distr,
+    robot_number,
+    init_state_old,
+    sol_trajs_old,
+    robot_model_single,
+    betas,
+)
+logging.basicConfig(
+    filename='datas/logs/app.log',          # 日志文件名
+    level=logging.INFO,          # 日志等级
+    format='%(asctime)s [%(levelname)s] %(message)s',  # 格式
+)
+
+# 创建保存器
+# commandSaver = CommandToRosbag(bag_dir="../datas/bags/baseline1")   
+# map_saver = MapINfoToMarkers(bag_dir="../datas/bags/baseline1", frame_id="world")
+# pathSaver = PathToRosbag(bag_dir="../datas/bags/baseline1") 
+# 保存完整轨迹
+
+update_map_freq = opt_args["update_map_freq"]
+map_merge_freq = opt_args["map_merge_freq"] 
+init_state = init_state_old
+sol_trajs = sol_trajs_old
+robot_number = opt_args["robot_number"]
+tsteps = opt_args["tsteps"]
+# 双机器人初始化
+start_pos = opt_args["x0"]
+end_pos = opt_args["xf"]
+# 假设你想创建包含 n 个 al_iLQR 结果的数组
+n = robot_number  # 例如，创建 10 个结果
+traj_solver = [al_iLQR(
+    args=opt_args,
+    objective=loss_traj_single,
+    dynamics=robot_model_single,
+    inequality=ineq_constr_single,
+    equality=eq_constr_single,
+    target_distr = robot_distr[_id].evals,
+    robot_id = _id,
+) for _id in range(n)]
+decay_type = 'nodecay'
+init_dual = True
+save_path = '../figures/baseline.png'
+map_merge_cnt = 0
+involved_robots = list(range(robot_number))
+involved_robots = set(involved_robots)
+accumulated_time = 0
+be_num = 1
+global_metric = {
+        'time': [],
+        'values': [],
+}
+current_time = None
+robot_pair = []
+logging.info('baseline')
+
+while True:
+    sol_trajs, to_remove = optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual, r_eps = 0.02, loss_eps = 1e-5)
+    involved_robots -= to_remove
+    clear_output(wait=True)                   # 清除上一次输出，动态刷新
+    init_dual = False
+    # =================================== 更新地图 ==============================================================
+    current_time, accumulated_time = update_accumulated_time(current_time, accumulated_time, be_num)
+    map_merge_cnt += current_time
+    if map_merge_cnt >= map_merge_freq:
+        accumulated_time -= (map_merge_cnt - map_merge_freq)
+        current_time -= (map_merge_cnt - map_merge_freq)
+        map_merge_cnt = 0
+        if accumulated_time >= tsteps:
+            append_metric(global_metric, loss_compare_single(sol_trajs, target_distr.evals, current_time))
+            break
+        for r_id in range(robot_number):
+            u_t = sol_trajs[r_id]['x'][current_time, 0:2]
+            robot_distr[r_id].bayes_filter_reset(target_distr.evals[0], u_t)
+            traj_solver[r_id].update_distribution(robot_distr[r_id].evals)
+    # ================================ 为replan准备 ============================================================== 
+    if accumulated_time == update_map_freq * be_num:
+        append_metric(global_metric, loss_compare_single(sol_trajs, target_distr.evals, current_time))
+        if accumulated_time >= tsteps:
+            break
+        logging.info("update map")
+        # map_saver.save_heatmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq)
+        target_distr.update_map(accumulated_time, "perturb", 'write')
+        # target_distr.update_map(accumulated_time, "perturb", 'read')
+        be_num += 1
+
+    # traj_to_rosbag(sol_trajs, commandSaver, current_time)
+    # for i in range(current_time + 1):
+    #     path_to_rosbag(sol_trajs, pathSaver, i)
+    sol_trajs, connected_pairs = exchange_info_old(sol_trajs, robot_pair, current_time, robot_distr)
+    betas = update_beta_single(sol_trajs, decay_type)
+    involved_robots = set(list(range(robot_number)))
+    init_state = [traj['x'][0, :] for traj in sol_trajs]  
+    init_dual = True
+    logging.warning(f"connect time:{current_time}, accumulated time:{accumulated_time}")
+    current_time = None
+    # plot_trajs_old(start_pos, end_pos, sol_trajs, betas, False, robot_distr, save_path)
+plot_trajs_old(start_pos, end_pos, sol_trajs, betas, True, robot_distr, save_path)  
+save_ergodic_metrics_to_excel(robot_number, global_metric, "baseline1")
+
+
+
+

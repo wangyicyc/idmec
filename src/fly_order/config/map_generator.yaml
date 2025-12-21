@@ -1,0 +1,21 @@
+#########################################################################
+# ⭐⭐⭐  Set parameters carefully for map generator   ⭐⭐⭐ #
+#########################################################################
+map: 
+    resolution: 0.1  # in meter
+    cylinder_num: 1
+    circle_num: 1
+
+cylinder_obs:
+    x0: 52.0
+    y0: 52.0
+    w0: 1.0
+    h0: 3.0
+
+circle_obs:
+    x0: 80.0
+    y0: 80.0
+    z0: 1.0
+    theta0: 3.14
+    radius1_0: 2.0
+    radius2_0: 2.0

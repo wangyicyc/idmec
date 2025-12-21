@@ -1,0 +1,43 @@
+# obs1
+# 位置：[0.64, 0.52]
+# 旋转角度：0.0
+# 半尺寸：[0.1, 0.05]（长宽分别为 0.1 和 0.1）
+# 形状：box（矩形）
+# obs2
+# 位置：[0.24, 0.42]
+# 旋转角度：0.0
+# 半尺寸：[0.02, 0.02]（长宽分别为 0.04 和 0.04）
+# 形状：box（矩形）
+obstacles:
+  # optimazation_process1
+  # - name : "obs1"
+  #   pos : [0.45,0.67]
+  #   rot: 0.0
+  #   half_dims : [0.035, 0.035]
+  #   shape : "box"
+  # - name : "obs2"
+  #   pos : [0.45,0.17]
+  #   rot: 0.0
+  #   half_dims : [0.018, 0.018]
+  # shape : "box"
+  # optimazation_process2
+  - name : "obs1"
+    pos : [0.30,0.73]
+    rot: 0.0
+    half_dims : [0.004, 0.004]
+    shape : "box"
+  - name : "obs2"
+    pos : [0.40,0.10]
+    rot: 0.0
+    half_dims : [0.004, 0.004]
+    shape : "box"
+  - name : "obs3"
+    pos : [0.65,0.73]
+    rot: 0.0
+    half_dims : [0.004, 0.004]
+    shape : "box"
+  - name : "obs4"
+    pos : [0.65,0.10]
+    rot: 0.0
+    half_dims : [0.004, 0.004]
+    shape : "box"
