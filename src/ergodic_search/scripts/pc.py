@@ -34,9 +34,9 @@ map_merge_freq = opt_args["map_merge_freq"]
 state_dim = robot_model_single.nx
 robot_number = opt_args["robot_number"]
 tsteps = opt_args["tsteps"]
-commandSaver = CommandToRosbag(bag_dir="../datas/bags/prob_connect")    
-pathSaver = PathToRosbag(bag_dir="../datas/bags/prob_connect")
-map_saver = MapINfoToMarkers(bag_dir="../datas/bags/prob_connect", frame_id="world")
+commandSaver = CommandToRosbag(bag_dir="../datas/bags")    
+pathSaver = PathToRosbag(bag_dir="../datas/bags")
+map_saver = MapINfoToMarkers(bag_dir="../datas/bags", frame_id="world")
 # 双机器人初始化
 start_pos = opt_args["x0"]
 end_pos = opt_args["xf"]
@@ -135,9 +135,8 @@ while True:
         target_distr.update_map(accumulated_time, "reset", "read")
         be_num += 1
     # robot_pair = [(0,2)]
-    multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
-    for i in range(current_time + 1):
-        multi_path_to_rosbag(sol_trajs, pathSaver, i)
+    multi_traj_to_rosbag(sol_trajs, commandSaver, current_time + 1)
+    multi_path_to_rosbag(sol_trajs, pathSaver, current_time + 1)
     # multi_path_to_rosbag(sol_trajs, pathSaver)
     
     sol_trajs, connected_pairs, valid_robots = exchange_info(sol_trajs, robot_pair, current_time, robot_distr)
@@ -172,3 +171,5 @@ save_ergodic_metrics_to_excel(robot_number, global_metric, decay_type = 'prob_co
 #     self.target_yaw_step -= 2 * np.pi
 # elif self.target_yaw_step < - np.pi:
 #     self.target_yaw_step += 2 * np.pi
+
+

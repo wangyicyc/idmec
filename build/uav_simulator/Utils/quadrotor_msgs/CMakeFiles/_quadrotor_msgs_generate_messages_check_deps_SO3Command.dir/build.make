@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/cyc/MDEC/build
 include uav_simulator/Utils/quadrotor_msgs/CMakeFiles/_quadrotor_msgs_generate_messages_check_deps_SO3Command.dir/progress.make
 
 uav_simulator/Utils/quadrotor_msgs/CMakeFiles/_quadrotor_msgs_generate_messages_check_deps_SO3Command:
-	cd /home/cyc/MDEC/build/uav_simulator/Utils/quadrotor_msgs && ../../../catkin_generated/env_cached.sh /home/cyc/miniconda3/envs/uavPlan/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py quadrotor_msgs /home/cyc/MDEC/src/uav_simulator/Utils/quadrotor_msgs/msg/SO3Command.msg geometry_msgs/Quaternion:geometry_msgs/Vector3:quadrotor_msgs/AuxCommand:std_msgs/Header
+	cd /home/cyc/MDEC/build/uav_simulator/Utils/quadrotor_msgs && ../../../catkin_generated/env_cached.sh /home/cyc/miniconda3/envs/uavPlan/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py quadrotor_msgs /home/cyc/MDEC/src/uav_simulator/Utils/quadrotor_msgs/msg/SO3Command.msg quadrotor_msgs/AuxCommand:geometry_msgs/Quaternion:std_msgs/Header:geometry_msgs/Vector3
 
 _quadrotor_msgs_generate_messages_check_deps_SO3Command: uav_simulator/Utils/quadrotor_msgs/CMakeFiles/_quadrotor_msgs_generate_messages_check_deps_SO3Command
 _quadrotor_msgs_generate_messages_check_deps_SO3Command: uav_simulator/Utils/quadrotor_msgs/CMakeFiles/_quadrotor_msgs_generate_messages_check_deps_SO3Command.dir/build.make

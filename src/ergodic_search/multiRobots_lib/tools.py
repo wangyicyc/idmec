@@ -36,11 +36,12 @@ def exchange_info(sol_trajs, robot_pairs, timestep, robot_distr):
         for i in range(robot_number):
             px_i = traj['px'][i]
             new_px = traj['x'][:timestep, i * state_dim: i * state_dim + 2]  # 新的历史位置片段
-            if abs(new_px[0, 0] - invalid_value) < 1e-3:
-                continue  # 跳过无效数据
+            # if px_i.shape[0] == 0 and (i in involved_robots or r_id not in involved_robots):
             if px_i.shape[0] == 0:
                 traj['px'][i] = new_px
             else:
+                if abs(new_px[0, 0] - invalid_value) < 1e-3:
+                    continue  # 跳过无效数据
                 traj['px'][i] = jnp.concatenate([px_i, new_px], axis=0)
         # === 更新 other px 结束
         new_traj = {

@@ -154,21 +154,22 @@ def multi_traj_to_rosbag(sol_trajs, saver, current_time):
         robot_id=3,
     )
 
-def path_to_rosbag(sol_trajs, Pathsaver, current_time):
-    Pathsaver.save_path_to_bag(sol_trajs[0]['x'][current_time:,:2], bag_filename="path0.bag", dt=dt, robot_id=0,
+def path_to_rosbag(sol_trajs, Pathsaver, search_time):
+    Pathsaver.save_path_to_bag(sol_trajs[0]['x'][search_time:,:2], bag_filename="path0.bag", dt=dt, robot_id=0,
         frame_id="world")
-    Pathsaver.save_path_to_bag(sol_trajs[1]['x'][current_time:,:2], bag_filename="path1.bag", dt=dt, robot_id=1,
+    Pathsaver.save_path_to_bag(sol_trajs[1]['x'][search_time:,:2], bag_filename="path1.bag", dt=dt, robot_id=1,
         frame_id="world")
-    Pathsaver.save_path_to_bag(sol_trajs[2]['x'][current_time:,:2], bag_filename="path2.bag", dt=dt, robot_id=2,
+    Pathsaver.save_path_to_bag(sol_trajs[2]['x'][search_time:,:2], bag_filename="path2.bag", dt=dt, robot_id=2,
         frame_id="world")
-    Pathsaver.save_path_to_bag(sol_trajs[3]['x'][current_time:,:2], bag_filename="path3.bag", dt=dt, robot_id=3,
+    Pathsaver.save_path_to_bag(sol_trajs[3]['x'][search_time:,:2], bag_filename="path3.bag", dt=dt, robot_id=3,
         frame_id="world")
-def multi_path_to_rosbag(sol_trajs, Pathsaver, current_time):
-    Pathsaver.save_path_to_bag(sol_trajs[0]['x'][current_time:,:2], bag_filename="path0.bag", dt=dt, robot_id=0,
-        frame_id="world")
-    Pathsaver.save_path_to_bag(sol_trajs[1]['x'][current_time:,4:6], bag_filename="path1.bag", dt=dt, robot_id=1,
-        frame_id="world")
-    Pathsaver.save_path_to_bag(sol_trajs[2]['x'][current_time:,8:10], bag_filename="path2.bag", dt=dt, robot_id=2,
-        frame_id="world")
-    Pathsaver.save_path_to_bag(sol_trajs[3]['x'][current_time:,12:14], bag_filename="path3.bag", dt=dt, robot_id=3,
-        frame_id="world")
+def multi_path_to_rosbag(sol_trajs, Pathsaver, search_time):
+    for i in range(search_time):
+        Pathsaver.save_path_to_bag(sol_trajs[0]['x'][i:,:2], bag_filename="path0.bag", dt=dt, robot_id=0,
+            frame_id="world")
+        Pathsaver.save_path_to_bag(sol_trajs[1]['x'][i:,4:6], bag_filename="path1.bag", dt=dt, robot_id=1,
+            frame_id="world")
+        Pathsaver.save_path_to_bag(sol_trajs[2]['x'][i:,8:10], bag_filename="path2.bag", dt=dt, robot_id=2,
+            frame_id="world")
+        Pathsaver.save_path_to_bag(sol_trajs[3]['x'][i:,12:14], bag_filename="path3.bag", dt=dt, robot_id=3,
+            frame_id="world")
