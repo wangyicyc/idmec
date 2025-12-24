@@ -1,4 +1,4 @@
-import jax.numpy as jnp
+import numpy as np
 import jax.numpy as jnp
 import sys 
 sys.path.append('..')
@@ -34,22 +34,40 @@ def decay_function_sequence(min_value = 0.05, max_value = 0.95, num = 100):
 
 def get_Decay_alpha(beta):
     # logging.info(f"beta['x'].max(): {beta['x'].max()}")
-    future_alpha = jnp.clip(beta['x'] / beta['x'].max(), 0.05, 1)
-    past_alpha = []
-    for r_id in range(robot_number):
-        past_r = beta['px'][r_id]
-        if past_r.shape[0] > 1:  # 非空数组
-            scaled = jnp.clip(past_r / past_r.max(), 0.05, 1)
-            # logging.info(f"past_r.max(): {past_r.max()}")
-        else:
-            scaled = past_r  # 保持空数组不变
-            # logging.info(f"past_r.max(): {0}")
-        past_alpha.append(scaled)
-    # 构造新的 decayed_alpha，完全不修改输入的 beta
-    decayed_alpha = {
-        'x': future_alpha,
-        'px': past_alpha,
-    }
+    if beta['x'].ndim == 1: 
+        future_alpha = jnp.clip(beta['x'] / beta['x'].max(), 0.05, 1)
+        past_alpha = []
+        for r_id in range(robot_number):
+            past_r = beta['px'][r_id]
+            if past_r.shape[0] > 1:  # 非空数组
+                scaled = jnp.clip(past_r / past_r.max(), 0.05, 1)
+                # logging.info(f"past_r.max(): {past_r.max()}")
+            else:
+                scaled = past_r  # 保持空数组不变
+                # logging.info(f"past_r.max(): {0}")
+            past_alpha.append(scaled)
+        # 构造新的 decayed_alpha，完全不修改输入的 beta
+        decayed_alpha = {
+            'x': future_alpha,
+            'px': past_alpha,
+        }
+    else:
+        future_alpha = jnp.clip(beta['x'] / beta['x'].max(), 0.05, 1)
+        past_alpha = []
+        for r_id in range(robot_number):
+            past_r = beta['px'][r_id]
+            if past_r.shape[0] > 1:  # 非空数组
+                scaled = jnp.clip(past_r / past_r.max(), 0.05, 1)
+                # logging.info(f"past_r.max(): {past_r.max()}")
+            else:
+                scaled = past_r  # 保持空数组不变
+                # logging.info(f"past_r.max(): {0}")
+            past_alpha.append(scaled)
+        # 构造新的 decayed_alpha，完全不修改输入的 beta
+        decayed_alpha = {
+            'x': future_alpha,
+            'px': past_alpha,
+        }
     return decayed_alpha
 def update_beta(sol_trajs, decay_type='linear'):
     new_betas = []
@@ -58,20 +76,20 @@ def update_beta(sol_trajs, decay_type='linear'):
         # future 和 past
         x_traj = sol_trajs[r_id]
         T_other = x_traj['px'][r_id].shape[0]
-        future_arr = jnp.full((x_traj['x'].shape[0]), max_val)
+        future_arr = jnp.full((x_traj['x'].shape[0], robot_number), max_val)
         past_list = []
         for other_id in range(robot_number):
             old_len = x_traj['px'][other_id].shape[0]
             if old_len == 0:
-                past_list.append(jnp.array([]))  # 空数组，size=0
+                past_list.append(np.array([]))  # 空数组，size=0
                 continue
             if decay_type == 'nodecay':
                 past_list.append(jnp.full((old_len), max_val))
             elif decay_type == 'linear':
                 # logging.info(f"other_id: {other_id}, past_len: {past_len}")
-                past_list.append(jnp.linspace(min_val, max_val * old_len / T_other, num=old_len))
+                past_list.append(np.array(jnp.linspace(min_val, max_val * old_len / T_other, num=old_len)))
         new_beta = {
-            'x': future_arr,
+            'x': np.array(future_arr),
             'px': past_list,
         }
         new_betas.append(new_beta)

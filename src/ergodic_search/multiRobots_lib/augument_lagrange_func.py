@@ -1,6 +1,6 @@
 import sys 
 sys.path.append('..')
-from multiRobots_lib.fourier_utils import BasisFunc, get_phik, get_ck, get_ck_avg # 获取Fourier基函数和系数
+from multiRobots_lib.fourier_utils import BasisFunc, get_phik, get_ck, get_ck_avg, get_ck_sum  # 获取Fourier基函数和系数
 from multiRobots_lib.ergodic_metric import ErgodicMetric # 计算遍历度指标
 from multiRobots_lib.metric_utils import pair_connection_doubleInt as func_connection_value
 import jax.numpy as jnp
@@ -40,9 +40,9 @@ tsteps = opt_args["tsteps"]
 weight_erg = opt_args["weight_erg"]
 w_barrierCost = opt_args["weight_barrierCost"]
 num_pairs = len(robot_pair)
-func_get_ck_avg = jit(
+func_get_ck_sum = jit(
     partial(
-        get_ck_avg,
+        get_ck_sum,
         basis=basis,
     )
 )
@@ -72,7 +72,7 @@ def loss_traj_multi(sol, beta, target_distr, multi_R):
     u_traj = sol.u         # 控制输入序列
     valid_robot = x_traj.shape[-1] // state_dim
     phik = get_phik(target_distr, basis)     # 目标分布的傅里叶系数 
-    ckx = func_get_ck_avg(x_traj, beta.x)   # 轨迹的傅里叶系数
+    ckx = func_get_ck_sum(x_traj, beta.x)   # 轨迹的傅里叶系数
     # def _func_get_ckpxs(traj, beta_r):
     #     def compute_ck():
     #         return func_get_ck(traj, beta_r)
@@ -142,7 +142,7 @@ def loss_compare_single(sol, target_distr, current_time):
     erg_met = erg_metric(ckx, phik)
     return erg_met
 
-def ineq_constr_multi(sol, warm_up):
+def ineq_constr_multi(sol, beta_future, warm_up):
     x_traj = sol.x
     u_traj = sol.u 
     T = x_traj.shape[0]
@@ -169,8 +169,7 @@ def ineq_constr_multi(sol, warm_up):
             xi = all_pos[:, i]  # (T, 2)
             xj = all_pos[:, j]  # (T, 2)
             dist_sq = jnp.sum((xi - xj)**2, axis=1)  # (T,)
-            return 1.0 - dist_sq / (avoid_r ** 2)  # (T,)
-        
+            return (1.0 - dist_sq / (avoid_r ** 2) # (T,)
         robot_pair = list(combinations(range(valid_robot), 2))
         robotPair_array = jnp.array(robot_pair, dtype=jnp.int32)  # (num_pairs, 2)
         _avoidance_arr = vmap(compute_pair_dist)(robotPair_array).flatten() / comb(
@@ -183,6 +182,7 @@ def ineq_constr_multi(sol, warm_up):
             traj = x_traj_trunced, 
             robot_pair = robot_pair,
             _func_pair=func_pair,
+            beta_future=beta_future,
             _nx=state_dim,
             period_num=period_num)
         min_prob = global_min_prob# * (valid_robot - 1)

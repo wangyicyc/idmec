@@ -168,7 +168,7 @@ class al_iLQR(iLQR_template):
             mu = dual_solution.mu
             lam = dual_solution.lam
             _objective = self.objective(solution, self.beta, target_distr, R_cost)
-            _ineq_constr = self.inequality(solution)
+            _ineq_constr = self.inequality(solution, self.beta.x)
             _eq_constr = self.equality(solution)
             return _objective + (0.5 / r) * jnp.sum(
                 jnp.maximum(0.0, mu + r * _ineq_constr) ** 2 - mu**2
@@ -190,7 +190,7 @@ class al_iLQR(iLQR_template):
         return grad_val.x, grad_val.u
 
     def update_multipliers(self):
-        new_mu = jnp.maximum(0, self.dual_solution.mu + self.r_penalty * self.inequality(self.solution))
+        new_mu = jnp.maximum(0, self.dual_solution.mu + self.r_penalty * self.inequality(self.solution, self.beta.x))
         new_lam = self.dual_solution.lam + self.r_penalty * self.equality(self.solution)
 
         self.dual_solution = self.dual_solution._replace(mu=new_mu, lam = new_lam)
@@ -239,51 +239,16 @@ class al_iLQR(iLQR_template):
         self.U_min = jnp.tile(self.args["U_min"], valid_robots)
         self.U_max = jnp.tile(self.args["U_max"], valid_robots)
 
-
-    def _extract_valid_robots(self, init_sol):
-        x_full = jnp.array(init_sol["x"])          # (T, N * dx)
-        u_full = jnp.array(init_sol["u"])          # (T, N * du)
-        # 切分为 per-robot arrays: list of (T, dx) or (T, du)
-        x_list = [x_full[:, i * state_dim : (i + 1) * state_dim] for i in range(robot_number)]
-        u_list = [u_full[:, i * control_dim : (i + 1) * control_dim] for i in range(robot_number)]
-        # 判断每个机器人是否有效（只要 x 或 u 不全为 -100 即视为有效）
-        valid_robot = []
-        for i in range(robot_number):
-            # 使用 allclose 容忍浮点误差
-            x_is_invalid = jnp.allclose(x_list[i], -100.0, atol=1e-3)
-            u_is_invalid = jnp.allclose(u_list[i], -100.0, atol=1e-3)
-            if not (x_is_invalid and u_is_invalid):
-                valid_robot.append(i)
-        if not valid_robot:
-            logging.error(f"{self.robot_id}: No valid robot found in init_sol!")
-            raise ValueError("No valid robot found in init_sol!")
-        # 提取有效机器人的数据
-        x_valid = jnp.concatenate([x_list[i] for i in valid_robot], axis=-1)      # (T, N_valid * dx)
-        u_valid = jnp.concatenate([u_list[i] for i in valid_robot], axis=-1)      # (T, N_valid * du)
-        # logging.info(f"{self.robot_id}: Valid robot: {valid_robot}")
-        return x_valid, u_valid, valid_robot
-    # 在 return 之前，把 x, u, px 扩展回 robot_number 个机器人
-    def _pad_to_full(self, traj_clean, valid_robot, fill_value=-100.0):
-        T = traj_clean.shape[0]
-        state_dim = traj_clean.shape[1] // len(valid_robot)
-        full_traj = jnp.full((T, robot_number * state_dim), fill_value, dtype=traj_clean.dtype)
-        for idx_in_valid, global_id in enumerate(valid_robot):
-            start = global_id * state_dim
-            end = start + state_dim
-            clean_start = idx_in_valid * state_dim
-            clean_end = clean_start + state_dim
-            full_traj = full_traj.at[:, start:end].set(traj_clean[:, clean_start:clean_end])
-        return full_traj
-    def solve(self, x0, init_sol, beta, init_dual=True, max_iter=100, r_eps = 0.1, loss_eps = 2e-6, decay_eps=0.05, if_print=True):
-        x_valid, u_valid, valid_robot  = self._extract_valid_robots(init_sol)
-            # --- Step 2: ✅ 裁剪 x0 到有效机器人子集 ---
-        x0_clean = jnp.concatenate([
-            x0[i * state_dim : (i + 1) * state_dim]
-            for i in valid_robot
-        ])
-        self.init_state = x0_clean
-        self.solution = TrajectorySolution(x=x_valid, u=u_valid, px=init_sol["px"])
-        beta_x_raw = jnp.asarray(beta["x"] * len(valid_robot)) 
+    def solve(self, x0, init_sol, beta, init_dual=True, max_iter=100, last_exchange_time={}, r_eps = 0.1, loss_eps = 2e-6, decay_eps=0.05, if_print=True):
+        self.init_state = x0
+        self.solution = TrajectorySolution(x=init_sol["x"], u=init_sol["u"], px=init_sol["px"])
+        past_time = init_sol["px"][self.robot_id].shape[0]
+        for j in range(robot_number):
+            if j == self.robot_id:
+                continue
+            beta["x"][:, j] = beta["x"][:, j] * max(last_exchange_time.get((self.robot_id, j), 1), 1)/ max(past_time, 1)
+            beta["px"][j] = beta["px"][j] * max(last_exchange_time.get((j, self.robot_id), 1), 1)/ max(past_time, 1) 
+        beta_x_raw = jnp.asarray(beta["x"]) 
         total_norm = (
             sum(jnp.sum(px) for px in beta["px"]) +
             jnp.sum(beta_x_raw) +
@@ -293,18 +258,17 @@ class al_iLQR(iLQR_template):
             x = beta_x_raw / total_norm,
             px = [px / total_norm for px in beta["px"]]
         )
-        self.update_dynamics(len(valid_robot))
         if init_dual is True:
             self.get_descent_jit = jit(self.get_descent)
             self.linesearch_jit = jit(self.linesearch)
             # self.dual_solution = {"mu": jnp.zeros_like(self.inequality(self.solution)),\
             #     "lam": jnp.zeros_like(self.equality(self.solution))}
-            self.dual_solution = DualVariables(mu=jnp.zeros_like(self.inequality(self.solution)), lam=jnp.zeros_like(self.equality(self.solution)))
+            self.dual_solution = DualVariables(mu=jnp.zeros_like(self.inequality(self.solution, self.beta.x)), lam=jnp.zeros_like(self.equality(self.solution)))
             self.update_multipliers()
             self.r_penalty = 1.0
         loss_val = [self.objective(self.solution, self.beta, self.target_distr, self.R)]
         _func_get_violation = jit(
-            lambda sol: jnp.maximum(0, self.inequality(sol)).sum()
+            lambda sol: jnp.maximum(0, self.inequality(sol, self.beta.x)).sum()
             + jnp.abs(self.equality(sol)).sum()
             # lambda sol: jnp.abs(self.equality(sol, self.args, self.robot_id)).sum()
         )
@@ -351,11 +315,9 @@ class al_iLQR(iLQR_template):
             if (jnp.abs(loss_val[-1] - loss_val[-2]) < loss_eps) and jnp.abs(
                 violations[-1]) < r_eps:
                 logging.info("iter:{:d}, id:{:d}, r:{:.3f} and violateion:{:.3f}".format(i, self.robot_id, self.r_penalty, violations[-1]))
-                x_full_return = self._pad_to_full(self.solution.x, valid_robot, fill_value=-100.0)
-                u_full_return = self._pad_to_full(self.solution.u, valid_robot, fill_value=-100.0)  # control 可填 0
                 return {
-                    "x": np.array(x_full_return),
-                    "u": np.array(u_full_return),
+                    "x": np.array(self.solution.x),    # ← 转为可变的 NumPy array
+                    "u": np.array(self.solution.u),
                     "px": [np.array(arr) for arr in self.solution.px]
                 }, True
 
@@ -363,11 +325,8 @@ class al_iLQR(iLQR_template):
             logging.info("failed to satisfy constraint, id: {:d} and r_penalty: {:.3f} and violations:{:.3f}:".format(self.robot_id, self.r_penalty, violations[-1]))
         else:
             logging.info("satisfy constraint, but not converge, id: {:d} and r_penalty: {:.3f} and violations:{:.3f}:".format(self.robot_id, self.r_penalty, violations[-1]))
-        
-        x_full_return = self._pad_to_full(self.solution.x, valid_robot, fill_value=-100.0)
-        u_full_return = self._pad_to_full(self.solution.u, valid_robot, fill_value=-100.0)  # control 可填 0
         return {
-                "x": np.array(x_full_return),
-                "u": np.array(u_full_return),
-                "px": [np.array(arr) for arr in self.solution.px]
+            "x": np.array(self.solution.x),    # ← 转为可变的 NumPy array
+            "u": np.array(self.solution.u),
+            "px": [np.array(arr) for arr in self.solution.px]
         }, True

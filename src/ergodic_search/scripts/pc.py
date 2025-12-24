@@ -7,7 +7,7 @@ from multiRobots_lib.multi_solver import al_iLQR
 from multiRobots_lib.augument_lagrange_func import loss_traj_multi, eq_constr, ineq_constr_multi, loss_compare_multi
 from multiRobots_lib.data_collect import save_ergodic_metrics_to_excel, append_metric, multi_traj_to_rosbag, multi_path_to_rosbag
 from multiRobots_lib.plot_utils import plot_trajs
-from multiRobots_lib.tools import find_first_connected, exchange_info, optimize_trajs, update_accumulated_time
+from multiRobots_lib.tools import find_first_connected, exchange_info, multi_robot_optimize_trajs, update_accumulated_time
 from multiRobots_lib.decay_utils import update_beta
 from multiRobots_lib.data2bag import CommandToRosbag, PathToRosbag, MapINfoToMarkers
 from IPython.display import clear_output
@@ -21,7 +21,7 @@ from multiRobots_lib.hyper_params import (
     robot_number,
     init_state,
     sol_trajs,
-    betas,
+    multi_betas,
     robot_model_single,
 )
 logging.basicConfig(
@@ -93,9 +93,9 @@ logging.info('prob connect')
 while True:
     
     if warm_up == True:
-        sol_trajs, to_remove = optimize_trajs(involved_robots, sol_trajs, betas, traj_warmUp, init_state, init_dual, r_eps = 0.02, loss_eps = 1e-5)
+        sol_trajs, to_remove = multi_robot_optimize_trajs(involved_robots, sol_trajs, multi_betas, traj_warmUp, init_state, init_dual, last_exchange_time)
     else:
-        sol_trajs, to_remove = optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual, r_eps = 0.02, loss_eps = 1e-5)
+        sol_trajs, to_remove = multi_robot_optimize_trajs(involved_robots, sol_trajs, multi_betas, traj_solver, init_state, init_dual, last_exchange_time)
     # involved_robots -= to_remove
     clear_output(wait=True)                   # 清除上一次输出，动态刷新
     init_dual = False
@@ -104,7 +104,7 @@ while True:
         warm_up = False
         init_dual = True
         logging.info("have warm up")
-        # plot_trajs(start_pos, end_pos, sol_trajs, betas, True, robot_distr, save_path)    
+        # plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, save_path)    
         continue
         # ================================== 获取replan 信息 =========================================================
     current_time, robot_pair = find_first_connected(sol_trajs, connection_threshold, last_exchange_time)
@@ -115,6 +115,9 @@ while True:
         current_time -= (map_merge_cnt - map_merge_freq)
         map_merge_cnt = 0
         if accumulated_time >= tsteps:
+            multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
+            multi_path_to_rosbag(sol_trajs, pathSaver, current_time)
+            map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq)
             append_metric(global_metric, loss_compare_multi(sol_trajs, target_distr.evals, current_time))
             break
         robot_pair = []
@@ -127,20 +130,16 @@ while True:
     # ================================ 为replan准备 ==============================================================  
     if accumulated_time == update_map_freq * be_num:
         append_metric(global_metric, loss_compare_multi(sol_trajs, target_distr.evals, current_time))
-        if accumulated_time >= tsteps:
-            break
         logging.info("update map")
-        map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq)
         robot_pair = []
         target_distr.update_map(accumulated_time, "reset", "read")
         be_num += 1
     # robot_pair = [(0,2)]
-    multi_traj_to_rosbag(sol_trajs, commandSaver, current_time + 1)
-    multi_path_to_rosbag(sol_trajs, pathSaver, current_time + 1)
-    # multi_path_to_rosbag(sol_trajs, pathSaver)
+    multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
+    multi_path_to_rosbag(sol_trajs, pathSaver, current_time)
     
-    sol_trajs, connected_pairs, valid_robots = exchange_info(sol_trajs, robot_pair, current_time, robot_distr)
-    betas = update_beta(sol_trajs, decay_type)
+    sol_trajs, connected_pairs = exchange_info(sol_trajs, robot_pair, current_time, robot_distr)
+    multi_betas = update_beta(sol_trajs, decay_type)
     if connected_pairs:
         involved_robots = connected_pairs 
     else:
@@ -149,27 +148,6 @@ while True:
     init_dual = True
     warm_up = True
     logging.warning(f"connect time:{current_time}, accumulated time:{accumulated_time}, and the robot pair:{robot_pair}")
-    # plot_trajs(start_pos, end_pos, sol_trajs, betas, True, robot_distr, save_path)    
-plot_trajs(start_pos, end_pos, sol_trajs, betas, True, robot_distr, save_path)
+    # plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, save_path)    
+plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, save_path)
 save_ergodic_metrics_to_excel(robot_number, global_metric, decay_type = 'prob_connect')
-
-
-# # 处理角度环绕
-# delta = (np.abs(self.target_yaw - self.last_yaw) + np.pi) % (2 * np.pi) - np.pi
-# if np.abs(self.target_yaw - self.last_yaw) > np.pi:
-#     # delta 肯定是负值
-#     ratio *= - np.abs(self.target_yaw - self.last_yaw) / (self.target_yaw - self.last_yaw)
-#     # (self.target_yaw - self.last_yaw) > 0 时, ratio 应该是负值
-#     # (self.target_yaw - self.last_yaw) < 0 时, ratio 应该是正值 
-# else:
-#     # delta 肯定是正值
-#     ratio *= np.abs(self.target_yaw - self.last_yaw) / (self.target_yaw - self.last_yaw)
-#     # (self.target_yaw - self.last_yaw) > 0 时, ratio 应该是正值
-#     # (self.target_yaw - self.last_yaw) < 0 时, ratio 应该是负值 
-# self.target_yaw_step = self.last_yaw + ratio * delta
-# if self.target_yaw_step > np.pi:
-#     self.target_yaw_step -= 2 * np.pi
-# elif self.target_yaw_step < - np.pi:
-#     self.target_yaw_step += 2 * np.pi
-
-

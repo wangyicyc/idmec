@@ -62,7 +62,7 @@ def plot_trajs(start_pos, end_pos, sol_trajs, betas, convergence, robot_distr, s
         for t in range(robot_number):  # 假设每个轨迹点有4个维度（x, y, vx, vy）
             if t == i:
                 ax.scatter(sol_traj['x'][:, 4 * t], sol_traj['x'][:, 4 * t + 1], 
-                    c = colors[t], s=50, alpha=decayed_alpha['x'], 
+                    c = colors[t], s=50, alpha=decayed_alpha['x'][:, t], 
                     marker='^', edgecolors='none', zorder=3)
                 if sol_traj['px'][t].shape[0] > 0: 
                     ax.scatter(sol_traj['px'][t][:, 0], sol_traj['px'][t][:, 1], 
@@ -70,7 +70,7 @@ def plot_trajs(start_pos, end_pos, sol_trajs, betas, convergence, robot_distr, s
                                 edgecolors='none', zorder=2)
             else:
                 ax.scatter(sol_traj['x'][:, 4 * t], sol_traj['x'][:, 4 * t + 1], 
-                    c = colors[t], s=10, alpha=decayed_alpha['x'], 
+                    c = colors[t], s=10, alpha=decayed_alpha['x'][:, t], 
                     edgecolors='none', zorder=2)
                 if sol_traj['px'][t].shape[0] > 0:
                     ax.scatter(sol_traj['px'][t][:, 0], sol_traj['px'][t][:, 1], 
@@ -78,7 +78,6 @@ def plot_trajs(start_pos, end_pos, sol_trajs, betas, convergence, robot_distr, s
                                 edgecolors='none', zorder=2)
         ax.set_title(f'Robot {i}', fontsize=30, fontweight='bold')
         # ax.legend(loc='best')
-    # 保存或显示
     if convergence:
         if save_path:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')

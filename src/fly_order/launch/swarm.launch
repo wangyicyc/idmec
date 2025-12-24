@@ -1,7 +1,7 @@
   <launch>
-    <arg name="map_size_x" value="42.0"/>
-    <arg name="map_size_y" value="30.0"/>
-    <arg name="map_size_z" value=" 5.0"/>
+    <arg name="map_size_x" value="10.0"/>
+    <arg name="map_size_y" value="10.0"/>
+    <arg name="map_size_z" value="5.0"/>
 
     <arg name="odom_topic" value="visual_slam/odom" />
 
@@ -47,7 +47,7 @@
     <include file="$(find fly_order)/launch/run_in_sim.launch">
         <arg name="drone_id" value="0"/>
 
-        <arg name="init_x" value="1.0"/>
+        <arg name="init_x" value="0.7"/>
         <arg name="init_y" value="0.8"/>
         <arg name="init_z" value="1.0"/>
 
@@ -61,7 +61,7 @@
     <include file="$(find fly_order)/launch/run_in_sim.launch">
         <arg name="drone_id" value="1"/>
 
-        <arg name="init_x" value="1.6"/>
+        <arg name="init_x" value="1.3"/>
         <arg name="init_y" value="0.8"/>
         <arg name="init_z" value="1.0"/>
 
@@ -75,7 +75,7 @@
     <include file="$(find fly_order)/launch/run_in_sim.launch">
         <arg name="drone_id" value="2"/>
 
-        <arg name="init_x" value="2.4"/>
+        <arg name="init_x" value="1.8"/>
         <arg name="init_y" value="0.8"/>
         <arg name="init_z" value="1.0"/>
         <arg name="map_size_x" value="$(arg map_size_x)"/>
@@ -87,7 +87,7 @@
     <include file="$(find fly_order)/launch/run_in_sim.launch">
         <arg name="drone_id" value="3"/>
 
-        <arg name="init_x" value="3.0"/>
+        <arg name="init_x" value="2.3"/>
         <arg name="init_y" value="0.8"/>
         <arg name="init_z" value="1.0"/>
         <arg name="map_size_x" value="$(arg map_size_x)"/>

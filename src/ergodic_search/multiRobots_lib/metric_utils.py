@@ -48,6 +48,7 @@ def pair_connection_doubleInt(
     traj: jnp.ndarray,
     _func_pair: callable,
     robot_pair: list[tuple[int, int]],
+    beta_future,
     _nx: int,
     period_num: int,
 ):
@@ -60,7 +61,7 @@ def pair_connection_doubleInt(
     _connection_probability = []
     for pair in robot_pair:
         _connection_probability.append(
-            vmap(
+            jnp.minimum(beta_future[0, pair[0]], beta_future[0, pair[1]]) / (jnp.max(beta_future) + 1e-8) * vmap(
                 lambda idx: jnp.sum(
                     vmap(vmap(_func_pair, in_axes=(None, 0)), in_axes=(0, None))(
                         x_traj_reshape[idx][:, (pair[0] * _nx) : (pair[0] * _nx) + 2],

@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cd 
 # 循环10次
 for count in {1..5}
 do
@@ -21,7 +21,9 @@ do
     mv ../figures/* "$folder_name/."
     mv ergodic_metric.xlsx "$folder_name/"
     mv ../datas/logs/app.log "$folder_name/"
-    mv ../datas/bags/* "$folder_name/"
+    python merge_bags.py output.bag path0.bag path1.bag path2.bag path3.bag traj0.bag traj1.bag traj2.bag traj3.bag map.bag
+    mv output.bag "$folder_name/"
+    rm path0.bag path1.bag path2.bag path3.bag traj0.bag traj1.bag traj2.bag traj3.bag map.bag
     # 重新创建random_map_history.jsonl文件以供下一次使用
     touch "../datas/logs/app.log"
     touch "../datas/config/random_map_history.jsonl"

@@ -71,7 +71,7 @@ global_metric = {
 last_exchange_time = {}
 logging.info('no prob connect')
 while True:
-    sol_trajs, to_remove = optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual, r_eps = 0.02, loss_eps = 1e-5)
+    sol_trajs, to_remove = optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual)
     # involved_robots -= to_remove
     clear_output(wait=True)                   # 清除上一次输出，动态刷新
     init_dual = False

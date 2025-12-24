@@ -143,8 +143,18 @@ n_small_betas = jnp.array([jnp.array([])] * robot_number)
 # 使用列表推导式创建 betas
 betas = [
     {
-    'x': jnp.array(F_beta),
-    'px': [jnp.array([]) for _ in range(robot_number)],
+    'x': np.array(F_beta),
+    'px': [np.array([]) for _ in range(robot_number)],
+}
+    for _ in range(robot_number)
+]
+
+F_beta_multi = jnp.full((tsteps, robot_number), 1)
+# 使用列表推导式创建 betas
+multi_betas = [
+    {
+    'x': np.array(F_beta_multi),
+    'px': [np.array([]) for _ in range(robot_number)],
 }
     for _ in range(robot_number)
 ]

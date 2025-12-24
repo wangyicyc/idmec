@@ -73,35 +73,7 @@ def exchange_info(sol_trajs, robot_pairs, timestep, robot_distr):
         eval_r1, pos_r1 = reset_instructions[r1]
         robot_distr[r2].bayes_filter_reset(eval_r1, pos_r1, 4.0)
         # ==================== for map update ===================================
-    # Step 2: 构建参与机器人的有效伙伴集
-    involved_robots_set = set(r for pair in robot_pairs for r in pair)
-    # 为每个参与机器人构建 valid partners（包括自己和配对对象）
-    valid_partners = {}
-    for r in involved_robots_set:
-        valid_partners[r] = {r}  # 自己 always valid
-
-    for r1, r2 in robot_pairs:
-        valid_partners[r1].add(r2)
-        valid_partners[r2].add(r1)
-
-    valid_robots = {r: robot_number for r in range(robot_number)}
-    for r in involved_robots_set:
-        x_full = new_sol_trajs[r]['x']  # (T, N * state_dim)
-        u_full = new_sol_trajs[r]['u']  # (T, N * control_dim)
-        # 创建全无效数组
-        x_invalid = jnp.full_like(x_full, invalid_value)
-        u_invalid = jnp.full_like(u_full, invalid_value)
-        for s in range(robot_number):
-            if s in valid_partners[r]:
-                x_slice = x_full[:, s * state_dim:(s + 1) * state_dim]
-                u_slice = u_full[:, s * control_dim:(s + 1) * control_dim]
-                x_invalid = x_invalid.at[:, s * state_dim:(s + 1) * state_dim].set(x_slice)
-                u_invalid = u_invalid.at[:, s * control_dim:(s + 1) * control_dim].set(u_slice)
-            else:
-                valid_robots[r] -= 1
-        new_sol_trajs[r]['x'] = x_invalid
-        new_sol_trajs[r]['u'] = u_invalid
-    return new_sol_trajs, involved_robots, valid_robots
+    return new_sol_trajs, involved_robots
 
 def exchange_info_old(sol_trajs, robot_pairs, timestep, robot_distr):
     involved_robots = {r for pair in robot_pairs for r in pair}
@@ -272,7 +244,7 @@ def _solve_one_robot(args):
     )
     return rid, sol, conv
 
-def optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual, r_eps = 0.1, loss_eps = 1e-6):
+def optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual, r_eps = 0.02, loss_eps = 1e-5):
     to_remove = set()
     # 准备任务参数
     tasks = [
@@ -282,6 +254,39 @@ def optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, i
     # 并行执行
     with ThreadPoolExecutor(max_workers=len(tasks)) as executor:
         results = executor.map(_solve_one_robot, tasks)
+    # 收集结果
+    for rid, sol, conv in results:
+        sol_trajs[rid] = sol
+        if conv:
+            to_remove.add(rid)
+    return sol_trajs, to_remove
+
+def _multi_solve_one_robot(args):
+    rid, solver, x0, init_sol, beta, init_dual, last_exchange_time, r_eps, loss_eps = args
+    # 注意：JAX DeviceArray 在线程间传递是安全的（只读）
+    sol, conv = solver.solve(
+        x0=x0,
+        init_sol=init_sol,      # 如果 solver 会修改它，建议 deep copy
+        beta=beta,
+        init_dual=init_dual,
+        max_iter=1000,
+        if_print=False,
+        last_exchange_time=last_exchange_time,
+        r_eps = r_eps,
+        loss_eps = loss_eps
+    )
+    return rid, sol, conv
+
+def multi_robot_optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual, last_exchange_time, r_eps = 0.02, loss_eps = 1e-5):
+    to_remove = set()
+    # 准备任务参数
+    tasks = [
+        (rid, traj_solver[rid], init_state[rid], sol_trajs[rid], betas[rid], init_dual, last_exchange_time, r_eps, loss_eps)
+        for rid in involved_robots
+    ]
+    # 并行执行
+    with ThreadPoolExecutor(max_workers=len(tasks)) as executor:
+        results = executor.map(_multi_solve_one_robot, tasks)
     # 收集结果
     for rid, sol, conv in results:
         sol_trajs[rid] = sol

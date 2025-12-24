@@ -36,6 +36,17 @@ def get_ck_avg(trajectory, beta, basis):
     return jnp.average(ck, axis=0)
     # return jnp.sum(ck, axis=0)
 
+def get_ck_sum(trajectory, beta, basis):
+    # 
+    traj_reshape = trajectory.reshape(trajectory.shape[0], -1, 4)
+    traj_reshape = traj_reshape.transpose(1, 0, 2)[
+        :, :, :2
+    ]
+    beta_reshape = beta.transpose(1, 0)
+    ck = vmap(get_ck, in_axes=(0, 0, None))(traj_reshape, beta_reshape, basis)
+    # return jnp.average(ck, axis=0)
+    return jnp.sum(ck, axis=0)
+
 def get_phik(vals, basis):
     # 计算目标分布的傅里叶系数
     _phi, _x = vals 
