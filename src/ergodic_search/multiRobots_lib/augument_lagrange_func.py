@@ -169,7 +169,7 @@ def ineq_constr_multi(sol, beta_future, warm_up):
             xi = all_pos[:, i]  # (T, 2)
             xj = all_pos[:, j]  # (T, 2)
             dist_sq = jnp.sum((xi - xj)**2, axis=1)  # (T,)
-            return (1.0 - dist_sq / (avoid_r ** 2) # (T,)
+            return 1.0 - dist_sq / (avoid_r ** 2) # (T,)
         robot_pair = list(combinations(range(valid_robot), 2))
         robotPair_array = jnp.array(robot_pair, dtype=jnp.int32)  # (num_pairs, 2)
         _avoidance_arr = vmap(compute_pair_dist)(robotPair_array).flatten() / comb(

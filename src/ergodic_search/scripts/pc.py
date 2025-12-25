@@ -34,9 +34,9 @@ map_merge_freq = opt_args["map_merge_freq"]
 state_dim = robot_model_single.nx
 robot_number = opt_args["robot_number"]
 tsteps = opt_args["tsteps"]
-commandSaver = CommandToRosbag(bag_dir="../datas/bags")    
-pathSaver = PathToRosbag(bag_dir="../datas/bags")
-map_saver = MapINfoToMarkers(bag_dir="../datas/bags", frame_id="world")
+commandSaver = CommandToRosbag(bag_dir="./")    
+pathSaver = PathToRosbag(bag_dir="./")
+map_saver = MapINfoToMarkers(bag_dir="./")
 # 双机器人初始化
 start_pos = opt_args["x0"]
 end_pos = opt_args["xf"]
