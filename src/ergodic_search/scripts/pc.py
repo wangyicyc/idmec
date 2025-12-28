@@ -5,7 +5,7 @@ sys.path.append('..')
 # 增广拉格朗日法优化器
 from multiRobots_lib.multi_solver import al_iLQR 
 from multiRobots_lib.augument_lagrange_func import loss_traj_multi, eq_constr, ineq_constr_multi, loss_compare_multi
-from multiRobots_lib.data_collect import save_ergodic_metrics_to_excel, append_metric, multi_traj_to_rosbag, multi_path_to_rosbag
+from multiRobots_lib.data_collect import save_ergodic_metrics_to_excel, append_metric, multi_traj_to_rosbag, multi_path_to_rosbag, multi_map_to_rosbag
 from multiRobots_lib.plot_utils import plot_trajs
 from multiRobots_lib.tools import find_first_connected, exchange_info, multi_robot_optimize_trajs, update_accumulated_time
 from multiRobots_lib.decay_utils import update_beta
@@ -117,6 +117,7 @@ while True:
         if accumulated_time >= tsteps:
             multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
             multi_path_to_rosbag(sol_trajs, pathSaver, current_time)
+            multi_map_to_rosbag(robot_distr, map_saver, update_map_freq)
             map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq)
             append_metric(global_metric, loss_compare_multi(sol_trajs, target_distr.evals, current_time))
             break
@@ -130,6 +131,8 @@ while True:
     # ================================ 为replan准备 ==============================================================  
     if accumulated_time == update_map_freq * be_num:
         append_metric(global_metric, loss_compare_multi(sol_trajs, target_distr.evals, current_time))
+        map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq)
+        multi_map_to_rosbag(robot_distr, map_saver, update_map_freq)
         logging.info("update map")
         robot_pair = []
         target_distr.update_map(accumulated_time, "reset", "read")
@@ -138,7 +141,7 @@ while True:
     multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
     multi_path_to_rosbag(sol_trajs, pathSaver, current_time)
     
-    sol_trajs, connected_pairs = exchange_info(sol_trajs, robot_pair, current_time, robot_distr)
+    sol_trajs, connected_pairs = exchange_info(sol_trajs, robot_pair, current_time, robot_distr, last_exchange_time)
     multi_betas = update_beta(sol_trajs, decay_type)
     if connected_pairs:
         involved_robots = connected_pairs 

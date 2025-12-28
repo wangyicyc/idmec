@@ -134,7 +134,7 @@ class PathToRosbag:
 
                 pose.pose.position.x = float(x_traj[i, 0])
                 pose.pose.position.y = float(x_traj[i, 1])
-                pose.pose.position.z = 1.0
+                pose.pose.position.z = 0.1
                 pose.pose.orientation.w = 1.0
                 poses.append(pose)
 

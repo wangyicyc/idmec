@@ -93,9 +93,18 @@ def loss_traj_multi(sol, beta, target_distr, multi_R):
             ckpx = ckpx + func_get_ck(past_traj[r_id], beta_r)
     erg_met = erg_metric(ckx + ckpx, phik)
     ctrl_cost = jnp.sum(0.5 * multi_R @ u_traj.T * u_traj.T) / (tsteps * valid_robot)
+
+    all_pos = x_traj.reshape(x_traj.shape[0], -1, state_dim)[:, :, :2]
+    def compute_robot_barrier(robot_pos_traj):
+        emap_result = func_emap(robot_pos_traj)  # (T, 2) -> (T, 2)
+        barrier_matrix = barrier_cost(emap_result)  # (T, 2) -> (T, 2)
+        return jnp.sum(barrier_matrix)  # (T, 2) -> 标量
+    robot_barriers = vmap(compute_robot_barrier)(all_pos.transpose(1, 0, 2))
+    bar_cost = jnp.sum(robot_barriers) // valid_robot
     return (
         ctrl_cost
         + weight_erg * jnp.log10(erg_met)
+        + w_barrierCost * bar_cost.sum()
     )
     
 
@@ -125,9 +134,12 @@ def loss_traj_single(sol, beta, target_distr):
             ckpx = ckpx + func_get_ck(past_traj[r_id], beta_r)
     erg_met = erg_metric(ckx + ckpx, phik)
     ctrl_cost = jnp.sum(0.5 * single_R @ u_traj.T * u_traj.T) / tsteps
+
+    bar_cost = barrier_cost(func_emap(x_traj[:, 0 : 2]))
     return (
         ctrl_cost
         + weight_erg * jnp.log10(erg_met)
+        + w_barrierCost * bar_cost.sum()
     )
 def loss_compare_single(sol, target_distr, current_time):
     total_state_dim = robot_number * state_dim
@@ -177,7 +189,7 @@ def ineq_constr_multi(sol, beta_future, warm_up):
         weighted_avoidance = w_avoid * _avoidance_arr
         # 3. Connection Probability Constraint
         # connection_probability = func_connection_value_jit(traj = x_traj, robot_pair = robot_pair)
-        x_traj_trunced = x_traj[2:-5, :]
+        x_traj_trunced = x_traj[5:-5, :]
         connection_probability = func_connection_value(
             traj = x_traj_trunced, 
             robot_pair = robot_pair,
@@ -185,7 +197,7 @@ def ineq_constr_multi(sol, beta_future, warm_up):
             beta_future=beta_future,
             _nx=state_dim,
             period_num=period_num)
-        min_prob = global_min_prob# * (valid_robot - 1)
+        min_prob = global_min_prob * comb(valid_robot, 2)
         prob_connection = w_prob * (-connection_probability / min_prob + 1)
         return jnp.r_[weighted_avoidance, upper_bound_acc, lower_bound_acc, upper_bound_vel, lower_bound_vel, prob_connection]
     return jnp.r_[upper_bound_acc, lower_bound_acc, upper_bound_vel, lower_bound_vel]

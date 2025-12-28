@@ -1,0 +1,429 @@
+2025-12-27 02:06:30,990 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2025-12-27 02:06:30,991 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2025-12-27 02:06:33,339 [INFO] topicmanager initialized
+2025-12-27 02:06:33,389 [INFO] Log opened: Fri Dec 26 18:06:33 2025 UTC
+2025-12-27 02:06:36,769 [INFO] baseline
+2025-12-27 02:06:41,809 [INFO] iter:7, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:06:43,730 [INFO] iter:22, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:06:51,026 [INFO] iter:105, id:0, r:1.050 and violateion:0.000
+2025-12-27 02:06:51,447 [INFO] iter:116, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:06:51,894 [WARNING] connect time:5, accumulated time:5
+2025-12-27 02:06:55,485 [INFO] iter:1, id:0, r:1.000 and violateion:0.001
+2025-12-27 02:06:55,486 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:06:55,677 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:06:55,681 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:06:55,789 [WARNING] connect time:5, accumulated time:10
+2025-12-27 02:06:58,773 [INFO] iter:1, id:0, r:1.000 and violateion:0.001
+2025-12-27 02:06:58,942 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:06:59,078 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:06:59,193 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:06:59,301 [WARNING] connect time:5, accumulated time:15
+2025-12-27 02:07:02,697 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:07:02,965 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:07:02,992 [INFO] iter:0, id:0, r:1.000 and violateion:0.002
+2025-12-27 02:07:06,631 [INFO] iter:94, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:07:07,774 [INFO] update map
+2025-12-27 02:07:08,430 [WARNING] connect time:5, accumulated time:20
+2025-12-27 02:07:11,345 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:07:11,520 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2025-12-27 02:07:11,808 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:07:11,827 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:07:11,939 [WARNING] connect time:5, accumulated time:25
+2025-12-27 02:07:15,079 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:07:15,253 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:07:15,586 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:07:15,587 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:07:15,697 [WARNING] connect time:5, accumulated time:30
+2025-12-27 02:07:18,954 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:07:19,422 [INFO] iter:10, id:3, r:1.050 and violateion:0.005
+2025-12-27 02:07:19,460 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:07:19,511 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:07:19,621 [WARNING] connect time:5, accumulated time:35
+2025-12-27 02:07:22,736 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:07:23,034 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:07:23,100 [INFO] iter:0, id:0, r:1.000 and violateion:0.004
+2025-12-27 02:07:24,654 [INFO] iter:49, id:3, r:1.216 and violateion:0.006
+2025-12-27 02:07:24,684 [INFO] update map
+2025-12-27 02:07:24,789 [WARNING] connect time:5, accumulated time:40
+2025-12-27 02:07:27,944 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:07:28,326 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:07:28,393 [INFO] iter:6, id:3, r:1.103 and violateion:0.004
+2025-12-27 02:07:28,450 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:07:28,498 [WARNING] connect time:5, accumulated time:45
+2025-12-27 02:07:31,458 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:07:31,670 [INFO] iter:5, id:3, r:1.050 and violateion:0.002
+2025-12-27 02:07:31,888 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:07:31,922 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:07:31,967 [WARNING] connect time:5, accumulated time:50
+2025-12-27 02:07:34,859 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:07:35,015 [INFO] iter:4, id:3, r:1.000 and violateion:0.007
+2025-12-27 02:07:35,256 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:07:35,256 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:07:35,304 [WARNING] connect time:5, accumulated time:55
+2025-12-27 02:07:38,613 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:07:38,619 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:07:38,905 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:07:38,933 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:07:38,992 [INFO] update map
+2025-12-27 02:07:39,058 [WARNING] connect time:5, accumulated time:60
+2025-12-27 02:07:42,169 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:07:42,340 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:07:42,373 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:07:42,467 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:07:42,515 [WARNING] connect time:5, accumulated time:65
+2025-12-27 02:07:45,294 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:07:45,365 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:07:45,773 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:07:45,956 [INFO] iter:3, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:07:46,003 [WARNING] connect time:5, accumulated time:70
+2025-12-27 02:07:49,523 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:07:49,681 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:07:49,682 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:07:49,744 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:07:49,791 [WARNING] connect time:5, accumulated time:75
+2025-12-27 02:07:52,560 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:07:52,604 [INFO] iter:0, id:3, r:1.000 and violateion:0.003
+2025-12-27 02:07:52,971 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:07:53,024 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:07:54,786 [INFO] signal_shutdown [atexit]
+2025-12-27 02:08:02,828 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2025-12-27 02:08:02,829 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2025-12-27 02:08:05,018 [INFO] topicmanager initialized
+2025-12-27 02:08:05,061 [INFO] Log opened: Fri Dec 26 18:08:05 2025 UTC
+2025-12-27 02:08:08,331 [INFO] no prob connect
+2025-12-27 02:08:13,462 [INFO] iter:7, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:08:15,376 [INFO] iter:22, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:08:22,556 [INFO] iter:105, id:0, r:1.050 and violateion:0.000
+2025-12-27 02:08:22,966 [INFO] iter:116, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:08:24,362 [WARNING] connect time:0, accumulated time:0, and the robot pair:[(1, 2), (1, 3), (2, 3)]
+2025-12-27 02:08:26,464 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:08:26,845 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:08:26,848 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:08:26,952 [WARNING] connect time:4, accumulated time:4, and the robot pair:[(1, 2)]
+2025-12-27 02:08:29,744 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:08:29,789 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:08:30,454 [WARNING] connect time:1, accumulated time:5, and the robot pair:[]
+2025-12-27 02:08:34,081 [INFO] iter:3, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:08:34,118 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:08:34,140 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:08:35,819 [INFO] iter:46, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:08:36,727 [WARNING] connect time:5, accumulated time:10, and the robot pair:[]
+2025-12-27 02:08:39,910 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:08:40,364 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:08:40,498 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:08:41,604 [INFO] iter:33, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:08:42,423 [WARNING] connect time:5, accumulated time:15, and the robot pair:[]
+2025-12-27 02:08:45,908 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:08:46,139 [INFO] iter:4, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:08:46,217 [INFO] iter:3, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:08:46,544 [INFO] iter:13, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:08:48,014 [INFO] update map
+2025-12-27 02:08:48,149 [WARNING] connect time:5, accumulated time:20, and the robot pair:[]
+2025-12-27 02:08:51,829 [INFO] iter:3, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:08:51,880 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:08:53,945 [INFO] iter:33, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:08:58,276 [INFO] iter:138, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:08:58,888 [WARNING] connect time:5, accumulated time:25, and the robot pair:[]
+2025-12-27 02:09:02,154 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:09:03,630 [INFO] iter:8, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:09:03,648 [INFO] iter:13, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:09:05,819 [INFO] iter:77, id:3, r:1.050 and violateion:0.001
+2025-12-27 02:09:06,270 [WARNING] connect time:5, accumulated time:30, and the robot pair:[]
+2025-12-27 02:09:09,403 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:09:09,404 [INFO] iter:3, id:3, r:1.050 and violateion:0.001
+2025-12-27 02:09:09,832 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:09:09,974 [INFO] iter:9, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:09:10,369 [WARNING] connect time:5, accumulated time:35, and the robot pair:[]
+2025-12-27 02:09:14,336 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:09:14,384 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:09:14,712 [INFO] iter:16, id:3, r:1.050 and violateion:0.000
+2025-12-27 02:09:15,241 [INFO] iter:29, id:0, r:1.050 and violateion:0.000
+2025-12-27 02:09:15,604 [INFO] update map
+2025-12-27 02:09:15,755 [WARNING] connect time:5, accumulated time:40, and the robot pair:[]
+2025-12-27 02:09:18,922 [INFO] iter:1, id:3, r:1.000 and violateion:0.001
+2025-12-27 02:09:19,130 [INFO] iter:3, id:0, r:1.050 and violateion:0.000
+2025-12-27 02:09:19,348 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:09:19,388 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:09:19,821 [WARNING] connect time:5, accumulated time:45, and the robot pair:[]
+2025-12-27 02:09:22,894 [INFO] iter:0, id:3, r:1.000 and violateion:0.001
+2025-12-27 02:09:23,616 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:09:23,711 [INFO] iter:2, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:09:23,818 [INFO] iter:9, id:0, r:1.000 and violateion:0.000
+2025-12-27 02:09:24,444 [WARNING] connect time:5, accumulated time:50, and the robot pair:[]
+2025-12-27 02:09:27,484 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:09:27,798 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:09:28,122 [INFO] iter:5, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:09:30,587 [INFO] iter:99, id:0, r:1.050 and violateion:0.001
+2025-12-27 02:09:31,002 [WARNING] connect time:5, accumulated time:55, and the robot pair:[]
+2025-12-27 02:09:34,292 [INFO] iter:3, id:3, r:1.000 and violateion:0.001
+2025-12-27 02:09:34,411 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:09:34,551 [INFO] iter:2, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:09:35,600 [INFO] iter:49, id:0, r:1.050 and violateion:0.002
+2025-12-27 02:09:35,907 [INFO] update map
+2025-12-27 02:09:36,010 [WARNING] connect time:5, accumulated time:60, and the robot pair:[]
+2025-12-27 02:09:39,713 [INFO] iter:3, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:09:39,858 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:09:39,911 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:09:41,271 [INFO] iter:63, id:0, r:1.050 and violateion:0.005
+2025-12-27 02:09:41,873 [WARNING] connect time:5, accumulated time:65, and the robot pair:[]
+2025-12-27 02:09:45,174 [INFO] iter:2, id:3, r:1.000 and violateion:0.001
+2025-12-27 02:09:45,267 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:09:45,348 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:09:46,359 [INFO] iter:51, id:0, r:1.050 and violateion:0.000
+2025-12-27 02:09:46,780 [WARNING] connect time:5, accumulated time:70, and the robot pair:[]
+2025-12-27 02:09:49,859 [INFO] iter:0, id:3, r:1.000 and violateion:0.001
+2025-12-27 02:09:50,133 [INFO] iter:2, id:0, r:1.050 and violateion:0.010
+2025-12-27 02:09:50,190 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:09:50,190 [INFO] iter:2, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:09:50,607 [WARNING] connect time:5, accumulated time:75, and the robot pair:[]
+2025-12-27 02:09:54,670 [INFO] iter:4, id:0, r:1.000 and violateion:0.006
+2025-12-27 02:09:54,812 [INFO] iter:2, id:2, r:1.000 and violateion:0.001
+2025-12-27 02:09:54,818 [INFO] iter:2, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:09:54,823 [INFO] iter:7, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:09:56,756 [INFO] signal_shutdown [atexit]
+2025-12-27 02:10:05,275 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2025-12-27 02:10:05,276 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2025-12-27 02:10:07,644 [INFO] topicmanager initialized
+2025-12-27 02:10:07,701 [INFO] Log opened: Fri Dec 26 18:10:07 2025 UTC
+2025-12-27 02:10:11,625 [INFO] prob connect
+2025-12-27 02:11:37,445 [INFO] iter:425, id:2, r:25.032 and violateion:0.003
+2025-12-27 02:11:37,680 [INFO] iter:425, id:0, r:25.032 and violateion:0.003
+2025-12-27 02:11:37,900 [INFO] iter:425, id:1, r:25.032 and violateion:0.003
+2025-12-27 02:11:38,006 [INFO] iter:425, id:3, r:25.032 and violateion:0.003
+2025-12-27 02:11:38,010 [INFO] have warm up
+2025-12-27 02:14:07,879 [INFO] iter:747, id:0, r:66.417 and violateion:0.001
+2025-12-27 02:14:08,045 [INFO] iter:747, id:1, r:66.417 and violateion:0.001
+2025-12-27 02:14:08,046 [INFO] iter:747, id:3, r:66.417 and violateion:0.001
+2025-12-27 02:14:08,531 [INFO] iter:747, id:2, r:66.417 and violateion:0.001
+2025-12-27 02:14:09,804 [WARNING] connect time:0, accumulated time:0, and the robot pair:[(1, 2), (1, 3), (2, 3)]
+2025-12-27 02:14:53,730 [INFO] iter:284, id:1, r:44.954 and violateion:0.002
+2025-12-27 02:14:53,935 [INFO] iter:284, id:3, r:44.954 and violateion:0.002
+2025-12-27 02:14:54,045 [INFO] iter:284, id:2, r:44.954 and violateion:0.002
+2025-12-27 02:14:54,051 [INFO] have warm up
+2025-12-27 02:15:35,262 [INFO] iter:251, id:1, r:98.128 and violateion:0.000
+2025-12-27 02:15:35,614 [INFO] iter:251, id:3, r:98.128 and violateion:0.000
+2025-12-27 02:15:35,628 [INFO] iter:251, id:2, r:98.128 and violateion:0.000
+2025-12-27 02:15:36,489 [WARNING] connect time:4, accumulated time:4, and the robot pair:[(1, 2), (1, 3), (2, 3)]
+2025-12-27 02:15:54,242 [INFO] iter:102, id:1, r:1.000 and violateion:0.018
+2025-12-27 02:15:58,239 [INFO] iter:147, id:3, r:22.705 and violateion:0.000
+2025-12-27 02:16:12,613 [INFO] iter:421, id:2, r:16.136 and violateion:0.002
+2025-12-27 02:16:12,617 [INFO] have warm up
+2025-12-27 02:16:36,744 [INFO] iter:132, id:1, r:14.636 and violateion:0.002
+2025-12-27 02:16:41,674 [INFO] iter:202, id:2, r:44.954 and violateion:0.001
+2025-12-27 02:16:50,204 [INFO] iter:338, id:3, r:10.401 and violateion:0.004
+2025-12-27 02:16:51,471 [WARNING] connect time:1, accumulated time:5, and the robot pair:[]
+2025-12-27 02:17:02,165 [INFO] iter:39, id:2, r:1.000 and violateion:0.000
+2025-12-27 02:17:12,059 [INFO] iter:102, id:1, r:63.254 and violateion:0.017
+2025-12-27 02:17:31,609 [INFO] iter:312, id:0, r:16.136 and violateion:0.003
+2025-12-27 02:17:51,054 [INFO] iter:711, id:3, r:23.840 and violateion:0.001
+2025-12-27 02:17:51,060 [INFO] have warm up
+2025-12-27 02:18:29,956 [INFO] iter:177, id:1, r:15.367 and violateion:0.000
+2025-12-27 02:18:34,812 [INFO] iter:206, id:3, r:38.833 and violateion:0.001
+2025-12-27 02:18:42,694 [INFO] iter:297, id:0, r:17.790 and violateion:0.006
+2025-12-27 02:18:44,533 [INFO] iter:332, id:2, r:93.455 and violateion:0.000
+2025-12-27 02:18:46,060 [WARNING] connect time:5, accumulated time:10, and the robot pair:[]
+2025-12-27 02:19:00,584 [INFO] iter:59, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:19:22,188 [INFO] iter:223, id:0, r:35.222 and violateion:0.002
+2025-12-27 02:20:33,086 [INFO] satisfy constraint, but not converge, id: 2 and r_penalty: 1.000 and violations:0.007:
+2025-12-27 02:20:33,284 [INFO] satisfy constraint, but not converge, id: 3 and r_penalty: 18.679 and violations:0.000:
+2025-12-27 02:20:33,295 [INFO] have warm up
+2025-12-27 02:20:58,503 [INFO] iter:114, id:2, r:84.767 and violateion:0.008
+2025-12-27 02:20:59,962 [INFO] iter:112, id:1, r:30.426 and violateion:0.001
+2025-12-27 02:21:05,929 [INFO] iter:181, id:0, r:22.705 and violateion:0.003
+2025-12-27 02:21:14,270 [INFO] iter:377, id:3, r:54.641 and violateion:0.002
+2025-12-27 02:21:16,155 [WARNING] connect time:5, accumulated time:15, and the robot pair:[]
+2025-12-27 02:21:35,271 [INFO] iter:95, id:0, r:3.733 and violateion:0.018
+2025-12-27 02:21:48,329 [INFO] iter:189, id:2, r:25.032 and violateion:0.019
+2025-12-27 02:21:49,797 [INFO] iter:199, id:1, r:1.000 and violateion:0.000
+2025-12-27 02:22:00,739 [INFO] iter:458, id:3, r:22.705 and violateion:0.001
+2025-12-27 02:22:00,747 [INFO] have warm up
+2025-12-27 02:22:08,113 [INFO] iter:8, id:1, r:1.000 and violateion:0.008
+2025-12-27 02:22:37,694 [INFO] iter:231, id:0, r:13.275 and violateion:0.002
+2025-12-27 02:23:00,395 [INFO] iter:500, id:2, r:33.545 and violateion:0.003
+2025-12-27 02:23:05,952 [INFO] iter:629, id:3, r:119.276 and violateion:0.001
+2025-12-27 02:23:07,529 [WARNING] connect time:3, accumulated time:18, and the robot pair:[(0, 1)]
+2025-12-27 02:23:52,482 [INFO] iter:497, id:0, r:9.906 and violateion:0.014
+2025-12-27 02:24:14,952 [INFO] satisfy constraint, but not converge, id: 1 and r_penalty: 5.516 and violations:0.000:
+2025-12-27 02:24:14,962 [INFO] have warm up
+2025-12-27 02:24:31,391 [INFO] iter:133, id:0, r:25.032 and violateion:0.006
+2025-12-27 02:25:09,800 [INFO] satisfy constraint, but not converge, id: 1 and r_penalty: 8.150 and violations:0.000:
+2025-12-27 02:25:13,477 [INFO] update map
+2025-12-27 02:25:13,722 [WARNING] connect time:2, accumulated time:20, and the robot pair:[]
+2025-12-27 02:25:45,315 [INFO] iter:176, id:3, r:18.679 and violateion:0.000
+2025-12-27 02:26:06,535 [INFO] iter:347, id:0, r:12.643 and violateion:0.003
+2025-12-27 02:26:10,422 [INFO] iter:396, id:2, r:28.978 and violateion:0.000
+2025-12-27 02:26:36,954 [INFO] satisfy constraint, but not converge, id: 1 and r_penalty: 1.000 and violations:0.001:
+2025-12-27 02:26:36,965 [INFO] have warm up
+2025-12-27 02:26:58,193 [INFO] iter:94, id:1, r:40.774 and violateion:0.015
+2025-12-27 02:26:59,072 [INFO] iter:121, id:3, r:18.679 and violateion:0.005
+2025-12-27 02:27:00,022 [INFO] iter:115, id:2, r:17.790 and violateion:0.004
+2025-12-27 02:27:02,062 [INFO] iter:162, id:0, r:21.623 and violateion:0.003
+2025-12-27 02:27:03,330 [WARNING] connect time:1, accumulated time:21, and the robot pair:[(0, 2)]
+2025-12-27 02:27:13,896 [INFO] iter:90, id:2, r:20.594 and violateion:0.018
+2025-12-27 02:27:22,462 [INFO] iter:290, id:0, r:14.636 and violateion:0.001
+2025-12-27 02:27:22,469 [INFO] have warm up
+2025-12-27 02:28:50,531 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 100000.000 and violations:0.047:
+2025-12-27 02:28:51,452 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 100000.000 and violations:0.047:
+2025-12-27 02:28:52,775 [WARNING] connect time:1, accumulated time:22, and the robot pair:[(0, 1)]
+2025-12-27 02:29:20,081 [INFO] iter:297, id:0, r:23.840 and violateion:0.004
+2025-12-27 02:29:50,073 [INFO] satisfy constraint, but not converge, id: 1 and r_penalty: 1.000 and violations:0.002:
+2025-12-27 02:29:50,083 [INFO] have warm up
+2025-12-27 02:31:16,643 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 100000.000 and violations:0.056:
+2025-12-27 02:31:18,011 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 100000.000 and violations:0.194:
+2025-12-27 02:31:19,327 [WARNING] connect time:1, accumulated time:23, and the robot pair:[(0, 3)]
+2025-12-27 02:31:33,741 [INFO] iter:133, id:3, r:12.643 and violateion:0.003
+2025-12-27 02:31:49,470 [INFO] iter:523, id:0, r:22.705 and violateion:0.003
+2025-12-27 02:31:49,476 [INFO] have warm up
+2025-12-27 02:33:16,542 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 100000.000 and violations:0.079:
+2025-12-27 02:33:16,910 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 100000.000 and violations:0.572:
+2025-12-27 02:33:17,952 [WARNING] connect time:1, accumulated time:24, and the robot pair:[(1, 2), (1, 3), (2, 3)]
+2025-12-27 02:33:39,605 [INFO] iter:139, id:2, r:185.035 and violateion:0.020
+2025-12-27 02:33:41,067 [INFO] iter:175, id:3, r:6.385 and violateion:0.001
+2025-12-27 02:34:15,348 [INFO] satisfy constraint, but not converge, id: 1 and r_penalty: 38.833 and violations:0.001:
+2025-12-27 02:34:15,358 [INFO] have warm up
+2025-12-27 02:36:22,754 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 100000.000 and violations:0.579:
+2025-12-27 02:36:22,924 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 100000.000 and violations:0.368:
+2025-12-27 02:36:23,016 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 100000.000 and violations:0.502:
+2025-12-27 02:36:24,291 [WARNING] connect time:1, accumulated time:25, and the robot pair:[]
+2025-12-27 02:36:28,130 [INFO] iter:0, id:2, r:1.000 and violateion:0.020
+2025-12-27 02:36:50,946 [INFO] iter:199, id:1, r:19.613 and violateion:0.015
+2025-12-27 02:36:53,381 [INFO] iter:230, id:3, r:9.434 and violateion:0.006
+2025-12-27 02:36:53,857 [INFO] iter:236, id:0, r:23.840 and violateion:0.003
+2025-12-27 02:36:53,867 [INFO] have warm up
+2025-12-27 02:39:35,945 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 100000.000 and violations:0.350:
+2025-12-27 02:39:36,008 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 100000.000 and violations:0.493:
+2025-12-27 02:39:36,525 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 100000.000 and violations:0.489:
+2025-12-27 02:39:36,972 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 100000.000 and violations:0.445:
+2025-12-27 02:39:38,014 [WARNING] connect time:1, accumulated time:26, and the robot pair:[(0, 1)]
+2025-12-27 02:39:51,232 [INFO] iter:115, id:1, r:38.833 and violateion:0.006
+2025-12-27 02:40:01,640 [INFO] iter:381, id:0, r:13.275 and violateion:0.001
+2025-12-27 02:40:01,647 [INFO] have warm up
+2025-12-27 02:41:26,756 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 100000.000 and violations:0.484:
+2025-12-27 02:41:26,815 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 100000.000 and violations:0.252:
+2025-12-27 02:41:27,663 [WARNING] connect time:1, accumulated time:27, and the robot pair:[(0, 3)]
+2025-12-27 02:41:42,883 [INFO] iter:156, id:3, r:1.000 and violateion:0.017
+2025-12-27 02:42:17,359 [INFO] satisfy constraint, but not converge, id: 0 and r_penalty: 1.000 and violations:0.008:
+2025-12-27 02:42:17,369 [INFO] have warm up
+2025-12-27 02:43:40,854 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 100000.000 and violations:0.475:
+2025-12-27 02:43:41,737 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 100000.000 and violations:0.061:
+2025-12-27 02:43:42,665 [WARNING] connect time:1, accumulated time:28, and the robot pair:[(1, 2), (1, 3), (2, 3)]
+2025-12-27 02:43:54,732 [INFO] iter:78, id:3, r:7.392 and violateion:0.004
+2025-12-27 02:43:56,581 [INFO] iter:100, id:2, r:13.939 and violateion:0.007
+2025-12-27 02:44:02,471 [INFO] iter:249, id:1, r:23.840 and violateion:0.003
+2025-12-27 02:44:02,478 [INFO] have warm up
+2025-12-27 02:46:03,828 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 100000.000 and violations:0.024:
+2025-12-27 02:46:04,561 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 100000.000 and violations:0.344:
+2025-12-27 02:46:04,736 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 100000.000 and violations:0.396:
+2025-12-27 02:46:05,699 [WARNING] connect time:2, accumulated time:30, and the robot pair:[]
+2025-12-27 02:46:29,576 [INFO] iter:132, id:1, r:22.705 and violateion:0.000
+2025-12-27 02:46:49,314 [INFO] iter:309, id:2, r:9.906 and violateion:0.020
+2025-12-27 02:47:20,665 [INFO] iter:733, id:3, r:1.000 and violateion:0.000
+2025-12-27 02:47:30,615 [INFO] satisfy constraint, but not converge, id: 0 and r_penalty: 27.598 and violations:0.000:
+2025-12-27 02:47:30,627 [INFO] have warm up
+2025-12-27 02:48:01,099 [INFO] iter:177, id:0, r:125.239 and violateion:0.000
+2025-12-27 02:48:12,230 [INFO] iter:295, id:3, r:403.909 and violateion:0.001
+2025-12-27 02:49:01,517 [INFO] satisfy constraint, but not converge, id: 1 and r_penalty: 1507.977 and violations:0.000:
+2025-12-27 02:49:08,837 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 100000.000 and violations:0.342:
+2025-12-27 02:49:09,815 [WARNING] connect time:2, accumulated time:32, and the robot pair:[(1, 2), (1, 3), (2, 3)]
+2025-12-27 02:49:51,971 [INFO] iter:374, id:3, r:1.000 and violateion:0.001
+2025-12-27 02:49:52,576 [INFO] iter:417, id:2, r:16.136 and violateion:0.001
+2025-12-27 02:50:19,897 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 100000.000 and violations:0.095:
+2025-12-27 02:50:19,907 [INFO] have warm up
+2025-12-27 02:50:50,410 [INFO] iter:241, id:3, r:17.790 and violateion:0.001
+2025-12-27 02:51:33,060 [INFO] iter:873, id:1, r:30.426 and violateion:0.002
+2025-12-27 02:51:43,806 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 100000.000 and violations:0.130:
+2025-12-27 02:51:44,503 [WARNING] connect time:3, accumulated time:35, and the robot pair:[]
+2025-12-27 02:52:14,116 [INFO] iter:190, id:0, r:6.385 and violateion:0.013
+2025-12-27 02:52:18,880 [INFO] iter:235, id:2, r:22.705 and violateion:0.002
+2025-12-27 02:52:24,291 [INFO] iter:309, id:1, r:8.557 and violateion:0.007
+2025-12-27 02:52:26,887 [INFO] iter:390, id:3, r:3.072 and violateion:0.000
+2025-12-27 02:52:26,897 [INFO] have warm up
+2025-12-27 02:52:57,278 [INFO] iter:176, id:3, r:16.136 and violateion:0.003
+2025-12-27 02:53:24,014 [INFO] iter:461, id:0, r:60.242 and violateion:0.000
+2025-12-27 02:53:59,301 [INFO] satisfy constraint, but not converge, id: 1 and r_penalty: 33.545 and violations:0.000:
+2025-12-27 02:54:06,862 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 100000.000 and violations:0.136:
+2025-12-27 02:54:15,977 [INFO] update map
+2025-12-27 02:54:16,519 [WARNING] connect time:5, accumulated time:40, and the robot pair:[]
+2025-12-27 02:54:51,132 [INFO] iter:239, id:3, r:19.613 and violateion:0.000
+2025-12-27 02:55:18,858 [INFO] iter:528, id:2, r:13.939 and violateion:0.004
+2025-12-27 02:55:36,559 [INFO] iter:793, id:0, r:14.636 and violateion:0.003
+2025-12-27 02:55:44,016 [INFO] satisfy constraint, but not converge, id: 1 and r_penalty: 3.386 and violations:0.000:
+2025-12-27 02:55:44,027 [INFO] have warm up
+2025-12-27 02:56:08,799 [INFO] iter:158, id:3, r:6.385 and violateion:0.000
+2025-12-27 02:56:11,153 [INFO] iter:178, id:0, r:14.636 and violateion:0.001
+2025-12-27 02:56:30,793 [INFO] iter:492, id:1, r:20.594 and violateion:0.001
+2025-12-27 02:56:52,852 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 100000.000 and violations:0.170:
+2025-12-27 02:56:53,645 [WARNING] connect time:5, accumulated time:45, and the robot pair:[]
+2025-12-27 02:57:05,946 [INFO] iter:74, id:2, r:16.136 and violateion:0.013
+2025-12-27 02:57:06,510 [INFO] iter:81, id:0, r:12.643 and violateion:0.009
+2025-12-27 02:57:09,940 [INFO] iter:132, id:3, r:10.401 and violateion:0.002
+2025-12-27 02:57:26,957 [INFO] iter:642, id:1, r:10.921 and violateion:0.004
+2025-12-27 02:57:26,970 [INFO] have warm up
+2025-12-27 02:57:53,472 [INFO] iter:179, id:3, r:1.629 and violateion:0.011
+2025-12-27 02:59:01,966 [INFO] iter:978, id:1, r:15.367 and violateion:0.001
+2025-12-27 02:59:03,637 [INFO] satisfy constraint, but not converge, id: 0 and r_penalty: 22.705 and violations:0.000:
+2025-12-27 02:59:11,247 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 100000.000 and violations:2.366:
+2025-12-27 02:59:12,095 [WARNING] connect time:4, accumulated time:49, and the robot pair:[(2, 3)]
+2025-12-27 02:59:23,143 [INFO] iter:128, id:3, r:6.705 and violateion:0.005
+2025-12-27 02:59:24,852 [INFO] iter:182, id:2, r:9.906 and violateion:0.009
+2025-12-27 02:59:24,858 [INFO] have warm up
+2025-12-27 02:59:39,965 [INFO] iter:179, id:3, r:16.136 and violateion:0.007
+2025-12-27 03:00:06,466 [INFO] satisfy constraint, but not converge, id: 2 and r_penalty: 89.005 and violations:0.000:
+2025-12-27 03:00:07,062 [WARNING] connect time:1, accumulated time:50, and the robot pair:[]
+2025-12-27 03:00:26,338 [INFO] iter:144, id:2, r:3.386 and violateion:0.006
+2025-12-27 03:00:28,870 [INFO] iter:165, id:1, r:8.985 and violateion:0.003
+2025-12-27 03:00:29,574 [INFO] iter:184, id:0, r:4.538 and violateion:0.015
+2025-12-27 03:00:30,138 [INFO] iter:201, id:3, r:4.322 and violateion:0.001
+2025-12-27 03:00:30,145 [INFO] have warm up
+2025-12-27 03:00:48,310 [INFO] iter:107, id:2, r:3.225 and violateion:0.006
+2025-12-27 03:00:48,408 [INFO] iter:117, id:0, r:16.943 and violateion:0.002
+2025-12-27 03:00:52,951 [INFO] iter:208, id:3, r:44.954 and violateion:0.003
+2025-12-27 03:00:53,181 [INFO] iter:196, id:1, r:18.679 and violateion:0.004
+2025-12-27 03:00:54,048 [WARNING] connect time:5, accumulated time:55, and the robot pair:[]
+2025-12-27 03:01:05,432 [INFO] iter:76, id:0, r:11.467 and violateion:0.016
+2025-12-27 03:01:05,740 [INFO] iter:77, id:2, r:4.765 and violateion:0.002
+2025-12-27 03:01:06,805 [INFO] iter:99, id:1, r:11.467 and violateion:0.002
+2025-12-27 03:01:08,319 [INFO] iter:147, id:3, r:1.000 and violateion:0.013
+2025-12-27 03:01:08,327 [INFO] have warm up
+2025-12-27 03:01:19,781 [INFO] iter:60, id:3, r:9.906 and violateion:0.010
+2025-12-27 03:01:24,670 [INFO] iter:117, id:0, r:10.921 and violateion:0.004
+2025-12-27 03:01:26,551 [INFO] iter:157, id:2, r:7.040 and violateion:0.000
+2025-12-27 03:01:26,586 [INFO] iter:161, id:1, r:6.705 and violateion:0.003
+2025-12-27 03:01:43,586 [INFO] update map
+2025-12-27 03:01:44,181 [WARNING] connect time:5, accumulated time:60, and the robot pair:[]
+2025-12-27 03:01:50,511 [INFO] iter:31, id:3, r:2.653 and violateion:0.000
+2025-12-27 03:01:58,564 [INFO] iter:137, id:2, r:1.000 and violateion:0.004
+2025-12-27 03:02:01,365 [INFO] iter:198, id:1, r:7.040 and violateion:0.005
+2025-12-27 03:02:03,321 [INFO] iter:277, id:0, r:17.790 and violateion:0.012
+2025-12-27 03:02:03,325 [INFO] have warm up
+2025-12-27 03:02:12,954 [INFO] iter:44, id:2, r:3.733 and violateion:0.014
+2025-12-27 03:02:14,920 [INFO] iter:81, id:3, r:1.000 and violateion:0.003
+2025-12-27 03:02:19,291 [INFO] iter:173, id:0, r:5.792 and violateion:0.003
+2025-12-27 03:02:20,109 [INFO] iter:188, id:1, r:12.041 and violateion:0.007
+2025-12-27 03:02:20,973 [WARNING] connect time:5, accumulated time:65, and the robot pair:[]
+2025-12-27 03:02:29,428 [INFO] iter:51, id:3, r:7.392 and violateion:0.011
+2025-12-27 03:02:30,914 [INFO] iter:81, id:1, r:6.081 and violateion:0.006
+2025-12-27 03:02:32,235 [INFO] iter:108, id:0, r:6.705 and violateion:0.011
+2025-12-27 03:02:33,525 [INFO] iter:157, id:2, r:1.000 and violateion:0.000
+2025-12-27 03:02:33,536 [INFO] have warm up
+2025-12-27 03:02:41,529 [INFO] iter:39, id:3, r:1.340 and violateion:0.003
+2025-12-27 03:02:44,378 [INFO] iter:71, id:2, r:7.040 and violateion:0.004
+2025-12-27 03:02:44,656 [INFO] iter:78, id:1, r:7.392 and violateion:0.003
+2025-12-27 03:02:45,587 [INFO] iter:129, id:0, r:6.081 and violateion:0.005
+2025-12-27 03:02:46,593 [WARNING] connect time:4, accumulated time:69, and the robot pair:[(2, 3)]
+2025-12-27 03:02:50,585 [INFO] iter:21, id:3, r:1.980 and violateion:0.003
+2025-12-27 03:02:51,815 [INFO] iter:71, id:2, r:3.072 and violateion:0.002
+2025-12-27 03:02:51,819 [INFO] have warm up
+2025-12-27 03:03:40,150 [INFO] satisfy constraint, but not converge, id: 3 and r_penalty: 1.000 and violations:nan:
+2025-12-27 03:03:40,177 [INFO] satisfy constraint, but not converge, id: 2 and r_penalty: 1.000 and violations:nan:
+2025-12-27 03:03:40,712 [WARNING] connect time:1, accumulated time:70, and the robot pair:[]
+2025-12-27 03:03:46,325 [INFO] iter:28, id:2, r:3.386 and violateion:0.016
+2025-12-27 03:03:47,345 [INFO] iter:42, id:0, r:3.072 and violateion:0.006
+2025-12-27 03:03:47,530 [INFO] iter:53, id:3, r:4.538 and violateion:0.010
+2025-12-27 03:03:48,937 [INFO] iter:106, id:1, r:1.000 and violateion:0.000
+2025-12-27 03:03:49,832 [WARNING] connect time:5, accumulated time:75, and the robot pair:[]
+2025-12-27 03:03:55,667 [INFO] iter:32, id:2, r:2.527 and violateion:0.001
+2025-12-27 03:03:55,986 [INFO] iter:41, id:1, r:1.000 and violateion:0.000
+2025-12-27 03:03:56,062 [INFO] iter:45, id:3, r:3.225 and violateion:0.004
+2025-12-27 03:03:56,086 [INFO] iter:43, id:0, r:1.000 and violateion:0.005
+2025-12-27 03:04:22,219 [INFO] signal_shutdown [atexit]

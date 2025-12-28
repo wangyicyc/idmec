@@ -19,7 +19,7 @@ update_map_freq = opt_args["update_map_freq"]
 state_dim = robot_model_single.nx
 control_dim = robot_model_single.nu
 invalid_value = -100.0
-def exchange_info(sol_trajs, robot_pairs, timestep, robot_distr):
+def exchange_info(sol_trajs, robot_pairs, timestep, robot_distr, last_exchange_time):
     involved_robots = {r for pair in robot_pairs for r in pair}
     new_sol_trajs = []
     reset_instructions = {}  # list of (r_id, other_eval, other_pos)
@@ -63,9 +63,11 @@ def exchange_info(sol_trajs, robot_pairs, timestep, robot_distr):
         traj1['px'][r2] =  traj2['px'][r2]
         traj2['px'][r1] =  traj1['px'][r1]  
         for i in range(robot_number):
-            if traj1['px'][i].shape[0] > traj2['px'][i].shape[0]:
+            contact_time_r1 = last_exchange_time.get((r1, i), 0)
+            contact_time_r2 = last_exchange_time.get((r2, i), 0)
+            if contact_time_r1 > contact_time_r2:
                 traj2['px'][i] = traj1['px'][i]
-            elif traj1['px'][i].shape[0] < traj2['px'][i].shape[0]:
+            elif contact_time_r1 < contact_time_r2:
                 traj1['px'][i] = traj2['px'][i] 
         # ==================== for map update ===================================
         eval_r2, pos_r2 = reset_instructions[r2]

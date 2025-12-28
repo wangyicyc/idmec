@@ -11,6 +11,7 @@ double pos_gain[3] = {0, 0, 0};
 double vel_gain[3] = {0, 0, 0};
 double last_yaw_, last_yaw_dot_;
 int drone_id;
+double fly_height;
 bool control_start = false;
 void posCmdCallback(const quadrotor_msgs::PositionCommand::ConstPtr& msg) {
   control_start = true;
@@ -35,7 +36,7 @@ void cmdCallback(const ros::TimerEvent &e)
     
     cmd.position.x = pos(0);
     cmd.position.y = pos(1);
-    cmd.position.z = 1.0;
+    cmd.position.z = fly_height;
 
     cmd.velocity.x = vel(0);
     cmd.velocity.y = vel(1);
@@ -63,6 +64,7 @@ int main(int argc, char **argv)
 
   ros::Timer cmd_timer = nh.createTimer(ros::Duration(0.01), cmdCallback);
   nh.param("drone_id", drone_id, 0);
+  nh.param("fly_height", fly_height, 0.1);
   /* control parameter */
   cmd.kx[0] = pos_gain[0];
   cmd.kx[1] = pos_gain[1];

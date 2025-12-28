@@ -20,8 +20,9 @@
   <node pkg="fly_order" name="drone_$(arg drone_id)_traj_server" type="offboard" output="screen">
     <remap from="/position_cmd" to="/drone_$(arg drone_id)_planning/pos_cmd"/>
     <remap from="/trajectory/control_sequence" to="/robot_$(arg drone_id)/trajectory/control_sequence"/>
-    <param name="drone_id" value="$(arg drone_id)" type="int"/>
     <remap from="/odom_world" to="$(arg odom_topic)"/>
+    <param name="drone_id" value="$(arg drone_id)" type="int"/>
+    <param name="fly_height" value="$(arg init_z)"/>
   </node>
 
   <!-- use simulator -->
