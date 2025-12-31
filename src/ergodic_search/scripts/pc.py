@@ -75,7 +75,7 @@ map_merge_cnt = 0
 decay_type = 'linear'
 # decay_type = 'nodecay'
 init_dual = True
-save_path = '../figures/probabilistic_connection.png'
+save_path = '../figures/my_strategy.png'
 involved_robots = list(range(robot_number))
 involved_robots = set(involved_robots)
 flag = True
@@ -89,7 +89,7 @@ global_metric = {
 last_exchange_time = {}
 # 迭代优化并动态可视化轨迹与障碍物分布
 warm_up = True
-logging.info('prob connect')
+logging.info('my_strategy')
 while True:
     
     if warm_up == True:
@@ -115,10 +115,10 @@ while True:
         current_time -= (map_merge_cnt - map_merge_freq)
         map_merge_cnt = 0
         if accumulated_time >= tsteps:
-            multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
-            multi_path_to_rosbag(sol_trajs, pathSaver, current_time)
-            multi_map_to_rosbag(robot_distr, map_saver, update_map_freq)
-            map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq)
+            # multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
+            # multi_path_to_rosbag(sol_trajs, pathSaver, current_time)
+            # multi_map_to_rosbag(robot_distr, map_saver, update_map_freq)
+            # map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq)
             append_metric(global_metric, loss_compare_multi(sol_trajs, target_distr.evals, current_time))
             break
         robot_pair = []
@@ -128,18 +128,18 @@ while True:
             u_t = sol_trajs[r_id]['x'][current_time, r_id * state_dim: r_id * state_dim + 2]
             robot_distr[r_id].bayes_filter_reset(target_distr.evals[0], u_t)
             traj_solver[r_id].update_distribution(robot_distr[r_id].evals)
+            traj_warmUp[r_id].update_distribution(robot_distr[r_id].evals)
     # ================================ 为replan准备 ==============================================================  
     if accumulated_time == update_map_freq * be_num:
         append_metric(global_metric, loss_compare_multi(sol_trajs, target_distr.evals, current_time))
-        map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq)
-        multi_map_to_rosbag(robot_distr, map_saver, update_map_freq)
+        # map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq)
+        # multi_map_to_rosbag(robot_distr, map_saver, update_map_freq)
         logging.info("update map")
         robot_pair = []
         target_distr.update_map(accumulated_time, "reset", "read")
         be_num += 1
-    # robot_pair = [(0,2)]
-    multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
-    multi_path_to_rosbag(sol_trajs, pathSaver, current_time)
+    # multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
+    # multi_path_to_rosbag(sol_trajs, pathSaver, current_time)
     
     sol_trajs, connected_pairs = exchange_info(sol_trajs, robot_pair, current_time, robot_distr, last_exchange_time)
     multi_betas = update_beta(sol_trajs, decay_type)
@@ -153,4 +153,4 @@ while True:
     logging.warning(f"connect time:{current_time}, accumulated time:{accumulated_time}, and the robot pair:{robot_pair}")
     # plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, save_path)    
 plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, save_path)
-save_ergodic_metrics_to_excel(robot_number, global_metric, decay_type = 'prob_connect')
+save_ergodic_metrics_to_excel(robot_number, global_metric, decay_type = 'my_strategy')

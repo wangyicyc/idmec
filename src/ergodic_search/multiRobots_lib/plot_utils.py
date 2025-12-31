@@ -3,6 +3,7 @@ import sys
 sys.path.append('..')
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.patheffects as path_effects
 import logging
 logging.basicConfig(
     filename='../log/app.log',          # 日志文件名
@@ -14,7 +15,13 @@ from multiRobots_lib.hyper_params import (
 )
 from multiRobots_lib.decay_utils import get_Decay_alpha # 获取权重显示
 
-colors = ['purple', 'blue', 'green', 'orange', 'red', 'brown', 'pink', 'gray']
+# 自定义颜色列表，基于给定的RGB值
+colors = [
+    '#%02x%02x%02x' % (29, 108, 212),   # 根据指定的RGB值生成十六进制颜色代码
+    '#%02x%02x%02x' % (255, 170, 0),
+    '#%02x%02x%02x' % (1, 160, 100),   
+    '#%02x%02x%02x' % (170, 0, 255)
+]
 def plot_trajs(start_pos, end_pos, sol_trajs, betas, convergence, robot_distr, save_path=None):
     """
     动态绘制多个机器人的轨迹
@@ -46,29 +53,54 @@ def plot_trajs(start_pos, end_pos, sol_trajs, betas, convergence, robot_distr, s
         decayed_alpha = get_Decay_alpha(beta)  # 假设 alpha 只依赖当前机器人的 beta
         
         # 提取当前机器人的起点和终点（假设 start_pos 和 end_pos 是长度为 n_robots*2 的数组）
-        start = start_pos[i * 2 : i * 2 + 2]
-        end = end_pos[i * 2 : i * 2 + 2]
-        
-        # 绘制起点和终点
-        ax.plot(start[0], start[1], 'b^', markersize=16, 
-                markerfacecolor='none', markeredgewidth=3, markeredgecolor=colors[i], label='start point')
+        # start = start_pos[i * 2 : i * 2 + 2]
+        # end = end_pos[i * 2 : i * 2 + 2]
         # ax.plot(end[0], end[1], 'bs', markersize=16, 
         #         markerfacecolor='none', markeredgewidth=3, markeredgecolor=colors[i], 
         #         label=f'target(robot{i})')
-        ax.plot(sol_traj['x'][0, 4 * i], sol_traj['x'][0, 4 * i + 1], 
-            'k^', markersize=8, markerfacecolor='none', markeredgewidth=4)
+        # ax.plot(sol_traj['x'][0, 4 * i], sol_traj['x'][0, 4 * i + 1], 
+        #     'k^', markersize=8, markerfacecolor='none', markeredgewidth=4)
 
         # 绘制轨迹点
         for t in range(robot_number):  # 假设每个轨迹点有4个维度（x, y, vx, vy）
             if t == i:
+                # 绘制起点和终点
+                # === 起点：大三角形 + 白色描边 + 高对比度 ===
+                # === 起点：LaTeX 实心三角 ▲ ===
+                ax.scatter(
+                    start_pos[t * 2], start_pos[t * 2 + 1],
+                    s=400,  # 与 \bigstar 的 s=200 视觉平衡
+                    c=colors[t],
+                    marker=r'$\blacktriangle$',
+                    zorder=3,
+                    edgecolors='white',
+                    linewidth=2.5,
+                    alpha=0.9
+                )
+                # === 终点：LaTeX 五角星 ★ ===
+                ax.scatter(
+                    sol_traj['x'][-1, 4 * t], sol_traj['x'][-1, 4 * t + 1],
+                    s=700,  # 稍微调大以匹配视觉重量
+                    c=colors[t],
+                    marker=r'$\bigstar$',  # LaTeX 填充五角星
+                    zorder=5,
+                    edgecolors='white',
+                    linewidth=3.0,
+                    alpha=0.9
+                )
                 ax.scatter(sol_traj['x'][:, 4 * t], sol_traj['x'][:, 4 * t + 1], 
-                    c = colors[t], s=50, alpha=decayed_alpha['x'][:, t], 
+                    c = colors[t], s=70, alpha=decayed_alpha['x'][:, t], 
                     marker='^', edgecolors='none', zorder=3)
                 if sol_traj['px'][t].shape[0] > 0: 
                     ax.scatter(sol_traj['px'][t][:, 0], sol_traj['px'][t][:, 1], 
-                                c = colors[t], s=40, alpha=decayed_alpha['px'][t], marker='^', 
+                                c = colors[t], s=60, alpha=decayed_alpha['px'][t], marker='^', 
                                 edgecolors='none', zorder=2)
             else:
+                # 绘制起点和终点
+                ax.plot(start_pos[t * 2], start_pos[t * 2 + 1], 'o', markersize=12, 
+                    markerfacecolor='none', markeredgewidth=3, markeredgecolor=colors[t], label='start point')
+                ax.plot(sol_traj['x'][-1, 4 * t], sol_traj['x'][-1, 4 * t + 1], 'x', markersize=12, 
+                    markerfacecolor='none', markeredgewidth=3, markeredgecolor=colors[t], label='end point')
                 ax.scatter(sol_traj['x'][:, 4 * t], sol_traj['x'][:, 4 * t + 1], 
                     c = colors[t], s=10, alpha=decayed_alpha['x'][:, t], 
                     edgecolors='none', zorder=2)

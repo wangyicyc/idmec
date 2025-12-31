@@ -15,7 +15,8 @@ from multiRobots_lib.hyper_params import (
     robot_model_single,
     func_pair,
     func_emap,
-    barrier_cost,
+    barrier_cost_upper,
+    barrier_cost_lower,
 )
 time_span = opt_args["update_map_freq"]
 import logging
@@ -70,7 +71,6 @@ def loss_traj_multi(sol, beta, target_distr, multi_R):
     x_traj = sol.x         # 轨迹点序列
     past_traj = sol.px
     u_traj = sol.u         # 控制输入序列
-    valid_robot = x_traj.shape[-1] // state_dim
     phik = get_phik(target_distr, basis)     # 目标分布的傅里叶系数 
     ckx = func_get_ck_sum(x_traj, beta.x)   # 轨迹的傅里叶系数
     # def _func_get_ckpxs(traj, beta_r):
@@ -92,19 +92,10 @@ def loss_traj_multi(sol, beta, target_distr, multi_R):
                 raise ValueError(f"beta length ({beta_r.shape[0]}) != trajectory steps ({past_traj[r_id].shape[0]})")
             ckpx = ckpx + func_get_ck(past_traj[r_id], beta_r)
     erg_met = erg_metric(ckx + ckpx, phik)
-    ctrl_cost = jnp.sum(0.5 * multi_R @ u_traj.T * u_traj.T) / (tsteps * valid_robot)
-
-    all_pos = x_traj.reshape(x_traj.shape[0], -1, state_dim)[:, :, :2]
-    def compute_robot_barrier(robot_pos_traj):
-        emap_result = func_emap(robot_pos_traj)  # (T, 2) -> (T, 2)
-        barrier_matrix = barrier_cost(emap_result)  # (T, 2) -> (T, 2)
-        return jnp.sum(barrier_matrix)  # (T, 2) -> 标量
-    robot_barriers = vmap(compute_robot_barrier)(all_pos.transpose(1, 0, 2))
-    bar_cost = jnp.sum(robot_barriers) // valid_robot
+    ctrl_cost = jnp.sum(0.5 * multi_R @ u_traj.T * u_traj.T) / (tsteps * robot_number)
     return (
         ctrl_cost
         + weight_erg * jnp.log10(erg_met)
-        + w_barrierCost * bar_cost.sum()
     )
     
 
@@ -134,12 +125,9 @@ def loss_traj_single(sol, beta, target_distr):
             ckpx = ckpx + func_get_ck(past_traj[r_id], beta_r)
     erg_met = erg_metric(ckx + ckpx, phik)
     ctrl_cost = jnp.sum(0.5 * single_R @ u_traj.T * u_traj.T) / tsteps
-
-    bar_cost = barrier_cost(func_emap(x_traj[:, 0 : 2]))
     return (
         ctrl_cost
         + weight_erg * jnp.log10(erg_met)
-        + w_barrierCost * bar_cost.sum()
     )
 def loss_compare_single(sol, target_distr, current_time):
     total_state_dim = robot_number * state_dim
@@ -158,34 +146,50 @@ def ineq_constr_multi(sol, beta_future, warm_up):
     x_traj = sol.x
     u_traj = sol.u 
     T = x_traj.shape[0]
-    valid_robot = x_traj.shape[-1] // state_dim
     # 1. Velocity and control bounds (vectorized)
-    x_reshaped = x_traj.reshape(T, valid_robot, state_dim)      # (T, N, nx)
-    u_reshaped = u_traj.reshape(T, valid_robot, control_dim)    # (T, N, nu)
+    x_reshaped = x_traj.reshape(T, robot_number, state_dim)      # (T, N, nx)
+    u_reshaped = u_traj.reshape(T, robot_number, control_dim)    # (T, N, nu)
     all_vel = x_reshaped[:, :, 2:4].reshape(T, -1)               # (T, 2*N)
     all_u   = u_reshaped.reshape(T, -1)  
-    V_max_all = jnp.tile(V_max, valid_robot)  # (2 * n_involved,)
-    V_min_all = jnp.tile(V_min, valid_robot)
-    U_max_all = jnp.tile(U_max, valid_robot)  # (nu * n_involved,)
-    U_min_all = jnp.tile(U_min, valid_robot)
-    upper_bound_vel = (all_vel - V_max_all).flatten() / valid_robot
-    lower_bound_vel = (V_min_all - all_vel).flatten() / valid_robot
-    upper_bound_acc = (all_u - U_max_all).flatten() / valid_robot
-    lower_bound_acc = (U_min_all - all_u).flatten() / valid_robot
+    V_max_all = jnp.tile(V_max, robot_number)  # (2 * n_involved,)
+    V_min_all = jnp.tile(V_min, robot_number)
+    U_max_all = jnp.tile(U_max, robot_number)  # (nu * n_involved,)
+    U_min_all = jnp.tile(U_min, robot_number)
+    upper_bound_vel = (all_vel - V_max_all).flatten() / robot_number
+    lower_bound_vel = (V_min_all - all_vel).flatten() / robot_number
+    upper_bound_acc = (all_u - U_max_all).flatten() / robot_number
+    lower_bound_acc = (U_min_all - all_u).flatten() / robot_number
+
+    all_pos = x_traj.reshape(x_traj.shape[0], -1, state_dim)[:, :, :2]
+    def compute_robot_barrier_upper(robot_pos_traj):
+        emap_result = func_emap(robot_pos_traj)  # (T, 2) -> (T, 2)
+        barrier_matrix = barrier_cost_upper(emap_result)  # (T, 2) -> (T, 2)
+        return jnp.sum(barrier_matrix)  # (T, 2) -> 标量
     
+    def compute_robot_barrier_lower(robot_pos_traj):
+        emap_result = func_emap(robot_pos_traj)  # (T, 2) -> (T, 2)
+        barrier_matrix = barrier_cost_lower(emap_result)  # (T, 2) -> (T, 2)
+        return jnp.sum(barrier_matrix)  # (T, 2) -> 标量
+    robot_barriers_upper = vmap(compute_robot_barrier_upper)(all_pos.transpose(1, 0, 2))
+    robot_barriers_lower = vmap(compute_robot_barrier_lower)(all_pos.transpose(1, 0, 2))
+    bar_cost_lower = jnp.sum(robot_barriers_lower) // robot_number
+    bar_cost_lower =  w_barrierCost * bar_cost_lower.sum()
+    bar_cost_upper = jnp.sum(robot_barriers_upper) // robot_number
+    bar_cost_upper =  w_barrierCost * bar_cost_upper.sum()
+
     if warm_up == False:
         # 2. avoiding crash Constraint
-        all_pos = x_traj.reshape(x_traj.shape[0], valid_robot, state_dim)[:, :, :2]
+        all_pos = x_traj.reshape(x_traj.shape[0], robot_number, state_dim)[:, :, :2]
         def compute_pair_dist(pair_idx):
             i, j = pair_idx
             xi = all_pos[:, i]  # (T, 2)
             xj = all_pos[:, j]  # (T, 2)
             dist_sq = jnp.sum((xi - xj)**2, axis=1)  # (T,)
             return 1.0 - dist_sq / (avoid_r ** 2) # (T,)
-        robot_pair = list(combinations(range(valid_robot), 2))
+        robot_pair = list(combinations(range(robot_number), 2))
         robotPair_array = jnp.array(robot_pair, dtype=jnp.int32)  # (num_pairs, 2)
         _avoidance_arr = vmap(compute_pair_dist)(robotPair_array).flatten() / comb(
-        valid_robot, 2) # (T * num_pairs,)
+        robot_number, 2) # (T * num_pairs,)
         weighted_avoidance = w_avoid * _avoidance_arr
         # 3. Connection Probability Constraint
         # connection_probability = func_connection_value_jit(traj = x_traj, robot_pair = robot_pair)
@@ -197,10 +201,12 @@ def ineq_constr_multi(sol, beta_future, warm_up):
             beta_future=beta_future,
             _nx=state_dim,
             period_num=period_num)
-        min_prob = global_min_prob * comb(valid_robot, 2)
+        min_prob = global_min_prob * comb(robot_number, 2)
         prob_connection = w_prob * (-connection_probability / min_prob + 1)
-        return jnp.r_[weighted_avoidance, upper_bound_acc, lower_bound_acc, upper_bound_vel, lower_bound_vel, prob_connection]
-    return jnp.r_[upper_bound_acc, lower_bound_acc, upper_bound_vel, lower_bound_vel]
+        return jnp.r_[weighted_avoidance, upper_bound_acc, lower_bound_acc, 
+                      upper_bound_vel, lower_bound_vel, prob_connection, 
+                      bar_cost_upper, bar_cost_lower]
+    return jnp.r_[upper_bound_acc, lower_bound_acc, upper_bound_vel, lower_bound_vel, bar_cost_upper, bar_cost_lower]
 
 def ineq_constr_single(sol):
     """ inequality constraints including control input bounds for trajectory """
@@ -212,23 +218,29 @@ def ineq_constr_single(sol):
     lower_bound_acc = (U_min - u_traj).flatten()
     upper_bound_vel = (vel_traj - V_max).flatten()
     lower_bound_vel = (V_min - vel_traj).flatten()
-    return jnp.r_[upper_bound_acc, lower_bound_acc, upper_bound_vel, lower_bound_vel]  # 如有其他约束，继续拼接
+    bar_cost_upper = barrier_cost_upper(func_emap(x_traj[:, 0 : 2]))
+    bar_cost_upper = w_barrierCost * bar_cost_upper.sum()
+    bar_cost_lower = barrier_cost_lower(func_emap(x_traj[:, 0 : 2]))
+    bar_cost_lower = w_barrierCost * bar_cost_lower.sum()
+    return jnp.r_[bar_cost_upper, bar_cost_lower, 
+                  upper_bound_acc, lower_bound_acc, 
+                  upper_bound_vel, lower_bound_vel]  # 如有其他约束，继续拼接
 # 定义动力学等式约束
 def eq_constr_single(sol):
-    """ dynamic equality constriants """
-    x_traj = sol.x         # 轨迹点序列
-    bar_cost = barrier_cost(func_emap(x_traj[:, 0 : 2]))
-    return w_barrierCost * bar_cost.sum()
-
+    # """ dynamic equality constriants """
+    # x_traj = sol.x         # 轨迹点序列
+    # bar_cost = barrier_cost(func_emap(x_traj[:, 0 : 2]))
+    # return w_barrierCost * bar_cost.sum()
+    return 0
 def eq_constr(sol):
     """ dynamic equality constriants """
-    x_traj = sol.x         # 轨迹点序列
-    valid_robot = x_traj.shape[-1] // state_dim
-    all_pos = x_traj.reshape(x_traj.shape[0], -1, state_dim)[:, :, :2]
-    def compute_robot_barrier(robot_pos_traj):
-        emap_result = func_emap(robot_pos_traj)  # (T, 2) -> (T, 2)
-        barrier_matrix = barrier_cost(emap_result)  # (T, 2) -> (T, 2)
-        return jnp.sum(barrier_matrix)  # (T, 2) -> 标量
-    robot_barriers = vmap(compute_robot_barrier)(all_pos.transpose(1, 0, 2))
-    bar_cost = jnp.sum(robot_barriers) // valid_robot
-    return w_barrierCost * bar_cost.sum()
+    # x_traj = sol.x         # 轨迹点序列
+    # all_pos = x_traj.reshape(x_traj.shape[0], -1, state_dim)[:, :, :2]
+    # def compute_robot_barrier(robot_pos_traj):
+    #     emap_result = func_emap(robot_pos_traj)  # (T, 2) -> (T, 2)
+    #     barrier_matrix = barrier_cost(emap_result)  # (T, 2) -> (T, 2)
+    #     return jnp.sum(barrier_matrix)  # (T, 2) -> 标量
+    # robot_barriers = vmap(compute_robot_barrier)(all_pos.transpose(1, 0, 2))
+    # bar_cost = jnp.sum(robot_barriers) // robot_number
+    # return w_barrierCost * bar_cost.sum()
+    return 0

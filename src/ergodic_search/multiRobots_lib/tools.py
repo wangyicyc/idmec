@@ -63,12 +63,16 @@ def exchange_info(sol_trajs, robot_pairs, timestep, robot_distr, last_exchange_t
         traj1['px'][r2] =  traj2['px'][r2]
         traj2['px'][r1] =  traj1['px'][r1]  
         for i in range(robot_number):
+            if i == r1 or i == r2:
+                continue
             contact_time_r1 = last_exchange_time.get((r1, i), 0)
             contact_time_r2 = last_exchange_time.get((r2, i), 0)
             if contact_time_r1 > contact_time_r2:
                 traj2['px'][i] = traj1['px'][i]
+                traj2['x'][:, i * state_dim:(i + 1) * state_dim] = traj1['x'][:, i * state_dim:(i + 1) * state_dim]
             elif contact_time_r1 < contact_time_r2:
                 traj1['px'][i] = traj2['px'][i] 
+                traj1['x'][:, i * state_dim:(i + 1) * state_dim] = traj2['x'][:, i * state_dim:(i + 1) * state_dim]
         # ==================== for map update ===================================
         eval_r2, pos_r2 = reset_instructions[r2]
         robot_distr[r1].bayes_filter_reset(eval_r2, pos_r2, 4.0)

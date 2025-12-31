@@ -22,8 +22,25 @@ def plot_hist(hist_data, save_path, title, baseline=None):
 
     # 定义颜色和标签（请根据你的实际策略修改标签）
     colors = ['skyblue', 'salmon', 'lightgreen']
+    # 学术配色方案选项
+    # 方案1: 专业蓝色系
+    colors_blue = ['#3A6EA5', '#7FB3D5', '#D1E5F0']  # 深蓝, 中蓝, 浅蓝
+    
+    # 方案2: 互补色系（推荐）
+    colors_complementary = ['#4E79A7', '#F28E2B', '#59A14F']  # 蓝, 橙, 绿
+    
+    # 方案3: 渐变色系
+    colors_gradient = ['#1F77B4', "#2C9AA088", "#0EFF7E99"]  # 经典matplotlib配色
+    
+    # 方案4: 期刊风格配色
+    colors_journal = ['#006BA4', '#C85200', '#595959']  # 深蓝, 橙色, 灰色
+    
+    # 方案5: 高对比度（适合黑白打印）
+    colors_bw = ['#404040', '#808080', '#C0C0C0']  # 深灰, 中灰, 浅灰
+
+
     # labels = ['no exchange', 'no decay', 'linear decay', 'type1 decay']  # 示例标签
-    labels = ['baseline1','no prob_connect', 'prob_connect']  # 示例标签
+    labels = ['baseline1','baseline2', 'my strategy']  # 示例标签
     # 绘制四组柱子
     bars = []
     data_groups = [
@@ -34,7 +51,7 @@ def plot_hist(hist_data, save_path, title, baseline=None):
 
     for i in range(n_groups):
         bar = ax.bar(positions[i], data_groups[i], bar_width,
-                     label=labels[i], color=colors[i], edgecolor='black')
+                     label=labels[i], color=colors_gradient[i], edgecolor='black')
         bars.append(bar)
 
     # 设置标签
@@ -62,7 +79,7 @@ def plot_hist(hist_data, save_path, title, baseline=None):
 # 初始化 datas 为 3x10 的结构：3 行（三种类型），10 列（case1~case10）
 datas = [[0.0 for _ in range(5)] for _ in range(3)]
 # 定义要提取的类型顺序
-types_order = ['baseline1', 'no_prob_connect', 'prob_connect']
+types_order = ['baseline1', 'baseline2', 'my_strategy']
 # 遍历 case1 到 case10
 for i in range(5):
     folder_name = f"../case{i+1}"

@@ -57,7 +57,7 @@ connection_threshold = opt_args["connect_threshold"]
 connection_threshold = connection_threshold**2
 map_merge_cnt = 0
 init_dual = True
-save_path = '../figures/no_probabilistic_connection.png'
+save_path = '../figures/baseline2.png'
 involved_robots = list(range(robot_number))
 involved_robots = set(involved_robots)
 flag = True
@@ -69,7 +69,7 @@ global_metric = {
         'values': [],
 }
 last_exchange_time = {}
-logging.info('no prob connect')
+logging.info('baseline2')
 while True:
     sol_trajs, to_remove = optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual)
     # involved_robots -= to_remove
@@ -121,4 +121,4 @@ while True:
     # plot_trajs_old(start_pos, end_pos, sol_trajs, betas, False, robot_distr, save_path)    
 plot_trajs_old(start_pos, end_pos, sol_trajs, betas, True, robot_distr, save_path) 
 
-save_ergodic_metrics_to_excel(robot_number, global_metric, 'no_prob_connect')
+save_ergodic_metrics_to_excel(robot_number, global_metric, 'baseline2')

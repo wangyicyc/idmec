@@ -166,8 +166,18 @@ def emap(x, workspace_bnds):
         (x[1]-workspace_bnds[1][0])/(workspace_bnds[1][1]-workspace_bnds[1][0])
     ])
 
-def barrier_cost(e):
+def barrier_cost_upper(e):
     """边界屏障函数，防止轨迹超出工作空间"""
-    return (jnp.maximum(0, e-1) + jnp.maximum(0, -e))
+    # return (jnp.maximum(0, e-1) + jnp.maximum(0, -e))
+    return jnp.maximum(jnp.exp(e - 1), 1) - 1 - 1e-6
+def barrier_cost_lower(e):
+    """边界屏障函数，防止轨迹超出工作空间"""
+    # return (jnp.maximum(0, e-1) + jnp.maximum(0, -e))
+    return jnp.maximum(jnp.exp(-e), 1) - 1 - 1e-6 
+
 # some function
-func_emap = vmap(partial(emap, workspace_bnds=workspace_bnds))
+real_ws_bnds = jnp.array([
+    [0.6 * config["avoidance_radius"], workspace_size-0.6 * config["avoidance_radius"]], 
+    [0.6 * config["avoidance_radius"], workspace_size-0.6 * config["avoidance_radius"]]
+    ])          # 工作空间边界,1x1米
+func_emap = vmap(partial(emap, workspace_bnds=real_ws_bnds))

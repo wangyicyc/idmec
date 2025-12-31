@@ -7,12 +7,16 @@ Panels:
         - /Global Options1
         - /simulation_map1/Autocompute Value Bounds1
         - /drone01/Planning1
+        - /drone01/Planning1/drone_path1
         - /drone01/Planning1/drone_path1/Offset1
         - /drone01/Mapping1/map inflate1
+        - /drone11
         - /drone11/Planning1
         - /drone11/Planning1/FuturePath1
         - /drone11/Mapping1/map inflate1
-        - /drone21/Planning1/drone_path1
+        - /drone21
+        - /drone21/Planning1
+        - /drone21/Planning1/FuturePath1
         - /drone21/Mapping1/map inflate1
         - /drone31/Planning1
         - /drone31/Planning1/drone_path1
@@ -405,7 +409,7 @@ Visualization Manager:
             - Alpha: 0.5
               Buffer Length: 1
               Class: rviz/Path
-              Color: 170; 170; 0
+              Color: 1; 160; 100
               Enabled: true
               Head Diameter: 0.30000001192092896
               Head Length: 0.20000000298023224
@@ -429,7 +433,7 @@ Visualization Manager:
             - Alpha: 1
               Buffer Length: 1
               Class: rviz/Path
-              Color: 170; 170; 0
+              Color: 1; 160; 100
               Enabled: true
               Head Diameter: 0.30000001192092896
               Head Length: 0.20000000298023224
