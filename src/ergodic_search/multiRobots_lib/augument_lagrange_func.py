@@ -73,26 +73,36 @@ def loss_traj_multi(sol, beta, target_distr, multi_R):
     u_traj = sol.u         # 控制输入序列
     phik = get_phik(target_distr, basis)     # 目标分布的傅里叶系数 
     ckx = func_get_ck_sum(x_traj, beta.x)   # 轨迹的傅里叶系数
-    # def _func_get_ckpxs(traj, beta_r):
-    #     def compute_ck():
-    #         return func_get_ck(traj, beta_r)
-    #     def zero_result():
-    #         dummy_result = func_get_ck(jnp.zeros((1, 2)), beta_r)  # 用非空轨迹获取正确形状
-    #         return jnp.zeros_like(dummy_result)
-    #     is_valid = jnp.logical_and(traj.shape[0] > 1, traj.size > 2)
-    #     return lax.cond(is_valid, compute_ck, zero_result)
-    # all_ckpx = vmap(_func_get_ckpxs, in_axes=(0, 0))(jnp.stack(past_traj), jnp.stack(beta.px))
-    # ckpx = jnp.sum(all_ckpx, axis=0)  # (ck_dim,) - 假设 func_get_ck 返回固定形状
-
-    ckpx = jnp.zeros_like(ckx)  # 先初始化为 0
-    for r_id in range(robot_number):  
-        if past_traj[r_id].size > 2:
-            beta_r = beta.px[r_id]  # 对 r_id 的 beta 权重
-            if beta_r.shape[0] != past_traj[r_id].shape[0]:
-                raise ValueError(f"beta length ({beta_r.shape[0]}) != trajectory steps ({past_traj[r_id].shape[0]})")
-            ckpx = ckpx + func_get_ck(past_traj[r_id], beta_r)
+    def _func_get_ckpxs(traj, beta_r):
+        def compute_ck():
+            return func_get_ck(traj, beta_r)
+        def zero_result():
+            dummy_result = func_get_ck(jnp.zeros((1, 2)), beta_r)  # 用非空轨迹获取正确形状
+            return jnp.zeros_like(dummy_result)
+        is_valid = jnp.logical_and(traj.shape[0] > 1, traj.size > 2)
+        return lax.cond(is_valid, compute_ck, zero_result)
+    all_ckpx = vmap(_func_get_ckpxs, in_axes=(0, 0))(jnp.stack(past_traj), jnp.stack(beta.px))
+    ckpx = jnp.sum(all_ckpx, axis=0)  # (ck_dim,) - 假设 func_get_ck 返回固定形状
     erg_met = erg_metric(ckx + ckpx, phik)
     ctrl_cost = jnp.sum(0.5 * multi_R @ u_traj.T * u_traj.T) / (tsteps * robot_number)
+
+    all_pos = x_traj.reshape(x_traj.shape[0], -1, state_dim)[:, :, :2]
+    def compute_robot_barrier_upper(robot_pos_traj):
+        emap_result = func_emap(robot_pos_traj)  # (T, 2) -> (T, 2)
+        barrier_matrix = barrier_cost_upper(emap_result)  # (T, 2) -> (T, 2)
+        return jnp.sum(barrier_matrix)  # (T, 2) -> 标量
+    
+    def compute_robot_barrier_lower(robot_pos_traj):
+        emap_result = func_emap(robot_pos_traj)  # (T, 2) -> (T, 2)
+        barrier_matrix = barrier_cost_lower(emap_result)  # (T, 2) -> (T, 2)
+        return jnp.sum(barrier_matrix)  # (T, 2) -> 标量
+    robot_barriers_upper = vmap(compute_robot_barrier_upper)(all_pos.transpose(1, 0, 2))
+    robot_barriers_lower = vmap(compute_robot_barrier_lower)(all_pos.transpose(1, 0, 2))
+    bar_cost_lower = jnp.sum(robot_barriers_lower) // robot_number
+    bar_cost_lower =  w_barrierCost * bar_cost_lower.sum()
+    bar_cost_upper = jnp.sum(robot_barriers_upper) // robot_number
+    bar_cost_upper =  w_barrierCost * bar_cost_upper.sum()
+
     return (
         ctrl_cost
         + weight_erg * jnp.log10(erg_met)
