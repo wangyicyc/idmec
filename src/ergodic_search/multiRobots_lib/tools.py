@@ -40,8 +40,6 @@ def exchange_info(sol_trajs, robot_pairs, timestep, robot_distr, last_exchange_t
             if px_i.shape[0] == 0:
                 traj['px'][i] = new_px
             else:
-                if abs(new_px[0, 0] - invalid_value) < 1e-3:
-                    continue  # 跳过无效数据
                 traj['px'][i] = jnp.concatenate([px_i, new_px], axis=0)
         # === 更新 other px 结束
         new_traj = {
@@ -70,9 +68,13 @@ def exchange_info(sol_trajs, robot_pairs, timestep, robot_distr, last_exchange_t
             if contact_time_r1 > contact_time_r2:
                 traj2['px'][i] = traj1['px'][i]
                 traj2['x'][:, i * state_dim:(i + 1) * state_dim] = traj1['x'][:, i * state_dim:(i + 1) * state_dim]
+                last_exchange_time[(r2, i)] = contact_time_r1
+                last_exchange_time[(i, r2)] = contact_time_r1
             elif contact_time_r1 < contact_time_r2:
                 traj1['px'][i] = traj2['px'][i] 
                 traj1['x'][:, i * state_dim:(i + 1) * state_dim] = traj2['x'][:, i * state_dim:(i + 1) * state_dim]
+                last_exchange_time[(r1, i)] = contact_time_r2
+                last_exchange_time[(i, r1)] = contact_time_r2
         # ==================== for map update ===================================
         eval_r2, pos_r2 = reset_instructions[r2]
         robot_distr[r1].bayes_filter_reset(eval_r2, pos_r2, 4.0)
@@ -186,10 +188,6 @@ def find_first_connected(sol_trajs, threshold, last_exchange_time,
         elif selected_t == min_timestep:
             connected_pairs.append((i, j))
     connected_pairs = union_find(connected_pairs)
-
-    # 只在循环外更新last_exchange_time
-    for i, j in connected_pairs:
-        last_exchange_time[(i, j)] = min_timestep + past_lens 
     return min_timestep, connected_pairs
 
 def find_first_connected_single(sol_trajs, threshold, last_exchange_time, 
@@ -231,9 +229,6 @@ def find_first_connected_single(sol_trajs, threshold, last_exchange_time,
         elif selected_t == min_timestep:
             connected_pairs.append((i, j))
     connected_pairs = union_find(connected_pairs)
-    # 只在循环外更新last_exchange_time
-    for i, j in connected_pairs:
-        last_exchange_time[(i, j)] = min_timestep + past_lens 
     return min_timestep, connected_pairs
 def _solve_one_robot(args):
     rid, solver, x0, init_sol, beta, init_dual, r_eps, loss_eps = args
@@ -268,7 +263,7 @@ def optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, i
     return sol_trajs, to_remove
 
 def _multi_solve_one_robot(args):
-    rid, solver, x0, init_sol, beta, init_dual, last_exchange_time, r_eps, loss_eps = args
+    rid, solver, x0, init_sol, beta, init_dual, r_eps, loss_eps = args
     # 注意：JAX DeviceArray 在线程间传递是安全的（只读）
     sol, conv = solver.solve(
         x0=x0,
@@ -277,17 +272,16 @@ def _multi_solve_one_robot(args):
         init_dual=init_dual,
         max_iter=1000,
         if_print=False,
-        last_exchange_time=last_exchange_time,
         r_eps = r_eps,
         loss_eps = loss_eps
     )
     return rid, sol, conv
 
-def multi_robot_optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual, last_exchange_time, r_eps = 0.02, loss_eps = 1e-5):
+def multi_robot_optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual, r_eps = 0.02, loss_eps = 1e-5):
     to_remove = set()
     # 准备任务参数
     tasks = [
-        (rid, traj_solver[rid], init_state[rid], sol_trajs[rid], betas[rid], init_dual, last_exchange_time, r_eps, loss_eps)
+        (rid, traj_solver[rid], init_state[rid], sol_trajs[rid], betas[rid], init_dual, r_eps, loss_eps)
         for rid in involved_robots
     ]
     # 并行执行

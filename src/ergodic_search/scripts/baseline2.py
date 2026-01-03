@@ -108,6 +108,9 @@ while True:
     # traj_to_rosbag(sol_trajs, commandSaver, current_time)
     # for i in range(current_time + 1):
     #     path_to_rosbag(sol_trajs, pathSaver, i)
+    for i, j in robot_pair:
+        last_exchange_time[(i, j)] = accumulated_time 
+        last_exchange_time[(j, i)] = accumulated_time
     sol_trajs, connected_pairs = exchange_info_old(sol_trajs, robot_pair, current_time, robot_distr)
     betas = update_beta_single(sol_trajs, decay_type)
     if connected_pairs:

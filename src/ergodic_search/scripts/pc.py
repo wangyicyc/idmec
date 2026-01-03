@@ -93,14 +93,14 @@ logging.info('my_strategy')
 while True:
     
     if warm_up == True:
-        sol_trajs, to_remove = multi_robot_optimize_trajs(involved_robots, sol_trajs, multi_betas, traj_warmUp, init_state, init_dual, last_exchange_time)
+        sol_trajs, to_remove = multi_robot_optimize_trajs(involved_robots, sol_trajs, multi_betas, traj_warmUp, init_state, init_dual)
     else:
-        sol_trajs, to_remove = multi_robot_optimize_trajs(involved_robots, sol_trajs, multi_betas, traj_solver, init_state, init_dual, last_exchange_time)
+        sol_trajs, to_remove = multi_robot_optimize_trajs(involved_robots, sol_trajs, multi_betas, traj_solver, init_state, init_dual)
     # involved_robots -= to_remove
     clear_output(wait=True)                   # 清除上一次输出，动态刷新
     init_dual = False
 
-    if warm_up == True and accumulated_time < 70:
+    if warm_up == True and accumulated_time < 85:
         warm_up = False
         init_dual = True
         logging.info("have warm up")
@@ -140,9 +140,14 @@ while True:
         be_num += 1
     # multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
     # multi_path_to_rosbag(sol_trajs, pathSaver, current_time)
-    
+
+
+    # 只在循环外更新last_exchange_time
+    for i, j in robot_pair:
+        last_exchange_time[(i, j)] = accumulated_time 
+        last_exchange_time[(j, i)] = accumulated_time
     sol_trajs, connected_pairs = exchange_info(sol_trajs, robot_pair, current_time, robot_distr, last_exchange_time)
-    multi_betas = update_beta(sol_trajs, decay_type)
+    multi_betas = update_beta(sol_trajs, decay_type, last_exchange_time, accumulated_time)
     if connected_pairs:
         involved_robots = connected_pairs 
     else:

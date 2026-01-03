@@ -239,15 +239,11 @@ class al_iLQR(iLQR_template):
         self.U_min = jnp.tile(self.args["U_min"], valid_robots)
         self.U_max = jnp.tile(self.args["U_max"], valid_robots)
 
-    def solve(self, x0, init_sol, beta, init_dual=True, max_iter=100, last_exchange_time={}, r_eps = 0.1, loss_eps = 2e-6, decay_eps=0.05, if_print=True):
+    def solve(self, x0, init_sol, beta, init_dual=True, max_iter=100, r_eps = 0.1, loss_eps = 2e-6, decay_eps=0.05, if_print=True):
         self.init_state = x0
         self.solution = TrajectorySolution(x=init_sol["x"], u=init_sol["u"], px=init_sol["px"])
-        past_time = init_sol["px"][self.robot_id].shape[0]
-        for j in range(robot_number):
-            if j == self.robot_id:
-                continue
-            beta["x"][:, j] = beta["x"][:, j] * max(last_exchange_time.get((self.robot_id, j), 1), 1)/ max(past_time, 1)
-            beta["px"][j] = beta["px"][j] * max(last_exchange_time.get((j, self.robot_id), 1), 1)/ max(past_time, 1) 
+        # print(f"robot {self.robot_id} beta_x_raw[{j}]: {beta['x'][-1, j]}")
+        # print(f"robot {self.robot_id} last_exchange_time.get((self.robot_id, j), 1): {last_exchange_time.get((self.robot_id, j), 1)}")
         beta_x_raw = jnp.asarray(beta["x"]) 
         total_norm = (
             sum(jnp.sum(px) for px in beta["px"]) +

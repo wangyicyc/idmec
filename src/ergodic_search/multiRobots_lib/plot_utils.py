@@ -51,59 +51,46 @@ def plot_trajs(start_pos, end_pos, sol_trajs, betas, convergence, robot_distr, s
     for i, (ax, sol_traj, beta) in enumerate(zip(
         axes, sol_trajs, betas)):
         decayed_alpha = get_Decay_alpha(beta)  # 假设 alpha 只依赖当前机器人的 beta
-        
-        # 提取当前机器人的起点和终点（假设 start_pos 和 end_pos 是长度为 n_robots*2 的数组）
-        # start = start_pos[i * 2 : i * 2 + 2]
-        # end = end_pos[i * 2 : i * 2 + 2]
-        # ax.plot(end[0], end[1], 'bs', markersize=16, 
-        #         markerfacecolor='none', markeredgewidth=3, markeredgecolor=colors[i], 
-        #         label=f'target(robot{i})')
-        # ax.plot(sol_traj['x'][0, 4 * i], sol_traj['x'][0, 4 * i + 1], 
-        #     'k^', markersize=8, markerfacecolor='none', markeredgewidth=4)
-
         # 绘制轨迹点
         for t in range(robot_number):  # 假设每个轨迹点有4个维度（x, y, vx, vy）
+            # logging.info(f"Plotting robot {t}, beta points count: {beta['x'].shape[0]}")
+            # logging.info(f"Plotting robot {t}, last beta points count: {beta['x'][-1, t]}")
+            # logging.info(f"Plotting robot {t}, past beta points count: {beta['px'][t].shape[0]}")
+            # logging.info(f"Plotting robot {t}, future traj points count: {sol_traj['x'].shape[0]}")
+            # logging.info(f"Plotting robot {t}, the last point decayed is {decayed_alpha['x'][-1, t]}")
             if t == i:
                 # 绘制起点和终点
-                # === 起点：大三角形 + 白色描边 + 高对比度 ===
                 # === 起点：LaTeX 实心三角 ▲ ===
                 ax.scatter(
-                    start_pos[t * 2], start_pos[t * 2 + 1],
-                    s=400,  # 与 \bigstar 的 s=200 视觉平衡
-                    c=colors[t],
-                    marker=r'$\blacktriangle$',
-                    zorder=3,
-                    edgecolors='white',
-                    linewidth=2.5,
-                    alpha=0.9
+                    start_pos[t * 2], start_pos[t * 2 + 1], s=400,  # 与 \bigstar 的 s=200 视觉平衡
+                    c=colors[t], marker=r'$\blacktriangle$',
+                    zorder=3, edgecolors='white',
+                    linewidth=2.5, alpha=0.9
                 )
                 # === 终点：LaTeX 五角星 ★ ===
                 ax.scatter(
-                    sol_traj['x'][-1, 4 * t], sol_traj['x'][-1, 4 * t + 1],
-                    s=700,  # 稍微调大以匹配视觉重量
-                    c=colors[t],
-                    marker=r'$\bigstar$',  # LaTeX 填充五角星
-                    zorder=5,
-                    edgecolors='white',
-                    linewidth=3.0,
-                    alpha=0.9
+                    sol_traj['x'][-1, 4 * t], sol_traj['x'][-1, 4 * t + 1], s=700,  # 稍微调大以匹配视觉重量
+                    c=colors[t], marker=r'$\bigstar$',  # LaTeX 填充五角星
+                    zorder=5, edgecolors='white',
+                    linewidth=3.0, alpha=0.9
                 )
                 ax.scatter(sol_traj['x'][:, 4 * t], sol_traj['x'][:, 4 * t + 1], 
                     c = colors[t], s=70, alpha=decayed_alpha['x'][:, t], 
-                    marker='^', edgecolors='none', zorder=3)
+                    marker='^', edgecolors='none', zorder=5)
                 if sol_traj['px'][t].shape[0] > 0: 
                     ax.scatter(sol_traj['px'][t][:, 0], sol_traj['px'][t][:, 1], 
                                 c = colors[t], s=60, alpha=decayed_alpha['px'][t], marker='^', 
-                                edgecolors='none', zorder=2)
+                                edgecolors='none', zorder=4)
             else:
                 # 绘制起点和终点
                 ax.plot(start_pos[t * 2], start_pos[t * 2 + 1], 'o', markersize=12, 
                     markerfacecolor='none', markeredgewidth=3, markeredgecolor=colors[t], label='start point')
                 ax.plot(sol_traj['x'][-1, 4 * t], sol_traj['x'][-1, 4 * t + 1], 'x', markersize=12, 
                     markerfacecolor='none', markeredgewidth=3, markeredgecolor=colors[t], label='end point')
+                
                 ax.scatter(sol_traj['x'][:, 4 * t], sol_traj['x'][:, 4 * t + 1], 
                     c = colors[t], s=10, alpha=decayed_alpha['x'][:, t], 
-                    edgecolors='none', zorder=2)
+                    edgecolors='none', zorder=3)
                 if sol_traj['px'][t].shape[0] > 0:
                     ax.scatter(sol_traj['px'][t][:, 0], sol_traj['px'][t][:, 1], 
                                 c = colors[t], s=10, alpha=decayed_alpha['px'][t], 
@@ -153,16 +140,20 @@ def plot_trajs_old(start_pos, end_pos, sol_trajs, betas, convergence, robot_dist
         # 提取当前机器人的起点和终点（假设 start_pos 和 end_pos 是长度为 n_robots*2 的数组）
         start = start_pos[i * 2 : i * 2 + 2]
         end = end_pos[i * 2 : i * 2 + 2]
-        
-        # 绘制起点和终点
-        ax.plot(start[0], start[1], 'b^', markersize=16, 
-                markerfacecolor='none', markeredgewidth=3, markeredgecolor=colors[i])
-        # ax.plot(end[0], end[1], 'bs', markersize=16, 
-        #         markerfacecolor='none', markeredgewidth=3, markeredgecolor=colors[i], 
-        #         label=f'target(robot{i})')
-        ax.plot(sol_traj['x'][0, 0], sol_traj['x'][0, 1], 
-            'k^', markersize=8, markerfacecolor='none', markeredgewidth=4, label='start point')
-
+        # === 起点：LaTeX 实心三角 ▲ ==i
+        ax.scatter(
+                    start_pos[i * 2], start_pos[i * 2 + 1], s=400,  # 与 \bigstar 的 s=200 视觉平衡
+                    c=colors[i], marker=r'$\blacktriangle$',
+                    zorder=3, edgecolors='white',
+                    linewidth=2.5, alpha=0.9
+                )
+        # === 终点：LaTeX 五角星 ★ ===
+        ax.scatter(
+                    sol_traj['x'][-1, 0], sol_traj['x'][-1, 1], s=700,  # 稍微调大以匹配视觉重量
+                    c=colors[i], marker=r'$\bigstar$',  # LaTeX 填充五角星
+                    zorder=5, edgecolors='white',
+                    linewidth=3.0, alpha=0.9
+                )
         # 绘制轨迹点
         ax.scatter(sol_traj['x'][:, 0], sol_traj['x'][:, 1], 
                    c = colors[i], s=50, alpha=decayed_alpha['x'], 

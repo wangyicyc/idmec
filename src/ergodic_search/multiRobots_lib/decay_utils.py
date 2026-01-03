@@ -69,11 +69,9 @@ def get_Decay_alpha(beta):
             'px': past_alpha,
         }
     return decayed_alpha
-def update_beta(sol_trajs, decay_type='linear'):
+def update_beta(sol_trajs, decay_type, last_exchange_time, accumulated_time):
     new_betas = []
-    # past_len = sol_trajs[0]['px'][0].shape[0]
     for r_id in range(robot_number):
-        # future 和 past
         x_traj = sol_trajs[r_id]
         T_other = x_traj['px'][r_id].shape[0]
         future_arr = jnp.full((x_traj['x'].shape[0], robot_number), max_val)
@@ -86,8 +84,15 @@ def update_beta(sol_trajs, decay_type='linear'):
             if decay_type == 'nodecay':
                 past_list.append(jnp.full((old_len), max_val))
             elif decay_type == 'linear':
-                # logging.info(f"other_id: {other_id}, past_len: {past_len}")
                 past_list.append(np.array(jnp.linspace(min_val, max_val * old_len / T_other, num=old_len)))
+            
+            if other_id == r_id:
+                continue
+            scale_factor = last_exchange_time.get((r_id, other_id), 1) / max(accumulated_time, 1)
+            future_arr = future_arr.at[:, other_id].multiply(scale_factor)
+            # future_arr[:, other_id] = future_arr[:, other_id] * last_exchange_time.get((r_id, other_id), 1) / max(accumulated_time, 1)
+            past_list[other_id] = past_list[other_id] * last_exchange_time.get((other_id, r_id), 1) / max(accumulated_time, 1)
+
         new_beta = {
             'x': np.array(future_arr),
             'px': past_list,

@@ -99,12 +99,12 @@ class TargetDistribution(object):
                 elif mode == "reset":
                     # 直接在范围内随机采样新的均值
                     new_mean = random.uniform(
-                        subkey, shape=(2,), minval = self.size / 4, maxval=self.size * 3 / 4
+                        subkey, shape=(2,), minval = self.size / 6, maxval=self.size * 5 / 6
                     )
                 else:
                     raise ValueError(f"Unknown mode: {mode}")
                 # 强制有界
-                new_mean = jnp.clip(new_mean, self.size / 4, self.size * 3 / 4)
+                new_mean = jnp.clip(new_mean, self.size / 6, self.size * 5 / 6)
                 new_means.append(new_mean)
             # 更新地图信息
             self._dist_params["means"] = new_means
