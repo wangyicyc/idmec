@@ -6,15 +6,13 @@ Panels:
       Expanded:
         - /Global Options1
         - /simulation_map1/Autocompute Value Bounds1
+        - /drone01
         - /drone01/Planning1
-        - /drone01/Planning1/drone_path1
         - /drone01/Planning1/drone_path1/Offset1
         - /drone01/Mapping1/map inflate1
-        - /drone11
         - /drone11/Planning1
         - /drone11/Planning1/FuturePath1
         - /drone11/Mapping1/map inflate1
-        - /drone21
         - /drone21/Planning1
         - /drone21/Planning1/FuturePath1
         - /drone21/Mapping1/map inflate1
@@ -119,13 +117,13 @@ Visualization Manager:
               Queue Size: 100
               Value: false
             - Class: rviz/Marker
-              Enabled: true
+              Enabled: false
               Marker Topic: /drone_0_ego_planner_node/optimal_list
               Name: optimal_traj
               Namespaces:
                 {}
               Queue Size: 100
-              Value: true
+              Value: false
             - Class: rviz/Marker
               Enabled: false
               Marker Topic: /drone_0_ego_planner_node/init_list
@@ -134,16 +132,16 @@ Visualization Manager:
                 {}
               Queue Size: 100
               Value: false
-            - Alpha: 0.5
+            - Alpha: 0.10000000149011612
               Buffer Length: 1
               Class: rviz/Path
               Color: 29; 108; 212
-              Enabled: true
+              Enabled: false
               Head Diameter: 0.30000001192092896
               Head Length: 0.20000000298023224
               Length: 0.30000001192092896
               Line Style: Billboards
-              Line Width: 0.014999999664723873
+              Line Width: 0.004999999888241291
               Name: drone_path
               Offset:
                 X: 0
@@ -157,7 +155,7 @@ Visualization Manager:
               Shaft Length: 0.10000000149011612
               Topic: /drone_0_odom_visualization/path
               Unreliable: false
-              Value: true
+              Value: false
             - Alpha: 1
               Buffer Length: 1
               Class: rviz/Path
@@ -255,13 +253,13 @@ Visualization Manager:
               Queue Size: 100
               Value: false
             - Class: rviz/Marker
-              Enabled: true
+              Enabled: false
               Marker Topic: /drone_1_ego_planner_node/optimal_list
               Name: optimal_traj
               Namespaces:
                 {}
               Queue Size: 100
-              Value: true
+              Value: false
             - Class: rviz/Marker
               Enabled: false
               Marker Topic: /drone_1_ego_planner_node/init_list
@@ -274,7 +272,7 @@ Visualization Manager:
               Buffer Length: 1
               Class: rviz/Path
               Color: 255; 170; 0
-              Enabled: true
+              Enabled: false
               Head Diameter: 0.30000001192092896
               Head Length: 0.20000000298023224
               Length: 0.30000001192092896
@@ -293,7 +291,7 @@ Visualization Manager:
               Shaft Length: 0.10000000149011612
               Topic: /drone_1_odom_visualization/path
               Unreliable: false
-              Value: true
+              Value: false
             - Alpha: 1
               Buffer Length: 1
               Class: rviz/Path
@@ -391,13 +389,13 @@ Visualization Manager:
               Queue Size: 100
               Value: false
             - Class: rviz/Marker
-              Enabled: true
+              Enabled: false
               Marker Topic: /drone_2_ego_planner_node/optimal_list
               Name: optimal_traj
               Namespaces:
                 {}
               Queue Size: 100
-              Value: true
+              Value: false
             - Class: rviz/Marker
               Enabled: false
               Marker Topic: /drone_2_ego_planner_node/init_list
@@ -410,7 +408,7 @@ Visualization Manager:
               Buffer Length: 1
               Class: rviz/Path
               Color: 1; 160; 100
-              Enabled: true
+              Enabled: false
               Head Diameter: 0.30000001192092896
               Head Length: 0.20000000298023224
               Length: 0.30000001192092896
@@ -429,7 +427,7 @@ Visualization Manager:
               Shaft Length: 0.10000000149011612
               Topic: /drone_2_odom_visualization/path
               Unreliable: false
-              Value: true
+              Value: false
             - Alpha: 1
               Buffer Length: 1
               Class: rviz/Path
@@ -527,13 +525,13 @@ Visualization Manager:
               Queue Size: 100
               Value: false
             - Class: rviz/Marker
-              Enabled: true
+              Enabled: false
               Marker Topic: /drone_3_ego_planner_node/optimal_list
               Name: optimal_traj
               Namespaces:
                 {}
               Queue Size: 100
-              Value: true
+              Value: false
             - Class: rviz/Marker
               Enabled: false
               Marker Topic: /drone_3_ego_planner_node/init_list
@@ -546,7 +544,7 @@ Visualization Manager:
               Buffer Length: 1
               Class: rviz/Path
               Color: 170; 0; 255
-              Enabled: true
+              Enabled: false
               Head Diameter: 0.30000001192092896
               Head Length: 0.20000000298023224
               Length: 0.30000001192092896
@@ -565,7 +563,7 @@ Visualization Manager:
               Shaft Length: 0.10000000149011612
               Topic: /drone_3_odom_visualization/path
               Unreliable: false
-              Value: true
+              Value: false
             - Alpha: 1
               Buffer Length: 1
               Class: rviz/Path
@@ -655,7 +653,7 @@ Visualization Manager:
       Marker Topic: /map_distribution
       Name: Marker
       Namespaces:
-        {}
+        heatmap: true
       Queue Size: 100
       Value: true
   Enabled: true

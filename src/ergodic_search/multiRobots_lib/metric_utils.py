@@ -51,19 +51,18 @@ def pair_connection_doubleInt(
     beta_future,
     _nx: int,
     period_num: int,
+    traj_length: int,
 ):
-    T = traj.shape[0]
-    T_used = (T // period_num) * period_num  # 向下取整到 period_num 的倍数
-    traj_trunc = traj[:T_used]
+
+    traj_trunc = traj[:traj_length]
     x_traj_reshape = traj_trunc.reshape(period_num, -1, traj_trunc.shape[-1])
     sub_tsteps = x_traj_reshape[0].shape[0]
     idxs = jnp.arange(period_num, dtype=jnp.int32)
     _connection_probability = []
     # 如果增加机器人，则需要修改此处
-    norm_coff = beta_future[0, 0] + beta_future[0, 1] + beta_future[0, 2] + beta_future[0, 3]
     for pair in robot_pair:
         _connection_probability.append(
-            (beta_future[0, pair[0]] + beta_future[0, pair[1]]) / norm_coff * vmap(
+            vmap(
                 lambda idx: jnp.sum(
                     vmap(vmap(_func_pair, in_axes=(None, 0)), in_axes=(0, None))(
                         x_traj_reshape[idx][:, (pair[0] * _nx) : (pair[0] * _nx) + 2],
@@ -73,6 +72,6 @@ def pair_connection_doubleInt(
                 / (sub_tsteps**2)
             )(idxs)
         )
-    # connection_probability = jnp.concatenate(_connection_probability)
-    connection_probability = jnp.sum(jnp.stack(_connection_probability), axis=0)
+    connection_probability = jnp.concatenate(_connection_probability)
+    # connection_probability = jnp.sum(jnp.stack(_connection_probability), axis=0)
     return connection_probability

@@ -4,21 +4,11 @@ from jax.scipy.stats import multivariate_normal as jax_mvn
 import math
 import time
 from jax import random
-import logging
 import sys 
 sys.path.append('..')
-from multiRobots_lib.data_collect import export_map_to_jsonl, load_map_history_jsonl
 # 提取 opt_args 子字典
-logging.basicConfig(
-    filename='../log/app.log',          # 日志文件名
-    level=logging.INFO,          # 日志等级
-    format='%(asctime)s [%(levelname)s] %(message)s',  # 格式
-)
 
 
-# logging.info("程序启动")
-# logging.warning("参数偏离预期")
-# logging.error("出现错误，程序中止")
 
 
 class TargetDistribution(object):
@@ -32,8 +22,6 @@ class TargetDistribution(object):
             *[jnp.linspace(0, self.size, self.grids_points)]*self.n
         )
         self._s = jnp.stack([X.ravel() for X in self.domain]).T
-        self.file_path = "../datas/config/random_map_history.jsonl"
-        self.history = load_map_history_jsonl(self.file_path)
         self._history_index = 0 
         self._dist_params = {
             'means': [],
@@ -75,7 +63,7 @@ class TargetDistribution(object):
     #     plt.contour(self.domain[0], self.domain[1], 
     #                self.evals[0].reshape(self.domain[0].shape))
 
-    def update_map(self, update_times, mode="reset", w_or_r = 'write',perturb_scale=0.3):
+    def update_map(self, update_times, mode="perturb", w_or_r = 'write',perturb_scale=0.3):
         """
         更新地图参数，生成有界的新means。
         mode:
@@ -110,7 +98,6 @@ class TargetDistribution(object):
             self._dist_params["means"] = new_means
             self._dist_params['timestamps'] = [update_times] * num_means
             self.evals = self._compute_distribution()
-            export_map_to_jsonl(self._dist_params, log_file=self.file_path)
         elif w_or_r == 'read':
             record = self.history[self._history_index]
             # 关键：还原为 jnp.array 列表
@@ -121,7 +108,7 @@ class TargetDistribution(object):
         else:
             raise ValueError("w_or_r must be 'write' or 'read'")
 
-    def bayes_filter_reset(self, p_observe, u_t, decay_factor=2.0, sigma_d=0.5):
+    def bayes_filter_reset(self, p_observe, u_t, decay_factor=2.0, sigma_d=1.0):
         """
         将外部地图分布 p_new 融合进当前分布，依据 UAV 位置 u_t 的距离加权。
         Args:
@@ -129,7 +116,6 @@ class TargetDistribution(object):
             u_t: jnp.array, shape (2,)，UAV当前位置
             sigma_d: float，距离衰减尺度
         """
-        # logging.info("程序启动")
         # 1. 计算距离
         diff_to_uav = self._s - u_t  # (N, 2)
         d = jnp.sum(diff_to_uav**2, axis=1)  # (N,)

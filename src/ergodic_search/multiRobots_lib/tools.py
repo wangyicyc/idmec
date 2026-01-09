@@ -54,10 +54,10 @@ def exchange_info(sol_trajs, robot_pairs, timestep, robot_distr, last_exchange_t
         # logging.info("exchange")
         traj1 = new_sol_trajs[r1]
         traj2 = new_sol_trajs[r2]
-        traj1['x'][:, r2 * state_dim:(r2+1) * state_dim] = traj2['x'][:, r2 * state_dim:(r2 + 1) * state_dim]
-        traj1['u'][:, r2 * control_dim:(r2+1) * control_dim] = traj2['u'][:, r2 * control_dim:(r2+1) * control_dim]
-        traj2['x'][:, r1 * state_dim:(r1+1) * state_dim] = traj1['x'][:, r1 * state_dim:(r1 + 1) * state_dim]
-        traj2['u'][:, r1 * control_dim:(r1+1) * control_dim] = traj1['u'][:, r1 * control_dim:(r1+1) * control_dim]
+        traj1['x'] = traj1['x'].at[:, r2 * state_dim:(r2+1) * state_dim].set(traj2['x'][:, r2 * state_dim:(r2 + 1) * state_dim])
+        traj1['u'] = traj1['u'].at[:, r2 * control_dim:(r2+1) * control_dim].set(traj2['u'][:, r2 * control_dim:(r2+1) * control_dim])
+        traj2['x'] = traj2['x'].at[:, r1 * state_dim:(r1+1) * state_dim].set(traj1['x'][:, r1 * state_dim:(r1 + 1) * state_dim])
+        traj2['u'] = traj2['u'].at[:, r1 * control_dim:(r1+1) * control_dim].set(traj1['u'][:, r1 * control_dim:(r1+1) * control_dim])
         traj1['px'][r2] =  traj2['px'][r2]
         traj2['px'][r1] =  traj1['px'][r1]  
         for i in range(robot_number):
@@ -67,12 +67,12 @@ def exchange_info(sol_trajs, robot_pairs, timestep, robot_distr, last_exchange_t
             contact_time_r2 = last_exchange_time.get((r2, i), 0)
             if contact_time_r1 > contact_time_r2:
                 traj2['px'][i] = traj1['px'][i]
-                traj2['x'][:, i * state_dim:(i + 1) * state_dim] = traj1['x'][:, i * state_dim:(i + 1) * state_dim]
+                traj2['x'] = traj2['x'].at[:, i * state_dim:(i + 1) * state_dim].set(traj1['x'][:, i * state_dim:(i + 1) * state_dim])
                 last_exchange_time[(r2, i)] = contact_time_r1
                 last_exchange_time[(i, r2)] = contact_time_r1
             elif contact_time_r1 < contact_time_r2:
                 traj1['px'][i] = traj2['px'][i] 
-                traj1['x'][:, i * state_dim:(i + 1) * state_dim] = traj2['x'][:, i * state_dim:(i + 1) * state_dim]
+                traj1['x'] = traj1['x'].at[:, i * state_dim:(i + 1) * state_dim].set(traj2['x'][:, i * state_dim:(i + 1) * state_dim])
                 last_exchange_time[(r1, i)] = contact_time_r2
                 last_exchange_time[(i, r1)] = contact_time_r2
         # ==================== for map update ===================================
@@ -245,7 +245,7 @@ def _solve_one_robot(args):
     )
     return rid, sol, conv
 
-def optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual, r_eps = 0.02, loss_eps = 1e-5):
+def optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual, r_eps = 0.02, loss_eps = 1e-6):
     to_remove = set()
     # 准备任务参数
     tasks = [
@@ -277,7 +277,7 @@ def _multi_solve_one_robot(args):
     )
     return rid, sol, conv
 
-def multi_robot_optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual, r_eps = 0.02, loss_eps = 1e-5):
+def multi_robot_optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual, r_eps = 0.02, loss_eps = 1e-6):
     to_remove = set()
     # 准备任务参数
     tasks = [

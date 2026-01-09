@@ -4,6 +4,7 @@ sys.path.append('..')
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patheffects as path_effects
+from matplotlib.ticker import FuncFormatter
 import logging
 logging.basicConfig(
     filename='../log/app.log',          # 日志文件名
@@ -35,17 +36,27 @@ def plot_trajs(start_pos, end_pos, sol_trajs, betas, convergence, robot_distr, s
     # 动态创建子图
     axes = []
     grids_x, grids_y = robot_distr[0].get_grids()
+    
     for i in range(robot_number):
         ax = fig.add_subplot(1, robot_number, i+1)  # 1行，robot_number列，第i+1个子图
-        ax.set_xticks([])
-        ax.set_yticks([])
+        ax.set_facecolor("#EFEFF4FF")  # 使用十六进制颜色代码代表亮灰色
+        # ax.set_xticks([])
+        # ax.set_yticks([])
+        ax.set_xticks(np.arange(0, robot_distr[0].domain[0].max(), step=1.0)) # 根据需要调整步长
+        ax.set_yticks(np.arange(0, robot_distr[0].domain[1].max(), step=1.0)) # 根据需要调整步长
+        ax.tick_params(axis='both', which='major', labelsize=14)  # 根据需要调整labelsize值
+        # 如果你想要在图内部显示刻度线，可以使用grid方法
+        ax.grid(True, which='major', linestyle=(0, (5, 5)), linewidth=1.0)
         ax.set_xlim(0, robot_distr[0].domain[0].max())
         ax.set_ylim(0, robot_distr[0].domain[1].max())
         pdf_vals, _ = robot_distr[i].evals
         ax.contourf(
             grids_x, grids_y, pdf_vals.reshape(grids_x.shape), 
-            levels=50, cmap='Blues', alpha=0.3
+            levels=200, cmap='Blues', alpha=0.3
         )
+        ax.yaxis.set_major_formatter(FuncFormatter(lambda y, _: '' if y == 0 else f'{int(y)}'))
+        for spine in ['top', 'bottom', 'left', 'right']:
+            ax.spines[spine].set_linewidth(2)  # 加粗边框
         axes.append(ax) 
     # 为每个机器人绘制轨迹
     for i, (ax, sol_traj, beta) in enumerate(zip(
@@ -62,14 +73,14 @@ def plot_trajs(start_pos, end_pos, sol_trajs, betas, convergence, robot_distr, s
                 # 绘制起点和终点
                 # === 起点：LaTeX 实心三角 ▲ ===
                 ax.scatter(
-                    start_pos[t * 2], start_pos[t * 2 + 1], s=400,  # 与 \bigstar 的 s=200 视觉平衡
+                    start_pos[t * 2], start_pos[t * 2 + 1], s=450,  # 与 \bigstar 的 s=200 视觉平衡
                     c=colors[t], marker=r'$\blacktriangle$',
                     zorder=3, edgecolors='white',
-                    linewidth=2.5, alpha=0.9
+                    linewidth=3.0, alpha=0.9
                 )
                 # === 终点：LaTeX 五角星 ★ ===
                 ax.scatter(
-                    sol_traj['x'][-1, 4 * t], sol_traj['x'][-1, 4 * t + 1], s=700,  # 稍微调大以匹配视觉重量
+                    sol_traj['x'][-1, 4 * t], sol_traj['x'][-1, 4 * t + 1], s=750,  # 稍微调大以匹配视觉重量
                     c=colors[t], marker=r'$\bigstar$',  # LaTeX 填充五角星
                     zorder=5, edgecolors='white',
                     linewidth=3.0, alpha=0.9

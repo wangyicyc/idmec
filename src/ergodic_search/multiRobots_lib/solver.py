@@ -224,14 +224,14 @@ class al_iLQR(iLQR_template):
     def update_distribution(self, new_distribution):
         self.target_distribution = new_distribution
 
-    def solve(self, x0, init_sol, beta, init_dual=True, max_iter=100, r_eps = 0.1, loss_eps = 2e-6, decay_eps=0.05, if_print=True):
+    def solve(self, x0, init_sol, beta, init_dual=True, max_iter=100, r_eps = 0.1, loss_eps = 1e-6, decay_eps=0.05, if_print=True):
         self.init_state = x0
         self.solution = TrajectorySolution(
             x=jnp.array(init_sol["x"]),
             u=jnp.array(init_sol["u"]),
             px=init_sol["px"])
         
-        beta_x_raw = jnp.asarray(beta["x"] * robot_number) 
+        beta_x_raw = jnp.asarray(beta["x"]) 
         total_norm = (
             sum(jnp.sum(px) for px in beta["px"]) +
             jnp.sum(beta_x_raw) +
@@ -242,14 +242,14 @@ class al_iLQR(iLQR_template):
             px = [px / total_norm for px in beta["px"]]
         )
         self.beta = BetaCoefficients(x=jnp.asarray(beta["x"]), px=beta["px"])
-        if init_dual is True:
-            self.get_descent_jit = jit(self.get_descent)
-            self.linesearch_jit = jit(self.linesearch)
+        # if init_dual is True:
+        self.get_descent_jit = jit(self.get_descent)
+        self.linesearch_jit = jit(self.linesearch)
             # self.dual_solution = {"mu": jnp.zeros_like(self.inequality(self.solution)),\
             #     "lam": jnp.zeros_like(self.equality(self.solution))}
-            self.dual_solution = DualVariables(mu=jnp.zeros_like(self.inequality(self.solution)), lam=jnp.zeros_like(self.equality(self.solution)))
-            self.update_multipliers()
-            self.r_penalty = 1.0
+        self.dual_solution = DualVariables(mu=jnp.zeros_like(self.inequality(self.solution)), lam=jnp.zeros_like(self.equality(self.solution)))
+        self.update_multipliers()
+        self.r_penalty = 1.0
 
         loss_val = [self.objective(self.solution, self.beta, self.target_distribution)]
         _func_get_violation = jit(

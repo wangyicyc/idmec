@@ -89,9 +89,10 @@ global_metric = {
 last_exchange_time = {}
 # 迭代优化并动态可视化轨迹与障碍物分布
 warm_up = True
+# warm_up = False
+plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, save_path)    
 logging.info('my_strategy')
 while True:
-    
     if warm_up == True:
         sol_trajs, to_remove = multi_robot_optimize_trajs(involved_robots, sol_trajs, multi_betas, traj_warmUp, init_state, init_dual)
     else:
@@ -100,13 +101,14 @@ while True:
     clear_output(wait=True)                   # 清除上一次输出，动态刷新
     init_dual = False
 
-    if warm_up == True and accumulated_time < 85:
+    if warm_up == True:
         warm_up = False
         init_dual = True
         logging.info("have warm up")
-        # plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, save_path)    
         continue
-        # ================================== 获取replan 信息 =========================================================
+    else:
+        warm_up = True
+        plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, save_path)    
     current_time, robot_pair = find_first_connected(sol_trajs, connection_threshold, last_exchange_time)
     current_time, accumulated_time = update_accumulated_time(current_time, accumulated_time, be_num)
     map_merge_cnt += current_time
@@ -125,10 +127,11 @@ while True:
         
         for r_id in range(robot_number):
             # print(f"current_time = {connect_timestesp}, type = {type(current_time)}")
-            u_t = sol_trajs[r_id]['x'][current_time, r_id * state_dim: r_id * state_dim + 2]
-            robot_distr[r_id].bayes_filter_reset(target_distr.evals[0], u_t)
+            q_t = sol_trajs[r_id]['x'][current_time, r_id * state_dim: r_id * state_dim + 2]
+            robot_distr[r_id].bayes_filter_reset(target_distr.evals[0], q_t)
             traj_solver[r_id].update_distribution(robot_distr[r_id].evals)
             traj_warmUp[r_id].update_distribution(robot_distr[r_id].evals)
+            logging.info("merge map")
     # ================================ 为replan准备 ==============================================================  
     if accumulated_time == update_map_freq * be_num:
         append_metric(global_metric, loss_compare_multi(sol_trajs, target_distr.evals, current_time))
@@ -138,9 +141,10 @@ while True:
         robot_pair = []
         target_distr.update_map(accumulated_time, "reset", "read")
         be_num += 1
+        if accumulated_time >= tsteps:
+            break
     # multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
     # multi_path_to_rosbag(sol_trajs, pathSaver, current_time)
-
 
     # 只在循环外更新last_exchange_time
     for i, j in robot_pair:
@@ -154,7 +158,6 @@ while True:
         involved_robots = set(list(range(robot_number)))
     init_state = [traj['x'][0, :] for traj in sol_trajs]     
     init_dual = True
-    warm_up = True
     logging.warning(f"connect time:{current_time}, accumulated time:{accumulated_time}, and the robot pair:{robot_pair}")
     # plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, save_path)    
 plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, save_path)

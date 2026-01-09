@@ -35,12 +35,12 @@ def decay_function_sequence(min_value = 0.05, max_value = 0.95, num = 100):
 def get_Decay_alpha(beta):
     # logging.info(f"beta['x'].max(): {beta['x'].max()}")
     if beta['x'].ndim == 1: 
-        future_alpha = jnp.clip(beta['x'] / beta['x'].max(), 0.05, 1)
+        future_alpha = jnp.clip(beta['x'] / beta['x'].max(), 0.20, 1)
         past_alpha = []
         for r_id in range(robot_number):
             past_r = beta['px'][r_id]
             if past_r.shape[0] > 1:  # 非空数组
-                scaled = jnp.clip(past_r / past_r.max(), 0.05, 1)
+                scaled = jnp.clip(past_r / beta['x'].max(), 0.20, 1)
                 # logging.info(f"past_r.max(): {past_r.max()}")
             else:
                 scaled = past_r  # 保持空数组不变
@@ -52,12 +52,12 @@ def get_Decay_alpha(beta):
             'px': past_alpha,
         }
     else:
-        future_alpha = jnp.clip(beta['x'] / beta['x'].max(), 0.05, 1)
+        future_alpha = jnp.clip(beta['x'] / beta['x'].max(), 0.20, 1)
         past_alpha = []
         for r_id in range(robot_number):
             past_r = beta['px'][r_id]
             if past_r.shape[0] > 1:  # 非空数组
-                scaled = jnp.clip(past_r / past_r.max(), 0.05, 1)
+                scaled = jnp.clip(past_r / beta['x'].max(), 0.20, 1)
                 # logging.info(f"past_r.max(): {past_r.max()}")
             else:
                 scaled = past_r  # 保持空数组不变
@@ -69,6 +69,7 @@ def get_Decay_alpha(beta):
             'px': past_alpha,
         }
     return decayed_alpha
+
 def update_beta(sol_trajs, decay_type, last_exchange_time, accumulated_time):
     new_betas = []
     for r_id in range(robot_number):

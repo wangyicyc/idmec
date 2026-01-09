@@ -75,7 +75,7 @@ while True:
     sol_trajs, to_remove = optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual)
     involved_robots -= to_remove
     clear_output(wait=True)                   # 清除上一次输出，动态刷新
-    init_dual = False
+    # init_dual = False
     # =================================== 更新地图 ==============================================================
     current_time, accumulated_time = update_accumulated_time(current_time, accumulated_time, be_num)
     map_merge_cnt += current_time

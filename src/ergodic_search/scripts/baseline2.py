@@ -97,7 +97,7 @@ while True:
     # ================================ 为replan准备 ============================================================== 
     if accumulated_time == update_map_freq * be_num:
         append_metric(global_metric, loss_compare_single(sol_trajs, target_distr.evals, current_time))
-        if accumulated_time >= tsteps - 1:
+        if accumulated_time >= tsteps:
             break
         logging.info("update map")
         robot_pair = []

@@ -254,6 +254,11 @@ class al_iLQR(iLQR_template):
             x = beta_x_raw / total_norm,
             px = [px / total_norm for px in beta["px"]]
         )
+        # logging.info(f"future-traj.shape : {self.solution.x.shape[0]}")
+        # logging.info(f"past-traj.shape : {self.solution.px[0].shape[0]}")
+        # logging.info(f"past-traj.shape : {self.solution.px[1].shape[0]}")
+        # logging.info(f"past-traj.shape : {self.solution.px[2].shape[0]}")
+        # logging.info(f"past-traj.shape : {self.solution.px[3].shape[0]}")
         if init_dual is True:
             self.get_descent_jit = jit(self.get_descent)
             self.linesearch_jit = jit(self.linesearch)
@@ -312,9 +317,9 @@ class al_iLQR(iLQR_template):
                 violations[-1]) < r_eps:
                 logging.info("iter:{:d}, id:{:d}, r:{:.3f} and violateion:{:.3f}".format(i, self.robot_id, self.r_penalty, violations[-1]))
                 return {
-                    "x": np.array(self.solution.x),    # ← 转为可变的 NumPy array
-                    "u": np.array(self.solution.u),
-                    "px": [np.array(arr) for arr in self.solution.px]
+                    "x": self.solution.x,    # ← 转为可变的 NumPy array
+                    "u": self.solution.u,
+                    "px": [arr for arr in self.solution.px]
                 }, True
 
         if jnp.abs(violations[-1]) > r_eps:
@@ -322,7 +327,7 @@ class al_iLQR(iLQR_template):
         else:
             logging.info("satisfy constraint, but not converge, id: {:d} and r_penalty: {:.3f} and violations:{:.3f}:".format(self.robot_id, self.r_penalty, violations[-1]))
         return {
-            "x": np.array(self.solution.x),    # ← 转为可变的 NumPy array
-            "u": np.array(self.solution.u),
-            "px": [np.array(arr) for arr in self.solution.px]
+            "x": self.solution.x,    # ← 转为可变的 NumPy array
+            "u": self.solution.u,
+            "px": [arr for arr in self.solution.px]
         }, True

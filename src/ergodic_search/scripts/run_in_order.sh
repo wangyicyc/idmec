@@ -1,6 +1,6 @@
 #!/bin/bash
 # 循环10次
-for count in {1..2}
+for count in {4..10}
 do
     # 构建上级目录中的文件夹路径
     folder_name="../case${count}"
