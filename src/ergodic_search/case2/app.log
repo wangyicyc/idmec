@@ -1,0 +1,295 @@
+2026-01-03 00:22:59,117 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-01-03 00:22:59,118 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-01-03 00:23:01,291 [INFO] topicmanager initialized
+2026-01-03 00:23:01,337 [INFO] Log opened: Fri Jan  2 16:23:01 2026 UTC
+2026-01-03 00:23:04,641 [INFO] baseline
+2026-01-03 00:23:10,511 [INFO] iter:8, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:23:10,560 [INFO] iter:8, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:23:41,550 [INFO] iter:268, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:23:41,740 [INFO] iter:268, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:23:42,102 [WARNING] connect time:5, accumulated time:5
+2026-01-03 00:23:45,659 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:23:45,660 [INFO] iter:2, id:2, r:1.000 and violateion:0.002
+2026-01-03 00:23:45,852 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:23:46,018 [INFO] iter:2, id:1, r:1.000 and violateion:0.002
+2026-01-03 00:23:46,124 [WARNING] connect time:5, accumulated time:10
+2026-01-03 00:23:49,812 [INFO] iter:2, id:2, r:1.000 and violateion:0.001
+2026-01-03 00:23:49,878 [INFO] iter:2, id:1, r:1.000 and violateion:0.001
+2026-01-03 00:23:50,101 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:23:50,149 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:23:50,258 [WARNING] connect time:5, accumulated time:15
+2026-01-03 00:23:53,999 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:23:54,150 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:23:54,353 [INFO] iter:1, id:1, r:1.000 and violateion:0.002
+2026-01-03 00:23:54,419 [INFO] iter:1, id:2, r:1.000 and violateion:0.002
+2026-01-03 00:23:55,356 [INFO] update map
+2026-01-03 00:23:56,017 [WARNING] connect time:5, accumulated time:20
+2026-01-03 00:23:59,598 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:24:00,017 [INFO] iter:1, id:1, r:1.000 and violateion:0.001
+2026-01-03 00:24:00,057 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:24:00,118 [INFO] iter:1, id:2, r:1.000 and violateion:0.001
+2026-01-03 00:24:00,228 [WARNING] connect time:5, accumulated time:25
+2026-01-03 00:24:03,873 [INFO] iter:1, id:1, r:1.000 and violateion:0.001
+2026-01-03 00:24:04,321 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:24:04,350 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:24:04,438 [INFO] iter:1, id:2, r:1.000 and violateion:0.001
+2026-01-03 00:24:04,546 [WARNING] connect time:5, accumulated time:30
+2026-01-03 00:24:07,897 [INFO] iter:1, id:2, r:1.000 and violateion:0.001
+2026-01-03 00:24:08,171 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:24:08,340 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:24:08,480 [INFO] iter:1, id:1, r:1.000 and violateion:0.001
+2026-01-03 00:24:08,589 [WARNING] connect time:5, accumulated time:35
+2026-01-03 00:24:12,232 [INFO] iter:1, id:2, r:1.000 and violateion:0.001
+2026-01-03 00:24:12,301 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:24:12,501 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:24:12,729 [INFO] iter:1, id:1, r:1.000 and violateion:0.001
+2026-01-03 00:24:12,765 [INFO] update map
+2026-01-03 00:24:12,905 [WARNING] connect time:5, accumulated time:40
+2026-01-03 00:24:16,693 [INFO] iter:1, id:2, r:1.000 and violateion:0.001
+2026-01-03 00:24:17,410 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:24:17,476 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:24:17,557 [INFO] iter:1, id:1, r:1.000 and violateion:0.001
+2026-01-03 00:24:17,673 [WARNING] connect time:5, accumulated time:45
+2026-01-03 00:24:21,273 [INFO] iter:1, id:1, r:1.000 and violateion:0.001
+2026-01-03 00:24:21,506 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:24:21,534 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:24:21,616 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:24:21,698 [WARNING] connect time:5, accumulated time:50
+2026-01-03 00:24:26,050 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:24:26,243 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:24:26,532 [INFO] iter:11, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:24:26,719 [INFO] iter:15, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:24:26,767 [WARNING] connect time:5, accumulated time:55
+2026-01-03 00:24:30,114 [INFO] iter:2, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:24:30,372 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:24:30,442 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:24:30,492 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:24:30,524 [INFO] update map
+2026-01-03 00:24:30,605 [WARNING] connect time:5, accumulated time:60
+2026-01-03 00:24:33,973 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:24:34,459 [INFO] iter:2, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:24:34,518 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:24:34,565 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:24:34,612 [WARNING] connect time:5, accumulated time:65
+2026-01-03 00:24:38,436 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:24:38,437 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:24:38,781 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:24:38,835 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:24:38,882 [WARNING] connect time:5, accumulated time:70
+2026-01-03 00:24:42,562 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:24:42,662 [INFO] iter:2, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:24:42,738 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:24:42,738 [INFO] iter:2, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:24:42,784 [WARNING] connect time:5, accumulated time:75
+2026-01-03 00:24:46,965 [INFO] iter:1, id:1, r:1.000 and violateion:0.001
+2026-01-03 00:24:47,029 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:24:47,148 [INFO] iter:1, id:2, r:1.000 and violateion:0.001
+2026-01-03 00:24:47,162 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:24:47,196 [INFO] update map
+2026-01-03 00:24:47,273 [WARNING] connect time:5, accumulated time:80
+2026-01-03 00:24:50,815 [INFO] iter:3, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:24:51,037 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:24:51,037 [INFO] iter:8, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:24:51,337 [INFO] iter:10, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:24:51,385 [WARNING] connect time:5, accumulated time:85
+2026-01-03 00:24:54,599 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:24:54,868 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:24:54,948 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:24:54,948 [INFO] iter:3, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:24:54,995 [WARNING] connect time:5, accumulated time:90
+2026-01-03 00:24:58,707 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:24:59,025 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:24:59,054 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:24:59,145 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:24:59,200 [WARNING] connect time:5, accumulated time:95
+2026-01-03 00:25:02,287 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:25:02,583 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:25:02,676 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:25:02,725 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:25:04,527 [INFO] signal_shutdown [atexit]
+2026-01-03 00:25:11,764 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-01-03 00:25:11,765 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-01-03 00:25:14,083 [INFO] topicmanager initialized
+2026-01-03 00:25:14,129 [INFO] Log opened: Fri Jan  2 16:25:14 2026 UTC
+2026-01-03 00:25:17,575 [INFO] baseline2
+2026-01-03 00:25:23,215 [INFO] iter:8, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:25:23,395 [INFO] iter:8, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:25:54,566 [INFO] iter:268, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:25:54,693 [INFO] iter:268, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:25:55,764 [WARNING] connect time:5, accumulated time:5, and the robot pair:[]
+2026-01-03 00:25:59,721 [INFO] iter:3, id:2, r:1.000 and violateion:0.001
+2026-01-03 00:26:00,435 [INFO] iter:3, id:1, r:1.000 and violateion:0.001
+2026-01-03 00:26:02,192 [INFO] iter:20, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:26:02,374 [INFO] iter:20, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:26:03,193 [WARNING] connect time:5, accumulated time:10, and the robot pair:[]
+2026-01-03 00:26:08,396 [INFO] iter:5, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:26:08,446 [INFO] iter:5, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:26:10,179 [INFO] iter:26, id:2, r:1.050 and violateion:0.000
+2026-01-03 00:26:10,544 [INFO] iter:26, id:1, r:1.050 and violateion:0.000
+2026-01-03 00:26:11,098 [WARNING] connect time:0, accumulated time:10, and the robot pair:[(1, 2)]
+2026-01-03 00:26:15,353 [INFO] iter:18, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:26:15,487 [INFO] iter:18, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:26:15,665 [WARNING] connect time:4, accumulated time:14, and the robot pair:[(1, 2)]
+2026-01-03 00:26:18,770 [INFO] iter:3, id:2, r:1.000 and violateion:0.001
+2026-01-03 00:26:18,837 [INFO] iter:3, id:1, r:1.000 and violateion:0.001
+2026-01-03 00:26:19,442 [WARNING] connect time:1, accumulated time:15, and the robot pair:[]
+2026-01-03 00:26:22,641 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:26:23,109 [INFO] iter:2, id:1, r:1.000 and violateion:0.003
+2026-01-03 00:26:23,206 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:26:23,386 [INFO] iter:2, id:2, r:1.000 and violateion:0.003
+2026-01-03 00:26:23,787 [WARNING] connect time:3, accumulated time:18, and the robot pair:[(1, 2)]
+2026-01-03 00:26:27,011 [INFO] iter:1, id:2, r:1.000 and violateion:0.003
+2026-01-03 00:26:27,012 [INFO] iter:1, id:1, r:1.000 and violateion:0.003
+2026-01-03 00:26:28,467 [INFO] update map
+2026-01-03 00:26:28,611 [WARNING] connect time:2, accumulated time:20, and the robot pair:[]
+2026-01-03 00:26:32,535 [INFO] iter:4, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:26:33,222 [INFO] iter:2, id:1, r:1.000 and violateion:0.004
+2026-01-03 00:26:33,236 [INFO] iter:2, id:2, r:1.000 and violateion:0.004
+2026-01-03 00:26:33,281 [INFO] iter:4, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:26:33,894 [WARNING] connect time:2, accumulated time:22, and the robot pair:[(1, 2)]
+2026-01-03 00:26:38,463 [INFO] iter:14, id:1, r:1.000 and violateion:0.001
+2026-01-03 00:26:38,463 [INFO] iter:14, id:2, r:1.000 and violateion:0.001
+2026-01-03 00:26:39,079 [WARNING] connect time:3, accumulated time:25, and the robot pair:[]
+2026-01-03 00:26:43,257 [INFO] iter:4, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:26:43,258 [INFO] iter:4, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:26:43,539 [INFO] iter:3, id:1, r:1.000 and violateion:0.002
+2026-01-03 00:26:43,597 [INFO] iter:3, id:2, r:1.000 and violateion:0.002
+2026-01-03 00:26:44,194 [WARNING] connect time:1, accumulated time:26, and the robot pair:[(1, 2)]
+2026-01-03 00:26:47,486 [INFO] iter:4, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:26:48,031 [INFO] iter:14, id:1, r:1.000 and violateion:0.001
+2026-01-03 00:26:48,640 [WARNING] connect time:4, accumulated time:30, and the robot pair:[]
+2026-01-03 00:26:52,422 [INFO] iter:3, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:26:52,651 [INFO] iter:4, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:26:52,808 [INFO] iter:3, id:2, r:1.050 and violateion:0.000
+2026-01-03 00:26:53,024 [INFO] iter:6, id:1, r:1.050 and violateion:0.000
+2026-01-03 00:26:53,724 [WARNING] connect time:0, accumulated time:30, and the robot pair:[(1, 2)]
+2026-01-03 00:26:56,981 [INFO] iter:4, id:1, r:1.050 and violateion:0.000
+2026-01-03 00:26:57,614 [INFO] iter:16, id:2, r:1.000 and violateion:0.001
+2026-01-03 00:26:57,778 [WARNING] connect time:4, accumulated time:34, and the robot pair:[(1, 2)]
+2026-01-03 00:27:01,966 [INFO] iter:12, id:1, r:1.103 and violateion:0.000
+2026-01-03 00:27:02,025 [INFO] iter:13, id:2, r:1.103 and violateion:0.000
+2026-01-03 00:27:02,482 [WARNING] connect time:1, accumulated time:35, and the robot pair:[]
+2026-01-03 00:27:06,214 [INFO] iter:4, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:27:07,005 [INFO] iter:5, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:27:07,498 [INFO] iter:9, id:2, r:1.103 and violateion:0.001
+2026-01-03 00:27:07,552 [INFO] iter:9, id:1, r:1.103 and violateion:0.002
+2026-01-03 00:27:08,035 [INFO] update map
+2026-01-03 00:27:08,177 [WARNING] connect time:5, accumulated time:40, and the robot pair:[]
+2026-01-03 00:27:12,611 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:27:12,998 [INFO] iter:4, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:27:20,092 [INFO] iter:77, id:1, r:1.103 and violateion:0.001
+2026-01-03 00:27:21,420 [INFO] iter:113, id:2, r:1.103 and violateion:0.000
+2026-01-03 00:27:22,038 [WARNING] connect time:5, accumulated time:45, and the robot pair:[]
+2026-01-03 00:27:25,830 [INFO] iter:3, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:27:26,275 [INFO] iter:1, id:2, r:1.050 and violateion:0.008
+2026-01-03 00:27:26,372 [INFO] iter:4, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:27:26,946 [INFO] iter:15, id:1, r:1.103 and violateion:0.000
+2026-01-03 00:27:27,360 [WARNING] connect time:5, accumulated time:50, and the robot pair:[]
+2026-01-03 00:27:31,194 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:27:31,575 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:27:32,068 [INFO] iter:1, id:1, r:1.050 and violateion:0.001
+2026-01-03 00:27:33,600 [INFO] iter:35, id:2, r:1.103 and violateion:0.000
+2026-01-03 00:27:34,449 [WARNING] connect time:5, accumulated time:55, and the robot pair:[]
+2026-01-03 00:27:38,355 [INFO] iter:3, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:27:38,558 [INFO] iter:1, id:2, r:1.050 and violateion:0.003
+2026-01-03 00:27:38,573 [INFO] iter:3, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:27:41,281 [INFO] iter:69, id:1, r:1.796 and violateion:0.000
+2026-01-03 00:27:41,837 [INFO] update map
+2026-01-03 00:27:41,974 [WARNING] connect time:5, accumulated time:60, and the robot pair:[]
+2026-01-03 00:27:46,051 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:27:46,297 [INFO] iter:3, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:27:46,464 [INFO] iter:5, id:1, r:1.050 and violateion:0.000
+2026-01-03 00:27:47,059 [INFO] iter:23, id:2, r:1.216 and violateion:0.000
+2026-01-03 00:27:47,615 [WARNING] connect time:0, accumulated time:60, and the robot pair:[(0, 1), (2, 3)]
+2026-01-03 00:27:51,504 [INFO] iter:3, id:1, r:1.050 and violateion:0.000
+2026-01-03 00:27:52,373 [INFO] iter:4, id:2, r:1.050 and violateion:0.000
+2026-01-03 00:27:52,624 [INFO] iter:17, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:27:52,924 [INFO] iter:15, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:27:53,347 [WARNING] connect time:4, accumulated time:64, and the robot pair:[(0, 1), (2, 3)]
+2026-01-03 00:27:56,895 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:27:57,445 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:28:00,099 [INFO] iter:35, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:28:14,048 [INFO] iter:371, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:28:14,697 [WARNING] connect time:1, accumulated time:65, and the robot pair:[]
+2026-01-03 00:28:18,606 [INFO] iter:2, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:28:18,607 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:28:18,831 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:28:22,281 [INFO] iter:81, id:0, r:1.050 and violateion:0.000
+2026-01-03 00:28:22,931 [WARNING] connect time:3, accumulated time:68, and the robot pair:[(0, 1), (2, 3)]
+2026-01-03 00:28:26,494 [INFO] iter:2, id:0, r:1.000 and violateion:0.002
+2026-01-03 00:28:26,634 [INFO] iter:3, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:28:26,677 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:28:26,740 [INFO] iter:1, id:2, r:1.000 and violateion:0.001
+2026-01-03 00:28:27,155 [WARNING] connect time:2, accumulated time:70, and the robot pair:[]
+2026-01-03 00:28:31,596 [INFO] iter:0, id:2, r:1.000 and violateion:0.003
+2026-01-03 00:28:31,665 [INFO] iter:1, id:3, r:1.000 and violateion:0.001
+2026-01-03 00:28:32,249 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:28:32,665 [INFO] iter:10, id:0, r:1.050 and violateion:0.000
+2026-01-03 00:28:33,058 [WARNING] connect time:2, accumulated time:72, and the robot pair:[(0, 1), (2, 3)]
+2026-01-03 00:28:36,629 [INFO] iter:1, id:1, r:1.000 and violateion:0.010
+2026-01-03 00:28:36,743 [INFO] iter:0, id:2, r:1.000 and violateion:0.002
+2026-01-03 00:28:36,744 [INFO] iter:4, id:0, r:1.000 and violateion:0.002
+2026-01-03 00:28:36,787 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:28:37,212 [WARNING] connect time:3, accumulated time:75, and the robot pair:[]
+2026-01-03 00:28:41,156 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:28:41,212 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:28:41,731 [INFO] iter:3, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:28:41,769 [INFO] iter:3, id:2, r:1.000 and violateion:0.003
+2026-01-03 00:28:42,155 [WARNING] connect time:1, accumulated time:76, and the robot pair:[(0, 1), (2, 3)]
+2026-01-03 00:28:45,765 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:28:46,306 [INFO] iter:2, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:28:46,306 [INFO] iter:2, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:28:46,349 [INFO] iter:5, id:0, r:1.000 and violateion:0.001
+2026-01-03 00:28:46,769 [INFO] update map
+2026-01-03 00:28:46,893 [WARNING] connect time:4, accumulated time:80, and the robot pair:[]
+2026-01-03 00:28:51,350 [INFO] iter:1, id:1, r:1.000 and violateion:0.002
+2026-01-03 00:28:51,614 [INFO] iter:8, id:0, r:1.000 and violateion:0.001
+2026-01-03 00:28:51,881 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:28:51,923 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:28:52,424 [WARNING] connect time:0, accumulated time:80, and the robot pair:[(0, 1), (2, 3)]
+2026-01-03 00:28:55,799 [INFO] iter:5, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:28:55,851 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:28:56,346 [INFO] iter:9, id:2, r:1.000 and violateion:0.001
+2026-01-03 00:28:56,420 [INFO] iter:15, id:1, r:1.000 and violateion:0.001
+2026-01-03 00:28:56,559 [WARNING] connect time:4, accumulated time:84, and the robot pair:[(0, 1), (2, 3)]
+2026-01-03 00:28:59,941 [INFO] iter:2, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:29:00,402 [INFO] iter:2, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:29:00,474 [INFO] iter:5, id:1, r:1.103 and violateion:0.000
+2026-01-03 00:29:00,997 [INFO] iter:19, id:2, r:1.103 and violateion:0.007
+2026-01-03 00:29:01,575 [WARNING] connect time:1, accumulated time:85, and the robot pair:[]
+2026-01-03 00:29:05,180 [INFO] iter:0, id:0, r:1.000 and violateion:0.003
+2026-01-03 00:29:05,433 [INFO] iter:0, id:3, r:1.000 and violateion:0.003
+2026-01-03 00:29:05,809 [INFO] iter:5, id:2, r:1.000 and violateion:0.004
+2026-01-03 00:29:06,039 [INFO] iter:16, id:1, r:1.000 and violateion:0.002
+2026-01-03 00:29:06,435 [WARNING] connect time:3, accumulated time:88, and the robot pair:[(0, 1), (2, 3)]
+2026-01-03 00:29:10,206 [INFO] iter:3, id:0, r:1.000 and violateion:0.001
+2026-01-03 00:29:10,559 [INFO] iter:5, id:1, r:1.050 and violateion:0.001
+2026-01-03 00:29:10,645 [INFO] iter:4, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:29:10,645 [INFO] iter:5, id:2, r:1.000 and violateion:0.002
+2026-01-03 00:29:11,242 [WARNING] connect time:2, accumulated time:90, and the robot pair:[]
+2026-01-03 00:29:14,791 [INFO] iter:0, id:3, r:1.000 and violateion:0.002
+2026-01-03 00:29:14,997 [INFO] iter:0, id:1, r:1.000 and violateion:0.001
+2026-01-03 00:29:15,373 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:29:15,421 [INFO] iter:2, id:2, r:1.000 and violateion:0.001
+2026-01-03 00:29:15,810 [WARNING] connect time:2, accumulated time:92, and the robot pair:[(0, 1), (2, 3)]
+2026-01-03 00:29:20,440 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-03 00:29:20,702 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:29:20,791 [INFO] iter:3, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:29:20,825 [INFO] iter:5, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:29:21,399 [WARNING] connect time:3, accumulated time:95, and the robot pair:[]
+2026-01-03 00:29:25,145 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-01-03 00:29:25,274 [INFO] iter:0, id:2, r:1.000 and violateion:0.001
+2026-01-03 00:29:25,497 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:29:25,500 [INFO] iter:0, id:1, r:1.000 and violateion:0.002
+2026-01-03 00:29:26,084 [WARNING] connect time:1, accumulated time:96, and the robot pair:[(0, 1), (2, 3)]
+2026-01-03 00:29:29,458 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-03 00:29:29,638 [INFO] iter:0, id:2, r:1.000 and violateion:0.002
+2026-01-03 00:29:29,713 [INFO] iter:0, id:0, r:1.000 and violateion:0.002
+2026-01-03 00:29:29,717 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-03 00:29:32,150 [INFO] signal_shutdown [atexit]
+2026-01-03 00:29:41,718 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-01-03 00:29:41,719 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-01-03 00:29:44,019 [INFO] topicmanager initialized
+2026-01-03 00:29:44,071 [INFO] Log opened: Fri Jan  2 16:29:44 2026 UTC
+2026-01-03 00:29:47,847 [INFO] my_strategy
+2026-01-03 00:29:48,240 [INFO] signal_shutdown [atexit]
