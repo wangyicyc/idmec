@@ -62,3 +62,1366 @@
 2026-01-10 14:34:27,999 [INFO] update map
 2026-01-10 14:34:28,220 [WARNING] connect time:4, accumulated time:40, and the robot pair:[]
 2026-01-10 14:34:32,230 [INFO] signal_shutdown [atexit]
+2026-01-10 15:55:53,434 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-01-10 15:55:53,439 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-01-10 15:55:56,808 [INFO] topicmanager initialized
+2026-01-10 15:55:56,876 [INFO] Log opened: Sat Jan 10 07:55:56 2026 UTC
+2026-01-10 15:56:01,462 [INFO] my_strategy
+2026-01-10 15:56:08,619 [INFO] signal_shutdown [atexit]
+2026-01-10 16:24:14,551 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-01-10 16:24:14,556 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-01-10 16:24:17,781 [INFO] topicmanager initialized
+2026-01-10 16:24:17,845 [INFO] Log opened: Sat Jan 10 08:24:17 2026 UTC
+2026-01-10 16:24:21,947 [INFO] baseline
+2026-01-10 16:24:27,112 [INFO] iter:2, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:24:27,228 [INFO] iter:3, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:24:28,343 [INFO] iter:14, id:1, r:1.276 and violateion:0.000
+2026-01-10 16:24:29,037 [INFO] iter:25, id:2, r:1.103 and violateion:0.002
+2026-01-10 16:24:29,390 [WARNING] connect time:5, accumulated time:5
+2026-01-10 16:24:32,993 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:24:33,453 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:24:36,571 [INFO] iter:32, id:1, r:1.103 and violateion:0.000
+2026-01-10 16:25:38,690 [INFO] satisfy constraint, but not converge, id: 2 and r_penalty: 1.000 and violations:0.000:
+2026-01-10 16:25:38,811 [WARNING] connect time:5, accumulated time:10
+2026-01-10 16:25:42,590 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:25:43,048 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:25:43,184 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:25:55,368 [INFO] iter:205, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:25:55,486 [WARNING] connect time:5, accumulated time:15
+2026-01-10 16:25:59,065 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:25:59,481 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:25:59,726 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:26:00,096 [INFO] iter:7, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:26:01,070 [INFO] update map
+2026-01-10 16:26:01,744 [WARNING] connect time:5, accumulated time:20
+2026-01-10 16:26:05,352 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:26:05,544 [INFO] iter:5, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:26:05,693 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:26:05,746 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:26:05,857 [WARNING] connect time:5, accumulated time:25
+2026-01-10 16:26:09,289 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:26:09,315 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:26:09,742 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:26:10,980 [INFO] iter:19, id:2, r:1.050 and violateion:0.000
+2026-01-10 16:26:11,093 [WARNING] connect time:5, accumulated time:30
+2026-01-10 16:26:14,425 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:26:14,490 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:26:14,741 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:26:14,790 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:26:14,899 [WARNING] connect time:5, accumulated time:35
+2026-01-10 16:26:18,607 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:26:18,976 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:26:19,104 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:26:19,148 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:26:19,184 [INFO] update map
+2026-01-10 16:26:19,329 [WARNING] connect time:5, accumulated time:40
+2026-01-10 16:26:23,124 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:26:23,125 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:26:23,582 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:26:23,730 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:26:23,841 [WARNING] connect time:5, accumulated time:45
+2026-01-10 16:26:27,039 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:26:27,149 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:26:27,623 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:26:27,682 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:26:27,766 [WARNING] connect time:5, accumulated time:50
+2026-01-10 16:26:31,358 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:26:31,753 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:26:32,026 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:26:32,172 [INFO] iter:12, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:26:32,226 [WARNING] connect time:5, accumulated time:55
+2026-01-10 16:26:35,485 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:26:35,915 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:26:35,915 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:26:36,008 [INFO] iter:8, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:26:36,042 [INFO] update map
+2026-01-10 16:26:36,121 [WARNING] connect time:5, accumulated time:60
+2026-01-10 16:26:39,902 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:26:40,117 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:26:40,394 [INFO] iter:3, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:26:42,243 [INFO] iter:53, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:26:42,302 [WARNING] connect time:5, accumulated time:65
+2026-01-10 16:26:46,201 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:26:46,271 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:26:46,562 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:26:48,210 [INFO] iter:37, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:26:48,257 [WARNING] connect time:5, accumulated time:70
+2026-01-10 16:26:51,563 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:26:52,000 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:26:52,076 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:26:52,121 [INFO] iter:12, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:26:52,171 [WARNING] connect time:5, accumulated time:75
+2026-01-10 16:26:56,423 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:26:56,691 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:26:56,718 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:26:56,851 [INFO] iter:8, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:26:56,884 [INFO] update map
+2026-01-10 16:26:56,969 [WARNING] connect time:5, accumulated time:80
+2026-01-10 16:27:00,812 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:27:01,207 [INFO] iter:5, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:27:01,263 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:27:01,264 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:27:01,319 [WARNING] connect time:5, accumulated time:85
+2026-01-10 16:27:04,773 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:27:05,367 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:27:05,539 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:27:05,659 [INFO] iter:5, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:27:05,722 [WARNING] connect time:5, accumulated time:90
+2026-01-10 16:27:10,990 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:27:11,226 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:27:11,227 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:27:11,308 [INFO] iter:2, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:27:11,359 [WARNING] connect time:5, accumulated time:95
+2026-01-10 16:27:15,042 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 16:27:15,242 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 16:27:15,257 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 16:27:15,463 [INFO] iter:11, id:2, r:1.000 and violateion:0.000
+2026-01-10 16:27:17,496 [INFO] signal_shutdown [atexit]
+2026-01-10 18:22:45,856 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-01-10 18:22:45,862 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-01-10 18:22:49,651 [INFO] topicmanager initialized
+2026-01-10 18:22:49,725 [INFO] Log opened: Sat Jan 10 10:22:49 2026 UTC
+2026-01-10 18:22:54,282 [INFO] baseline
+2026-01-10 18:22:58,968 [INFO] iter:2, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:22:59,421 [INFO] iter:3, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:23:00,907 [INFO] iter:14, id:1, r:1.276 and violateion:0.000
+2026-01-10 18:23:01,533 [INFO] iter:25, id:2, r:1.103 and violateion:0.002
+2026-01-10 18:23:01,913 [WARNING] connect time:5, accumulated time:5
+2026-01-10 18:23:05,893 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:23:06,439 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:23:10,510 [INFO] iter:32, id:1, r:1.103 and violateion:0.000
+2026-01-10 18:24:14,690 [INFO] satisfy constraint, but not converge, id: 2 and r_penalty: 1.000 and violations:0.000:
+2026-01-10 18:24:14,832 [WARNING] connect time:5, accumulated time:10
+2026-01-10 18:24:19,080 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:24:19,510 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:24:19,511 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:24:32,857 [INFO] iter:205, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:24:32,976 [WARNING] connect time:5, accumulated time:15
+2026-01-10 18:24:37,282 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:24:37,332 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:24:37,504 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:24:38,010 [INFO] iter:7, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:24:39,029 [INFO] update map
+2026-01-10 18:24:39,757 [WARNING] connect time:5, accumulated time:20
+2026-01-10 18:24:43,489 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:24:43,561 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:24:43,946 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:24:44,282 [INFO] iter:5, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:24:44,410 [WARNING] connect time:5, accumulated time:25
+2026-01-10 18:24:48,670 [INFO] iter:7, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:24:48,747 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:24:48,921 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:24:48,950 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:24:49,070 [WARNING] connect time:5, accumulated time:30
+2026-01-10 18:24:53,315 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:24:53,519 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:24:53,551 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:24:53,758 [INFO] iter:7, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:24:53,876 [WARNING] connect time:5, accumulated time:35
+2026-01-10 18:24:57,887 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:24:58,181 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:24:58,429 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:24:58,486 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:24:58,526 [INFO] update map
+2026-01-10 18:24:58,679 [WARNING] connect time:5, accumulated time:40
+2026-01-10 18:25:02,855 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:25:03,069 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:25:03,413 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:25:03,453 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:25:03,572 [WARNING] connect time:5, accumulated time:45
+2026-01-10 18:25:07,431 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:25:07,517 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:25:07,745 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:25:07,745 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:25:07,831 [WARNING] connect time:5, accumulated time:50
+2026-01-10 18:25:11,857 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:25:12,179 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:25:12,546 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:25:13,118 [INFO] iter:12, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:25:13,171 [WARNING] connect time:5, accumulated time:55
+2026-01-10 18:25:16,662 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:25:16,856 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:25:17,352 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:25:17,645 [INFO] iter:8, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:25:17,681 [INFO] update map
+2026-01-10 18:25:17,773 [WARNING] connect time:5, accumulated time:60
+2026-01-10 18:25:22,788 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:25:23,251 [INFO] iter:3, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:25:29,055 [INFO] iter:67, id:3, r:1.796 and violateion:0.002
+2026-01-10 18:25:29,744 [INFO] iter:84, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:25:29,800 [WARNING] connect time:5, accumulated time:65
+2026-01-10 18:25:33,760 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:25:34,059 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:25:34,149 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:25:44,565 [INFO] iter:232, id:3, r:1.276 and violateion:0.002
+2026-01-10 18:25:44,618 [WARNING] connect time:5, accumulated time:70
+2026-01-10 18:25:48,314 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:25:48,643 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:25:50,040 [INFO] iter:17, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:25:52,349 [INFO] iter:75, id:3, r:1.340 and violateion:0.006
+2026-01-10 18:25:52,406 [WARNING] connect time:5, accumulated time:75
+2026-01-10 18:25:56,543 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:25:57,081 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:25:57,846 [INFO] iter:11, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:25:58,104 [INFO] iter:28, id:3, r:1.103 and violateion:0.000
+2026-01-10 18:25:58,141 [INFO] update map
+2026-01-10 18:25:58,229 [WARNING] connect time:5, accumulated time:80
+2026-01-10 18:26:02,527 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:26:02,548 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:26:02,625 [INFO] iter:6, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:26:02,956 [INFO] iter:11, id:3, r:1.050 and violateion:0.001
+2026-01-10 18:26:03,009 [WARNING] connect time:5, accumulated time:85
+2026-01-10 18:26:06,497 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:26:07,134 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:26:07,183 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:26:07,474 [INFO] iter:13, id:3, r:1.000 and violateion:0.001
+2026-01-10 18:26:07,528 [WARNING] connect time:5, accumulated time:90
+2026-01-10 18:26:11,694 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:26:12,256 [INFO] iter:2, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:26:12,256 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:26:12,303 [INFO] iter:2, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:26:12,353 [WARNING] connect time:5, accumulated time:95
+2026-01-10 18:26:15,830 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:26:15,874 [INFO] iter:3, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:26:16,021 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:26:16,582 [INFO] iter:12, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:26:18,974 [INFO] signal_shutdown [atexit]
+2026-01-10 18:33:53,109 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-01-10 18:33:53,111 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-01-10 18:33:55,822 [INFO] topicmanager initialized
+2026-01-10 18:33:55,886 [INFO] Log opened: Sat Jan 10 10:33:55 2026 UTC
+2026-01-10 18:33:59,972 [INFO] my_strategy
+2026-01-10 18:34:25,298 [INFO] iter:63, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:34:25,364 [INFO] iter:63, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:34:25,533 [INFO] iter:63, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:34:25,537 [INFO] iter:63, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:34:25,540 [INFO] have warm up
+2026-01-10 18:35:11,094 [INFO] iter:152, id:3, r:273.382 and violateion:0.000
+2026-01-10 18:35:12,188 [INFO] iter:152, id:0, r:273.382 and violateion:0.000
+2026-01-10 18:35:13,097 [INFO] iter:152, id:2, r:273.382 and violateion:0.000
+2026-01-10 18:35:13,339 [INFO] iter:152, id:1, r:273.382 and violateion:0.000
+2026-01-10 18:35:15,628 [INFO] merge map
+2026-01-10 18:35:15,630 [INFO] merge map
+2026-01-10 18:35:15,633 [INFO] merge map
+2026-01-10 18:35:15,634 [INFO] merge map
+2026-01-10 18:35:15,960 [WARNING] connect time:5, accumulated time:5, and the robot pair:[]
+2026-01-10 18:35:19,727 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:35:19,962 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:35:20,255 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:35:20,692 [INFO] iter:6, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:35:20,694 [INFO] have warm up
+2026-01-10 18:35:26,907 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:35:27,216 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:35:27,748 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:35:27,781 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:35:29,931 [WARNING] connect time:2, accumulated time:7, and the robot pair:[(2, 3)]
+2026-01-10 18:35:33,656 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:35:33,735 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:35:33,737 [INFO] have warm up
+2026-01-10 18:35:39,361 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:35:39,365 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:35:40,360 [INFO] merge map
+2026-01-10 18:35:40,362 [INFO] merge map
+2026-01-10 18:35:40,364 [INFO] merge map
+2026-01-10 18:35:40,366 [INFO] merge map
+2026-01-10 18:35:40,704 [WARNING] connect time:3, accumulated time:10, and the robot pair:[]
+2026-01-10 18:35:44,571 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:35:45,097 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:35:45,153 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:35:45,532 [INFO] iter:16, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:35:45,533 [INFO] have warm up
+2026-01-10 18:35:51,543 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:35:52,241 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:35:52,382 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:35:52,423 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:35:53,411 [WARNING] connect time:0, accumulated time:10, and the robot pair:[(1, 2)]
+2026-01-10 18:35:55,605 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:35:55,799 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:35:55,800 [INFO] have warm up
+2026-01-10 18:35:59,790 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:35:59,894 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:36:00,440 [WARNING] connect time:1, accumulated time:11, and the robot pair:[(2, 3)]
+2026-01-10 18:36:04,143 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:36:04,233 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:36:04,234 [INFO] have warm up
+2026-01-10 18:36:09,762 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:36:09,788 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:36:11,247 [WARNING] connect time:3, accumulated time:14, and the robot pair:[(1, 2)]
+2026-01-10 18:36:14,834 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:36:14,910 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:36:14,911 [INFO] have warm up
+2026-01-10 18:36:19,923 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:36:20,048 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:36:21,010 [INFO] merge map
+2026-01-10 18:36:21,013 [INFO] merge map
+2026-01-10 18:36:21,015 [INFO] merge map
+2026-01-10 18:36:21,016 [INFO] merge map
+2026-01-10 18:36:21,333 [WARNING] connect time:1, accumulated time:15, and the robot pair:[]
+2026-01-10 18:36:25,660 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:36:25,722 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:36:26,132 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:36:26,132 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:36:26,136 [INFO] have warm up
+2026-01-10 18:36:31,860 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:36:32,199 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:36:32,410 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:36:32,576 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:36:33,803 [WARNING] connect time:0, accumulated time:15, and the robot pair:[(2, 3)]
+2026-01-10 18:36:36,085 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:36:36,336 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:36:36,338 [INFO] have warm up
+2026-01-10 18:36:40,150 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:36:40,305 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:36:40,954 [WARNING] connect time:3, accumulated time:18, and the robot pair:[(1, 2)]
+2026-01-10 18:36:44,646 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:36:44,719 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:36:44,721 [INFO] have warm up
+2026-01-10 18:36:50,442 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:36:50,525 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:36:51,664 [WARNING] connect time:1, accumulated time:19, and the robot pair:[(2, 3)]
+2026-01-10 18:36:55,523 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:36:55,602 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:36:55,604 [INFO] have warm up
+2026-01-10 18:37:00,885 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:37:00,964 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:37:01,664 [INFO] merge map
+2026-01-10 18:37:01,666 [INFO] merge map
+2026-01-10 18:37:01,669 [INFO] merge map
+2026-01-10 18:37:01,671 [INFO] merge map
+2026-01-10 18:37:02,791 [INFO] update map
+2026-01-10 18:37:03,135 [WARNING] connect time:1, accumulated time:20, and the robot pair:[]
+2026-01-10 18:37:07,533 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:37:07,780 [INFO] iter:3, id:0, r:1.000 and violateion:0.001
+2026-01-10 18:37:08,355 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:37:08,394 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:37:08,396 [INFO] have warm up
+2026-01-10 18:37:14,421 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:37:14,866 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:37:15,045 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-01-10 18:37:15,078 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:37:16,838 [WARNING] connect time:2, accumulated time:22, and the robot pair:[(1, 2), (1, 3), (2, 3)]
+2026-01-10 18:37:21,102 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:37:21,105 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:37:21,127 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:37:21,129 [INFO] have warm up
+2026-01-10 18:37:27,572 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:37:27,576 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:37:27,643 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:37:28,849 [INFO] merge map
+2026-01-10 18:37:28,851 [INFO] merge map
+2026-01-10 18:37:28,854 [INFO] merge map
+2026-01-10 18:37:28,857 [INFO] merge map
+2026-01-10 18:37:29,227 [WARNING] connect time:3, accumulated time:25, and the robot pair:[]
+2026-01-10 18:37:33,617 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:37:33,638 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-01-10 18:37:34,327 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:37:34,400 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:37:34,402 [INFO] have warm up
+2026-01-10 18:37:40,265 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:37:40,665 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-01-10 18:37:41,216 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:37:41,262 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:37:42,824 [WARNING] connect time:1, accumulated time:26, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 18:38:10,669 [INFO] iter:96, id:1, r:103.035 and violateion:0.000
+2026-01-10 18:38:10,921 [INFO] iter:96, id:2, r:103.035 and violateion:0.000
+2026-01-10 18:38:11,065 [INFO] iter:96, id:3, r:103.035 and violateion:0.000
+2026-01-10 18:38:11,203 [INFO] iter:96, id:0, r:103.035 and violateion:0.000
+2026-01-10 18:38:11,207 [INFO] have warm up
+2026-01-10 18:38:17,266 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:38:17,334 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:38:17,844 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:38:17,873 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:38:19,104 [INFO] merge map
+2026-01-10 18:38:19,106 [INFO] merge map
+2026-01-10 18:38:19,108 [INFO] merge map
+2026-01-10 18:38:19,110 [INFO] merge map
+2026-01-10 18:38:19,463 [WARNING] connect time:4, accumulated time:30, and the robot pair:[]
+2026-01-10 18:38:24,186 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:38:24,634 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:38:24,705 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:38:24,752 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:38:24,754 [INFO] have warm up
+2026-01-10 18:38:30,322 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:38:30,591 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:38:31,211 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:38:31,246 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:38:32,612 [WARNING] connect time:0, accumulated time:30, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 18:38:35,511 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:38:35,893 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:38:35,987 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:38:36,084 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:38:36,087 [INFO] have warm up
+2026-01-10 18:38:41,104 [INFO] iter:0, id:2, r:1.000 and violateion:0.008
+2026-01-10 18:38:41,807 [INFO] iter:0, id:3, r:1.000 and violateion:0.008
+2026-01-10 18:38:42,080 [INFO] iter:0, id:1, r:1.000 and violateion:0.008
+2026-01-10 18:38:42,080 [INFO] iter:0, id:0, r:1.000 and violateion:0.008
+2026-01-10 18:38:42,715 [WARNING] connect time:4, accumulated time:34, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 18:38:47,490 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:38:47,615 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:38:47,761 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:38:47,806 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:38:47,808 [INFO] have warm up
+2026-01-10 18:39:04,681 [INFO] iter:55, id:1, r:12.041 and violateion:0.000
+2026-01-10 18:39:05,786 [INFO] iter:55, id:0, r:12.041 and violateion:0.000
+2026-01-10 18:39:06,405 [INFO] iter:55, id:3, r:12.041 and violateion:0.000
+2026-01-10 18:39:06,531 [INFO] iter:56, id:2, r:12.041 and violateion:0.014
+2026-01-10 18:39:07,990 [INFO] merge map
+2026-01-10 18:39:07,992 [INFO] merge map
+2026-01-10 18:39:07,994 [INFO] merge map
+2026-01-10 18:39:07,997 [INFO] merge map
+2026-01-10 18:39:08,329 [WARNING] connect time:1, accumulated time:35, and the robot pair:[]
+2026-01-10 18:39:13,079 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:39:13,104 [INFO] iter:0, id:2, r:1.000 and violateion:0.010
+2026-01-10 18:39:13,648 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:39:13,793 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:39:13,795 [INFO] have warm up
+2026-01-10 18:39:19,043 [INFO] iter:0, id:2, r:1.000 and violateion:0.010
+2026-01-10 18:39:19,924 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:39:20,022 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:39:20,099 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:39:21,723 [WARNING] connect time:3, accumulated time:38, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 18:39:26,214 [INFO] iter:2, id:2, r:1.000 and violateion:0.002
+2026-01-10 18:39:26,267 [INFO] iter:2, id:3, r:1.000 and violateion:0.003
+2026-01-10 18:39:26,612 [INFO] iter:2, id:0, r:1.000 and violateion:0.004
+2026-01-10 18:39:26,634 [INFO] iter:2, id:1, r:1.000 and violateion:0.004
+2026-01-10 18:39:26,637 [INFO] have warm up
+2026-01-10 18:39:31,721 [INFO] iter:0, id:3, r:1.000 and violateion:0.003
+2026-01-10 18:39:32,360 [INFO] iter:0, id:2, r:1.000 and violateion:0.002
+2026-01-10 18:39:32,926 [INFO] iter:0, id:0, r:1.000 and violateion:0.004
+2026-01-10 18:39:32,966 [INFO] iter:0, id:1, r:1.000 and violateion:0.004
+2026-01-10 18:39:33,950 [INFO] merge map
+2026-01-10 18:39:33,953 [INFO] merge map
+2026-01-10 18:39:33,955 [INFO] merge map
+2026-01-10 18:39:33,958 [INFO] merge map
+2026-01-10 18:39:34,146 [INFO] update map
+2026-01-10 18:39:34,529 [WARNING] connect time:2, accumulated time:40, and the robot pair:[]
+2026-01-10 18:39:38,812 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:39:38,815 [INFO] iter:0, id:1, r:1.000 and violateion:0.001
+2026-01-10 18:39:39,040 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-01-10 18:39:39,213 [INFO] iter:0, id:3, r:1.000 and violateion:0.001
+2026-01-10 18:39:39,215 [INFO] have warm up
+2026-01-10 18:39:44,393 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-01-10 18:39:45,326 [INFO] iter:0, id:1, r:1.000 and violateion:0.001
+2026-01-10 18:39:45,623 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:39:45,682 [INFO] iter:0, id:3, r:1.000 and violateion:0.001
+2026-01-10 18:39:46,840 [WARNING] connect time:2, accumulated time:42, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 18:39:51,885 [INFO] iter:1, id:0, r:1.000 and violateion:0.003
+2026-01-10 18:39:52,012 [INFO] iter:1, id:2, r:1.000 and violateion:0.003
+2026-01-10 18:39:52,295 [INFO] iter:1, id:3, r:1.000 and violateion:0.003
+2026-01-10 18:39:52,391 [INFO] iter:1, id:1, r:1.000 and violateion:0.003
+2026-01-10 18:39:52,393 [INFO] have warm up
+2026-01-10 18:39:57,521 [INFO] iter:0, id:2, r:1.000 and violateion:0.003
+2026-01-10 18:39:58,525 [INFO] iter:0, id:3, r:1.000 and violateion:0.003
+2026-01-10 18:39:58,627 [INFO] iter:0, id:1, r:1.000 and violateion:0.003
+2026-01-10 18:39:58,672 [INFO] iter:0, id:0, r:1.000 and violateion:0.003
+2026-01-10 18:39:59,854 [INFO] merge map
+2026-01-10 18:39:59,857 [INFO] merge map
+2026-01-10 18:39:59,859 [INFO] merge map
+2026-01-10 18:39:59,861 [INFO] merge map
+2026-01-10 18:40:00,223 [WARNING] connect time:3, accumulated time:45, and the robot pair:[]
+2026-01-10 18:40:04,434 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:40:04,689 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:40:04,736 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:40:04,860 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:40:04,862 [INFO] have warm up
+2026-01-10 18:40:11,022 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:40:11,108 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:40:11,299 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:40:11,347 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:40:12,949 [WARNING] connect time:1, accumulated time:46, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 18:40:17,556 [INFO] iter:2, id:0, r:1.000 and violateion:0.016
+2026-01-10 18:40:17,781 [INFO] iter:2, id:1, r:1.000 and violateion:0.003
+2026-01-10 18:40:17,998 [INFO] iter:3, id:3, r:1.000 and violateion:0.004
+2026-01-10 18:40:21,972 [INFO] iter:72, id:2, r:28.978 and violateion:0.000
+2026-01-10 18:40:21,974 [INFO] have warm up
+2026-01-10 18:40:27,506 [INFO] iter:0, id:0, r:1.000 and violateion:0.016
+2026-01-10 18:40:28,315 [INFO] iter:0, id:1, r:1.000 and violateion:0.003
+2026-01-10 18:40:28,393 [INFO] iter:0, id:3, r:1.000 and violateion:0.004
+2026-01-10 18:40:31,869 [INFO] iter:63, id:2, r:13.275 and violateion:0.000
+2026-01-10 18:40:32,821 [INFO] merge map
+2026-01-10 18:40:32,823 [INFO] merge map
+2026-01-10 18:40:32,825 [INFO] merge map
+2026-01-10 18:40:32,827 [INFO] merge map
+2026-01-10 18:40:33,177 [WARNING] connect time:4, accumulated time:50, and the robot pair:[]
+2026-01-10 18:40:38,390 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:40:38,701 [INFO] iter:0, id:0, r:1.000 and violateion:0.006
+2026-01-10 18:40:38,812 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:40:38,870 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:40:38,873 [INFO] have warm up
+2026-01-10 18:40:44,316 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:40:44,638 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:40:44,731 [INFO] iter:0, id:0, r:1.000 and violateion:0.006
+2026-01-10 18:40:44,782 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:40:45,827 [WARNING] connect time:0, accumulated time:50, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 18:41:03,216 [INFO] iter:69, id:2, r:7.392 and violateion:0.000
+2026-01-10 18:42:15,292 [INFO] iter:570, id:1, r:108.186 and violateion:0.009
+2026-01-10 18:42:23,659 [INFO] iter:646, id:3, r:73.225 and violateion:0.000
+2026-01-10 18:42:39,452 [INFO] satisfy constraint, but not converge, id: 0 and r_penalty: 80.730 and violations:0.013:
+2026-01-10 18:42:39,459 [INFO] have warm up
+2026-01-10 18:42:44,384 [INFO] iter:0, id:2, r:1.000 and violateion:0.009
+2026-01-10 18:42:47,151 [INFO] iter:35, id:3, r:3.386 and violateion:0.000
+2026-01-10 18:42:50,405 [INFO] iter:58, id:0, r:5.792 and violateion:0.000
+2026-01-10 18:43:38,049 [INFO] satisfy constraint, but not converge, id: 1 and r_penalty: 12.643 and violations:0.001:
+2026-01-10 18:43:38,982 [WARNING] connect time:4, accumulated time:54, and the robot pair:[(0, 1), (2, 3)]
+2026-01-10 18:43:43,843 [INFO] iter:2, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:43:51,055 [INFO] iter:54, id:3, r:9.906 and violateion:0.000
+2026-01-10 18:43:52,890 [INFO] iter:70, id:0, r:21.623 and violateion:0.013
+2026-01-10 18:43:53,194 [INFO] iter:78, id:1, r:36.984 and violateion:0.004
+2026-01-10 18:43:53,196 [INFO] have warm up
+2026-01-10 18:43:59,661 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:44:15,192 [INFO] iter:113, id:3, r:119.276 and violateion:0.000
+2026-01-10 18:44:17,574 [INFO] iter:129, id:0, r:301.403 and violateion:0.010
+2026-01-10 18:44:29,712 [INFO] iter:394, id:1, r:1507.977 and violateion:0.014
+2026-01-10 18:44:30,641 [INFO] merge map
+2026-01-10 18:44:30,643 [INFO] merge map
+2026-01-10 18:44:30,646 [INFO] merge map
+2026-01-10 18:44:30,648 [INFO] merge map
+2026-01-10 18:44:30,995 [WARNING] connect time:1, accumulated time:55, and the robot pair:[]
+2026-01-10 18:44:35,425 [INFO] iter:0, id:0, r:1.000 and violateion:0.007
+2026-01-10 18:44:35,425 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:44:35,570 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:44:35,654 [INFO] iter:1, id:1, r:1.000 and violateion:0.005
+2026-01-10 18:44:35,656 [INFO] have warm up
+2026-01-10 18:44:40,278 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:44:41,317 [INFO] iter:0, id:0, r:1.000 and violateion:0.007
+2026-01-10 18:44:41,476 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:44:41,517 [INFO] iter:0, id:1, r:1.000 and violateion:0.005
+2026-01-10 18:44:42,763 [WARNING] connect time:3, accumulated time:58, and the robot pair:[(0, 1), (2, 3)]
+2026-01-10 18:44:47,035 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:44:47,196 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:44:47,423 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:44:47,469 [INFO] iter:3, id:0, r:1.000 and violateion:0.005
+2026-01-10 18:44:47,471 [INFO] have warm up
+2026-01-10 18:44:53,538 [INFO] iter:0, id:1, r:1.000 and violateion:0.013
+2026-01-10 18:44:54,138 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:44:54,666 [INFO] iter:0, id:0, r:1.000 and violateion:0.005
+2026-01-10 18:44:54,710 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:44:55,363 [INFO] merge map
+2026-01-10 18:44:55,365 [INFO] merge map
+2026-01-10 18:44:55,367 [INFO] merge map
+2026-01-10 18:44:55,369 [INFO] merge map
+2026-01-10 18:44:55,476 [INFO] update map
+2026-01-10 18:44:55,858 [WARNING] connect time:2, accumulated time:60, and the robot pair:[]
+2026-01-10 18:45:00,050 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:45:00,239 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:45:00,369 [INFO] iter:0, id:0, r:1.000 and violateion:0.002
+2026-01-10 18:45:00,412 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:45:00,414 [INFO] have warm up
+2026-01-10 18:45:05,772 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:45:06,502 [INFO] iter:0, id:0, r:1.000 and violateion:0.002
+2026-01-10 18:45:06,799 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:45:06,889 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:45:07,985 [WARNING] connect time:1, accumulated time:61, and the robot pair:[(1, 3)]
+2026-01-10 18:45:12,644 [INFO] iter:2, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:45:17,165 [INFO] iter:92, id:1, r:73.225 and violateion:0.000
+2026-01-10 18:45:17,168 [INFO] have warm up
+2026-01-10 18:45:29,411 [INFO] iter:76, id:3, r:25.032 and violateion:0.000
+2026-01-10 18:46:16,114 [INFO] satisfy constraint, but not converge, id: 1 and r_penalty: 35.222 and violations:0.000:
+2026-01-10 18:46:17,222 [WARNING] connect time:1, accumulated time:62, and the robot pair:[(0, 1), (2, 3)]
+2026-01-10 18:46:26,809 [INFO] iter:28, id:0, r:2.183 and violateion:0.011
+2026-01-10 18:46:34,542 [INFO] iter:80, id:1, r:36.984 and violateion:0.008
+2026-01-10 18:46:34,850 [INFO] iter:82, id:2, r:44.954 and violateion:0.004
+2026-01-10 18:46:35,061 [INFO] iter:90, id:3, r:73.225 and violateion:0.006
+2026-01-10 18:46:35,064 [INFO] have warm up
+2026-01-10 18:46:55,649 [INFO] iter:72, id:2, r:20.594 and violateion:0.013
+2026-01-10 18:46:55,993 [INFO] iter:75, id:1, r:28.978 and violateion:0.005
+2026-01-10 18:46:57,898 [INFO] iter:116, id:0, r:214.202 and violateion:0.000
+2026-01-10 18:46:57,952 [INFO] iter:96, id:3, r:89.005 and violateion:0.000
+2026-01-10 18:46:58,421 [INFO] merge map
+2026-01-10 18:46:58,423 [INFO] merge map
+2026-01-10 18:46:58,425 [INFO] merge map
+2026-01-10 18:46:58,427 [INFO] merge map
+2026-01-10 18:46:58,813 [WARNING] connect time:3, accumulated time:65, and the robot pair:[]
+2026-01-10 18:47:03,423 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:47:03,470 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:47:03,915 [INFO] iter:0, id:1, r:1.000 and violateion:0.005
+2026-01-10 18:47:07,813 [INFO] iter:79, id:3, r:10.401 and violateion:0.002
+2026-01-10 18:47:07,816 [INFO] have warm up
+2026-01-10 18:47:15,633 [INFO] iter:0, id:2, r:1.000 and violateion:0.005
+2026-01-10 18:47:15,830 [INFO] iter:0, id:1, r:1.000 and violateion:0.005
+2026-01-10 18:47:15,849 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:47:19,715 [INFO] iter:96, id:3, r:98.128 and violateion:0.000
+2026-01-10 18:47:20,756 [WARNING] connect time:0, accumulated time:65, and the robot pair:[(1, 3)]
+2026-01-10 18:47:32,781 [INFO] iter:101, id:3, r:60.242 and violateion:0.000
+2026-01-10 18:47:35,319 [INFO] iter:147, id:1, r:839.698 and violateion:0.003
+2026-01-10 18:47:35,323 [INFO] have warm up
+2026-01-10 18:47:46,355 [INFO] iter:69, id:1, r:19.613 and violateion:0.000
+2026-01-10 18:48:31,810 [INFO] satisfy constraint, but not converge, id: 3 and r_penalty: 26.283 and violations:0.000:
+2026-01-10 18:48:32,491 [WARNING] connect time:1, accumulated time:66, and the robot pair:[(0, 1), (2, 3)]
+2026-01-10 18:48:39,272 [INFO] iter:23, id:3, r:1.796 and violateion:0.004
+2026-01-10 18:48:46,778 [INFO] iter:68, id:2, r:13.275 and violateion:0.020
+2026-01-10 18:48:49,454 [INFO] iter:90, id:1, r:63.254 and violateion:0.010
+2026-01-10 18:48:50,012 [INFO] iter:107, id:0, r:159.841 and violateion:0.000
+2026-01-10 18:48:50,015 [INFO] have warm up
+2026-01-10 18:48:56,154 [INFO] iter:0, id:2, r:1.000 and violateion:0.020
+2026-01-10 18:49:04,455 [INFO] iter:64, id:0, r:19.613 and violateion:0.000
+2026-01-10 18:49:08,288 [INFO] iter:103, id:1, r:108.186 and violateion:0.004
+2026-01-10 18:49:52,018 [INFO] satisfy constraint, but not converge, id: 3 and r_penalty: 21.623 and violations:0.000:
+2026-01-10 18:49:53,185 [WARNING] connect time:3, accumulated time:69, and the robot pair:[(0, 1), (0, 3), (1, 3)]
+2026-01-10 18:50:13,512 [INFO] iter:125, id:1, r:167.833 and violateion:0.000
+2026-01-10 18:50:13,844 [INFO] iter:123, id:0, r:273.382 and violateion:0.005
+2026-01-10 18:50:14,810 [INFO] iter:138, id:3, r:467.575 and violateion:0.000
+2026-01-10 18:50:14,813 [INFO] have warm up
+2026-01-10 18:50:20,416 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:50:20,632 [INFO] iter:0, id:0, r:1.000 and violateion:0.005
+2026-01-10 18:50:20,856 [INFO] iter:5, id:1, r:1.000 and violateion:0.002
+2026-01-10 18:50:21,723 [INFO] merge map
+2026-01-10 18:50:21,726 [INFO] merge map
+2026-01-10 18:50:21,729 [INFO] merge map
+2026-01-10 18:50:21,731 [INFO] merge map
+2026-01-10 18:50:22,160 [WARNING] connect time:1, accumulated time:70, and the robot pair:[]
+2026-01-10 18:50:26,414 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:50:27,013 [INFO] iter:0, id:2, r:1.000 and violateion:0.015
+2026-01-10 18:50:27,018 [INFO] iter:0, id:0, r:1.000 and violateion:0.004
+2026-01-10 18:50:27,321 [INFO] iter:5, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:50:27,323 [INFO] have warm up
+2026-01-10 18:50:32,837 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:50:33,643 [INFO] iter:0, id:2, r:1.000 and violateion:0.015
+2026-01-10 18:50:33,959 [INFO] iter:0, id:0, r:1.000 and violateion:0.004
+2026-01-10 18:50:34,073 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:50:34,964 [WARNING] connect time:0, accumulated time:70, and the robot pair:[(2, 3)]
+2026-01-10 18:50:53,452 [INFO] iter:180, id:2, r:541.277 and violateion:0.000
+2026-01-10 18:50:53,956 [INFO] iter:193, id:3, r:15.367 and violateion:0.000
+2026-01-10 18:50:53,960 [INFO] have warm up
+2026-01-10 18:50:57,992 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:51:02,065 [INFO] iter:88, id:2, r:49.561 and violateion:0.000
+2026-01-10 18:51:03,261 [WARNING] connect time:3, accumulated time:73, and the robot pair:[(0, 1), (0, 3), (1, 3)]
+2026-01-10 18:51:16,729 [INFO] iter:70, id:1, r:22.705 and violateion:0.010
+2026-01-10 18:51:17,912 [INFO] iter:79, id:0, r:42.813 and violateion:0.010
+2026-01-10 18:51:19,512 [INFO] iter:115, id:3, r:185.035 and violateion:0.000
+2026-01-10 18:51:19,514 [INFO] have warm up
+2026-01-10 18:51:24,862 [INFO] iter:0, id:0, r:1.000 and violateion:0.010
+2026-01-10 18:51:25,256 [INFO] iter:0, id:1, r:1.000 and violateion:0.010
+2026-01-10 18:51:25,612 [INFO] iter:3, id:3, r:1.000 and violateion:0.008
+2026-01-10 18:51:27,153 [WARNING] connect time:1, accumulated time:74, and the robot pair:[(2, 3)]
+2026-01-10 18:51:33,550 [INFO] iter:3, id:3, r:1.000 and violateion:0.014
+2026-01-10 18:51:38,227 [INFO] iter:106, id:2, r:80.730 and violateion:0.011
+2026-01-10 18:51:38,231 [INFO] have warm up
+2026-01-10 18:51:42,846 [INFO] iter:0, id:3, r:1.000 and violateion:0.014
+2026-01-10 18:51:43,134 [INFO] iter:0, id:2, r:1.000 and violateion:0.011
+2026-01-10 18:51:43,731 [INFO] merge map
+2026-01-10 18:51:43,734 [INFO] merge map
+2026-01-10 18:51:43,738 [INFO] merge map
+2026-01-10 18:51:43,740 [INFO] merge map
+2026-01-10 18:51:44,151 [WARNING] connect time:1, accumulated time:75, and the robot pair:[]
+2026-01-10 18:51:48,467 [INFO] iter:0, id:1, r:1.000 and violateion:0.010
+2026-01-10 18:51:48,890 [INFO] iter:0, id:3, r:1.000 and violateion:0.011
+2026-01-10 18:51:49,024 [INFO] iter:0, id:2, r:1.000 and violateion:0.009
+2026-01-10 18:51:49,179 [INFO] iter:0, id:0, r:1.000 and violateion:0.009
+2026-01-10 18:51:49,182 [INFO] have warm up
+2026-01-10 18:51:54,217 [INFO] iter:0, id:0, r:1.000 and violateion:0.009
+2026-01-10 18:51:54,649 [INFO] iter:0, id:2, r:1.000 and violateion:0.009
+2026-01-10 18:51:54,946 [INFO] iter:0, id:3, r:1.000 and violateion:0.011
+2026-01-10 18:51:55,429 [INFO] iter:0, id:1, r:1.000 and violateion:0.010
+2026-01-10 18:51:56,959 [WARNING] connect time:2, accumulated time:77, and the robot pair:[(0, 1), (0, 3), (1, 3)]
+2026-01-10 18:52:01,725 [INFO] iter:2, id:3, r:1.000 and violateion:0.001
+2026-01-10 18:52:01,779 [INFO] iter:2, id:1, r:1.000 and violateion:0.001
+2026-01-10 18:52:01,873 [INFO] iter:4, id:0, r:1.000 and violateion:0.001
+2026-01-10 18:52:01,876 [INFO] have warm up
+2026-01-10 18:52:07,072 [INFO] iter:0, id:1, r:1.000 and violateion:0.001
+2026-01-10 18:52:07,714 [INFO] iter:0, id:3, r:1.000 and violateion:0.001
+2026-01-10 18:52:07,764 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-01-10 18:52:09,110 [WARNING] connect time:1, accumulated time:78, and the robot pair:[(2, 3)]
+2026-01-10 18:52:13,303 [INFO] iter:2, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:52:13,321 [INFO] iter:4, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:52:13,323 [INFO] have warm up
+2026-01-10 18:52:18,286 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:52:18,385 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:52:18,946 [INFO] merge map
+2026-01-10 18:52:18,949 [INFO] merge map
+2026-01-10 18:52:18,951 [INFO] merge map
+2026-01-10 18:52:18,955 [INFO] merge map
+2026-01-10 18:52:19,077 [INFO] update map
+2026-01-10 18:52:19,456 [WARNING] connect time:2, accumulated time:80, and the robot pair:[]
+2026-01-10 18:52:23,862 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:52:24,756 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:52:24,759 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:52:24,817 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:52:24,820 [INFO] have warm up
+2026-01-10 18:52:30,362 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:52:31,346 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:52:31,976 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:52:32,039 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:52:33,334 [WARNING] connect time:1, accumulated time:81, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 18:52:38,940 [INFO] iter:3, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:52:39,193 [INFO] iter:2, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:52:39,291 [INFO] iter:3, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:52:39,306 [INFO] iter:3, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:52:39,308 [INFO] have warm up
+2026-01-10 18:52:44,197 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:52:44,859 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:52:45,114 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:52:45,150 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:52:45,633 [INFO] merge map
+2026-01-10 18:52:45,635 [INFO] merge map
+2026-01-10 18:52:45,637 [INFO] merge map
+2026-01-10 18:52:45,638 [INFO] merge map
+2026-01-10 18:52:46,064 [WARNING] connect time:4, accumulated time:85, and the robot pair:[]
+2026-01-10 18:52:52,538 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:52:52,539 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:52:52,898 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:52:52,903 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:52:52,906 [INFO] have warm up
+2026-01-10 18:52:57,937 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 18:52:58,072 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 18:52:58,721 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:52:58,753 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 18:52:59,570 [WARNING] connect time:0, accumulated time:85, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 18:53:06,926 [INFO] iter:32, id:3, r:2.527 and violateion:0.013
+2026-01-10 18:53:09,136 [INFO] iter:61, id:0, r:5.516 and violateion:0.016
+2026-01-10 18:53:11,343 [INFO] iter:94, id:1, r:12.041 and violateion:0.006
+2026-01-10 18:53:15,633 [INFO] iter:199, id:2, r:20.594 and violateion:0.001
+2026-01-10 18:53:15,636 [INFO] have warm up
+2026-01-10 18:53:27,288 [INFO] iter:62, id:1, r:10.401 and violateion:0.005
+2026-01-10 18:53:27,407 [INFO] iter:54, id:0, r:7.762 and violateion:0.000
+2026-01-10 18:53:38,160 [INFO] iter:209, id:2, r:9.906 and violateion:0.005
+2026-01-10 18:53:39,876 [INFO] iter:283, id:3, r:8.985 and violateion:0.002
+2026-01-10 18:53:40,637 [WARNING] connect time:4, accumulated time:89, and the robot pair:[(0, 1), (2, 3)]
+2026-01-10 18:53:45,332 [INFO] iter:3, id:1, r:1.000 and violateion:0.011
+2026-01-10 18:53:50,221 [INFO] iter:51, id:3, r:8.150 and violateion:0.008
+2026-01-10 18:53:50,722 [INFO] iter:59, id:0, r:12.041 and violateion:0.009
+2026-01-10 18:53:56,803 [INFO] iter:234, id:2, r:49.561 and violateion:0.001
+2026-01-10 18:53:56,806 [INFO] have warm up
+2026-01-10 18:54:03,351 [INFO] iter:0, id:1, r:1.000 and violateion:0.011
+2026-01-10 18:54:03,385 [INFO] iter:0, id:3, r:1.000 and violateion:0.008
+2026-01-10 18:54:03,418 [INFO] iter:0, id:0, r:1.000 and violateion:0.009
+2026-01-10 18:54:06,617 [INFO] iter:90, id:2, r:36.984 and violateion:0.000
+2026-01-10 18:54:07,125 [INFO] merge map
+2026-01-10 18:54:07,127 [INFO] merge map
+2026-01-10 18:54:07,129 [INFO] merge map
+2026-01-10 18:54:07,131 [INFO] merge map
+2026-01-10 18:54:07,515 [WARNING] connect time:1, accumulated time:90, and the robot pair:[]
+2026-01-10 18:54:11,796 [INFO] iter:1, id:0, r:1.000 and violateion:0.009
+2026-01-10 18:54:12,235 [INFO] iter:1, id:3, r:1.000 and violateion:0.008
+2026-01-10 18:54:12,296 [INFO] iter:1, id:1, r:1.000 and violateion:0.011
+2026-01-10 18:54:12,341 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:54:12,345 [INFO] have warm up
+2026-01-10 18:54:18,133 [INFO] iter:0, id:1, r:1.000 and violateion:0.011
+2026-01-10 18:54:18,365 [INFO] iter:0, id:3, r:1.000 and violateion:0.008
+2026-01-10 18:54:18,605 [INFO] iter:0, id:0, r:1.000 and violateion:0.009
+2026-01-10 18:54:18,610 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 18:54:19,779 [WARNING] connect time:3, accumulated time:93, and the robot pair:[(0, 1)]
+2026-01-10 18:54:23,665 [INFO] iter:2, id:1, r:1.000 and violateion:0.008
+2026-01-10 18:54:23,702 [INFO] iter:3, id:0, r:1.000 and violateion:0.001
+2026-01-10 18:54:23,704 [INFO] have warm up
+2026-01-10 18:54:28,233 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-01-10 18:54:28,270 [INFO] iter:0, id:1, r:1.000 and violateion:0.008
+2026-01-10 18:54:28,714 [INFO] merge map
+2026-01-10 18:54:28,716 [INFO] merge map
+2026-01-10 18:54:28,718 [INFO] merge map
+2026-01-10 18:54:28,720 [INFO] merge map
+2026-01-10 18:54:29,110 [WARNING] connect time:2, accumulated time:95, and the robot pair:[]
+2026-01-10 18:54:35,110 [INFO] iter:15, id:3, r:1.710 and violateion:0.009
+2026-01-10 18:54:36,354 [INFO] iter:32, id:2, r:2.786 and violateion:0.003
+2026-01-10 18:54:42,366 [INFO] iter:127, id:0, r:3.386 and violateion:0.006
+2026-01-10 18:54:43,455 [INFO] iter:162, id:1, r:4.116 and violateion:0.002
+2026-01-10 18:54:43,458 [INFO] have warm up
+2026-01-10 18:54:48,186 [INFO] iter:0, id:3, r:1.000 and violateion:0.009
+2026-01-10 18:54:49,246 [INFO] iter:0, id:2, r:1.000 and violateion:0.003
+2026-01-10 18:54:54,142 [INFO] iter:81, id:1, r:3.920 and violateion:0.002
+2026-01-10 18:54:55,090 [INFO] iter:113, id:0, r:4.538 and violateion:0.009
+2026-01-10 18:54:56,168 [WARNING] connect time:2, accumulated time:97, and the robot pair:[(0, 1)]
+2026-01-10 18:55:03,034 [INFO] iter:53, id:0, r:2.407 and violateion:0.006
+2026-01-10 18:55:04,264 [INFO] iter:92, id:1, r:1.980 and violateion:0.003
+2026-01-10 18:55:04,267 [INFO] have warm up
+2026-01-10 18:55:12,792 [INFO] iter:36, id:0, r:2.292 and violateion:0.009
+2026-01-10 18:55:13,083 [INFO] iter:46, id:1, r:1.980 and violateion:0.006
+2026-01-10 18:55:14,845 [INFO] signal_shutdown [atexit]
+2026-01-10 20:04:47,083 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-01-10 20:04:47,091 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-01-10 20:04:50,515 [INFO] topicmanager initialized
+2026-01-10 20:04:50,593 [INFO] Log opened: Sat Jan 10 12:04:50 2026 UTC
+2026-01-10 20:04:55,282 [INFO] my_strategy
+2026-01-10 20:05:16,851 [INFO] iter:63, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:05:17,017 [INFO] iter:63, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:05:17,293 [INFO] iter:63, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:05:17,430 [INFO] iter:63, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:05:17,433 [INFO] have warm up
+2026-01-10 20:06:02,667 [INFO] iter:152, id:0, r:273.382 and violateion:0.000
+2026-01-10 20:06:04,114 [INFO] iter:152, id:1, r:273.382 and violateion:0.000
+2026-01-10 20:06:04,675 [INFO] iter:152, id:2, r:273.382 and violateion:0.000
+2026-01-10 20:06:04,973 [INFO] iter:152, id:3, r:273.382 and violateion:0.000
+2026-01-10 20:06:07,275 [INFO] merge map
+2026-01-10 20:06:07,278 [INFO] merge map
+2026-01-10 20:06:07,280 [INFO] merge map
+2026-01-10 20:06:07,283 [INFO] merge map
+2026-01-10 20:06:07,608 [WARNING] connect time:5, accumulated time:5, and the robot pair:[]
+2026-01-10 20:06:11,890 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:06:12,523 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:06:12,675 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:06:12,960 [INFO] iter:6, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:06:12,962 [INFO] have warm up
+2026-01-10 20:06:18,657 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:06:19,368 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:06:19,686 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:06:19,693 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:06:21,626 [WARNING] connect time:2, accumulated time:7, and the robot pair:[(2, 3)]
+2026-01-10 20:06:25,754 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:06:25,755 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:06:25,757 [INFO] have warm up
+2026-01-10 20:06:30,788 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:06:30,866 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:06:31,848 [INFO] merge map
+2026-01-10 20:06:31,850 [INFO] merge map
+2026-01-10 20:06:31,852 [INFO] merge map
+2026-01-10 20:06:31,853 [INFO] merge map
+2026-01-10 20:06:32,203 [WARNING] connect time:3, accumulated time:10, and the robot pair:[]
+2026-01-10 20:06:36,175 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:06:36,179 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:06:36,404 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:06:37,540 [INFO] iter:16, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:06:37,542 [INFO] have warm up
+2026-01-10 20:06:43,252 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:06:44,084 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:06:44,088 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:06:44,091 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:06:45,111 [WARNING] connect time:0, accumulated time:10, and the robot pair:[(1, 2)]
+2026-01-10 20:06:47,204 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:06:47,267 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:06:47,269 [INFO] have warm up
+2026-01-10 20:06:51,284 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:06:51,286 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:06:51,807 [WARNING] connect time:1, accumulated time:11, and the robot pair:[(2, 3)]
+2026-01-10 20:06:55,286 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:06:55,391 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:06:55,393 [INFO] have warm up
+2026-01-10 20:07:00,134 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:07:00,299 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:07:02,070 [WARNING] connect time:3, accumulated time:14, and the robot pair:[(1, 2)]
+2026-01-10 20:07:05,528 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:07:05,660 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:07:05,663 [INFO] have warm up
+2026-01-10 20:07:10,316 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:07:10,434 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:07:11,390 [INFO] merge map
+2026-01-10 20:07:11,392 [INFO] merge map
+2026-01-10 20:07:11,394 [INFO] merge map
+2026-01-10 20:07:11,396 [INFO] merge map
+2026-01-10 20:07:11,706 [WARNING] connect time:1, accumulated time:15, and the robot pair:[]
+2026-01-10 20:07:15,976 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:07:16,256 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:07:16,303 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:07:16,385 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:07:16,387 [INFO] have warm up
+2026-01-10 20:07:21,780 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:07:22,349 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:07:22,582 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:07:22,624 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:07:23,858 [WARNING] connect time:0, accumulated time:15, and the robot pair:[(2, 3)]
+2026-01-10 20:07:26,011 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:07:26,087 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:07:26,090 [INFO] have warm up
+2026-01-10 20:07:29,765 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:07:29,897 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:07:30,463 [WARNING] connect time:3, accumulated time:18, and the robot pair:[(1, 2)]
+2026-01-10 20:07:33,990 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:07:34,104 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:07:34,105 [INFO] have warm up
+2026-01-10 20:07:39,139 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:07:39,287 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:07:40,402 [WARNING] connect time:1, accumulated time:19, and the robot pair:[(2, 3)]
+2026-01-10 20:07:43,999 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:07:44,074 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:07:44,075 [INFO] have warm up
+2026-01-10 20:07:48,925 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:07:48,996 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:07:49,693 [INFO] merge map
+2026-01-10 20:07:49,695 [INFO] merge map
+2026-01-10 20:07:49,697 [INFO] merge map
+2026-01-10 20:07:49,698 [INFO] merge map
+2026-01-10 20:07:50,677 [INFO] update map
+2026-01-10 20:07:51,032 [WARNING] connect time:1, accumulated time:20, and the robot pair:[]
+2026-01-10 20:07:55,608 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:07:55,638 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:07:55,688 [INFO] iter:3, id:0, r:1.000 and violateion:0.001
+2026-01-10 20:07:55,691 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:07:55,693 [INFO] have warm up
+2026-01-10 20:08:01,633 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:08:01,912 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:08:02,455 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:08:02,487 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-01-10 20:08:04,265 [WARNING] connect time:2, accumulated time:22, and the robot pair:[(1, 2), (1, 3), (2, 3)]
+2026-01-10 20:08:07,857 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:08:08,171 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:08:08,214 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:08:08,215 [INFO] have warm up
+2026-01-10 20:08:13,401 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:08:13,952 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:08:14,000 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:08:15,264 [INFO] merge map
+2026-01-10 20:08:15,266 [INFO] merge map
+2026-01-10 20:08:15,268 [INFO] merge map
+2026-01-10 20:08:15,270 [INFO] merge map
+2026-01-10 20:08:15,628 [WARNING] connect time:3, accumulated time:25, and the robot pair:[]
+2026-01-10 20:08:20,818 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:08:21,143 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:08:21,217 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:08:21,283 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-01-10 20:08:21,287 [INFO] have warm up
+2026-01-10 20:08:27,429 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:08:27,855 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:08:28,462 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:08:28,518 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-01-10 20:08:30,594 [WARNING] connect time:1, accumulated time:26, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 20:08:58,743 [INFO] iter:96, id:3, r:103.035 and violateion:0.000
+2026-01-10 20:08:59,102 [INFO] iter:96, id:2, r:103.035 and violateion:0.000
+2026-01-10 20:08:59,107 [INFO] iter:96, id:1, r:103.035 and violateion:0.000
+2026-01-10 20:08:59,301 [INFO] iter:96, id:0, r:103.035 and violateion:0.000
+2026-01-10 20:08:59,305 [INFO] have warm up
+2026-01-10 20:09:05,390 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:09:05,546 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:09:05,690 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:09:05,739 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:09:06,959 [INFO] merge map
+2026-01-10 20:09:06,962 [INFO] merge map
+2026-01-10 20:09:06,964 [INFO] merge map
+2026-01-10 20:09:06,967 [INFO] merge map
+2026-01-10 20:09:07,316 [WARNING] connect time:4, accumulated time:30, and the robot pair:[]
+2026-01-10 20:09:12,218 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:09:12,688 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:09:12,784 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:09:12,846 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:09:12,849 [INFO] have warm up
+2026-01-10 20:09:18,943 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:09:18,950 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:09:19,019 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:09:19,079 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:09:20,334 [WARNING] connect time:0, accumulated time:30, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 20:09:22,912 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:09:23,099 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:09:23,224 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:09:23,345 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:09:23,347 [INFO] have warm up
+2026-01-10 20:09:27,658 [INFO] iter:0, id:2, r:1.000 and violateion:0.008
+2026-01-10 20:09:28,505 [INFO] iter:0, id:1, r:1.000 and violateion:0.008
+2026-01-10 20:09:28,681 [INFO] iter:0, id:0, r:1.000 and violateion:0.008
+2026-01-10 20:09:28,687 [INFO] iter:0, id:3, r:1.000 and violateion:0.008
+2026-01-10 20:09:29,428 [WARNING] connect time:4, accumulated time:34, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 20:09:34,047 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:09:34,054 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:09:34,081 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:09:34,203 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:09:34,205 [INFO] have warm up
+2026-01-10 20:09:51,352 [INFO] iter:55, id:1, r:12.041 and violateion:0.000
+2026-01-10 20:09:52,688 [INFO] iter:55, id:3, r:12.041 and violateion:0.000
+2026-01-10 20:09:52,693 [INFO] iter:56, id:2, r:12.041 and violateion:0.014
+2026-01-10 20:09:52,694 [INFO] iter:55, id:0, r:12.041 and violateion:0.000
+2026-01-10 20:09:54,094 [INFO] merge map
+2026-01-10 20:09:54,096 [INFO] merge map
+2026-01-10 20:09:54,098 [INFO] merge map
+2026-01-10 20:09:54,100 [INFO] merge map
+2026-01-10 20:09:54,470 [WARNING] connect time:1, accumulated time:35, and the robot pair:[]
+2026-01-10 20:09:59,336 [INFO] iter:0, id:2, r:1.000 and violateion:0.010
+2026-01-10 20:09:59,931 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:10:00,301 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:10:00,321 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:10:00,323 [INFO] have warm up
+2026-01-10 20:10:05,297 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:10:06,584 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:10:06,696 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:10:06,699 [INFO] iter:0, id:2, r:1.000 and violateion:0.010
+2026-01-10 20:10:08,268 [WARNING] connect time:3, accumulated time:38, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 20:10:12,377 [INFO] iter:2, id:0, r:1.000 and violateion:0.004
+2026-01-10 20:10:12,553 [INFO] iter:2, id:2, r:1.000 and violateion:0.002
+2026-01-10 20:10:12,880 [INFO] iter:2, id:1, r:1.000 and violateion:0.004
+2026-01-10 20:10:12,937 [INFO] iter:2, id:3, r:1.000 and violateion:0.003
+2026-01-10 20:10:12,939 [INFO] have warm up
+2026-01-10 20:10:18,175 [INFO] iter:0, id:1, r:1.000 and violateion:0.004
+2026-01-10 20:10:18,444 [INFO] iter:0, id:0, r:1.000 and violateion:0.004
+2026-01-10 20:10:18,819 [INFO] iter:0, id:3, r:1.000 and violateion:0.003
+2026-01-10 20:10:18,878 [INFO] iter:0, id:2, r:1.000 and violateion:0.002
+2026-01-10 20:10:19,878 [INFO] merge map
+2026-01-10 20:10:19,881 [INFO] merge map
+2026-01-10 20:10:19,883 [INFO] merge map
+2026-01-10 20:10:19,886 [INFO] merge map
+2026-01-10 20:10:20,143 [INFO] update map
+2026-01-10 20:10:20,509 [WARNING] connect time:2, accumulated time:40, and the robot pair:[]
+2026-01-10 20:10:24,289 [INFO] iter:0, id:3, r:1.000 and violateion:0.001
+2026-01-10 20:10:24,433 [INFO] iter:0, id:1, r:1.000 and violateion:0.001
+2026-01-10 20:10:24,769 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:10:24,838 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-01-10 20:10:24,839 [INFO] have warm up
+2026-01-10 20:10:29,390 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:10:30,023 [INFO] iter:0, id:1, r:1.000 and violateion:0.001
+2026-01-10 20:10:30,588 [INFO] iter:0, id:3, r:1.000 and violateion:0.001
+2026-01-10 20:10:30,634 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-01-10 20:10:31,739 [WARNING] connect time:2, accumulated time:42, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 20:10:36,985 [INFO] iter:1, id:1, r:1.000 and violateion:0.003
+2026-01-10 20:10:37,322 [INFO] iter:1, id:0, r:1.000 and violateion:0.003
+2026-01-10 20:10:37,347 [INFO] iter:1, id:2, r:1.000 and violateion:0.003
+2026-01-10 20:10:37,349 [INFO] iter:1, id:3, r:1.000 and violateion:0.003
+2026-01-10 20:10:37,351 [INFO] have warm up
+2026-01-10 20:10:43,735 [INFO] iter:0, id:1, r:1.000 and violateion:0.003
+2026-01-10 20:10:43,908 [INFO] iter:0, id:3, r:1.000 and violateion:0.003
+2026-01-10 20:10:43,952 [INFO] iter:0, id:0, r:1.000 and violateion:0.003
+2026-01-10 20:10:43,989 [INFO] iter:0, id:2, r:1.000 and violateion:0.003
+2026-01-10 20:10:45,135 [INFO] merge map
+2026-01-10 20:10:45,137 [INFO] merge map
+2026-01-10 20:10:45,139 [INFO] merge map
+2026-01-10 20:10:45,141 [INFO] merge map
+2026-01-10 20:10:45,493 [WARNING] connect time:3, accumulated time:45, and the robot pair:[]
+2026-01-10 20:10:49,665 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:10:49,814 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:10:50,180 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:10:50,246 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:10:50,248 [INFO] have warm up
+2026-01-10 20:10:55,945 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:10:56,385 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:10:56,457 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:10:56,461 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:10:57,922 [WARNING] connect time:1, accumulated time:46, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 20:11:01,939 [INFO] iter:2, id:0, r:1.000 and violateion:0.016
+2026-01-10 20:11:02,818 [INFO] iter:2, id:1, r:1.000 and violateion:0.003
+2026-01-10 20:11:02,888 [INFO] iter:3, id:3, r:1.000 and violateion:0.004
+2026-01-10 20:11:06,391 [INFO] iter:72, id:2, r:28.978 and violateion:0.000
+2026-01-10 20:11:06,394 [INFO] have warm up
+2026-01-10 20:11:11,908 [INFO] iter:0, id:0, r:1.000 and violateion:0.016
+2026-01-10 20:11:11,974 [INFO] iter:0, id:3, r:1.000 and violateion:0.004
+2026-01-10 20:11:12,733 [INFO] iter:0, id:1, r:1.000 and violateion:0.003
+2026-01-10 20:11:16,175 [INFO] iter:63, id:2, r:13.275 and violateion:0.000
+2026-01-10 20:11:17,178 [INFO] merge map
+2026-01-10 20:11:17,181 [INFO] merge map
+2026-01-10 20:11:17,184 [INFO] merge map
+2026-01-10 20:11:17,187 [INFO] merge map
+2026-01-10 20:11:17,556 [WARNING] connect time:4, accumulated time:50, and the robot pair:[]
+2026-01-10 20:11:22,727 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:11:22,729 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:11:22,964 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:11:22,996 [INFO] iter:0, id:0, r:1.000 and violateion:0.006
+2026-01-10 20:11:22,999 [INFO] have warm up
+2026-01-10 20:11:27,289 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:11:27,789 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:11:28,280 [INFO] iter:0, id:0, r:1.000 and violateion:0.006
+2026-01-10 20:11:28,348 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:11:29,367 [WARNING] connect time:0, accumulated time:50, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 20:11:47,196 [INFO] iter:69, id:2, r:7.392 and violateion:0.000
+2026-01-10 20:13:01,983 [INFO] iter:570, id:1, r:108.186 and violateion:0.009
+2026-01-10 20:13:07,392 [INFO] iter:646, id:3, r:73.225 and violateion:0.000
+2026-01-10 20:13:25,573 [INFO] satisfy constraint, but not converge, id: 0 and r_penalty: 80.730 and violations:0.013:
+2026-01-10 20:13:25,583 [INFO] have warm up
+2026-01-10 20:13:30,814 [INFO] iter:0, id:2, r:1.000 and violateion:0.009
+2026-01-10 20:13:36,028 [INFO] iter:35, id:3, r:3.386 and violateion:0.000
+2026-01-10 20:13:37,622 [INFO] iter:58, id:0, r:5.792 and violateion:0.000
+2026-01-10 20:14:26,148 [INFO] satisfy constraint, but not converge, id: 1 and r_penalty: 12.643 and violations:0.001:
+2026-01-10 20:14:27,206 [WARNING] connect time:4, accumulated time:54, and the robot pair:[(0, 1), (2, 3)]
+2026-01-10 20:14:32,449 [INFO] iter:2, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:14:39,502 [INFO] iter:54, id:3, r:9.906 and violateion:0.000
+2026-01-10 20:14:41,356 [INFO] iter:70, id:0, r:21.623 and violateion:0.013
+2026-01-10 20:14:41,656 [INFO] iter:78, id:1, r:36.984 and violateion:0.004
+2026-01-10 20:14:41,659 [INFO] have warm up
+2026-01-10 20:14:47,494 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:15:06,151 [INFO] iter:113, id:3, r:119.276 and violateion:0.000
+2026-01-10 20:15:08,018 [INFO] iter:129, id:0, r:301.403 and violateion:0.010
+2026-01-10 20:15:21,526 [INFO] iter:394, id:1, r:1507.977 and violateion:0.014
+2026-01-10 20:15:22,510 [INFO] merge map
+2026-01-10 20:15:22,512 [INFO] merge map
+2026-01-10 20:15:22,514 [INFO] merge map
+2026-01-10 20:15:22,516 [INFO] merge map
+2026-01-10 20:15:22,937 [WARNING] connect time:1, accumulated time:55, and the robot pair:[]
+2026-01-10 20:15:27,488 [INFO] iter:0, id:0, r:1.000 and violateion:0.007
+2026-01-10 20:15:27,591 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:15:27,683 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:15:27,814 [INFO] iter:1, id:1, r:1.000 and violateion:0.005
+2026-01-10 20:15:27,817 [INFO] have warm up
+2026-01-10 20:15:33,259 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:15:33,625 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:15:34,149 [INFO] iter:0, id:1, r:1.000 and violateion:0.005
+2026-01-10 20:15:34,161 [INFO] iter:0, id:0, r:1.000 and violateion:0.007
+2026-01-10 20:15:35,467 [WARNING] connect time:3, accumulated time:58, and the robot pair:[(0, 1), (2, 3)]
+2026-01-10 20:15:41,311 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:15:41,373 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:15:41,765 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:15:41,936 [INFO] iter:3, id:0, r:1.000 and violateion:0.005
+2026-01-10 20:15:41,940 [INFO] have warm up
+2026-01-10 20:15:47,061 [INFO] iter:0, id:0, r:1.000 and violateion:0.005
+2026-01-10 20:15:47,261 [INFO] iter:0, id:1, r:1.000 and violateion:0.013
+2026-01-10 20:15:47,988 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:15:48,126 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:15:48,816 [INFO] merge map
+2026-01-10 20:15:48,818 [INFO] merge map
+2026-01-10 20:15:48,821 [INFO] merge map
+2026-01-10 20:15:48,823 [INFO] merge map
+2026-01-10 20:15:48,912 [INFO] update map
+2026-01-10 20:15:49,325 [WARNING] connect time:2, accumulated time:60, and the robot pair:[]
+2026-01-10 20:15:53,846 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:15:53,855 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:15:54,181 [INFO] iter:0, id:0, r:1.000 and violateion:0.002
+2026-01-10 20:15:54,279 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:15:54,280 [INFO] have warm up
+2026-01-10 20:16:00,237 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:16:01,330 [INFO] iter:0, id:0, r:1.000 and violateion:0.002
+2026-01-10 20:16:01,368 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:16:01,432 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:16:02,720 [WARNING] connect time:1, accumulated time:61, and the robot pair:[(1, 3)]
+2026-01-10 20:16:06,865 [INFO] iter:2, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:16:11,187 [INFO] iter:92, id:1, r:73.225 and violateion:0.000
+2026-01-10 20:16:11,189 [INFO] have warm up
+2026-01-10 20:16:22,506 [INFO] iter:76, id:3, r:25.032 and violateion:0.000
+2026-01-10 20:17:10,965 [INFO] satisfy constraint, but not converge, id: 1 and r_penalty: 35.222 and violations:0.000:
+2026-01-10 20:17:12,196 [WARNING] connect time:1, accumulated time:62, and the robot pair:[(0, 1), (2, 3)]
+2026-01-10 20:17:20,993 [INFO] iter:28, id:0, r:2.183 and violateion:0.011
+2026-01-10 20:17:30,948 [INFO] iter:80, id:1, r:36.984 and violateion:0.008
+2026-01-10 20:17:31,265 [INFO] iter:82, id:2, r:44.954 and violateion:0.004
+2026-01-10 20:17:31,718 [INFO] iter:90, id:3, r:73.225 and violateion:0.006
+2026-01-10 20:17:31,722 [INFO] have warm up
+2026-01-10 20:17:52,751 [INFO] iter:72, id:2, r:20.594 and violateion:0.013
+2026-01-10 20:17:53,604 [INFO] iter:75, id:1, r:28.978 and violateion:0.005
+2026-01-10 20:17:56,056 [INFO] iter:116, id:0, r:214.202 and violateion:0.000
+2026-01-10 20:17:56,113 [INFO] iter:96, id:3, r:89.005 and violateion:0.000
+2026-01-10 20:17:56,668 [INFO] merge map
+2026-01-10 20:17:56,671 [INFO] merge map
+2026-01-10 20:17:56,673 [INFO] merge map
+2026-01-10 20:17:56,675 [INFO] merge map
+2026-01-10 20:17:57,131 [WARNING] connect time:3, accumulated time:65, and the robot pair:[]
+2026-01-10 20:18:01,429 [INFO] iter:0, id:1, r:1.000 and violateion:0.005
+2026-01-10 20:18:02,086 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:18:02,235 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:18:06,407 [INFO] iter:79, id:3, r:10.401 and violateion:0.002
+2026-01-10 20:18:06,409 [INFO] have warm up
+2026-01-10 20:18:14,273 [INFO] iter:0, id:1, r:1.000 and violateion:0.005
+2026-01-10 20:18:14,967 [INFO] iter:0, id:2, r:1.000 and violateion:0.005
+2026-01-10 20:18:15,008 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:18:19,659 [INFO] iter:96, id:3, r:98.128 and violateion:0.000
+2026-01-10 20:18:20,814 [WARNING] connect time:0, accumulated time:65, and the robot pair:[(1, 3)]
+2026-01-10 20:18:33,461 [INFO] iter:101, id:3, r:60.242 and violateion:0.000
+2026-01-10 20:18:36,105 [INFO] iter:147, id:1, r:839.698 and violateion:0.003
+2026-01-10 20:18:36,108 [INFO] have warm up
+2026-01-10 20:18:47,639 [INFO] iter:69, id:1, r:19.613 and violateion:0.000
+2026-01-10 20:19:36,078 [INFO] satisfy constraint, but not converge, id: 3 and r_penalty: 26.283 and violations:0.000:
+2026-01-10 20:19:37,132 [WARNING] connect time:1, accumulated time:66, and the robot pair:[(0, 1), (2, 3)]
+2026-01-10 20:19:46,729 [INFO] iter:23, id:3, r:1.796 and violateion:0.004
+2026-01-10 20:19:53,344 [INFO] iter:68, id:2, r:13.275 and violateion:0.020
+2026-01-10 20:19:55,008 [INFO] iter:90, id:1, r:63.254 and violateion:0.010
+2026-01-10 20:19:56,356 [INFO] iter:107, id:0, r:159.841 and violateion:0.000
+2026-01-10 20:19:56,360 [INFO] have warm up
+2026-01-10 20:20:02,549 [INFO] iter:0, id:2, r:1.000 and violateion:0.020
+2026-01-10 20:20:13,166 [INFO] iter:64, id:0, r:19.613 and violateion:0.000
+2026-01-10 20:20:14,666 [INFO] iter:103, id:1, r:108.186 and violateion:0.004
+2026-01-10 20:21:02,379 [INFO] satisfy constraint, but not converge, id: 3 and r_penalty: 21.623 and violations:0.000:
+2026-01-10 20:21:03,893 [WARNING] connect time:3, accumulated time:69, and the robot pair:[(0, 1), (0, 3), (1, 3)]
+2026-01-10 20:21:26,113 [INFO] iter:125, id:1, r:167.833 and violateion:0.000
+2026-01-10 20:21:26,310 [INFO] iter:123, id:0, r:273.382 and violateion:0.005
+2026-01-10 20:21:27,230 [INFO] iter:138, id:3, r:467.575 and violateion:0.000
+2026-01-10 20:21:27,233 [INFO] have warm up
+2026-01-10 20:21:33,262 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:21:33,289 [INFO] iter:0, id:0, r:1.000 and violateion:0.005
+2026-01-10 20:21:33,556 [INFO] iter:5, id:1, r:1.000 and violateion:0.002
+2026-01-10 20:21:34,426 [INFO] merge map
+2026-01-10 20:21:34,429 [INFO] merge map
+2026-01-10 20:21:34,431 [INFO] merge map
+2026-01-10 20:21:34,433 [INFO] merge map
+2026-01-10 20:21:34,875 [WARNING] connect time:1, accumulated time:70, and the robot pair:[]
+2026-01-10 20:21:39,727 [INFO] iter:0, id:0, r:1.000 and violateion:0.004
+2026-01-10 20:21:39,954 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:21:39,959 [INFO] iter:0, id:2, r:1.000 and violateion:0.015
+2026-01-10 20:21:40,014 [INFO] iter:5, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:21:40,017 [INFO] have warm up
+2026-01-10 20:21:45,414 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:21:46,339 [INFO] iter:0, id:2, r:1.000 and violateion:0.015
+2026-01-10 20:21:46,617 [INFO] iter:0, id:0, r:1.000 and violateion:0.004
+2026-01-10 20:21:46,697 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:21:47,684 [WARNING] connect time:0, accumulated time:70, and the robot pair:[(2, 3)]
+2026-01-10 20:22:06,750 [INFO] iter:180, id:2, r:541.277 and violateion:0.000
+2026-01-10 20:22:07,489 [INFO] iter:193, id:3, r:15.367 and violateion:0.000
+2026-01-10 20:22:07,494 [INFO] have warm up
+2026-01-10 20:22:11,445 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:22:15,510 [INFO] iter:88, id:2, r:49.561 and violateion:0.000
+2026-01-10 20:22:16,701 [WARNING] connect time:3, accumulated time:73, and the robot pair:[(0, 1), (0, 3), (1, 3)]
+2026-01-10 20:22:29,411 [INFO] iter:70, id:1, r:22.705 and violateion:0.010
+2026-01-10 20:22:30,507 [INFO] iter:79, id:0, r:42.813 and violateion:0.010
+2026-01-10 20:22:31,834 [INFO] iter:115, id:3, r:185.035 and violateion:0.000
+2026-01-10 20:22:31,837 [INFO] have warm up
+2026-01-10 20:22:36,714 [INFO] iter:0, id:0, r:1.000 and violateion:0.010
+2026-01-10 20:22:37,111 [INFO] iter:0, id:1, r:1.000 and violateion:0.010
+2026-01-10 20:22:37,317 [INFO] iter:3, id:3, r:1.000 and violateion:0.008
+2026-01-10 20:22:38,837 [WARNING] connect time:1, accumulated time:74, and the robot pair:[(2, 3)]
+2026-01-10 20:22:44,662 [INFO] iter:3, id:3, r:1.000 and violateion:0.014
+2026-01-10 20:22:49,168 [INFO] iter:106, id:2, r:80.730 and violateion:0.011
+2026-01-10 20:22:49,171 [INFO] have warm up
+2026-01-10 20:22:53,647 [INFO] iter:0, id:3, r:1.000 and violateion:0.014
+2026-01-10 20:22:53,719 [INFO] iter:0, id:2, r:1.000 and violateion:0.011
+2026-01-10 20:22:54,292 [INFO] merge map
+2026-01-10 20:22:54,295 [INFO] merge map
+2026-01-10 20:22:54,298 [INFO] merge map
+2026-01-10 20:22:54,300 [INFO] merge map
+2026-01-10 20:22:54,706 [WARNING] connect time:1, accumulated time:75, and the robot pair:[]
+2026-01-10 20:22:59,307 [INFO] iter:0, id:2, r:1.000 and violateion:0.009
+2026-01-10 20:22:59,335 [INFO] iter:0, id:0, r:1.000 and violateion:0.009
+2026-01-10 20:22:59,388 [INFO] iter:0, id:1, r:1.000 and violateion:0.010
+2026-01-10 20:22:59,473 [INFO] iter:0, id:3, r:1.000 and violateion:0.011
+2026-01-10 20:22:59,475 [INFO] have warm up
+2026-01-10 20:23:04,395 [INFO] iter:0, id:1, r:1.000 and violateion:0.010
+2026-01-10 20:23:04,642 [INFO] iter:0, id:0, r:1.000 and violateion:0.009
+2026-01-10 20:23:05,249 [INFO] iter:0, id:3, r:1.000 and violateion:0.011
+2026-01-10 20:23:05,297 [INFO] iter:0, id:2, r:1.000 and violateion:0.009
+2026-01-10 20:23:06,808 [WARNING] connect time:2, accumulated time:77, and the robot pair:[(0, 1), (0, 3), (1, 3)]
+2026-01-10 20:23:11,529 [INFO] iter:2, id:1, r:1.000 and violateion:0.001
+2026-01-10 20:23:11,534 [INFO] iter:2, id:3, r:1.000 and violateion:0.001
+2026-01-10 20:23:11,575 [INFO] iter:4, id:0, r:1.000 and violateion:0.001
+2026-01-10 20:23:11,578 [INFO] have warm up
+2026-01-10 20:23:15,978 [INFO] iter:0, id:3, r:1.000 and violateion:0.001
+2026-01-10 20:23:16,720 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-01-10 20:23:16,777 [INFO] iter:0, id:1, r:1.000 and violateion:0.001
+2026-01-10 20:23:17,967 [WARNING] connect time:1, accumulated time:78, and the robot pair:[(2, 3)]
+2026-01-10 20:23:22,098 [INFO] iter:2, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:23:22,176 [INFO] iter:4, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:23:22,178 [INFO] have warm up
+2026-01-10 20:23:26,474 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:23:26,529 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:23:27,072 [INFO] merge map
+2026-01-10 20:23:27,074 [INFO] merge map
+2026-01-10 20:23:27,075 [INFO] merge map
+2026-01-10 20:23:27,077 [INFO] merge map
+2026-01-10 20:23:27,185 [INFO] update map
+2026-01-10 20:23:27,577 [WARNING] connect time:2, accumulated time:80, and the robot pair:[]
+2026-01-10 20:23:31,915 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:23:31,978 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:23:32,263 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:23:32,321 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:23:32,323 [INFO] have warm up
+2026-01-10 20:23:37,423 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:23:37,755 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:23:38,459 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:23:38,462 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:23:39,583 [WARNING] connect time:1, accumulated time:81, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 20:23:44,156 [INFO] iter:2, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:23:44,506 [INFO] iter:3, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:23:44,531 [INFO] iter:3, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:23:44,536 [INFO] iter:3, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:23:44,538 [INFO] have warm up
+2026-01-10 20:23:49,273 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:23:49,303 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:23:51,866 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:23:51,872 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:23:52,412 [INFO] merge map
+2026-01-10 20:23:52,415 [INFO] merge map
+2026-01-10 20:23:52,416 [INFO] merge map
+2026-01-10 20:23:52,419 [INFO] merge map
+2026-01-10 20:23:52,848 [WARNING] connect time:4, accumulated time:85, and the robot pair:[]
+2026-01-10 20:23:56,993 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:23:57,065 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:23:57,298 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:23:57,343 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:23:57,345 [INFO] have warm up
+2026-01-10 20:24:03,128 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-01-10 20:24:03,477 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-01-10 20:24:03,817 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-01-10 20:24:03,889 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:24:04,734 [WARNING] connect time:0, accumulated time:85, and the robot pair:[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+2026-01-10 20:24:12,640 [INFO] iter:32, id:3, r:2.527 and violateion:0.013
+2026-01-10 20:24:15,298 [INFO] iter:61, id:0, r:5.516 and violateion:0.016
+2026-01-10 20:24:18,023 [INFO] iter:94, id:1, r:12.041 and violateion:0.006
+2026-01-10 20:24:21,997 [INFO] iter:199, id:2, r:20.594 and violateion:0.001
+2026-01-10 20:24:22,001 [INFO] have warm up
+2026-01-10 20:24:33,907 [INFO] iter:54, id:0, r:7.762 and violateion:0.000
+2026-01-10 20:24:34,773 [INFO] iter:62, id:1, r:10.401 and violateion:0.005
+2026-01-10 20:24:46,737 [INFO] iter:209, id:2, r:9.906 and violateion:0.005
+2026-01-10 20:24:49,272 [INFO] iter:283, id:3, r:8.985 and violateion:0.002
+2026-01-10 20:24:50,079 [WARNING] connect time:4, accumulated time:89, and the robot pair:[(0, 1), (2, 3)]
+2026-01-10 20:24:55,594 [INFO] iter:3, id:1, r:1.000 and violateion:0.011
+2026-01-10 20:25:00,436 [INFO] iter:51, id:3, r:8.150 and violateion:0.008
+2026-01-10 20:25:01,096 [INFO] iter:59, id:0, r:12.041 and violateion:0.009
+2026-01-10 20:25:07,755 [INFO] iter:234, id:2, r:49.561 and violateion:0.001
+2026-01-10 20:25:07,759 [INFO] have warm up
+2026-01-10 20:25:13,043 [INFO] iter:0, id:1, r:1.000 and violateion:0.011
+2026-01-10 20:25:13,111 [INFO] iter:0, id:0, r:1.000 and violateion:0.009
+2026-01-10 20:25:13,828 [INFO] iter:0, id:3, r:1.000 and violateion:0.008
+2026-01-10 20:25:17,319 [INFO] iter:90, id:2, r:36.984 and violateion:0.000
+2026-01-10 20:25:17,877 [INFO] merge map
+2026-01-10 20:25:17,880 [INFO] merge map
+2026-01-10 20:25:17,882 [INFO] merge map
+2026-01-10 20:25:17,884 [INFO] merge map
+2026-01-10 20:25:18,320 [WARNING] connect time:1, accumulated time:90, and the robot pair:[]
+2026-01-10 20:25:23,286 [INFO] iter:1, id:0, r:1.000 and violateion:0.009
+2026-01-10 20:25:23,316 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:25:23,370 [INFO] iter:1, id:1, r:1.000 and violateion:0.011
+2026-01-10 20:25:23,409 [INFO] iter:1, id:3, r:1.000 and violateion:0.008
+2026-01-10 20:25:23,411 [INFO] have warm up
+2026-01-10 20:25:29,253 [INFO] iter:0, id:0, r:1.000 and violateion:0.009
+2026-01-10 20:25:29,325 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-01-10 20:25:29,865 [INFO] iter:0, id:3, r:1.000 and violateion:0.008
+2026-01-10 20:25:29,913 [INFO] iter:0, id:1, r:1.000 and violateion:0.011
+2026-01-10 20:25:31,205 [WARNING] connect time:3, accumulated time:93, and the robot pair:[(0, 1)]
+2026-01-10 20:25:35,423 [INFO] iter:2, id:1, r:1.000 and violateion:0.008
+2026-01-10 20:25:35,495 [INFO] iter:3, id:0, r:1.000 and violateion:0.001
+2026-01-10 20:25:35,498 [INFO] have warm up
+2026-01-10 20:25:40,106 [INFO] iter:0, id:1, r:1.000 and violateion:0.008
+2026-01-10 20:25:40,147 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-01-10 20:25:40,633 [INFO] merge map
+2026-01-10 20:25:40,634 [INFO] merge map
+2026-01-10 20:25:40,636 [INFO] merge map
+2026-01-10 20:25:40,639 [INFO] merge map
+2026-01-10 20:25:41,048 [WARNING] connect time:2, accumulated time:95, and the robot pair:[]
+2026-01-10 20:25:47,790 [INFO] iter:15, id:3, r:1.710 and violateion:0.009
+2026-01-10 20:25:49,211 [INFO] iter:32, id:2, r:2.786 and violateion:0.003
+2026-01-10 20:25:55,648 [INFO] iter:127, id:0, r:3.386 and violateion:0.006
+2026-01-10 20:25:56,896 [INFO] iter:162, id:1, r:4.116 and violateion:0.002
+2026-01-10 20:25:56,900 [INFO] have warm up
+2026-01-10 20:26:02,692 [INFO] iter:0, id:2, r:1.000 and violateion:0.003
+2026-01-10 20:26:03,254 [INFO] iter:0, id:3, r:1.000 and violateion:0.009
+2026-01-10 20:26:08,955 [INFO] iter:81, id:1, r:3.920 and violateion:0.002
+2026-01-10 20:26:10,156 [INFO] iter:113, id:0, r:4.538 and violateion:0.009
+2026-01-10 20:26:11,394 [WARNING] connect time:2, accumulated time:97, and the robot pair:[(0, 1)]
+2026-01-10 20:26:21,590 [INFO] iter:53, id:0, r:2.407 and violateion:0.006
+2026-01-10 20:26:22,835 [INFO] iter:92, id:1, r:1.980 and violateion:0.003
+2026-01-10 20:26:22,838 [INFO] have warm up
+2026-01-10 20:26:29,748 [INFO] iter:36, id:0, r:2.292 and violateion:0.009
+2026-01-10 20:26:30,142 [INFO] iter:46, id:1, r:1.980 and violateion:0.006
+2026-01-10 20:26:36,224 [INFO] signal_shutdown [atexit]
+2026-01-10 21:28:34,689 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-01-10 21:28:34,698 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-01-10 21:28:38,786 [INFO] topicmanager initialized
+2026-01-10 21:28:38,861 [INFO] Log opened: Sat Jan 10 13:28:38 2026 UTC
+2026-01-10 21:28:44,030 [INFO] my_strategy
+2026-01-10 21:28:45,205 [INFO] signal_shutdown [atexit]
+2026-01-10 21:31:34,766 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-01-10 21:31:34,767 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-01-10 21:31:37,352 [INFO] topicmanager initialized
+2026-01-10 21:31:37,402 [INFO] Log opened: Sat Jan 10 13:31:37 2026 UTC
+2026-01-10 21:31:41,536 [INFO] my_strategy
+2026-01-10 21:31:43,766 [INFO] signal_shutdown [atexit]
+2026-01-10 21:32:04,025 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-01-10 21:32:04,027 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-01-10 21:32:06,445 [INFO] topicmanager initialized
+2026-01-10 21:32:06,491 [INFO] Log opened: Sat Jan 10 13:32:06 2026 UTC
+2026-01-10 21:32:10,373 [INFO] my_strategy
+2026-01-10 21:32:11,358 [INFO] signal_shutdown [atexit]
+2026-01-10 21:47:55,947 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-01-10 21:47:55,954 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-01-10 21:47:58,767 [INFO] topicmanager initialized
+2026-01-10 21:47:58,831 [INFO] Log opened: Sat Jan 10 13:47:58 2026 UTC
+2026-01-10 21:48:03,527 [INFO] my_strategy
+2026-01-10 21:48:30,032 [INFO] iter:63, id:2, r:1.000 and violateion:0.000
+2026-01-10 21:48:30,077 [INFO] iter:63, id:1, r:1.000 and violateion:0.000
+2026-01-10 21:48:30,093 [INFO] iter:63, id:0, r:1.000 and violateion:0.000
+2026-01-10 21:48:30,119 [INFO] iter:63, id:3, r:1.000 and violateion:0.000
+2026-01-10 21:48:30,121 [INFO] have warm up
+2026-01-10 21:48:37,248 [INFO] signal_shutdown [atexit]
+2026-01-10 21:49:45,687 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-01-10 21:49:45,688 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-01-10 21:49:48,157 [INFO] topicmanager initialized
+2026-01-10 21:49:48,214 [INFO] Log opened: Sat Jan 10 13:49:48 2026 UTC
+2026-01-10 21:49:52,104 [INFO] my_strategy
+2026-01-10 21:50:17,490 [INFO] iter:63, id:3, r:1.000 and violateion:0.000
+2026-01-10 21:50:17,729 [INFO] iter:63, id:1, r:1.000 and violateion:0.000
+2026-01-10 21:50:17,989 [INFO] iter:63, id:2, r:1.000 and violateion:0.000
+2026-01-10 21:50:18,061 [INFO] iter:63, id:0, r:1.000 and violateion:0.000
+2026-01-10 21:50:18,063 [INFO] have warm up
+2026-01-10 21:50:18,704 [INFO] signal_shutdown [atexit]
+2026-01-10 21:51:19,477 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-01-10 21:51:19,478 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-01-10 21:51:21,866 [INFO] topicmanager initialized
+2026-01-10 21:51:21,912 [INFO] Log opened: Sat Jan 10 13:51:21 2026 UTC
+2026-01-10 21:51:25,626 [INFO] my_strategy
+2026-01-10 21:51:50,090 [INFO] iter:63, id:3, r:1.000 and violateion:0.000
+2026-01-10 21:51:50,315 [INFO] iter:63, id:0, r:1.000 and violateion:0.000
+2026-01-10 21:51:50,432 [INFO] iter:63, id:1, r:1.000 and violateion:0.000
+2026-01-10 21:51:50,448 [INFO] iter:63, id:2, r:1.000 and violateion:0.000
+2026-01-10 21:51:50,453 [INFO] have warm up
+2026-01-10 21:52:21,359 [INFO] signal_shutdown [atexit]
+2026-01-10 21:52:56,148 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-01-10 21:52:56,149 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-01-10 21:52:58,490 [INFO] topicmanager initialized
+2026-01-10 21:52:58,538 [INFO] Log opened: Sat Jan 10 13:52:58 2026 UTC
+2026-01-10 21:53:02,320 [INFO] my_strategy
+2026-01-10 21:53:13,252 [INFO] signal_shutdown [atexit]
