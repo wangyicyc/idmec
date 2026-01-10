@@ -6,7 +6,8 @@ sys.path.append('..')
 from multiRobots_lib.multi_solver import al_iLQR 
 from multiRobots_lib.augument_lagrange_func import loss_traj_multi, eq_constr, ineq_constr_multi, loss_compare_multi
 from multiRobots_lib.data_collect import save_ergodic_metrics_to_excel, append_metric, multi_traj_to_rosbag, multi_path_to_rosbag, multi_map_to_rosbag
-from multiRobots_lib.plot_utils import plot_trajs
+# from multiRobots_lib.plot_utils import plot_trajs
+from multiRobots_lib.plot_utils_paper import plot_trajs
 from multiRobots_lib.tools import find_first_connected, exchange_info, multi_robot_optimize_trajs, update_accumulated_time
 from multiRobots_lib.decay_utils import update_beta
 from multiRobots_lib.data2bag import CommandToRosbag, PathToRosbag, MapINfoToMarkers
@@ -90,7 +91,7 @@ last_exchange_time = {}
 # 迭代优化并动态可视化轨迹与障碍物分布
 warm_up = True
 # warm_up = False
-plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, save_path)    
+# plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, target_distr, '_{i}')  
 logging.info('my_strategy')
 while True:
     if warm_up == True:
@@ -108,7 +109,6 @@ while True:
         continue
     else:
         warm_up = True
-        plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, save_path)    
     current_time, robot_pair = find_first_connected(sol_trajs, connection_threshold, last_exchange_time)
     current_time, accumulated_time = update_accumulated_time(current_time, accumulated_time, be_num)
     map_merge_cnt += current_time
@@ -139,7 +139,8 @@ while True:
         # multi_map_to_rosbag(robot_distr, map_saver, update_map_freq)
         logging.info("update map")
         robot_pair = []
-        target_distr.update_map(accumulated_time, "reset", "read")
+        # target_distr.update_map(accumulated_time, "perturb", "write")
+        # plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, target_distr, '_{i}')  
         be_num += 1
         if accumulated_time >= tsteps:
             break
@@ -159,6 +160,9 @@ while True:
     init_state = [traj['x'][0, :] for traj in sol_trajs]     
     init_dual = True
     logging.warning(f"connect time:{current_time}, accumulated time:{accumulated_time}, and the robot pair:{robot_pair}")
-    # plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, save_path)    
-plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, save_path)
+    # plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, save_path)  
+    if accumulated_time >= 40:
+        plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, target_distr, '_{i}')  
+        break
+# plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, True, robot_distr, '_{i}')
 save_ergodic_metrics_to_excel(robot_number, global_metric, decay_type = 'my_strategy')

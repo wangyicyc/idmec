@@ -89,10 +89,10 @@ def update_beta(sol_trajs, decay_type, last_exchange_time, accumulated_time):
             
             if other_id == r_id:
                 continue
-            scale_factor = last_exchange_time.get((r_id, other_id), 1) / max(accumulated_time, 1)
-            future_arr = future_arr.at[:, other_id].multiply(scale_factor)
+            # scale_factor = last_exchange_time.get((r_id, other_id), 1) / max(accumulated_time, 1)
+            # future_arr = future_arr.at[:, other_id].multiply(scale_factor)
             # future_arr[:, other_id] = future_arr[:, other_id] * last_exchange_time.get((r_id, other_id), 1) / max(accumulated_time, 1)
-            past_list[other_id] = past_list[other_id] * last_exchange_time.get((other_id, r_id), 1) / max(accumulated_time, 1)
+            past_list[other_id] = past_list[other_id]# * last_exchange_time.get((other_id, r_id), 1) / max(accumulated_time, 1)
 
         new_beta = {
             'x': np.array(future_arr),
