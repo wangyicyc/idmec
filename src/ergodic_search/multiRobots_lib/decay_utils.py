@@ -117,7 +117,8 @@ def update_beta_single(sol_trajs, decay_type='linear'):
                 past_list.append(jnp.full((old_len), max_val))
             elif decay_type == 'linear':
                 past_list.append(jnp.linspace(min_val, max_val * old_len / T_other, num=old_len))
-            
+            elif decay_type == 'truncated':
+                past_list.append(jnp.full((old_len), 1e-8)) 
         # total_future = jnp.sum(future_arr)
         # total_past = sum(jnp.sum(arr) for arr in past_list if arr.size > 0)
         # normalization_factor = total_future + total_past + 1e-8

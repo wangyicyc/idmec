@@ -121,7 +121,7 @@ while True:
     init_state = [traj['x'][0, :] for traj in sol_trajs]     
     init_dual = True
     logging.warning(f"connect time:{current_time}, accumulated time:{accumulated_time}, and the robot pair:{robot_pair}")
-    # plot_trajs_old(start_pos, end_pos, sol_trajs, betas, False, robot_distr, save_path)    
-plot_trajs_old(start_pos, end_pos, sol_trajs, betas, True, robot_distr, save_path) 
+    # plot_trajs_old(start_pos, end_pos, sol_trajs, betas, robot_distr, save_path)    
+plot_trajs_old(start_pos, end_pos, sol_trajs, betas, robot_distr, save_path) 
 
 save_ergodic_metrics_to_excel(robot_number, global_metric, 'baseline2')

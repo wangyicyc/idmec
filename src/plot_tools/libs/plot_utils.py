@@ -9,10 +9,10 @@ from matplotlib.colors import LinearSegmentedColormap
 
 # 自定义颜色列表，基于给定的RGB值
 colors = [
-    '#%02x%02x%02x' % (29, 108, 212),   # 根据指定的RGB值生成十六进制颜色代码
-    '#%02x%02x%02x' % (255, 170, 0),
-    '#%02x%02x%02x' % (1, 160, 100),   
-    '#%02x%02x%02x' % (170, 0, 255)
+    '#1D6CD4',  # 蓝色 (Blue)      —— RGB(29, 108, 212)
+    '#FFAA00',  # 橙色 (Orange)    —— RGB(255, 170, 0)
+    '#01A064',  # 翡翠绿 (Teal)    —— RGB(1, 160, 100)
+    '#AA00FF',  # 紫色 (Purple)    —— RGB(170, 0, 255)
 ]
 def plot_trajs(color, robot_distr, save_path=None):
     """
