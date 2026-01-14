@@ -16,13 +16,13 @@ steps = list(range(len(metric_cols)))
 
 methods = ['baseline1', 'baseline2', 'baseline3']
 colors = {
-    'baseline1': '#4E79A7',
-    'baseline2': '#F28E2B',
-    'baseline3': '#E15759',
-    'baseline4': '#76B7B2',
-    'baseline5': '#B07296',
-    'baseline6': '#9C755F',
-    'method': '#FF9F40'
+    'baseline1': "#F221B3",
+    'baseline2': "#7A3CDD",
+    'baseline3': "#3F42DB",
+    'baseline4': "#2DC649",
+    'baseline5': "#DFF706",
+    'baseline6': "#F1B900",
+    'method': "#40FFE2"
 }
 markers = ['o', 's', '^', 'D', '*', 'X', 'P']
 
@@ -83,14 +83,14 @@ for i, method in enumerate(methods):
 
 plt.xlabel('Step')
 # plt.ylabel('Ergodic Metric')
-plt.title('Ergodic Metric Comparison Across Methods', fontweight='bold')
+# plt.title('Ergodic Metric Comparison Across Methods', fontweight='bold')
 plt.legend(frameon=False)
 plt.grid(True, linestyle='--', alpha=0.6)
 plt.xticks(steps)
 plt.tight_layout()
 
-save_path_pdf = 'experiment1.pdf'
-plt.savefig(save_path_pdf, format='pdf', dpi=300, bbox_inches='tight')
+save_path_pdf = 'experiment1.png'
+plt.savefig(save_path_pdf, dpi=300, bbox_inches='tight')
 plt.show()
 print(f"✅ 折线图已保存至: {save_path_pdf}")
 
@@ -143,10 +143,10 @@ plt.bar(
 )
 plt.xticks(x, valid_methods, rotation=30, ha='right')
 # plt.ylabel('Ergodic Metric\n(Mean ± Std across Steps)')
-plt.title('Performance Stability Across Steps')
-plt.tight_layout(pad=0.3)
+# plt.title('Performance Stability Across Steps')
+# plt.tight_layout(pad=0.3)
 
-bar_save_path = 'experiment1_mean_std.pdf'
-plt.savefig(bar_save_path, format='pdf', bbox_inches='tight')
+bar_save_path = 'experiment1_mean_std.png'
+plt.savefig(bar_save_path, dpi=300, bbox_inches='tight')
 plt.show()
 print(f"✅ 柱状图（均值±标准差）已保存至: {bar_save_path}")
