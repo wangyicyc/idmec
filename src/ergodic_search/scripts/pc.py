@@ -95,9 +95,29 @@ logging.info('my_strategy')
 plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, robot_distr, save_path)  
 while True:
     if warm_up == True:
-        sol_trajs, to_remove = multi_robot_optimize_trajs(involved_robots, sol_trajs, multi_betas, traj_warmUp, init_state, init_dual)
+        # sol_trajs, to_remove = multi_robot_optimize_trajs(involved_robots, sol_trajs, multi_betas, traj_warmUp, init_state, init_dual)
+        for r_id in involved_robots:
+            sol_trajs[r_id], conv = traj_warmUp[r_id].solve(
+            x0=init_state[r_id],
+            init_sol=sol_trajs[r_id],      # 如果 solver 会修改它，建议 deep copy
+            beta=multi_betas[r_id],
+            init_dual=init_dual,
+            max_iter=1000,
+            if_print=False,
+            r_eps = 0.02,
+            loss_eps = 1e-6)
     else:
-        sol_trajs, to_remove = multi_robot_optimize_trajs(involved_robots, sol_trajs, multi_betas, traj_solver, init_state, init_dual)
+        # sol_trajs, to_remove = multi_robot_optimize_trajs(involved_robots, sol_trajs, multi_betas, traj_solver, init_state, init_dual)
+        for r_id in involved_robots:
+            sol_trajs[r_id], conv = traj_solver[r_id].solve(
+            x0=init_state[r_id],
+            init_sol=sol_trajs[r_id],      # 如果 solver 会修改它，建议 deep copy
+            beta=multi_betas[r_id],
+            init_dual=init_dual,
+            max_iter=1000,
+            if_print=False,
+            r_eps = 0.02,
+            loss_eps = 1e-6) 
     # involved_robots -= to_remove
     clear_output(wait=True)                   # 清除上一次输出，动态刷新
     init_dual = False
@@ -117,16 +137,15 @@ while True:
         current_time -= (map_merge_cnt - map_merge_freq)
         map_merge_cnt = 0
         if accumulated_time >= tsteps:
-            # multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
-            # multi_path_to_rosbag(sol_trajs, pathSaver, current_time)
-            # multi_map_to_rosbag(robot_distr, map_saver, update_map_freq)
-            # map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq)
+            multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
+            multi_path_to_rosbag(sol_trajs, pathSaver, current_time)
+            multi_map_to_rosbag(robot_distr, map_saver, update_map_freq)
+            map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq, ["#ffffff", "#000000"])
             append_metric(global_metric, loss_compare_multi(sol_trajs, target_distr.evals, current_time))
             break
         robot_pair = []
         
         for r_id in range(robot_number):
-            # print(f"current_time = {connect_timestesp}, type = {type(current_time)}")
             q_t = sol_trajs[r_id]['x'][current_time, r_id * state_dim: r_id * state_dim + 2]
             robot_distr[r_id].bayes_filter_reset(target_distr.evals[0], q_t)
             traj_solver[r_id].update_distribution(robot_distr[r_id].evals)
@@ -135,16 +154,16 @@ while True:
     # ================================ 为replan准备 ==============================================================  
     if accumulated_time == update_map_freq * be_num:
         append_metric(global_metric, loss_compare_multi(sol_trajs, target_distr.evals, current_time))
-        # map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq)
-        # multi_map_to_rosbag(robot_distr, map_saver, update_map_freq)
+        map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq)
+        multi_map_to_rosbag(robot_distr, map_saver, update_map_freq)
         logging.info("update map")
         robot_pair = []
         target_distr.update_map(accumulated_time, "reset", "read")
         be_num += 1
         if accumulated_time >= tsteps:
             break
-    # multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
-    # multi_path_to_rosbag(sol_trajs, pathSaver, current_time)
+    multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
+    multi_path_to_rosbag(sol_trajs, pathSaver, current_time)
 
     # 只在循环外更新last_exchange_time
     for i, j in robot_pair:
@@ -161,4 +180,4 @@ while True:
     logging.warning(f"connect time:{current_time}, accumulated time:{accumulated_time}, and the robot pair:{robot_pair}")
     # plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, robot_distr, save_path)  
 plot_trajs(start_pos, end_pos, sol_trajs, multi_betas, robot_distr, save_path)  
-save_ergodic_metrics_to_excel(robot_number, global_metric, decay_type = 'my_strategy')
+# save_ergodic_metrics_to_excel(robot_number, global_metric, decay_type = 'my_strategy')

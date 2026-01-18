@@ -13,11 +13,23 @@ from visualization_msgs.msg import Marker
 from geometry_msgs.msg import Point
 from std_msgs.msg import ColorRGBA
 from scipy.ndimage import gaussian_filter
-
-
 from nav_msgs.msg import Path
 from geometry_msgs.msg import PoseStamped
 from tf.transformations import quaternion_from_euler
+
+
+def hex_to_rgb_float(hex_color):
+    """
+    将 '#rrggbb' 转为 (r, g, b) 浮点元组，范围 [0.0, 1.0]
+    示例: '#ff0000' → (1.0, 0.0, 0.0)
+    """
+    hex_color = hex_color.lstrip('#')
+    if len(hex_color) != 6:
+        raise ValueError(f"Invalid hex color: {hex_color}")
+    r = int(hex_color[0:2], 16) / 255.0
+    g = int(hex_color[2:4], 16) / 255.0
+    b = int(hex_color[4:6], 16) / 255.0
+    return (r, g, b)
 
 class CommandToRosbag:
     def __init__(self, bag_dir="~/ros_data/trajectories"):
@@ -159,7 +171,7 @@ class MapINfoToMarkers:
         os.makedirs(self.bag_dir, exist_ok=True)
         self.frame_id = frame_id
         self.topic_name = "/map_distribution"
-    def generate_probmap_marker(self, points, probs, sigma=0.8, stamp=None):
+    def generate_probmap_marker(self, points, probs, sigma=0.8, stamp=None, colors_hex = ["#ffffff", "#000000"]):
         if len(probs) != len(points):
             raise ValueError("probs and points length mismatch")
 
@@ -187,13 +199,11 @@ class MapINfoToMarkers:
 
         # 自定义 colormap: white (low) → dark blue (high)
         from matplotlib.colors import LinearSegmentedColormap
-        colors = [(1.0, 1.0, 1.0), (0.0, 0.0, 0.6)]
+        colors = [hex_to_rgb_float(c) for c in colors_hex]
         custom_cmap = LinearSegmentedColormap.from_list("white_to_darkblue", colors)
         rgba = custom_cmap(norm)  # (H, W, 4)
-
         marker = Marker()
         marker.header.frame_id = self.frame_id
-
         # 处理时间戳
         if stamp is None:
             stamp = rospy.Time.from_sec(0.0)
@@ -206,7 +216,6 @@ class MapINfoToMarkers:
         marker.action = Marker.ADD
         marker.scale.x = 0.03
         marker.scale.y = 0.03
-
         for i in range(ny):
             for j in range(nx):
                 point = Point(x=x_vals[j], y=y_vals[i], z=0.0)
@@ -215,9 +224,10 @@ class MapINfoToMarkers:
                 marker.points.append(point)
                 marker.colors.append(color)
         return marker
-    def save_probmap_to_bag(self, points, probs, dt, timesteps=1, bag_filename="map.bag", mode='w'):
+    
+    def save_probmap_to_bag(self, points, probs, dt, timesteps, color, bag_filename="map.bag", mode='w'):
         bag_path = os.path.join(self.bag_dir, bag_filename)
-        marker = self.generate_probmap_marker(points, probs, stamp=dt)
+        marker = self.generate_probmap_marker(points, probs, stamp=dt, colors_hex = color)
         time_offset = 0.0
         if mode == 'a' or os.path.exists(bag_path):
             with rosbag.Bag(bag_path, 'r') as existing_bag:
@@ -229,7 +239,6 @@ class MapINfoToMarkers:
                 for i in range(timesteps):
                     marker.header.stamp = rospy.Time.from_sec(time_offset + i * dt)
                     bag.write(self.topic_name, marker, t=marker.header.stamp)
-
         else:
             with rosbag.Bag(bag_path, 'w') as bag:
                 for i in range(timesteps):
