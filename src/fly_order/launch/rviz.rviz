@@ -62,7 +62,7 @@ Visualization Manager:
       Cell Size: 0.5
       Class: rviz/Grid
       Color: 160; 160; 164
-      Enabled: true
+      Enabled: false
       Line Style:
         Line Width: 0.029999999329447746
         Value: Lines
@@ -75,7 +75,7 @@ Visualization Manager:
       Plane: XY
       Plane Cell Count: 1000
       Reference Frame: <Fixed Frame>
-      Value: true
+      Value: false
     - Alpha: 0.15000000596046448
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -653,7 +653,7 @@ Visualization Manager:
       Marker Topic: /map_distribution
       Name: Marker
       Namespaces:
-        heatmap: true
+        {}
       Queue Size: 100
       Value: true
   Enabled: true
@@ -683,7 +683,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 9.356546401977539
+      Distance: 0.702886700630188
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -691,17 +691,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 2.3829617500305176
-        Y: -0.32534733414649963
-        Z: -9.5367431640625e-07
+        X: 2.4777534008026123
+        Y: 0.36289793252944946
+        Z: -8.940696716308594e-07
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.5047963857650757
+      Pitch: 0.4747966527938843
       Target Frame: <Fixed Frame>
-      Yaw: 4.7216033935546875
+      Yaw: 5.486600875854492
     Saved:
       - Class: rviz/FPS
         Enable Stereo Rendering:

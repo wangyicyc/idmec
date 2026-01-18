@@ -72,3 +72,5 @@ plot_trajs('Greys', target_distr, save_path='real_map.png')
 robot_distr.bayes_filter_reset(target_distr.evals[0], jnp.array([1.5, 2.5]))
 
 plot_trajs('Blues', robot_distr, save_path='belief_map_after_filter.png')
+
+

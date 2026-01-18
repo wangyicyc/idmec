@@ -7,8 +7,11 @@ from multiRobots_lib.integrator import rk4 as int_func
 from jax.lax import scan
 from multiRobots_lib.class_types import *
 import logging
+from datetime import datetime
+# 生成包含年月日_时分的日志文件名，例如：app_2026-01-16_15-06.log
+log_filename = f"../datas/logs/app_{datetime.now().strftime('%Y-%m-%d_%H-%M')}.log"
 logging.basicConfig(
-    filename='../datas/logs/app.log',          # 日志文件名
+    filename=log_filename,          # 日志文件名
     level=logging.INFO,          # 日志等级
     format='%(asctime)s [%(levelname)s] %(message)s',  # 格式
 )

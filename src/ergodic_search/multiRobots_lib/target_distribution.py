@@ -4,23 +4,10 @@ from jax.scipy.stats import multivariate_normal as jax_mvn
 import math
 import time
 from jax import random
-import logging
 import sys 
 sys.path.append('..')
 from multiRobots_lib.data_collect import export_map_to_jsonl, load_map_history_jsonl
 # 提取 opt_args 子字典
-logging.basicConfig(
-    filename='../log/app.log',          # 日志文件名
-    level=logging.INFO,          # 日志等级
-    format='%(asctime)s [%(levelname)s] %(message)s',  # 格式
-)
-
-
-# logging.info("程序启动")
-# logging.warning("参数偏离预期")
-# logging.error("出现错误，程序中止")
-
-
 class TargetDistribution(object):
     def __init__(self, size = 2, peak = None) -> None:
         # 空间定义
@@ -129,7 +116,6 @@ class TargetDistribution(object):
             u_t: jnp.array, shape (2,)，UAV当前位置
             sigma_d: float，距离衰减尺度
         """
-        # logging.info("程序启动")
         # 1. 计算距离
         diff_to_uav = self._s - u_t  # (N, 2)
         d = jnp.sum(diff_to_uav**2, axis=1)  # (N,)

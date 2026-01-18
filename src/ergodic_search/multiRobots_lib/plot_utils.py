@@ -17,13 +17,16 @@ from multiRobots_lib.hyper_params import (
     robot_number,
 )
 from multiRobots_lib.decay_utils import get_Decay_alpha # 获取权重显示
-
+from matplotlib.colors import LinearSegmentedColormap
+white_to_lightyellow = LinearSegmentedColormap.from_list(
+    "white_to_lightyellow", ["#FFFFFF", "#000000"], N=256
+)
 # 自定义颜色列表，基于给定的RGB值
 colors = [
-    '#%02x%02x%02x' % (29, 108, 212),   # 根据指定的RGB值生成十六进制颜色代码
-    '#%02x%02x%02x' % (255, 170, 0),
-    '#%02x%02x%02x' % (1, 160, 100),   
-    '#%02x%02x%02x' % (170, 0, 255)
+    '#1d6cd4',   # 深蓝
+    "#facf21",   # 橙色
+    '#01a064',   # 青绿
+    '#aa00ff'    # 紫色
 ]
 map_colors = ['Blues', 'YlOrBr', 'Greens', 'Purples']
 def plot_trajs(start_pos, end_pos, sol_trajs, betas, robot_distr, save_path=None):
@@ -90,10 +93,10 @@ def plot_trajs(start_pos, end_pos, sol_trajs, betas, robot_distr, save_path=None
                 )
                 ax.scatter(sol_traj['x'][:, 4 * t], sol_traj['x'][:, 4 * t + 1], 
                     c = colors[t], s=70, alpha=decayed_alpha['x'][:, t], 
-                    marker='^', edgecolors='none', zorder=5)
+                    marker='o', edgecolors='none', zorder=5)
                 if sol_traj['px'][t].shape[0] > 0: 
                     ax.scatter(sol_traj['px'][t][:, 0], sol_traj['px'][t][:, 1], 
-                                c = colors[t], s=60, alpha=decayed_alpha['px'][t], marker='^', 
+                                c = colors[t], s=60, alpha=decayed_alpha['px'][t], marker='o', 
                                 edgecolors='none', zorder=4)
             else:
                 # 绘制起点和终点
@@ -103,11 +106,11 @@ def plot_trajs(start_pos, end_pos, sol_trajs, betas, robot_distr, save_path=None
                     markerfacecolor='none', markeredgewidth=3, markeredgecolor=colors[t], label='end point')
                 
                 ax.scatter(sol_traj['x'][:, 4 * t], sol_traj['x'][:, 4 * t + 1], 
-                    c = colors[t], s=10, alpha=decayed_alpha['x'][:, t], 
+                    c = colors[t], s=20, alpha=decayed_alpha['x'][:, t], marker='o',
                     edgecolors='none', zorder=3)
                 if sol_traj['px'][t].shape[0] > 0:
                     ax.scatter(sol_traj['px'][t][:, 0], sol_traj['px'][t][:, 1], 
-                                c = colors[t], s=10, alpha=decayed_alpha['px'][t], 
+                                c = colors[t], s=20, alpha=decayed_alpha['px'][t], marker='o',
                                 edgecolors='none', zorder=2)
         ax.set_title(f'Robot {i}', fontsize=30, fontweight='bold')
         # ax.legend(loc='best')
@@ -119,7 +122,9 @@ def plot_trajs(start_pos, end_pos, sol_trajs, betas, robot_distr, save_path=None
         plt.show()
         plt.close(fig)
 
-
+white_to_black = LinearSegmentedColormap.from_list(
+    "white_to_black", ["#FFFFFF", "#000000"], N=256
+)
 def plot_trajs_old(start_pos, end_pos, sol_trajs, betas, robot_distr, save_path=None):
     """
     动态绘制多个机器人的轨迹
@@ -146,7 +151,7 @@ def plot_trajs_old(start_pos, end_pos, sol_trajs, betas, robot_distr, save_path=
         pdf_vals, _ = robot_distr[i].evals
         ax.contourf(
             grids_x, grids_y, pdf_vals.reshape(grids_x.shape), 
-            levels=50, cmap='Reds', alpha=0.3
+            levels=50, cmap=white_to_black, alpha=0.3
         )
         ax.yaxis.set_major_formatter(FuncFormatter(lambda y, _: '' if y == 0 else f'{int(y)}'))
         for spine in ['top', 'bottom', 'left', 'right']:
@@ -177,19 +182,19 @@ def plot_trajs_old(start_pos, end_pos, sol_trajs, betas, robot_distr, save_path=
         # 绘制轨迹点
         ax.scatter(sol_traj['x'][:, 0], sol_traj['x'][:, 1], 
                    c = colors[i], s=50, alpha=decayed_alpha['x'], 
-                   marker='^', edgecolors='none', zorder=3)
+                   marker='o', edgecolors='none', zorder=3)
 
         
 
         for t in range(robot_number):  # 假设每个轨迹点有4个维度（x, y, vx, vy）
             if t == i and sol_traj['px'][t].shape[0] > 0:
                 ax.scatter(sol_traj['px'][t][:, 0], sol_traj['px'][t][:, 1], 
-                    c = colors[t], s=40, alpha=decayed_alpha['px'][t], marker='^', 
+                    c = colors[t], s=40, alpha=decayed_alpha['px'][t], marker='o', 
                     edgecolors='none', zorder=2)
                     
             elif sol_traj['px'][t].shape[0] > 0:
                 ax.scatter(sol_traj['px'][t][:, 0], sol_traj['px'][t][:, 1], 
-                    c = colors[t], s=10, alpha=decayed_alpha['px'][t], 
+                    c = colors[t], s=10, alpha=decayed_alpha['px'][t], marker='o',
                     edgecolors='none', zorder=2)
                  
         # 设置标题和图例

@@ -70,6 +70,20 @@ global_metric = {
 current_time = None
 robot_pair = []
 logging.info('baseline')
+# target_distr.update_map(accumulated_time, "perturb", 'write')
+
+# target_distr.update_map(accumulated_time, "perturb", 'write')
+
+# target_distr.update_map(accumulated_time, "perturb", 'write')
+
+# target_distr.update_map(accumulated_time, "perturb", 'write')
+target_distr.update_map(accumulated_time, "perturb", 'read')
+
+target_distr.update_map(accumulated_time, "perturb", 'read')
+
+target_distr.update_map(accumulated_time, "perturb", 'read')
+
+target_distr.update_map(accumulated_time, "perturb", 'read')
 
 while True:
     sol_trajs, to_remove = optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual)

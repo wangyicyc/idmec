@@ -1,13 +1,15 @@
 
 import os
 os.environ["JAX_ENABLE_X64"] = "True"
-import sys 
+import sys
+# from map_visualization import plot_trajs 
 sys.path.append('..')
 # 增广拉格朗日法优化器
 from multiRobots_lib.solver import al_iLQR 
 from multiRobots_lib.augument_lagrange_func import loss_traj_single, eq_constr_single, ineq_constr_single, loss_compare_single
 from multiRobots_lib.data_collect import append_metric, traj_to_rosbag, path_to_rosbag
 import logging
+import yaml
 import numpy as np
 from multiRobots_lib.plot_utils import plot_trajs_old
 from multiRobots_lib.tools import exchange_info_old, optimize_trajs, update_accumulated_time
@@ -71,9 +73,22 @@ global_metric = {
 current_time = None
 robot_pair = []
 logging.info('ex1-baseline1')
-
 while True:
-    sol_trajs, to_remove = optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual)
+    # sol_trajs, to_remove = optimize_trajs(involved_robots, sol_trajs, betas, traj_solver, init_state, init_dual)
+    to_remove = set()
+    for r_id in involved_robots:
+        sol_trajs[r_id], conv = traj_solver[r_id].solve(
+        x0=init_state[r_id],
+        init_sol=sol_trajs[r_id],      # 如果 solver 会修改它，建议 deep copy
+        beta=betas[r_id],
+        init_dual=init_dual,
+        max_iter=1000,
+        if_print=False,
+        r_eps = 0.02,
+        loss_eps = 1e-6)
+        if conv:
+            to_remove.add(r_id)
+
     involved_robots -= to_remove
     clear_output(wait=True)                   # 清除上一次输出，动态刷新
     # init_dual = False
@@ -99,55 +114,79 @@ while True:
         # target_distr.update_map(accumulated_time, "perturb", 'write')
         target_distr.update_map(accumulated_time, "perturb", 'read')
         be_num += 1
-
     # traj_to_rosbag(sol_trajs, commandSaver, current_time)
     # for i in range(current_time + 1):
     #     path_to_rosbag(sol_trajs, pathSaver, i)
     sol_trajs, connected_pairs = exchange_info_old(sol_trajs, robot_pair, current_time, robot_distr)
     betas = update_beta_single(sol_trajs, decay_type)
     involved_robots = set(list(range(robot_number)))
-    init_state = [traj['x'][0, :] for traj in sol_trajs]  
+    init_state = [traj['x'][0, :] for traj in sol_trajs] 
     init_dual = True
     logging.warning(f"connect time:{current_time}, accumulated time:{accumulated_time}")
     current_time = None
 plot_trajs_old(start_pos, end_pos, sol_trajs, betas, robot_distr, save_path)  
 
-from openpyxl import Workbook, load_workbook
-def save_ergodic_metrics_to_excel(global_metric, decay_type, file_path='experiment1.xlsx'):
-    values_list = global_metric['values']
+def save_ergodic_metrics_to_yaml(global_metric, decay_type, map_id, file_path='experiment1.yaml'):
+    """
+    将遍历性指标保存到 YAML 文件中，每条记录包含 type、map_id 和 metrics 列表。
     
-    # 构造完整表头：type + 所有 metric 列（如 metric_0, metric_1, ...）
-    max_cols_needed = len(values_list)
-    header = ["type"] + [f"metric_{i}" for i in range(max_cols_needed)]
+    参数:
+        global_metric (dict): 包含 'values' 键的字典，值为数值列表
+        decay_type (str): 衰减类型标识（如 'baseline1', 'exp' 等）
+        map_id (int or str): 地图的唯一标识符（如 0, 1, 2 或 "map_A"）
+        file_path (str): YAML 文件路径，默认为 'experiment2.yaml'
+    """
+    # 提取数值并转为 float 列表
+    values_list = [float(v) for v in global_metric['values']]
     
-    # 确保文件存在并包含正确的工作表和表头
-    if not os.path.exists(file_path):
-        wb = Workbook()
-        sheet = wb.active
-        sheet.title = "ergodic_metric"
-        sheet.append(header)
-        wb.save(file_path)
-
-    # 加载工作簿
-    wb = load_workbook(file_path)
-    if "ergodic_metric" in wb.sheetnames:
-        sheet = wb["ergodic_metric"]
+    if os.path.exists(file_path):
+        with open(file_path, 'r', encoding='utf-8') as f:
+            try:
+                data = yaml.safe_load(f)
+            except yaml.YAMLError:
+                print(f"警告：{file_path} 格式错误，将覆盖为新文件。")
+                data = []
     else:
-        sheet = wb.active
-        sheet.title = "ergodic_metric"
-        sheet.append(header)
+        data = []
 
-    # 写入新行：decay_type + 所有原始值
-    new_row = [str(decay_type)] + [float(v) for v in values_list]
-    sheet.append(new_row)
+    new_entry = {
+        "type": str(decay_type),
+        "metrics": values_list
+    }
+    
+    # 查找是否存在相同的 map_id，如果存在则追加或更新，不存在则创建新的
+    map_exists = False
+    for item in data:
+        if isinstance(item, dict) and item.get('map_id') == map_id:
+            # 检查是否已存在相同 type 的记录，若存在则替换
+            type_exists = False
+            for t in item['types']:
+                if t['type'] == decay_type:
+                    t.update(new_entry)
+                    type_exists = True
+                    break
+            if not type_exists:
+                item['types'].append(new_entry)
+            map_exists = True
+            break
+    
+    if not map_exists:
+        data.append({
+            "map_id": map_id,
+            "types": [new_entry]
+        })
+    
+    with open(file_path, 'w', encoding='utf-8') as f:
+        yaml.dump(data, f, allow_unicode=True, default_flow_style=False, indent=2, sort_keys=False)
+    
+    print(f"完整数据已成功保存到 {file_path}（map_id={map_id}, type={decay_type}, 共 {len(values_list)} 个值）")
 
-    wb.save(file_path)
-    print(f"完整数据已成功追加到 {file_path}（共 {len(values_list)} 个值）")
+import argparse
+parser = argparse.ArgumentParser(description="保存遍历性指标到 YAML 文件")
+parser.add_argument("--map_id", type=int, required=True, help="地图 ID，例如 0, 1, 2...")
+args = parser.parse_args()
 
-save_ergodic_metrics_to_excel(global_metric, "baseline1")
-
-
-
+save_ergodic_metrics_to_yaml(global_metric, "baseline1", map_id=args.map_id)
 
 
 
