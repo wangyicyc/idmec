@@ -9,7 +9,7 @@ import os
 # ==============================
 # 1️⃣ 加载嵌套 YAML 数据（不预过滤）
 # ==============================
-file_path = 'experiment3.yaml'
+file_path = '../datas/config/experiment3.yaml'
 
 if not os.path.exists(file_path):
     raise FileNotFoundError(f"YAML 文件未找到: {file_path}")
@@ -60,24 +60,24 @@ metric_cols = sorted(
 steps = list(range(len(metric_cols)))
 
 # 要绘制的方法
-methods = ['baseline1', 'baseline2', 'baseline3', 'baseline4', 'baseline5', 'baseline6', 'method']
+methods = ['Baseline1', 'Baseline2', 'Baseline3', 'Baseline4', 'Baseline5', 'Baseline6', 'iDMED']
 colors = {
-    'baseline1': "#D400FF",
-    'baseline2': "#7A3CDD",
-    'baseline3': "#349CF7",
-    'baseline4': "#2DC649",
-    'baseline5': "#DFF706",
-    'baseline6': "#F1B900",
-    'method': "#000000"
+    'Baseline1': "#D400FF",
+    'Baseline2': "#7A3CDD",
+    'Baseline3': "#349CF7",
+    'Baseline4': "#2DC649",
+    'Baseline5': "#DFF706",
+    'Baseline6': "#F1B900",
+    'iDMED': "#000000"
 }
 markers = {
-    'baseline1': 'o',
-    'baseline2': 'o',
-    'baseline3': 'o',
-    'baseline4': '^',
-    'baseline5': '^',
-    'baseline6': '^',
-    'method': '*'
+    'Baseline1': 'o',
+    'Baseline2': 'o',
+    'Baseline3': 'o',
+    'Baseline4': '^',
+    'Baseline5': '^',
+    'Baseline6': '^',
+    'iDMED': '*'
 }
 
 # 获取所有 map_id（去重并排序）
@@ -144,8 +144,8 @@ for map_id in map_ids:
         "font.size": 12,
         "axes.labelsize": 13,
         "axes.titlesize": 14,
-        "xtick.labelsize": 18,
-        "ytick.labelsize": 18,
+        "xtick.labelsize": 20,
+        "ytick.labelsize": 20,
         "legend.fontsize": 14,
         "axes.linewidth": 0.5,
         "xtick.major.width": 1.2,
@@ -262,7 +262,7 @@ plt.rcParams.update({
     "font.size": 10,
     "axes.labelsize": 11,
     "xtick.labelsize": 10,
-    "ytick.labelsize": 10.5,
+    "ytick.labelsize": 13,
     "axes.linewidth": 0.5,
     "pdf.fonttype": 42,
 })

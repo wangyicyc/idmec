@@ -9,7 +9,7 @@ import os
 # ==============================
 # 1️⃣ 加载嵌套 YAML 数据（不预过滤）
 # ==============================
-file_path = 'experiment1.yaml'
+file_path = '../datas/config/experiment1.yaml'
 
 if not os.path.exists(file_path):
     raise FileNotFoundError(f"YAML 文件未找到: {file_path}")
@@ -60,24 +60,24 @@ metric_cols = sorted(
 steps = list(range(len(metric_cols)))
 
 # 要绘制的方法
-methods = ['baseline1', 'baseline2', 'baseline3']
+methods = ['Baseline1', 'Baseline2', 'Baseline3','iDMED']
 colors = {
-    'baseline1': "#D400FF",
-    'baseline2': "#7A3CDD",
-    'baseline3': "#349CF7",
-    'baseline4': "#2DC649",
-    'baseline5': "#DFF706",
-    'baseline6': "#F1B900",
-    'method': "#000000"
+    'Baseline1': "#D400FF",
+    'Baseline2': "#7A3CDD",
+    'Baseline3': "#349CF7",
+    'Baseline4': "#2DC649",
+    'Baseline5': "#DFF706",
+    'Baseline6': "#F1B900",
+    'iDMED': "#000000"
 }
 markers = {
-    'baseline1': 'o',
-    'baseline2': 'o',
-    'baseline3': 'o',
-    'baseline4': '^',
-    'baseline5': '^',
-    'baseline6': '^',
-    'method': '*'
+    'Baseline1': 'o',
+    'Baseline2': 'o',
+    'Baseline3': 'o',
+    'Baseline4': '^',
+    'Baseline5': '^',
+    'Baseline6': '^',
+    'iDMED': '*'
 }
 
 # 获取所有 map_id（去重并排序）
@@ -108,8 +108,8 @@ for map_id in map_ids:
         "font.size": 12,
         "axes.labelsize": 13,
         "axes.titlesize": 14,
-        "xtick.labelsize": 18,
-        "ytick.labelsize": 18,
+        "xtick.labelsize": 22,
+        "ytick.labelsize": 22,
         "legend.fontsize": 14,
         "axes.linewidth": 0.5,
         "xtick.major.width": 1.2,
@@ -120,10 +120,11 @@ for map_id in map_ids:
         "ps.fonttype": 42,
     })
 
-    plt.figure(figsize=(13, 5.2))
+    plt.figure(figsize=(8.5, 5.5))
 
     plotted = False
     for i, method in enumerate(methods):
+        ms = 28 if method == 'iDMED' else 20
         row = df[df['type'] == method]
         if row.empty:
             continue
@@ -133,7 +134,7 @@ for map_id in map_ids:
             color=colors[method],
             linewidth=2.5,
             marker=markers[method],
-            markersize=20,
+            markersize=ms,
             markerfacecolor=colors[method],
             markeredgecolor='white',
             markeredgewidth=0.8,
@@ -154,6 +155,7 @@ for map_id in map_ids:
     plt.grid(True, linestyle='--', alpha=0.6)
     plt.xlim(-0.5, len(steps) - 1 + 0.5)
     plt.ylim(-0.05, 1.25)  # ✅ 添加y轴范围限制
+    plt.yticks(np.arange(0, 1.25, 0.3))
     plt.xticks(steps)
     plt.tight_layout()
 
@@ -224,8 +226,8 @@ plt.rcParams.update({
     "font.family": "sans-serif",
     "font.size": 10,
     "axes.labelsize": 11,
-    "xtick.labelsize": 10,
-    "ytick.labelsize": 10.5,
+    "xtick.labelsize": 22,
+    "ytick.labelsize": 22,
     "axes.linewidth": 0.5,
     "pdf.fonttype": 42,
 })
@@ -246,7 +248,7 @@ for method in methods:
         global_colors.append(colors[method])
 
 if global_box_data:
-    fig, ax = plt.subplots(figsize=(7.1, 4.5))
+    fig, ax = plt.subplots(figsize=(8.5, 5.5))
     
     # 绘制箱线图（无填充）
     bp = ax.boxplot(
@@ -277,6 +279,8 @@ if global_box_data:
         bp['fliers'][i].set_markeredgecolor(color)
         bp['fliers'][i].set_markerfacecolor(color)  # 添加这一行使异常点变为实心
     ax.set_ylim(-0.05, 1.25)
+    # ✅ 添加y轴刻度设置，每0.3一个刻度
+    plt.yticks(np.arange(0, 1.25, 0.3))
     ax.set_xticklabels([])
     ax.grid(True, linestyle='--', alpha=0.6)
     # plt.xticks(ha='center')

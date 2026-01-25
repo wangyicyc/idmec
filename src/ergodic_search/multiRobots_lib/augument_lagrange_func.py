@@ -211,7 +211,6 @@ def ineq_constr_multi(sol, beta_future, warm_up):
     robot_number, 2) # (T * num_pairs,)
     weighted_avoidance = w_avoid * _avoidance_arr
     if warm_up == False:
-        
         # 3. Connection Probability Constraint
         T_used = (x_traj.shape[0] // period_num) * period_num  # 向下取整到 period_num 的倍数
         connection_probability = func_connection_value(
@@ -223,7 +222,6 @@ def ineq_constr_multi(sol, beta_future, warm_up):
             period_num=period_num,
             traj_length=T_used
             )
-        
         # Step 1: 转换 robot_pair 为 JAX 数组
         pair_array = jnp.array(opt_args["robot_pair"])  # shape (6, 2)
         # Step 2: 提取 i 和 j 索引

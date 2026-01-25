@@ -209,10 +209,10 @@ def multi_path_to_rosbag(sol_trajs, Pathsaver, search_time):
         
 def multi_map_to_rosbag(robot_distr, map_saver, update_map_freq):
     map_saver.save_probmap_to_bag(robot_distr[0].evals[1], robot_distr[0].evals[0], dt = dt, 
-                                  timesteps=update_map_freq, bag_filename="map_r0.bag", color=["#ffffff", "#000000"])
+                                  timesteps=update_map_freq, bag_filename="map_r0.bag", color=["#ffffff", "#1D6CD4"])
     map_saver.save_probmap_to_bag(robot_distr[1].evals[1], robot_distr[1].evals[0], dt = dt, 
-                                  timesteps=update_map_freq, bag_filename="map_r1.bag", color=["#ffffff", "#000000"])
+                                  timesteps=update_map_freq, bag_filename="map_r1.bag", color=["#ffffff", "#FFE100"])
     map_saver.save_probmap_to_bag(robot_distr[2].evals[1], robot_distr[2].evals[0], dt = dt, 
-                                  timesteps=update_map_freq, bag_filename="map_r2.bag", color=["#ffffff", "#000000"])
+                                  timesteps=update_map_freq, bag_filename="map_r2.bag", color=["#ffffff", "#01A064"])
     map_saver.save_probmap_to_bag(robot_distr[3].evals[1], robot_distr[3].evals[0], dt = dt, 
-                                  timesteps=update_map_freq, bag_filename="map_r3.bag", color=["#ffffff", "#000000"])
+                                  timesteps=update_map_freq, bag_filename="map_r3.bag", color=["#ffffff", "#AA00FF"])

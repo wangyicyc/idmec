@@ -72,7 +72,7 @@ dist_params = {
 
 
 
-diff_to_uav = s - jnp.array([1.5, 2.5])  # (N, 2)
+diff_to_uav = s - jnp.array([2.0, 2.0])  # (N, 2)
 d = jnp.sum(diff_to_uav**2, axis=1)  # (N,)
 # 2. 计算可信度权重（高斯衰减）
 weight = jnp.exp(-d / (2*sigma_d**2))  # (N,)

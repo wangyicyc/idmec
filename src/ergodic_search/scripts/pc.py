@@ -154,7 +154,7 @@ while True:
     # ================================ 为replan准备 ==============================================================  
     if accumulated_time == update_map_freq * be_num:
         append_metric(global_metric, loss_compare_multi(sol_trajs, target_distr.evals, current_time))
-        map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq)
+        map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq, ["#ffffff", "#000000"])
         multi_map_to_rosbag(robot_distr, map_saver, update_map_freq)
         logging.info("update map")
         robot_pair = []
