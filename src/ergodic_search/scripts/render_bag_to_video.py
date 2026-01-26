@@ -103,7 +103,7 @@ def main():
     bag = rosbag.Bag(BAG_PATH, 'r')
 
     # === 1. 加载动态地图 ===
-    map_msgs = []  # [(t_sec, img, bounds), ...]
+    map_msgs = []
     for _, msg, t in bag.read_messages(topics=["/map_distribution"]):
         map_msgs.append((t.to_sec(), *build_heatmap_image(msg)))
     map_msgs.sort(key=lambda x: x[0])
@@ -112,7 +112,7 @@ def main():
         map_msgs = [(-float('inf'), default_img, (-10,10,-10,10))]
     print(f"✅ 地图帧数: {len(map_msgs)}")
 
-    # === 2. 加载动态规划路径（每个机器人独立）===
+    # === 2. 加载规划路径（每个机器人独立）===
     planned_paths = {rid: [] for rid in ROBOT_IDS}
     for rid in ROBOT_IDS:
         topic = f'robot_{rid}/planned_path'
@@ -196,7 +196,7 @@ def main():
                     for j in range(1, len(pts)):
                         cv2.line(frame, tuple(pts[j-1]), tuple(pts[j]), light_color, PLANNED_PATH_LINE_WIDTH)
 
-            # --- 真实轨迹 ---
+            # --- 真实轨迹（渐变）---
             traj = real_trajs[rid]
             current_traj = []
             current_pos = None
@@ -273,7 +273,7 @@ def main():
         rid = EXECUTE_ID
         color = ROBOT_COLORS.get(rid, (128, 128, 128))
 
-        # --- 规划路径（可选高亮）---
+        # --- 规划路径 ---
         path_list = planned_paths[rid]
         path_idx = path_indices[rid]
         while path_idx + 1 < len(path_list) and path_list[path_idx + 1][0] <= frame_t:
@@ -289,7 +289,7 @@ def main():
                 for j in range(1, len(pts)):
                     cv2.line(frame, tuple(pts[j-1]), tuple(pts[j]), color, PLANNED_PATH_LINE_WIDTH + 2)
 
-        # --- 真实轨迹（带彩色发光）---
+        # --- 真实轨迹：几何填充 + 高斯模糊（核心新逻辑）---
         traj = real_trajs[rid]
         current_traj = []
         current_pos = None
@@ -311,31 +311,85 @@ def main():
             if n > 1:
                 glow_color = color
                 main_width = PAST_TRAJ_LINE_WIDTH + 6
+                glow_radius = 22  # 控制基础宽度
 
-                # === 关键：降低源颜色亮度，避免过曝变白 ===
-                b, g, r = glow_color
-                dim_factor = 0.65  # 可调：0.6～0.8
-                dim_color = (
-                    int(b * dim_factor),
-                    int(g * dim_factor),
-                    int(r * dim_factor)
-                )
+                # Step 1: 构建轨迹包围多边形
+                poly_points = []
+                num_pts = len(traj_px)
 
+                for i in range(num_pts):
+                    x, y = traj_px[i]
+                    if i == 0:
+                        dx = traj_px[1][0] - x
+                        dy = traj_px[1][1] - y
+                    elif i == num_pts - 1:
+                        dx = x - traj_px[-2][0]
+                        dy = y - traj_px[-2][1]
+                    else:
+                        dx1 = x - traj_px[i-1][0]
+                        dy1 = y - traj_px[i-1][1]
+                        dx2 = traj_px[i+1][0] - x
+                        dy2 = traj_px[i+1][1] - y
+                        dx = (dx1 + dx2) / 2
+                        dy = (dy1 + dy2) / 2
+
+                    length = np.hypot(dx, dy)
+                    if length < 1e-5:
+                        nx, ny = 0, -1
+                    else:
+                        nx = -dy / length  # 左法向（顺时针90°）
+                        ny = dx / length
+
+                    outer_x = int(x + nx * glow_radius)
+                    outer_y = int(y + ny * glow_radius)
+                    poly_points.append((outer_x, outer_y))
+
+                # 反向添加内侧点
+                for i in reversed(range(num_pts)):
+                    x, y = traj_px[i]
+                    if i == 0:
+                        dx = traj_px[1][0] - x
+                        dy = traj_px[1][1] - y
+                    elif i == num_pts - 1:
+                        dx = x - traj_px[-2][0]
+                        dy = y - traj_px[-2][1]
+                    else:
+                        dx1 = x - traj_px[i-1][0]
+                        dy1 = y - traj_px[i-1][1]
+                        dx2 = traj_px[i+1][0] - x
+                        dy2 = traj_px[i+1][1] - y
+                        dx = (dx1 + dx2) / 2
+                        dy = (dy1 + dy2) / 2
+
+                    length = np.hypot(dx, dy)
+                    if length < 1e-5:
+                        nx, ny = 0, -1
+                    else:
+                        nx = -dy / length
+                        ny = dx / length
+
+                    inner_x = int(x - nx * glow_radius)
+                    inner_y = int(y - ny * glow_radius)
+                    poly_points.append((inner_x, inner_y))
+
+                # Step 2: 创建 glow_layer 并填充多边形
                 glow_layer = np.zeros_like(frame)
-                glow_width = 35  # 适度减小
-                for j in range(1, n):
-                    cv2.line(glow_layer, tuple(traj_px[j-1]), tuple(traj_px[j]), dim_color, glow_width)
+                if len(poly_points) >= 3:
+                    poly_array = np.array(poly_points, dtype=np.int32)
+                    cv2.fillPoly(glow_layer, [poly_array], glow_color)
 
-                # 中等模糊核
-                blurred_glow = cv2.GaussianBlur(glow_layer, (75, 75), 0)
+                # Step 3: 高斯模糊（仅作用于有内容区域）
+                ksize = int(glow_radius * 8) | 1  # 确保为奇数，如 89
+                blurred_glow = cv2.GaussianBlur(glow_layer, (ksize, ksize), 0)
 
-                # 增益控制：1.3 避免过曝
+                # Step 4: 叠加（关键：控制增益避免过曝）
+                gain = 1.0
                 frame = np.clip(
-                    frame.astype(np.float32) + blurred_glow.astype(np.float32) * 1.3,
+                    frame.astype(np.float32) + blurred_glow.astype(np.float32) * gain,
                     0, 255
                 ).astype(np.uint8)
 
-                # 主轨迹用原始鲜艳颜色
+                # Step 5: 绘制清晰主轨迹（覆盖模糊边缘）
                 for j in range(1, n):
                     cv2.line(frame, tuple(traj_px[j-1]), tuple(traj_px[j]), glow_color, main_width)
 
@@ -382,8 +436,11 @@ def main():
                 dx = int(arrow_len * np.cos(yaw))
                 dy = -int(arrow_len * np.sin(yaw))
                 cv2.arrowedLine(frame, (cx, cy), (cx + dx, cy + dy), (0, 0, 0), 2, tipLength=0.25)
+
         frames.append(frame)
+
     bag.close()
+
     # === 5. 保存视频 ===
     print("💾 正在写入视频...")
     out = cv2.VideoWriter(OUTPUT_VIDEO, cv2.VideoWriter_fourcc(*'mp4v'), FPS, (frames[0].shape[1], frames[0].shape[0]))
@@ -391,6 +448,8 @@ def main():
         out.write(f)
     out.release()
     print(f"🎉 视频已生成: {os.path.abspath(OUTPUT_VIDEO)}")
+
+
 
 if __name__ == "__main__":
     main()
