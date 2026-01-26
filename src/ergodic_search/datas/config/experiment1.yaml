@@ -1,20 +1,20 @@
 - map_id: 0
   types:
-  - type: Baseline1
+  - type: B1
     metrics:
     - 0.335135714
     - 0.302391903
     - 1.123131219
     - 0.329143476
     - 0.563710161
-  - type: Baseline2
+  - type: B2
     metrics:
     - 0.335135714
     - 0.302416191
     - 1.124532591
     - 0.32885616
     - 0.561767001
-  - type: Baseline3
+  - type: B3
     metrics:
     - 0.332066141
     - 0.327594704
@@ -31,21 +31,21 @@
 
 - map_id: 1
   types:
-  - type: Baseline1
+  - type: B1
     metrics:
     - 0.335135714
     - 0.278292841
     - 0.756881981
     - 0.302996437
     - 0.637260485
-  - type: Baseline2
+  - type: B2
     metrics:
     - 0.335135714
     - 0.278296981
     - 0.7560319
     - 0.301786153
     - 0.637887974
-  - type: Baseline3
+  - type: B3
     metrics:
     - 0.332066141
     - 0.310873021
@@ -62,21 +62,21 @@
 
 - map_id: 2
   types:
-  - type: Baseline1
+  - type: B1
     metrics:
     - 0.335135714
     - 0.202243332
     - 0.719906579
     - 0.359769063
     - 0.871835979
-  - type: Baseline2
+  - type: B2
     metrics:
     - 0.335135714
     - 0.202337533
     - 0.721788979 
     - 0.360745759
     - 0.870098992
-  - type: Baseline3
+  - type: B3
     metrics:
     - 0.332066141
     - 0.209567667

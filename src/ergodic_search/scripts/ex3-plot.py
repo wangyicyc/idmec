@@ -60,23 +60,23 @@ metric_cols = sorted(
 steps = list(range(len(metric_cols)))
 
 # 要绘制的方法
-methods = ['Baseline1', 'Baseline2', 'Baseline3', 'Baseline4', 'Baseline5', 'Baseline6', 'iDMED']
+methods = ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'iDMED']
 colors = {
-    'Baseline1': "#D400FF",
-    'Baseline2': "#7A3CDD",
-    'Baseline3': "#349CF7",
-    'Baseline4': "#2DC649",
-    'Baseline5': "#DFF706",
-    'Baseline6': "#F1B900",
+    'B1': "#D400FF",
+    'B2': "#7A3CDD",
+    'B3': "#349CF7",
+    'B4': "#2DC649",
+    'B5': "#DFF706",
+    'B6': "#F1B900",
     'iDMED': "#000000"
 }
 markers = {
-    'Baseline1': 'o',
-    'Baseline2': 'o',
-    'Baseline3': 'o',
-    'Baseline4': '^',
-    'Baseline5': '^',
-    'Baseline6': '^',
+    'B1': 'o',
+    'B2': 'o',
+    'B3': 'o',
+    'B4': '^',
+    'B5': '^',
+    'B6': '^',
     'iDMED': '*'
 }
 
