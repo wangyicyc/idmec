@@ -62,7 +62,7 @@ Visualization Manager:
       Cell Size: 0.5
       Class: rviz/Grid
       Color: 160; 160; 164
-      Enabled: false
+      Enabled: true
       Line Style:
         Line Width: 0.029999999329447746
         Value: Lines
@@ -75,7 +75,7 @@ Visualization Manager:
       Plane: XY
       Plane Cell Count: 1000
       Reference Frame: <Fixed Frame>
-      Value: false
+      Value: true
     - Alpha: 0.15000000596046448
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -683,7 +683,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 0.702886700630188
+      Distance: 4.770648002624512
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -699,9 +699,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4747966527938843
+      Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
-      Yaw: 5.486600875854492
+      Yaw: 4.716598987579346
     Saved:
       - Class: rviz/FPS
         Enable Stereo Rendering:

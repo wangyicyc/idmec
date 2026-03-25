@@ -1,0 +1,37 @@
+2026-02-06 08:35:47,330 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-02-06 08:35:47,336 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-02-06 08:35:50,220 [INFO] topicmanager initialized
+2026-02-06 08:35:50,276 [INFO] Log opened: Fri Feb  6 00:35:50 2026 UTC
+2026-02-06 08:35:54,861 [INFO] my_strategy
+2026-02-06 08:36:17,859 [INFO] iter:119, id:0, r:159.841 and violateion:0.000
+2026-02-06 08:36:35,430 [INFO] iter:119, id:1, r:159.841 and violateion:0.000
+2026-02-06 08:36:53,021 [INFO] iter:119, id:2, r:159.841 and violateion:0.000
+2026-02-06 08:37:10,764 [INFO] iter:119, id:3, r:159.841 and violateion:0.000
+2026-02-06 08:37:10,766 [INFO] have warm up
+2026-02-06 08:38:26,287 [INFO] iter:141, id:2, r:490.954 and violateion:0.000
+2026-02-06 08:38:27,846 [INFO] iter:141, id:1, r:490.954 and violateion:0.000
+2026-02-06 08:38:28,630 [INFO] iter:141, id:0, r:490.954 and violateion:0.000
+2026-02-06 08:38:28,765 [INFO] iter:141, id:3, r:490.954 and violateion:0.000
+2026-02-06 08:38:31,983 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-02-06 08:38:35,204 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-02-06 08:38:38,414 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-02-06 08:38:41,539 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-02-06 08:38:43,819 [WARNING] connect time:0, accumulated time:0, and the robot pair:[(1, 2)]
+2026-02-06 08:38:45,974 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-02-06 08:38:47,845 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-02-06 08:38:47,847 [INFO] have warm up
+2026-02-06 08:38:51,577 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-02-06 08:38:51,656 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-02-06 08:38:54,786 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-02-06 08:38:57,811 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-02-06 08:38:59,095 [WARNING] connect time:4, accumulated time:4, and the robot pair:[(1, 2)]
+2026-02-06 08:39:02,851 [INFO] iter:3, id:1, r:1.000 and violateion:0.000
+2026-02-06 08:39:05,382 [INFO] iter:3, id:2, r:1.000 and violateion:0.000
+2026-02-06 08:39:05,384 [INFO] have warm up
+2026-02-06 08:39:10,624 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-02-06 08:39:10,678 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-02-06 08:39:14,029 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-02-06 08:39:17,369 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-02-06 08:39:20,611 [WARNING] connect time:4, accumulated time:8, and the robot pair:[(1, 2)]
+2026-02-06 08:39:40,420 [INFO] iter:126, id:1, r:403.909 and violateion:0.000
+2026-02-06 08:39:55,541 [INFO] signal_shutdown [atexit]
