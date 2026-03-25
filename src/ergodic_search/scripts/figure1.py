@@ -14,21 +14,22 @@ grid = np.zeros((H, W))
 # ============================
 fire_sources = [
     {
-        "pos": (110, 70),
-        "theta": np.deg2rad(65),
+        "pos": (70, 70),
+        "theta": np.deg2rad(60),
         "sigma": 11.0,
-        "anisotropy": 1.5,
+        "anisotropy": 2.0,
         "weight": 0.9
     },
     {
-        "pos": (50, 140),
-        "theta": np.deg2rad(65),
+        "pos": (110, 150),
+        "theta": np.deg2rad(60),
         "sigma": 11.0,
         "anisotropy": 1.5,
         "weight": 0.9
     },
 ]
-
+    # {"pos": (110, 70), "theta": np.deg2rad(65), "sigma": 11.0, "anisotropy": 1.5, "weight": 0.9},
+    # {"pos": (50, 140), "theta": np.deg2rad(65), "sigma": 11.0, "anisotropy": 1.5, "weight": 0.9},
 # ============================
 # 3. 生成火焰信息场
 # ============================
@@ -89,9 +90,9 @@ dx = dy = 1.0
 # ============================
 # 6. 创建无边框 3D 图
 # ============================
-fig = plt.figure(figsize=(15, 9), frameon=False)
-ax = fig.add_subplot(111, projection='3d')
-
+fig = plt.figure(figsize=(8, 6), frameon=False)
+# ax = fig.add_subplot(111, projection='3d')
+ax = fig.add_axes([0, 0, 1, 1], projection='3d')
 # 绘制柱体（无边框）
 ax.bar3d(
     X_flat, Y_flat, Z_bottom,
@@ -125,6 +126,8 @@ ax.zaxis.pane.set_edgecolor('none')
 ax.xaxis.line.set_color((1, 1, 1, 0))
 ax.yaxis.line.set_color((1, 1, 1, 0))
 ax.zaxis.line.set_color((1, 1, 1, 0))
+
+ax.set_axis_off() # 移除了坐标轴线和刻度 
 
 # 去除整个图的空白边距
 ax.margins(0)

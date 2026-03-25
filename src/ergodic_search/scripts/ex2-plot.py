@@ -62,21 +62,21 @@ steps = list(range(len(metric_cols)))
 # 要绘制的方法
 methods = ['B4', 'B5', 'B6','iDMED']
 colors = {
-    'B1': "#D400FF",
-    'B2': "#7A3CDD",
-    'B3': "#349CF7",
-    'B4': "#2DC649",
-    'B5': "#DFF706",
-    'B6': "#F1B900",
+    'B1': "#E045FF",
+    'B2': "#8E5EDB",
+    'B3': "#4D5FFF",
+    'B4': "#00B7FF",
+    'B5': "#4CD575",
+    'B6': "#FFBD52",
     'iDMED': "#000000"
 }
 markers = {
-    'B1': 'o',
-    'B2': 'o',
-    'B3': 'o',
-    'B4': '^',
-    'B5': '^',
-    'B6': '^',
+    'B1': 'D',    # circle
+    'B2': 's',    # square (still "blocky" like circle)
+    'B3': 'o',    # diamond
+    'B4': '^',    # up triangle
+    'B5': 'v',    # down triangle
+    'B6': '>',    # right triangle (or '<' if you prefer)
     'iDMED': '*'
 }
 
@@ -120,8 +120,14 @@ for map_id in map_ids:
         "ps.fonttype": 42,
     })
 
-    plt.figure(figsize=(8.5, 5.5))
+    plt.figure(figsize=(8.5, 4.8))
 
+    linestyles = {
+        'B4': '--',               # standard dashed
+        'B5': ':',               # dash-dot
+        'B6': '-.',                # dotted
+        'iDMED': '-'              # solid
+    }
     plotted = False
     for i, method in enumerate(methods):
         ms = 28 if method == 'iDMED' else 20
@@ -133,6 +139,7 @@ for map_id in map_ids:
             steps, values,
             color=colors[method],
             linewidth=2.5,
+            linestyle=linestyles.get(method, '-'),
             marker=markers[method],
             markersize=ms,
             markerfacecolor=colors[method],
@@ -250,7 +257,7 @@ for method in methods:
         global_colors.append(colors[method])
 
 if global_box_data:
-    fig, ax = plt.subplots(figsize=(8.5, 5.5))
+    fig, ax = plt.subplots(figsize=(8.5, 4.5))
     
     # 绘制箱线图（无填充）
     bp = ax.boxplot(

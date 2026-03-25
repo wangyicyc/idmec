@@ -314,7 +314,7 @@ class al_iLQR(iLQR_template):
                 # logging.info("id : {:d}| r:{:6f} and violations:{:.6f} and loss{:.6f}".format(self.robot_id, self.r_penalty, violations[-1], loss_val[-1]))
             self.update_multipliers()
             if (loss_val[-2] - loss_val[-1]) < decay_eps and jnp.abs(violations[-1]) > r_eps:
-                self.r_penalty = jnp.clip(self.r_penalty * 1.05, 1e-10, 1e5)
+                self.r_penalty = jnp.clip(self.r_penalty * 1.05, 1e-10, 1e4)
                 decay_eps *= 0.95            
             if (jnp.abs(loss_val[-1] - loss_val[-2]) < loss_eps) and jnp.abs(
                 violations[-1]) < r_eps:

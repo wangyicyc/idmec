@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """
-支持三重动态数据的时间对齐可视化：
+支持三重动态数据的时间对齐可视化（平等渲染所有轨迹）：
   - /map_distribution                → 动态热力图
   - /robot_X/planned_path            → 动态规划路径（每次重规划更新）
   - /robot_X/trajectory/control_sequence → 真实轨迹（逐点发布）
 
-修改说明：
-  - 移除了 EXECUTE_ID 机器人的发光（glow）效果
-  - 改为仅加粗其真实轨迹线（更清晰，适配白底）
+所有机器人轨迹均以相同样式绘制：
+  - 无发光效果
+  - 规划路径线宽统一
+  - 真实轨迹线宽统一 + 渐变衰减
 """
+
 import rosbag
 import cv2
 import numpy as np
@@ -16,128 +18,6 @@ import os
 from quadrotor_msgs.msg import PositionCommand
 from nav_msgs.msg import Path
 from visualization_msgs.msg import Marker
-import argparse
-
-def draw_glow_path(
-    frame,
-    points,
-    color,
-    glow_radius=22,
-    main_width=8,
-    gain=0.8,
-    blur_factor=6,
-    brightness_boost=3.0
-):
-    """
-    在白底/浅色背景下稳定工作的发光路径绘制函数（颜色保持 + 亮度补偿）
-
-    参数:
-        frame (np.ndarray): BGR 图像
-        points (list / np.ndarray): [(x,y), ...] 像素坐标
-        color (tuple): BGR 颜色 (b, g, r)
-        glow_radius (int): 光晕半径（像素）
-        main_width (int): 中心主线宽度
-        gain (float): 光晕强度（0.6~1.0）
-        blur_factor (int): 模糊核因子（5~7 推荐）
-        brightness_boost (float): 亮度补偿（1.3~1.6 推荐）
-    """
-    if len(points) < 2:
-        return frame
-
-    pts = np.asarray(points, dtype=np.float32)
-    h, w = frame.shape[:2]
-
-    valid = (
-        (pts[:, 0] >= 0) & (pts[:, 0] < w) &
-        (pts[:, 1] >= 0) & (pts[:, 1] < h)
-    )
-    pts = pts[valid]
-    if len(pts) < 2:
-        return frame
-
-    num_pts = len(pts)
-    poly_points = []
-
-    # === 外轮廓 ===
-    for i in range(num_pts):
-        x, y = pts[i]
-        if i == 0:
-            dx, dy = pts[1] - pts[0]
-        elif i == num_pts - 1:
-            dx, dy = pts[-1] - pts[-2]
-        else:
-            dx = (pts[i+1][0] - pts[i-1][0]) * 0.5
-            dy = (pts[i+1][1] - pts[i-1][1]) * 0.5
-
-        length = np.hypot(dx, dy)
-        if length < 1e-6:
-            nx, ny = 0, -1
-        else:
-            nx, ny = -dy / length, dx / length
-
-        poly_points.append((
-            int(x + nx * glow_radius),
-            int(y + ny * glow_radius)
-        ))
-
-    # === 内轮廓（反向）===
-    for i in reversed(range(num_pts)):
-        x, y = pts[i]
-        if i == 0:
-            dx, dy = pts[1] - pts[0]
-        elif i == num_pts - 1:
-            dx, dy = pts[-1] - pts[-2]
-        else:
-            dx = (pts[i+1][0] - pts[i-1][0]) * 0.5
-            dy = (pts[i+1][1] - pts[i-1][1]) * 0.5
-
-        length = np.hypot(dx, dy)
-        if length < 1e-6:
-            nx, ny = 0, -1
-        else:
-            nx, ny = -dy / length, dx / length
-
-        poly_points.append((
-            int(x - nx * glow_radius),
-            int(y - ny * glow_radius)
-        ))
-
-    # === Glow layer ===
-    glow_layer = np.zeros_like(frame)
-    if len(poly_points) >= 3:
-        cv2.fillPoly(
-            glow_layer,
-            [np.array(poly_points, dtype=np.int32)],
-            color
-        )
-
-        ksize = int(glow_radius * blur_factor)
-        if ksize % 2 == 0:
-            ksize += 1
-        blurred = cv2.GaussianBlur(glow_layer, (ksize, ksize), 0)
-        # ===== 颜色保持 + 亮度补偿的 alpha glow =====
-        glow_f = blurred.astype(np.float32)
-        # alpha 来自亮度（不洗白）
-        alpha = np.max(glow_f, axis=2, keepdims=True) / 255.0
-        alpha = np.clip(alpha * gain, 0.0, 1.0)
-        # 亮度补偿（防止发黑）
-        glow_f = np.clip(glow_f * brightness_boost, 0, 255)
-        frame_f = frame.astype(np.float32)
-        frame = (
-            frame_f * (1 - alpha) +
-            glow_f * alpha
-        ).astype(np.uint8)
-    # === 主线（略微提亮，保证可读性）===
-    main_color = tuple(min(255, int(c * 1.15)) for c in color)
-    for i in range(1, len(pts)):
-        cv2.line(
-            frame,
-            tuple(pts[i-1].astype(int)),
-            tuple(pts[i].astype(int)),
-            main_color,
-            main_width
-        )
-    return frame
 
 def hex_to_bgr(hex_color):
     """
@@ -153,12 +33,12 @@ def hex_to_bgr(hex_color):
 
 ROBOT_COLORS = {
     0: hex_to_bgr('#1d6cd4'),
-    1: hex_to_bgr("#faaa21"),
+    1: hex_to_bgr('#facf21'),
     2: hex_to_bgr('#01a064'),
     3: hex_to_bgr('#aa00ff')
 }
-PAST_TRAJ_LINE_WIDTH = 6      # 普通机器人历史轨迹线宽
-PLANNED_PATH_LINE_WIDTH = 8   # 规划路径线宽
+PAST_TRAJ_LINE_WIDTH = 6      # 所有机器人历史轨迹线宽
+PLANNED_PATH_LINE_WIDTH = 8   # 所有机器人规划路径线宽
 
 def build_heatmap_image(marker_msg, target_size=(2460, 2460), pixel_block=9):
     if len(marker_msg.points) == 0:
@@ -197,7 +77,7 @@ def build_heatmap_image(marker_msg, target_size=(2460, 2460), pixel_block=9):
 
 def world_to_pixel(x, y, bounds, img_shape):
     if bounds is None:
-        h, w = img_shape[:2]
+        h, w = img_shape[:3]
         return w // 2, h // 2
     h, w = img_shape[:2]
     xmin, xmax, ymin, ymax = bounds
@@ -270,10 +150,10 @@ def draw_quadrotor(frame, cx, cy, yaw, color, is_execute=False, scale=1.0):
         cv2.circle(overlay, (cx, cy), glow_r, color, -1)
         cv2.addWeighted(overlay, 0.12, frame, 0.88, 0, frame)
 
-def main(execute_id):
-    EXECUTE_ID = execute_id
-    BAG_PATH = f"../datas/bags/robot_{EXECUTE_ID}.bag"
-    OUTPUT_VIDEO = f"robot_{EXECUTE_ID}.mp4"
+
+def main():
+    BAG_PATH = "../datas/bags/global.bag"
+    OUTPUT_VIDEO = "global.mp4"
     ROBOT_IDS = [0, 1, 2, 3]
     FPS = 10
 
@@ -351,13 +231,11 @@ def main(execute_id):
         h, w = bg_img.shape[:2]
         frame = bg_img.copy()
 
-        # === 第一轮：绘制所有非 EXECUTE_ID 的机器人 ===
+        # === 统一绘制所有机器人（平等对待）===
         for rid in ROBOT_IDS:
-            if rid == EXECUTE_ID:
-                continue
             color = ROBOT_COLORS.get(rid, (128, 128, 128))
 
-            # --- 规划路径 ---
+            # --- 规划路径（普通线，无 glow）---
             path_list = planned_paths[rid]
             path_idx = path_indices[rid]
             while path_idx + 1 < len(path_list) and path_list[path_idx + 1][0] <= frame_t:
@@ -370,11 +248,10 @@ def main(execute_id):
                 valid = (pts[:, 0] >= 0) & (pts[:, 0] < w) & (pts[:, 1] >= 0) & (pts[:, 1] < h)
                 pts = pts[valid]
                 if len(pts) > 1:
-                    light_color = tuple(int(c) for c in color)
                     for j in range(1, len(pts)):
-                        cv2.line(frame, tuple(pts[j-1]), tuple(pts[j]), light_color, PLANNED_PATH_LINE_WIDTH)
+                        cv2.line(frame, tuple(pts[j-1]), tuple(pts[j]), color, PLANNED_PATH_LINE_WIDTH)
 
-            # --- 真实轨迹（渐变）---
+            # --- 真实轨迹（渐变衰减，统一线宽）---
             traj = real_trajs[rid]
             current_traj = []
             current_pos = None
@@ -388,10 +265,7 @@ def main(execute_id):
                 else:
                     break
 
-            if not current_pos:
-                continue
-
-            if len(current_traj) > 1:
+            if current_pos and len(current_traj) > 1:
                 traj_px = np.array([world_to_pixel(tx, ty, bounds, frame.shape) for tx, ty in current_traj])
                 valid = (traj_px[:, 0] >= 0) & (traj_px[:, 0] < w) & (traj_px[:, 1] >= 0) & (traj_px[:, 1] < h)
                 traj_px = traj_px[valid]
@@ -417,7 +291,7 @@ def main(execute_id):
                     ], dtype=np.int32)
                     cv2.fillPoly(frame, [triangle_points], ROBOT_COLORS[rid])
 
-            # --- 四旋翼图标（使用新函数）---
+            # --- 四旋翼图标 ---
             if current_pos:
                 u, v = world_to_pixel(*current_pos, bounds, frame.shape)
                 if 0 <= u < w and 0 <= v < h:
@@ -425,78 +299,6 @@ def main(execute_id):
                     if current_vel is not None and np.hypot(*current_vel) > 1e-3:
                         yaw = np.arctan2(current_vel[1], current_vel[0])
                     draw_quadrotor(frame, u, v, yaw, color, is_execute=False, scale=1.0)
-
-        # === 第二轮：绘制 EXECUTE_ID 机器人（最上层！）===
-        rid = EXECUTE_ID
-        color = ROBOT_COLORS.get(rid, (128, 128, 128))
-
-        # --- 规划路径：发光效果 ---
-        path_list = planned_paths[rid]
-        path_idx = path_indices[rid]
-        while path_idx + 1 < len(path_list) and path_list[path_idx + 1][0] <= frame_t:
-            path_idx += 1
-        path_indices[rid] = path_idx
-        current_path = path_list[path_idx][1]
-
-        if current_path:
-            pts_px = [world_to_pixel(px, py, bounds, frame.shape) for px, py in current_path]
-            frame = draw_glow_path(
-                frame,
-                points=pts_px,
-                color=color,
-                glow_radius=30,
-                main_width=PLANNED_PATH_LINE_WIDTH + 4,
-                gain=1.0,
-                blur_factor=8
-            )
-        # --- 真实轨迹：渐变衰减（与其他机器人一致，无发光）---
-        traj = real_trajs[rid]
-        current_traj = []
-        current_pos = None
-        current_vel = None
-        for record in traj:
-            t, x, y, vx, vy = record
-            if t <= frame_t:
-                current_traj.append((x, y))
-                current_pos = (x, y)
-                current_vel = (vx, vy)
-            else:
-                break
-
-        if current_pos and len(current_traj) > 1:
-            traj_px = np.array([world_to_pixel(tx, ty, bounds, frame.shape) for tx, ty in current_traj])
-            valid = (traj_px[:, 0] >= 0) & (traj_px[:, 0] < w) & (traj_px[:, 1] >= 0) & (traj_px[:, 1] < h)
-            traj_px = traj_px[valid]
-            n = len(traj_px)
-            if n > 1:
-                for j in range(1, n):
-                    alpha = j / (n - 1)
-                    faded_color = tuple(
-                        int(color[c] * alpha + 255 * (1 - alpha)) for c in range(3)
-                    )
-                    cv2.line(frame, tuple(traj_px[j-1]), tuple(traj_px[j]), faded_color, PAST_TRAJ_LINE_WIDTH + 4)
-        # --- 起点（最上层）---
-        if start_positions[rid] is not None:
-            sx, sy = start_positions[rid]
-            su, sv = world_to_pixel(sx, sy, bounds, frame.shape)
-            if 0 <= su < w and 0 <= sv < h:
-                triangle_size = 25
-                triangle_points = np.array([
-                    (su, sv - triangle_size),
-                    (su - triangle_size, sv + triangle_size),
-                    (su + triangle_size, sv + triangle_size)
-                ], dtype=np.int32)
-                cv2.fillPoly(frame, [triangle_points], ROBOT_COLORS[rid])
-
-        # --- 四旋翼（最上层，使用新函数）---
-        if current_pos:
-            u, v = world_to_pixel(*current_pos, bounds, frame.shape)
-            if 0 <= u < w and 0 <= v < h:
-                yaw = np.pi / 2
-                if current_vel is not None and np.hypot(*current_vel) > 1e-3:
-                    yaw = np.arctan2(current_vel[1], current_vel[0])
-                draw_quadrotor(frame, u, v, yaw, color, is_execute=True, scale=1.1)
-
         frames.append(frame)
 
     bag.close()
@@ -508,22 +310,21 @@ def main(execute_id):
         out.write(f)
     out.release()
     print(f"🎉 视频已生成: {os.path.abspath(OUTPUT_VIDEO)}")
-    
-    # === 6. 保存 GIF 动图 ===
-    # import imageio
-    # OUTPUT_GIF = f"robot_{EXECUTE_ID}.gif"
-    # print("🌀 正在生成 GIF 动图...")
-    # gif_frames = [cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) for frame in frames]
-    # imageio.mimsave(OUTPUT_GIF, gif_frames, fps=FPS, loop=0)
-    # print(f"🎉 GIF 已生成: {os.path.abspath(OUTPUT_GIF)}")
+
+    # === 6. 保存 GIF 动图（新增部分）===
+    import imageio
+    OUTPUT_GIF = "global.gif"
+    print("🌀 正在生成 GIF 动图...")
+    # OpenCV 是 BGR，imageio 需要 RGB
+    gif_frames = [cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) for frame in frames]
+    # 写入 GIF（duration 单位是秒每帧）
+    imageio.mimsave(
+        OUTPUT_GIF,
+        gif_frames,
+        fps=FPS,
+        loop=0  # 0 表示无限循环
+    )
+    print(f"🎉 GIF 已生成: {os.path.abspath(OUTPUT_GIF)}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="可视化多机器人轨迹，高亮指定主机器人")
-    parser.add_argument(
-        "execute_id",
-        type=int,
-        choices=[0, 1, 2, 3],
-        help="主机器人ID（0, 1, 2 或 3）"
-    )
-    args = parser.parse_args()
-    main(args.execute_id)
+    main()

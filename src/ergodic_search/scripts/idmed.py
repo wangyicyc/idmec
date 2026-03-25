@@ -102,9 +102,9 @@ while True:
             init_sol=sol_trajs[r_id],      # 如果 solver 会修改它，建议 deep copy
             beta=multi_betas[r_id],
             init_dual=init_dual,
-            max_iter=1000,
+            max_iter=150,
             if_print=False,
-            r_eps = 0.02,
+            r_eps = 0.03,
             loss_eps = 1e-6)
     else:
         # sol_trajs, to_remove = multi_robot_optimize_trajs(involved_robots, sol_trajs, multi_betas, traj_solver, init_state, init_dual)
@@ -114,9 +114,9 @@ while True:
             init_sol=sol_trajs[r_id],      # 如果 solver 会修改它，建议 deep copy
             beta=multi_betas[r_id],
             init_dual=init_dual,
-            max_iter=1000,
+            max_iter=200,
             if_print=False,
-            r_eps = 0.02,
+            r_eps = 0.03,
             loss_eps = 1e-6) 
     # involved_robots -= to_remove
     clear_output(wait=True)                   # 清除上一次输出，动态刷新
@@ -140,7 +140,7 @@ while True:
             multi_traj_to_rosbag(sol_trajs, commandSaver, current_time)
             multi_path_to_rosbag(sol_trajs, pathSaver, current_time)
             multi_map_to_rosbag(robot_distr, map_saver, update_map_freq)
-            map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq, ["#ffffff", "#000000"])
+            map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.05, update_map_freq, ["#ffffff", "#000000"])
             append_metric(global_metric, loss_compare_multi(sol_trajs, target_distr.evals, current_time))
             break
         robot_pair = []
@@ -154,7 +154,7 @@ while True:
     # ================================ 为replan准备 ==============================================================  
     if accumulated_time == update_map_freq * be_num:
         append_metric(global_metric, loss_compare_multi(sol_trajs, target_distr.evals, current_time))
-        map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.12, update_map_freq, ["#ffffff", "#000000"])
+        map_saver.save_probmap_to_bag(target_distr.evals[1], target_distr.evals[0], 0.05, update_map_freq, ["#ffffff", "#000000"])
         multi_map_to_rosbag(robot_distr, map_saver, update_map_freq)
         logging.info("update map")
         robot_pair = []

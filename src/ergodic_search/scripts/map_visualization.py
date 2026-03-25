@@ -63,7 +63,7 @@ def plot_trajs(_distr, save_path=None):
     # ax.yaxis.set_major_formatter(FuncFormatter(lambda y, _: '' if y == 0 else f'{int(y)}'))
     # ax.xaxis.set_major_formatter(FuncFormatter(lambda x, _: '' if x == 0 else f'{int(x)}'))
     axes.append(ax) 
-    plt.savefig(save_path, dpi=300, bbox_inches='tight', transparent=True)
+    plt.savefig(save_path, dpi=100, bbox_inches='tight', transparent=True)
     plt.close()
 
 
@@ -87,4 +87,4 @@ plot_trajs(target_distr, save_path='../figures/real_map_2.png')
 target_distr.update_map(2, "perturb", 'read')
 plot_trajs(target_distr, save_path='../figures/real_map_3.png')
 target_distr.update_map(3, "perturb", 'read')
-plot_trajs(target_distr, save_path='../figures/real_map_4.png')
+plot_trajs(target_distr, save_path='../figures/real_map_3.png')
