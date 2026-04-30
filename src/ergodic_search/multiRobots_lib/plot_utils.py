@@ -65,8 +65,7 @@ def plot_trajs(start_pos, end_pos, sol_trajs, betas, robot_distr, save_path=None
             ax.spines[spine].set_linewidth(2)  # 加粗边框
         axes.append(ax) 
     # 为每个机器人绘制轨迹
-    for i, (ax, sol_traj, beta) in enumerate(zip(
-        axes, sol_trajs, betas)):
+    for i, (ax, sol_traj, beta) in enumerate(zip(axes, sol_trajs, betas)):
         decayed_alpha = get_Decay_alpha(beta)  # 假设 alpha 只依赖当前机器人的 beta
         # 绘制轨迹点
         for t in range(robot_number):  # 假设每个轨迹点有4个维度（x, y, vx, vy）
