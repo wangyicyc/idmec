@@ -38,13 +38,11 @@ def prepare_experiment():
     # 双机器人初始化
     start_pos = opt_args["x0"]
     end_pos = opt_args["xf"]
-    # 假设你想创建包含 n 个 al_iLQR 结果的数组
-    n = robot_number  # 例如，创建 10 个结果
     jit_ineq_constr_multi = jit(partial(ineq_constr_multi, warm_up=False))
     warm_up_ineq_constr = jit(partial(ineq_constr_multi, warm_up=True))
     traj_solver = []
     traj_warmUp = []
-    for _id in range(n):
+    for _id in range(robot_number):
         solver = al_iLQR(
             args=opt_args,
             objective=loss_traj_multi,
@@ -115,80 +113,157 @@ def prepare_experiment():
     }
 
 
+def solve_involved_robots(context):
+    if context["warm_up"] == True:
+        solver_key = "traj_warmUp"
+        max_iter = 150
+    else:
+        solver_key = "traj_solver"
+        max_iter = 200
+
+    for r_id in context["involved_robots"]:
+        context["sol_trajs"][r_id], conv = context[solver_key][r_id].solve(
+            x0=context["init_state"][r_id],
+            init_sol=context["sol_trajs"][r_id],
+            beta=context["multi_betas"][r_id],
+            init_dual=context["init_dual"],
+            max_iter=max_iter,
+            if_print=False,
+            r_eps=0.03,
+            loss_eps=1e-6,
+        )
+
+
+def handle_warmup_transition(context):
+    context["init_dual"] = False
+
+    if context["warm_up"] == True:
+        context["warm_up"] = False
+        context["init_dual"] = True
+        logging.info("have warm up")
+        return True
+
+    context["warm_up"] = True
+    return False
+
+
+def find_connection_event(context):
+    current_time, robot_pair = find_first_connected(
+        context["sol_trajs"],
+        context["connection_threshold"],
+        context["last_exchange_time"],
+    )
+    current_time, context["accumulated_time"] = update_accumulated_time(
+        current_time,
+        context["accumulated_time"],
+        context["be_num"],
+    )
+    context["map_merge_cnt"] += current_time
+    return current_time, robot_pair
+
+
+def handle_map_merge(context, current_time, robot_pair):
+    if context["map_merge_cnt"] < context["map_merge_freq"]:
+        return current_time, robot_pair, False
+
+    context["accumulated_time"] -= (context["map_merge_cnt"] - context["map_merge_freq"])
+    current_time -= (context["map_merge_cnt"] - context["map_merge_freq"])
+    context["map_merge_cnt"] = 0
+    if context["accumulated_time"] >= context["tsteps"]:
+        append_metric(
+            context["global_metric"],
+            loss_compare_multi(context["sol_trajs"], target_distr.evals, current_time),
+        )
+        return current_time, robot_pair, True
+    robot_pair = []
+
+    for r_id in range(context["robot_number"]):
+        q_t = context["sol_trajs"][r_id]['x'][
+            current_time,
+            r_id * context["state_dim"]: r_id * context["state_dim"] + 2,
+        ]
+        robot_distr[r_id].bayes_filter_reset(target_distr.evals[0], q_t)
+        context["traj_solver"][r_id].update_distribution(robot_distr[r_id].evals)
+        context["traj_warmUp"][r_id].update_distribution(robot_distr[r_id].evals)
+        logging.info("merge map")
+
+    return current_time, robot_pair, False
+
+
+def handle_target_map_update(context, current_time, robot_pair):
+    if context["accumulated_time"] != context["update_map_freq"] * context["be_num"]:
+        return robot_pair, False
+
+    append_metric(
+        context["global_metric"],
+        loss_compare_multi(context["sol_trajs"], target_distr.evals, current_time),
+    )
+    logging.info("update map")
+    robot_pair = []
+    target_distr.update_map(context["accumulated_time"], "reset", "read")
+    context["be_num"] += 1
+    if context["accumulated_time"] >= context["tsteps"]:
+        return robot_pair, True
+
+    return robot_pair, False
+
+
+def handle_robot_exchange(context, current_time, robot_pair):
+    for i, j in robot_pair:
+        context["last_exchange_time"][(i, j)] = context["accumulated_time"]
+        context["last_exchange_time"][(j, i)] = context["accumulated_time"]
+
+    context["sol_trajs"], connected_pairs = exchange_info(
+        context["sol_trajs"],
+        robot_pair,
+        current_time,
+        robot_distr,
+        context["last_exchange_time"],
+    )
+    context["multi_betas"] = update_beta(
+        context["sol_trajs"],
+        context["decay_type"],
+        context["last_exchange_time"],
+        context["accumulated_time"],
+    )
+    if connected_pairs:
+        context["involved_robots"] = connected_pairs
+    else:
+        context["involved_robots"] = set(list(range(context["robot_number"])))
+    context["init_state"] = [traj['x'][0, :] for traj in context["sol_trajs"]]
+    context["init_dual"] = True
+
+
 def run_experiment(context):
     while True:
-        if context["warm_up"] == True:
-            for r_id in context["involved_robots"]:
-                context["sol_trajs"][r_id], conv = context["traj_warmUp"][r_id].solve(
-                x0=context["init_state"][r_id],
-                init_sol=context["sol_trajs"][r_id],
-                beta=context["multi_betas"][r_id],
-                init_dual=context["init_dual"],
-                max_iter=150,
-                if_print=False,
-                r_eps = 0.03,
-                loss_eps = 1e-6)
-        else:
-            for r_id in context["involved_robots"]:
-                context["sol_trajs"][r_id], conv = context["traj_solver"][r_id].solve(
-                x0=context["init_state"][r_id],
-                init_sol=context["sol_trajs"][r_id],
-                beta=context["multi_betas"][r_id],
-                init_dual=context["init_dual"],
-                max_iter=200,
-                if_print=False,
-                r_eps = 0.03,
-                loss_eps = 1e-6)
+        solve_involved_robots(context)
         clear_output(wait=True)
-        context["init_dual"] = False
 
-        if context["warm_up"] == True:
-            context["warm_up"] = False
-            context["init_dual"] = True
-            logging.info("have warm up")
+        if handle_warmup_transition(context):
             continue
-        else:
-            context["warm_up"] = True
-        current_time, robot_pair = find_first_connected(context["sol_trajs"], context["connection_threshold"], context["last_exchange_time"])
-        current_time, context["accumulated_time"] = update_accumulated_time(current_time, context["accumulated_time"], context["be_num"])
-        context["map_merge_cnt"] += current_time
-        if context["map_merge_cnt"] >= context["map_merge_freq"]:
-            context["accumulated_time"] -= (context["map_merge_cnt"] - context["map_merge_freq"])
-            current_time -= (context["map_merge_cnt"] - context["map_merge_freq"])
-            context["map_merge_cnt"] = 0
-            if context["accumulated_time"] >= context["tsteps"]:
-                append_metric(context["global_metric"], loss_compare_multi(context["sol_trajs"], target_distr.evals, current_time))
-                break
-            robot_pair = []
 
-            for r_id in range(context["robot_number"]):
-                q_t = context["sol_trajs"][r_id]['x'][current_time, r_id * context["state_dim"]: r_id * context["state_dim"] + 2]
-                robot_distr[r_id].bayes_filter_reset(target_distr.evals[0], q_t)
-                context["traj_solver"][r_id].update_distribution(robot_distr[r_id].evals)
-                context["traj_warmUp"][r_id].update_distribution(robot_distr[r_id].evals)
-                logging.info("merge map")
-        if context["accumulated_time"] == context["update_map_freq"] * context["be_num"]:
-            append_metric(context["global_metric"], loss_compare_multi(context["sol_trajs"], target_distr.evals, current_time))
-            logging.info("update map")
-            robot_pair = []
-            target_distr.update_map(context["accumulated_time"], "reset", "read")
-            context["be_num"] += 1
-            if context["accumulated_time"] >= context["tsteps"]:
-                break
+        current_time, robot_pair = find_connection_event(context)
+        current_time, robot_pair, done = handle_map_merge(context, current_time, robot_pair)
+        if done:
+            break
 
-        for i, j in robot_pair:
-            context["last_exchange_time"][(i, j)] = context["accumulated_time"]
-            context["last_exchange_time"][(j, i)] = context["accumulated_time"]
-        context["sol_trajs"], connected_pairs = exchange_info(context["sol_trajs"], robot_pair, current_time, robot_distr, context["last_exchange_time"])
-        context["multi_betas"] = update_beta(context["sol_trajs"], context["decay_type"], context["last_exchange_time"], context["accumulated_time"])
-        if connected_pairs:
-            context["involved_robots"] = connected_pairs
-        else:
-            context["involved_robots"] = set(list(range(context["robot_number"])))
-        context["init_state"] = [traj['x'][0, :] for traj in context["sol_trajs"]]
-        context["init_dual"] = True
-        logging.warning(f"connect time:{current_time}, accumulated time:{context['accumulated_time']}, and the robot pair:{robot_pair}")
-    plot_trajs(context["start_pos"], context["end_pos"], context["sol_trajs"], context["multi_betas"], robot_distr, context["save_path"])
+        robot_pair, done = handle_target_map_update(context, current_time, robot_pair)
+        if done:
+            break
+
+        handle_robot_exchange(context, current_time, robot_pair)
+        logging.warning(
+            f"connect time:{current_time}, accumulated time:{context['accumulated_time']}, "
+            f"and the robot pair:{robot_pair}"
+        )
+    plot_trajs(
+        context["start_pos"],
+        context["end_pos"],
+        context["sol_trajs"],
+        context["multi_betas"],
+        robot_distr,
+        context["save_path"],
+    )
 
 def main():
     # 准备实验相关参数

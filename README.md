@@ -1,6 +1,6 @@
 # IDMEC
 
-本仓库用于多机器人 Decay-Ergodic Search 轨迹规划、ROS 仿真回放和实机实验对接。请先完整跑通仿真和 bag 回放，再接入真实无人机。
+本仓库用于多机器人 Decay-Ergodic Search 轨迹规划、ROS bag 回放可视化和实机实验对接。请先完整检查离线轨迹和 bag 可视化结果，再接入真实无人机。
 
 ## 1. 仓库结构
 
@@ -14,11 +14,11 @@ idmec/
 │   │   ├── scripts/idmed.py                # 当前推荐的模块化实验入口
 │   │   ├── launch/pub_bag.launch           # 将轨迹 bag 发布成控制话题
 │   │   └── figures/                        # 轨迹图输出目录
-│   ├── fly_order/                          # 接收轨迹命令并转发给仿真/飞控接口
-│   │   ├── launch/simple_run.launch        # 四机仿真入口
+│   ├── fly_order/                          # 接收轨迹命令并转发给可视化/飞控接口
+│   │   ├── launch/simple_run.launch        # 四机 ROS 可视化入口
 │   │   ├── launch/swarm.launch             # 四机启动配置
 │   │   └── src/offboard.cpp                # PositionCommand 转发节点
-│   └── uav_simulator/                      # 四旋翼仿真、地图、控制器等 ROS 包
+│   └── uav_simulator/                      # 四旋翼模型、地图、控制器等 ROS 包
 ```
 
 ## 2. 环境准备
@@ -93,12 +93,36 @@ src/ergodic_search/figures/my_strategy.png
 日志默认写入：
 
 ```text
-src/ergodic_search/scripts/datas/logs/app+timestamp.log
+src/ergodic_search/scripts/datas/logs/app.log
 ```
 
-## 5. 启动四机仿真
+## 5. 回放轨迹 bag
 
-终端 1：
+如果已经生成了 `traj0.bag` 到 `traj3.bag`，可以用 `pub_bag.launch` 发布控制序列。
+
+回放：
+
+```bash
+cd /home/cyc/idmec
+source /opt/ros/noetic/setup.bash
+source devel/setup.bash
+roslaunch ergodic_search pub_bag.launch bag_dir:=/home/cyc/idmec/src/ergodic_search/scripts publish_rate:=20.0 frame_id:=world
+```
+
+该 launch 会读取每个机器人的 bag 文件，并发布到：
+
+```text
+/trajectory/robot_0/control_sequence
+/trajectory/robot_1/control_sequence
+/trajectory/robot_2/control_sequence
+/trajectory/robot_3/control_sequence
+```
+
+如果需要接入 `fly_order/offboard`，请确认话题名和 `src/fly_order/launch/run_in_sim.launch` 中的 remap 一致。
+
+## 6. 启动 ROS bag 可视化功能包
+
+另开一个终端：
 
 ```bash
 cd /home/cyc/idmec
@@ -107,20 +131,19 @@ source devel/setup.bash
 roslaunch fly_order simple_run.launch
 ```
 
-这个 launch 会启动：
+这个 launch 用于启动 ROS 可视化和命令转发相关节点：
 
 - RViz
-- 四个仿真无人机
 - `fly_order/offboard` 节点
-- 仿真地图
+- 地图/无人机状态可视化相关节点
 
-`fly_order/offboard` 订阅每个机器人的轨迹命令，并发布给对应无人机控制器。话题映射在：
+`fly_order/offboard` 订阅每个机器人的轨迹命令，并发布给对应的可视化/控制接口。话题映射在：
 
 ```text
 src/fly_order/launch/run_in_sim.launch
 ```
 
-关键话题：
+`fly_order/offboard` 侧使用的关键话题：
 
 ```text
 /robot_0/trajectory/control_sequence
@@ -134,25 +157,12 @@ src/fly_order/launch/run_in_sim.launch
 /drone_3_planning/pos_cmd
 ```
 
-## 6. 回放轨迹 bag
-
-如果已经生成了 `traj0.bag` 到 `traj3.bag`，可以用 `pub_bag.launch` 发布控制序列。
-
-回放：
-
-```bash
-cd /home/cyc/idmec
-source /opt/ros/noetic/setup.bash
-source devel/setup.bash
-roslaunch ergodic_search pub_bag.launch bag_dir:=/home/cyc/idmec/src/ergodic_search/scripts publish_rate:=20.0 frame_id:=world
-```
-
 ## 7. 实机实验流程建议
 
 实机前请按顺序完成：
 
 1. 离线运行 `idmed.py`，确认轨迹图合理。
-2. 在仿真中用 `simple_run.launch` + `pub_bag.launch` 回放，确认四机轨迹、速度和加速度没有异常。
+2. 用 `pub_bag.launch` 回放轨迹 bag，并用 `simple_run.launch` 启动 ROS 可视化，确认四机轨迹、速度和加速度没有异常。
 3. 检查 `config.yaml` 中的 `x0/xf`、速度限制、控制限制、安全半径是否与真实场地一致。
 4. 确认真实定位话题与 `run_in_sim.launch` 中的 `odom_topic` 对应。
 5. 实机只先测试单机或低速短轨迹，再逐步切换到四机。
@@ -163,4 +173,4 @@ roslaunch ergodic_search pub_bag.launch bag_dir:=/home/cyc/idmec/src/ergodic_sea
 - `offboard.cpp` 会将输入 `PositionCommand` 的 `x/y` 和速度/加速度转发出去，`z` 使用 `fly_height`。
 - 起飞点必须与 `config.yaml` 的 `x0` 以及 launch 中的 `init_x/init_y/init_z` 保持一致。
 - 实机前务必确认急停、遥控接管、保护网/安全区域和电池状态。
-- 不要直接在实机上第一次运行新参数；先仿真，再小范围低速测试。
+- 不要直接在实机上第一次运行新参数；先检查 bag 回放可视化，再小范围低速测试。
