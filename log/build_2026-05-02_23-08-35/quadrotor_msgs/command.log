@@ -1,0 +1,2 @@
+Invoking command in '/home/ubuntu24/idmec/build/quadrotor_msgs': CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/ubuntu24/idmec/src/uav_simulator/Utils/quadrotor_msgs -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/ubuntu24/idmec/install/quadrotor_msgs
+Invoked command in '/home/ubuntu24/idmec/build/quadrotor_msgs' returned '1': CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/ubuntu24/idmec/src/uav_simulator/Utils/quadrotor_msgs -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/ubuntu24/idmec/install/quadrotor_msgs

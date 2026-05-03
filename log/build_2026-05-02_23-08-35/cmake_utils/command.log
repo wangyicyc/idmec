@@ -1,0 +1,1 @@
+Invoking command in '/home/ubuntu24/idmec/build/cmake_utils': CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/ubuntu24/idmec/src/uav_simulator/Utils/cmake_utils -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/ubuntu24/idmec/install/cmake_utils

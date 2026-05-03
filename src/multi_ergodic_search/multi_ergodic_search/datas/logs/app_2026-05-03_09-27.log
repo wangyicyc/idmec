@@ -1,0 +1,10 @@
+2026-05-03 09:27:06,457 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-05-03 09:27:06,464 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-05-03 09:27:14,233 [INFO] my_strategy
+2026-05-03 09:27:22,783 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-05-03 09:27:25,043 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-05-03 09:27:27,320 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-05-03 09:27:29,585 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-05-03 09:27:29,586 [INFO] have warm up
+2026-05-03 09:28:00,548 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.444:
+2026-05-03 09:28:31,878 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 10000.000 and violations:0.444:

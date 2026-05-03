@@ -1,0 +1,1 @@
+Invoking command in '/home/ubuntu24/idmec/build/waypoint_generator': CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/ubuntu24/idmec/src/uav_simulator/Utils/waypoint_generator -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/ubuntu24/idmec/install/waypoint_generator

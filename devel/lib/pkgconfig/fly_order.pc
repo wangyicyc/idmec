@@ -1,8 +1,0 @@
-prefix=/home/cyc/MDEC/devel
-
-Name: fly_order
-Description: Description of fly_order
-Version: 0.0.0
-Cflags: -I/home/cyc/MDEC/src/fly_order/include
-Libs: -L${prefix}/lib -lfly_order
-Requires: message_runtime

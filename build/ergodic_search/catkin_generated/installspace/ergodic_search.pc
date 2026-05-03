@@ -1,8 +1,0 @@
-prefix=/home/cyc/MDEC/install
-
-Name: ergodic_search
-Description: Description of ergodic_search
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

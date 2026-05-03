@@ -1,0 +1,30 @@
+running egg_info
+creating ../../build/multi_ergodic_search/multi_ergodic_search.egg-info
+writing ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/PKG-INFO
+writing dependency_links to ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/dependency_links.txt
+writing requirements to ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/requires.txt
+writing top-level names to ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/top_level.txt
+writing manifest file '../../build/multi_ergodic_search/multi_ergodic_search.egg-info/SOURCES.txt'
+reading manifest file '../../build/multi_ergodic_search/multi_ergodic_search.egg-info/SOURCES.txt'
+writing manifest file '../../build/multi_ergodic_search/multi_ergodic_search.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/ubuntu24/idmec/build/multi_ergodic_search/build
+creating /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib
+creating /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search
+copying multi_ergodic_search/__init__.py -> /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search
+running install
+running install_lib
+creating /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search
+copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/__init__.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search
+byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/ubuntu24/idmec/install/multi_ergodic_search/share/ament_index
+creating /home/ubuntu24/idmec/install/multi_ergodic_search/share/ament_index/resource_index
+creating /home/ubuntu24/idmec/install/multi_ergodic_search/share/ament_index/resource_index/packages
+copying resource/multi_ergodic_search -> /home/ubuntu24/idmec/install/multi_ergodic_search/share/ament_index/resource_index/packages
+copying package.xml -> /home/ubuntu24/idmec/install/multi_ergodic_search/share/multi_ergodic_search
+running install_egg_info
+Copying ../../build/multi_ergodic_search/multi_ergodic_search.egg-info to /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search-0.0.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/ubuntu24/idmec/build/multi_ergodic_search/install.log'

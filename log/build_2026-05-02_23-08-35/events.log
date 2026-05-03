@@ -1,0 +1,934 @@
+[0.000000] (-) TimerEvent: {}
+[0.000248] (cmake_utils) JobQueued: {'identifier': 'cmake_utils', 'dependencies': OrderedDict()}
+[0.000303] (fly_order) JobQueued: {'identifier': 'fly_order', 'dependencies': OrderedDict()}
+[0.000325] (map_generator) JobQueued: {'identifier': 'map_generator', 'dependencies': OrderedDict()}
+[0.000338] (mockamap) JobQueued: {'identifier': 'mockamap', 'dependencies': OrderedDict()}
+[0.000350] (multi_ergodic_search) JobQueued: {'identifier': 'multi_ergodic_search', 'dependencies': OrderedDict()}
+[0.000361] (pose_utils) JobQueued: {'identifier': 'pose_utils', 'dependencies': OrderedDict()}
+[0.000375] (quadrotor_msgs) JobQueued: {'identifier': 'quadrotor_msgs', 'dependencies': OrderedDict()}
+[0.000416] (waypoint_generator) JobQueued: {'identifier': 'waypoint_generator', 'dependencies': OrderedDict()}
+[0.000476] (local_sensing_node) JobQueued: {'identifier': 'local_sensing_node', 'dependencies': OrderedDict({'quadrotor_msgs': '/home/ubuntu24/idmec/install/quadrotor_msgs'})}
+[0.000700] (multi_map_server) JobQueued: {'identifier': 'multi_map_server', 'dependencies': OrderedDict({'pose_utils': '/home/ubuntu24/idmec/install/pose_utils', 'quadrotor_msgs': '/home/ubuntu24/idmec/install/quadrotor_msgs'})}
+[0.000747] (odom_visualization) JobQueued: {'identifier': 'odom_visualization', 'dependencies': OrderedDict({'pose_utils': '/home/ubuntu24/idmec/install/pose_utils'})}
+[0.001085] (poscmd_2_odom) JobQueued: {'identifier': 'poscmd_2_odom', 'dependencies': OrderedDict({'quadrotor_msgs': '/home/ubuntu24/idmec/install/quadrotor_msgs'})}
+[0.001131] (so3_control) JobQueued: {'identifier': 'so3_control', 'dependencies': OrderedDict({'cmake_utils': '/home/ubuntu24/idmec/install/cmake_utils', 'quadrotor_msgs': '/home/ubuntu24/idmec/install/quadrotor_msgs'})}
+[0.001284] (uav_utils) JobQueued: {'identifier': 'uav_utils', 'dependencies': OrderedDict({'cmake_utils': '/home/ubuntu24/idmec/install/cmake_utils'})}
+[0.001329] (rviz_plugins) JobQueued: {'identifier': 'rviz_plugins', 'dependencies': OrderedDict({'pose_utils': '/home/ubuntu24/idmec/install/pose_utils', 'quadrotor_msgs': '/home/ubuntu24/idmec/install/quadrotor_msgs', 'multi_map_server': '/home/ubuntu24/idmec/install/multi_map_server'})}
+[0.001685] (so3_quadrotor_simulator) JobQueued: {'identifier': 'so3_quadrotor_simulator', 'dependencies': OrderedDict({'cmake_utils': '/home/ubuntu24/idmec/install/cmake_utils', 'quadrotor_msgs': '/home/ubuntu24/idmec/install/quadrotor_msgs', 'uav_utils': '/home/ubuntu24/idmec/install/uav_utils'})}
+[0.001731] (quadrotor_msgs) JobStarted: {'identifier': 'quadrotor_msgs'}
+[0.010732] (cmake_utils) JobStarted: {'identifier': 'cmake_utils'}
+[0.014469] (pose_utils) JobStarted: {'identifier': 'pose_utils'}
+[0.018335] (fly_order) JobStarted: {'identifier': 'fly_order'}
+[0.021690] (map_generator) JobStarted: {'identifier': 'map_generator'}
+[0.025055] (mockamap) JobStarted: {'identifier': 'mockamap'}
+[0.028245] (multi_ergodic_search) JobStarted: {'identifier': 'multi_ergodic_search'}
+[0.036166] (waypoint_generator) JobStarted: {'identifier': 'waypoint_generator'}
+[0.041854] (quadrotor_msgs) JobProgress: {'identifier': 'quadrotor_msgs', 'progress': 'cmake'}
+[0.044516] (quadrotor_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/ubuntu24/idmec/src/uav_simulator/Utils/quadrotor_msgs', '-DCATKIN_INSTALL_INTO_PREFIX_ROOT=0', '-DCMAKE_INSTALL_PREFIX=/home/ubuntu24/idmec/install/quadrotor_msgs'], 'cwd': '/home/ubuntu24/idmec/build/quadrotor_msgs', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'CONDA_PROMPT_MODIFIER': '(base)', 'HTTPS_PROXY': 'http://127.0.0.1:7890', 'no_proxy': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'USER': 'ubuntu24', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'WT_PROFILE_ID': '{ec92bd21-4993-40e9-8015-fdd40d44f814}', 'HOME': '/home/ubuntu24', 'CONDA_SHLVL': '1', 'OLDPWD': '/home/ubuntu24/idmec/src', 'RANGER_LEVEL': '1', 'NO_PROXY': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', '_CE_M': '', 'WSL_DISTRO_NAME': 'Ubuntu24', '_CONDA_ROOT': '/home/ubuntu24/miniconda3', 'ESCDELAY': '25', 'WAYLAND_DISPLAY': 'wayland-0', 'https_proxy': 'http://127.0.0.1:7890', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ubuntu24', 'NAME': 'cyc', 'WSL_INTEROP': '/run/WSL/12267_interop', 'http_proxy': 'http://127.0.0.1:7890', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', '_CE_CONDA': '', 'PATH': '/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/home/ubuntu24/miniconda3/bin:/home/ubuntu24/miniconda3/condabin:/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/c/Program Files (x86)/Tesseract-OCR:/mnt/d/Program Files/MATLAB/R2022b/runtime/win64:/mnt/d/Program Files/MATLAB/R2022b/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn:/mnt/d/Program Files/Git/cmd:/mnt/d/MinGW64/mingw64/bin:/mnt/c/Program Files/NVIDIA Corporation/Nsight Compute 2023.3.1:/mnt/e/Users/86187/anaconda3:/mnt/e/Users/86187/anaconda3/Scripts:/mnt/e/Users/86187/anaconda3/Library/bin:/mnt/e/Users/86187/anaconda3/Library/mingw-w64/bin:/mnt/e/Users/86187/anaconda3/Library/usr/bin:/mnt/e/Program Files/XPipe/bin:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit:/mnt/c/Program Files/Wolfram Research/WolframScript:/mnt/c/Program Files/usbipd-win:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/e/Program Files/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/d/Users/86187/Microsoft VS Code/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/e/Program Files/texlive/2025/bin/windows:/mnt/c/Users/86187/.dotnet/tools:/mnt/f/Program Files/Qoder/bin:/snap/bin', 'WT_SESSION': '17fca563-0922-49c5-8543-c4328b0924ae', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'CONDA_PYTHON_EXE': '/home/ubuntu24/miniconda3/bin/python', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': 'base', '_CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/ubuntu24/idmec/build/quadrotor_msgs', 'CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:7890', 'CONDA_PREFIX': '/home/ubuntu24/miniconda3', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}), 'shell': False}
+[0.047974] (cmake_utils) JobProgress: {'identifier': 'cmake_utils', 'progress': 'cmake'}
+[0.050785] (cmake_utils) Command: {'cmd': ['/usr/bin/cmake', '/home/ubuntu24/idmec/src/uav_simulator/Utils/cmake_utils', '-DCATKIN_INSTALL_INTO_PREFIX_ROOT=0', '-DCMAKE_INSTALL_PREFIX=/home/ubuntu24/idmec/install/cmake_utils'], 'cwd': '/home/ubuntu24/idmec/build/cmake_utils', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'CONDA_PROMPT_MODIFIER': '(base)', 'HTTPS_PROXY': 'http://127.0.0.1:7890', 'no_proxy': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'USER': 'ubuntu24', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'WT_PROFILE_ID': '{ec92bd21-4993-40e9-8015-fdd40d44f814}', 'HOME': '/home/ubuntu24', 'CONDA_SHLVL': '1', 'OLDPWD': '/home/ubuntu24/idmec/src', 'RANGER_LEVEL': '1', 'NO_PROXY': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', '_CE_M': '', 'WSL_DISTRO_NAME': 'Ubuntu24', '_CONDA_ROOT': '/home/ubuntu24/miniconda3', 'ESCDELAY': '25', 'WAYLAND_DISPLAY': 'wayland-0', 'https_proxy': 'http://127.0.0.1:7890', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ubuntu24', 'NAME': 'cyc', 'WSL_INTEROP': '/run/WSL/12267_interop', 'http_proxy': 'http://127.0.0.1:7890', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', '_CE_CONDA': '', 'PATH': '/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/home/ubuntu24/miniconda3/bin:/home/ubuntu24/miniconda3/condabin:/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/c/Program Files (x86)/Tesseract-OCR:/mnt/d/Program Files/MATLAB/R2022b/runtime/win64:/mnt/d/Program Files/MATLAB/R2022b/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn:/mnt/d/Program Files/Git/cmd:/mnt/d/MinGW64/mingw64/bin:/mnt/c/Program Files/NVIDIA Corporation/Nsight Compute 2023.3.1:/mnt/e/Users/86187/anaconda3:/mnt/e/Users/86187/anaconda3/Scripts:/mnt/e/Users/86187/anaconda3/Library/bin:/mnt/e/Users/86187/anaconda3/Library/mingw-w64/bin:/mnt/e/Users/86187/anaconda3/Library/usr/bin:/mnt/e/Program Files/XPipe/bin:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit:/mnt/c/Program Files/Wolfram Research/WolframScript:/mnt/c/Program Files/usbipd-win:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/e/Program Files/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/d/Users/86187/Microsoft VS Code/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/e/Program Files/texlive/2025/bin/windows:/mnt/c/Users/86187/.dotnet/tools:/mnt/f/Program Files/Qoder/bin:/snap/bin', 'WT_SESSION': '17fca563-0922-49c5-8543-c4328b0924ae', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'CONDA_PYTHON_EXE': '/home/ubuntu24/miniconda3/bin/python', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': 'base', '_CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/ubuntu24/idmec/build/cmake_utils', 'CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:7890', 'CONDA_PREFIX': '/home/ubuntu24/miniconda3', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}), 'shell': False}
+[0.052355] (pose_utils) JobProgress: {'identifier': 'pose_utils', 'progress': 'cmake'}
+[0.054191] (pose_utils) Command: {'cmd': ['/usr/bin/cmake', '/home/ubuntu24/idmec/src/uav_simulator/Utils/pose_utils', '-DCATKIN_INSTALL_INTO_PREFIX_ROOT=0', '-DCMAKE_INSTALL_PREFIX=/home/ubuntu24/idmec/install/pose_utils'], 'cwd': '/home/ubuntu24/idmec/build/pose_utils', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'CONDA_PROMPT_MODIFIER': '(base)', 'HTTPS_PROXY': 'http://127.0.0.1:7890', 'no_proxy': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'USER': 'ubuntu24', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'WT_PROFILE_ID': '{ec92bd21-4993-40e9-8015-fdd40d44f814}', 'HOME': '/home/ubuntu24', 'CONDA_SHLVL': '1', 'OLDPWD': '/home/ubuntu24/idmec/src', 'RANGER_LEVEL': '1', 'NO_PROXY': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', '_CE_M': '', 'WSL_DISTRO_NAME': 'Ubuntu24', '_CONDA_ROOT': '/home/ubuntu24/miniconda3', 'ESCDELAY': '25', 'WAYLAND_DISPLAY': 'wayland-0', 'https_proxy': 'http://127.0.0.1:7890', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ubuntu24', 'NAME': 'cyc', 'WSL_INTEROP': '/run/WSL/12267_interop', 'http_proxy': 'http://127.0.0.1:7890', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', '_CE_CONDA': '', 'PATH': '/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/home/ubuntu24/miniconda3/bin:/home/ubuntu24/miniconda3/condabin:/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/c/Program Files (x86)/Tesseract-OCR:/mnt/d/Program Files/MATLAB/R2022b/runtime/win64:/mnt/d/Program Files/MATLAB/R2022b/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn:/mnt/d/Program Files/Git/cmd:/mnt/d/MinGW64/mingw64/bin:/mnt/c/Program Files/NVIDIA Corporation/Nsight Compute 2023.3.1:/mnt/e/Users/86187/anaconda3:/mnt/e/Users/86187/anaconda3/Scripts:/mnt/e/Users/86187/anaconda3/Library/bin:/mnt/e/Users/86187/anaconda3/Library/mingw-w64/bin:/mnt/e/Users/86187/anaconda3/Library/usr/bin:/mnt/e/Program Files/XPipe/bin:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit:/mnt/c/Program Files/Wolfram Research/WolframScript:/mnt/c/Program Files/usbipd-win:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/e/Program Files/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/d/Users/86187/Microsoft VS Code/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/e/Program Files/texlive/2025/bin/windows:/mnt/c/Users/86187/.dotnet/tools:/mnt/f/Program Files/Qoder/bin:/snap/bin', 'WT_SESSION': '17fca563-0922-49c5-8543-c4328b0924ae', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'CONDA_PYTHON_EXE': '/home/ubuntu24/miniconda3/bin/python', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': 'base', '_CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/ubuntu24/idmec/build/pose_utils', 'CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:7890', 'CONDA_PREFIX': '/home/ubuntu24/miniconda3', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}), 'shell': False}
+[0.055668] (fly_order) JobProgress: {'identifier': 'fly_order', 'progress': 'cmake'}
+[0.057396] (fly_order) Command: {'cmd': ['/usr/bin/cmake', '/home/ubuntu24/idmec/src/fly_order', '-DCATKIN_INSTALL_INTO_PREFIX_ROOT=0', '-DCMAKE_INSTALL_PREFIX=/home/ubuntu24/idmec/install/fly_order'], 'cwd': '/home/ubuntu24/idmec/build/fly_order', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'CONDA_PROMPT_MODIFIER': '(base)', 'HTTPS_PROXY': 'http://127.0.0.1:7890', 'no_proxy': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'USER': 'ubuntu24', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'WT_PROFILE_ID': '{ec92bd21-4993-40e9-8015-fdd40d44f814}', 'HOME': '/home/ubuntu24', 'CONDA_SHLVL': '1', 'OLDPWD': '/home/ubuntu24/idmec/src', 'RANGER_LEVEL': '1', 'NO_PROXY': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', '_CE_M': '', 'WSL_DISTRO_NAME': 'Ubuntu24', '_CONDA_ROOT': '/home/ubuntu24/miniconda3', 'ESCDELAY': '25', 'WAYLAND_DISPLAY': 'wayland-0', 'https_proxy': 'http://127.0.0.1:7890', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ubuntu24', 'NAME': 'cyc', 'WSL_INTEROP': '/run/WSL/12267_interop', 'http_proxy': 'http://127.0.0.1:7890', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', '_CE_CONDA': '', 'PATH': '/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/home/ubuntu24/miniconda3/bin:/home/ubuntu24/miniconda3/condabin:/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/c/Program Files (x86)/Tesseract-OCR:/mnt/d/Program Files/MATLAB/R2022b/runtime/win64:/mnt/d/Program Files/MATLAB/R2022b/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn:/mnt/d/Program Files/Git/cmd:/mnt/d/MinGW64/mingw64/bin:/mnt/c/Program Files/NVIDIA Corporation/Nsight Compute 2023.3.1:/mnt/e/Users/86187/anaconda3:/mnt/e/Users/86187/anaconda3/Scripts:/mnt/e/Users/86187/anaconda3/Library/bin:/mnt/e/Users/86187/anaconda3/Library/mingw-w64/bin:/mnt/e/Users/86187/anaconda3/Library/usr/bin:/mnt/e/Program Files/XPipe/bin:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit:/mnt/c/Program Files/Wolfram Research/WolframScript:/mnt/c/Program Files/usbipd-win:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/e/Program Files/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/d/Users/86187/Microsoft VS Code/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/e/Program Files/texlive/2025/bin/windows:/mnt/c/Users/86187/.dotnet/tools:/mnt/f/Program Files/Qoder/bin:/snap/bin', 'WT_SESSION': '17fca563-0922-49c5-8543-c4328b0924ae', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'CONDA_PYTHON_EXE': '/home/ubuntu24/miniconda3/bin/python', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': 'base', '_CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/ubuntu24/idmec/build/fly_order', 'CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:7890', 'CONDA_PREFIX': '/home/ubuntu24/miniconda3', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}), 'shell': False}
+[0.058974] (map_generator) JobProgress: {'identifier': 'map_generator', 'progress': 'cmake'}
+[0.060852] (map_generator) Command: {'cmd': ['/usr/bin/cmake', '/home/ubuntu24/idmec/src/uav_simulator/map_generator', '-DCATKIN_INSTALL_INTO_PREFIX_ROOT=0', '-DCMAKE_INSTALL_PREFIX=/home/ubuntu24/idmec/install/map_generator'], 'cwd': '/home/ubuntu24/idmec/build/map_generator', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'CONDA_PROMPT_MODIFIER': '(base)', 'HTTPS_PROXY': 'http://127.0.0.1:7890', 'no_proxy': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'USER': 'ubuntu24', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'WT_PROFILE_ID': '{ec92bd21-4993-40e9-8015-fdd40d44f814}', 'HOME': '/home/ubuntu24', 'CONDA_SHLVL': '1', 'OLDPWD': '/home/ubuntu24/idmec/src', 'RANGER_LEVEL': '1', 'NO_PROXY': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', '_CE_M': '', 'WSL_DISTRO_NAME': 'Ubuntu24', '_CONDA_ROOT': '/home/ubuntu24/miniconda3', 'ESCDELAY': '25', 'WAYLAND_DISPLAY': 'wayland-0', 'https_proxy': 'http://127.0.0.1:7890', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ubuntu24', 'NAME': 'cyc', 'WSL_INTEROP': '/run/WSL/12267_interop', 'http_proxy': 'http://127.0.0.1:7890', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', '_CE_CONDA': '', 'PATH': '/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/home/ubuntu24/miniconda3/bin:/home/ubuntu24/miniconda3/condabin:/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/c/Program Files (x86)/Tesseract-OCR:/mnt/d/Program Files/MATLAB/R2022b/runtime/win64:/mnt/d/Program Files/MATLAB/R2022b/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn:/mnt/d/Program Files/Git/cmd:/mnt/d/MinGW64/mingw64/bin:/mnt/c/Program Files/NVIDIA Corporation/Nsight Compute 2023.3.1:/mnt/e/Users/86187/anaconda3:/mnt/e/Users/86187/anaconda3/Scripts:/mnt/e/Users/86187/anaconda3/Library/bin:/mnt/e/Users/86187/anaconda3/Library/mingw-w64/bin:/mnt/e/Users/86187/anaconda3/Library/usr/bin:/mnt/e/Program Files/XPipe/bin:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit:/mnt/c/Program Files/Wolfram Research/WolframScript:/mnt/c/Program Files/usbipd-win:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/e/Program Files/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/d/Users/86187/Microsoft VS Code/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/e/Program Files/texlive/2025/bin/windows:/mnt/c/Users/86187/.dotnet/tools:/mnt/f/Program Files/Qoder/bin:/snap/bin', 'WT_SESSION': '17fca563-0922-49c5-8543-c4328b0924ae', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'CONDA_PYTHON_EXE': '/home/ubuntu24/miniconda3/bin/python', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': 'base', '_CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/ubuntu24/idmec/build/map_generator', 'CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:7890', 'CONDA_PREFIX': '/home/ubuntu24/miniconda3', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}), 'shell': False}
+[0.062669] (mockamap) JobProgress: {'identifier': 'mockamap', 'progress': 'cmake'}
+[0.064094] (mockamap) Command: {'cmd': ['/usr/bin/cmake', '/home/ubuntu24/idmec/src/uav_simulator/mockamap', '-DCATKIN_INSTALL_INTO_PREFIX_ROOT=0', '-DCMAKE_INSTALL_PREFIX=/home/ubuntu24/idmec/install/mockamap'], 'cwd': '/home/ubuntu24/idmec/build/mockamap', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'CONDA_PROMPT_MODIFIER': '(base)', 'HTTPS_PROXY': 'http://127.0.0.1:7890', 'no_proxy': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'USER': 'ubuntu24', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'WT_PROFILE_ID': '{ec92bd21-4993-40e9-8015-fdd40d44f814}', 'HOME': '/home/ubuntu24', 'CONDA_SHLVL': '1', 'OLDPWD': '/home/ubuntu24/idmec/src', 'RANGER_LEVEL': '1', 'NO_PROXY': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', '_CE_M': '', 'WSL_DISTRO_NAME': 'Ubuntu24', '_CONDA_ROOT': '/home/ubuntu24/miniconda3', 'ESCDELAY': '25', 'WAYLAND_DISPLAY': 'wayland-0', 'https_proxy': 'http://127.0.0.1:7890', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ubuntu24', 'NAME': 'cyc', 'WSL_INTEROP': '/run/WSL/12267_interop', 'http_proxy': 'http://127.0.0.1:7890', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', '_CE_CONDA': '', 'PATH': '/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/home/ubuntu24/miniconda3/bin:/home/ubuntu24/miniconda3/condabin:/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/c/Program Files (x86)/Tesseract-OCR:/mnt/d/Program Files/MATLAB/R2022b/runtime/win64:/mnt/d/Program Files/MATLAB/R2022b/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn:/mnt/d/Program Files/Git/cmd:/mnt/d/MinGW64/mingw64/bin:/mnt/c/Program Files/NVIDIA Corporation/Nsight Compute 2023.3.1:/mnt/e/Users/86187/anaconda3:/mnt/e/Users/86187/anaconda3/Scripts:/mnt/e/Users/86187/anaconda3/Library/bin:/mnt/e/Users/86187/anaconda3/Library/mingw-w64/bin:/mnt/e/Users/86187/anaconda3/Library/usr/bin:/mnt/e/Program Files/XPipe/bin:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit:/mnt/c/Program Files/Wolfram Research/WolframScript:/mnt/c/Program Files/usbipd-win:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/e/Program Files/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/d/Users/86187/Microsoft VS Code/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/e/Program Files/texlive/2025/bin/windows:/mnt/c/Users/86187/.dotnet/tools:/mnt/f/Program Files/Qoder/bin:/snap/bin', 'WT_SESSION': '17fca563-0922-49c5-8543-c4328b0924ae', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'CONDA_PYTHON_EXE': '/home/ubuntu24/miniconda3/bin/python', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': 'base', '_CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/ubuntu24/idmec/build/mockamap', 'CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:7890', 'CONDA_PREFIX': '/home/ubuntu24/miniconda3', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}), 'shell': False}
+[0.099747] (-) TimerEvent: {}
+[0.200124] (-) TimerEvent: {}
+[0.290608] (quadrotor_msgs) StderrLine: {'line': b'\x1b[0mCMake Deprecation Warning at CMakeLists.txt:43 (cmake_minimum_required):\n'}
+[0.291997] (quadrotor_msgs) StderrLine: {'line': b'  Compatibility with CMake < 3.5 will be removed from a future version of\n'}
+[0.293738] (quadrotor_msgs) StderrLine: {'line': b'  CMake.\n'}
+[0.294986] (quadrotor_msgs) StderrLine: {'line': b'\n'}
+[0.295372] (quadrotor_msgs) StderrLine: {'line': b'  Update the VERSION argument <min> value or use a ...<max> suffix to tell\n'}
+[0.296464] (quadrotor_msgs) StderrLine: {'line': b'  CMake that the project does not need compatibility with older versions.\n'}
+[0.296882] (quadrotor_msgs) StderrLine: {'line': b'\n'}
+[0.297432] (quadrotor_msgs) StderrLine: {'line': b'\x1b[0m\n'}
+[0.297938] (cmake_utils) StderrLine: {'line': b'\x1b[0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):\n'}
+[0.298470] (cmake_utils) StderrLine: {'line': b'  Compatibility with CMake < 3.5 will be removed from a future version of\n'}
+[0.299024] (cmake_utils) StderrLine: {'line': b'  CMake.\n'}
+[0.299170] (cmake_utils) StderrLine: {'line': b'\n'}
+[0.299239] (cmake_utils) StderrLine: {'line': b'  Update the VERSION argument <min> value or use a ...<max> suffix to tell\n'}
+[0.299312] (cmake_utils) StderrLine: {'line': b'  CMake that the project does not need compatibility with older versions.\n'}
+[0.299528] (cmake_utils) StderrLine: {'line': b'\n'}
+[0.299613] (cmake_utils) StderrLine: {'line': b'\x1b[0m\n'}
+[0.299739] (pose_utils) StderrLine: {'line': b'\x1b[0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):\n'}
+[0.299921] (pose_utils) StderrLine: {'line': b'  Compatibility with CMake < 3.5 will be removed from a future version of\n'}
+[0.300088] (pose_utils) StderrLine: {'line': b'  CMake.\n'}
+[0.300155] (-) TimerEvent: {}
+[0.300278] (pose_utils) StderrLine: {'line': b'\n'}
+[0.300472] (pose_utils) StderrLine: {'line': b'  Update the VERSION argument <min> value or use a ...<max> suffix to tell\n'}
+[0.300539] (pose_utils) StderrLine: {'line': b'  CMake that the project does not need compatibility with older versions.\n'}
+[0.300596] (pose_utils) StderrLine: {'line': b'\n'}
+[0.300679] (pose_utils) StderrLine: {'line': b'\x1b[0m\n'}
+[0.300760] (fly_order) StderrLine: {'line': b'\x1b[0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):\n'}
+[0.300953] (fly_order) StderrLine: {'line': b'  Compatibility with CMake < 3.5 will be removed from a future version of\n'}
+[0.301023] (fly_order) StderrLine: {'line': b'  CMake.\n'}
+[0.301178] (fly_order) StderrLine: {'line': b'\n'}
+[0.301986] (fly_order) StderrLine: {'line': b'  Update the VERSION argument <min> value or use a ...<max> suffix to tell\n'}
+[0.302716] (fly_order) StderrLine: {'line': b'  CMake that the project does not need compatibility with older versions.\n'}
+[0.303108] (fly_order) StderrLine: {'line': b'\n'}
+[0.303273] (fly_order) StderrLine: {'line': b'\x1b[0m\n'}
+[0.303358] (map_generator) StderrLine: {'line': b'\x1b[0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):\n'}
+[0.303919] (map_generator) StderrLine: {'line': b'  Compatibility with CMake < 3.5 will be removed from a future version of\n'}
+[0.304401] (map_generator) StderrLine: {'line': b'  CMake.\n'}
+[0.304486] (map_generator) StderrLine: {'line': b'\n'}
+[0.304627] (map_generator) StderrLine: {'line': b'  Update the VERSION argument <min> value or use a ...<max> suffix to tell\n'}
+[0.304696] (map_generator) StderrLine: {'line': b'  CMake that the project does not need compatibility with older versions.\n'}
+[0.304757] (map_generator) StderrLine: {'line': b'\n'}
+[0.304813] (map_generator) StderrLine: {'line': b'\x1b[0m\n'}
+[0.304867] (mockamap) StderrLine: {'line': b'\x1b[0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):\n'}
+[0.304956] (mockamap) StderrLine: {'line': b'  Compatibility with CMake < 3.5 will be removed from a future version of\n'}
+[0.305015] (mockamap) StderrLine: {'line': b'  CMake.\n'}
+[0.305188] (mockamap) StderrLine: {'line': b'\n'}
+[0.305256] (mockamap) StderrLine: {'line': b'  Update the VERSION argument <min> value or use a ...<max> suffix to tell\n'}
+[0.305313] (mockamap) StderrLine: {'line': b'  CMake that the project does not need compatibility with older versions.\n'}
+[0.305369] (mockamap) StderrLine: {'line': b'\n'}
+[0.305423] (mockamap) StderrLine: {'line': b'\x1b[0m\n'}
+[0.305585] (waypoint_generator) JobProgress: {'identifier': 'waypoint_generator', 'progress': 'cmake'}
+[0.305738] (waypoint_generator) Command: {'cmd': ['/usr/bin/cmake', '/home/ubuntu24/idmec/src/uav_simulator/Utils/waypoint_generator', '-DCATKIN_INSTALL_INTO_PREFIX_ROOT=0', '-DCMAKE_INSTALL_PREFIX=/home/ubuntu24/idmec/install/waypoint_generator'], 'cwd': '/home/ubuntu24/idmec/build/waypoint_generator', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'CONDA_PROMPT_MODIFIER': '(base)', 'HTTPS_PROXY': 'http://127.0.0.1:7890', 'no_proxy': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'USER': 'ubuntu24', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'WT_PROFILE_ID': '{ec92bd21-4993-40e9-8015-fdd40d44f814}', 'HOME': '/home/ubuntu24', 'CONDA_SHLVL': '1', 'OLDPWD': '/home/ubuntu24/idmec/src', 'RANGER_LEVEL': '1', 'NO_PROXY': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', '_CE_M': '', 'WSL_DISTRO_NAME': 'Ubuntu24', '_CONDA_ROOT': '/home/ubuntu24/miniconda3', 'ESCDELAY': '25', 'WAYLAND_DISPLAY': 'wayland-0', 'https_proxy': 'http://127.0.0.1:7890', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ubuntu24', 'NAME': 'cyc', 'WSL_INTEROP': '/run/WSL/12267_interop', 'http_proxy': 'http://127.0.0.1:7890', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', '_CE_CONDA': '', 'PATH': '/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/home/ubuntu24/miniconda3/bin:/home/ubuntu24/miniconda3/condabin:/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/c/Program Files (x86)/Tesseract-OCR:/mnt/d/Program Files/MATLAB/R2022b/runtime/win64:/mnt/d/Program Files/MATLAB/R2022b/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn:/mnt/d/Program Files/Git/cmd:/mnt/d/MinGW64/mingw64/bin:/mnt/c/Program Files/NVIDIA Corporation/Nsight Compute 2023.3.1:/mnt/e/Users/86187/anaconda3:/mnt/e/Users/86187/anaconda3/Scripts:/mnt/e/Users/86187/anaconda3/Library/bin:/mnt/e/Users/86187/anaconda3/Library/mingw-w64/bin:/mnt/e/Users/86187/anaconda3/Library/usr/bin:/mnt/e/Program Files/XPipe/bin:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit:/mnt/c/Program Files/Wolfram Research/WolframScript:/mnt/c/Program Files/usbipd-win:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/e/Program Files/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/d/Users/86187/Microsoft VS Code/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/e/Program Files/texlive/2025/bin/windows:/mnt/c/Users/86187/.dotnet/tools:/mnt/f/Program Files/Qoder/bin:/snap/bin', 'WT_SESSION': '17fca563-0922-49c5-8543-c4328b0924ae', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'CONDA_PYTHON_EXE': '/home/ubuntu24/miniconda3/bin/python', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': 'base', '_CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/ubuntu24/idmec/build/waypoint_generator', 'CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:7890', 'CONDA_PREFIX': '/home/ubuntu24/miniconda3', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}), 'shell': False}
+[0.314824] (waypoint_generator) StderrLine: {'line': b'\x1b[0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):\n'}
+[0.315221] (waypoint_generator) StderrLine: {'line': b'  Compatibility with CMake < 3.5 will be removed from a future version of\n'}
+[0.315400] (waypoint_generator) StderrLine: {'line': b'  CMake.\n'}
+[0.315557] (waypoint_generator) StderrLine: {'line': b'\n'}
+[0.315716] (waypoint_generator) StderrLine: {'line': b'  Update the VERSION argument <min> value or use a ...<max> suffix to tell\n'}
+[0.315840] (waypoint_generator) StderrLine: {'line': b'  CMake that the project does not need compatibility with older versions.\n'}
+[0.315935] (waypoint_generator) StderrLine: {'line': b'\n'}
+[0.316019] (waypoint_generator) StderrLine: {'line': b'\x1b[0m\n'}
+[0.400281] (-) TimerEvent: {}
+[0.448347] (pose_utils) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.448714] (cmake_utils) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.448902] (mockamap) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.449031] (quadrotor_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.449850] (fly_order) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.450261] (map_generator) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.500388] (-) TimerEvent: {}
+[0.588406] (waypoint_generator) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.600547] (-) TimerEvent: {}
+[0.700939] (-) TimerEvent: {}
+[0.801302] (-) TimerEvent: {}
+[0.901672] (-) TimerEvent: {}
+[1.002016] (-) TimerEvent: {}
+[1.102515] (-) TimerEvent: {}
+[1.202944] (-) TimerEvent: {}
+[1.303383] (-) TimerEvent: {}
+[1.332493] (multi_ergodic_search) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/multi_ergodic_search', 'build', '--build-base', '/home/ubuntu24/idmec/build/multi_ergodic_search/build', 'install', '--record', '/home/ubuntu24/idmec/build/multi_ergodic_search/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/ubuntu24/idmec/src/multi_ergodic_search', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'CONDA_PROMPT_MODIFIER': '(base)', 'HTTPS_PROXY': 'http://127.0.0.1:7890', 'no_proxy': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'USER': 'ubuntu24', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'WT_PROFILE_ID': '{ec92bd21-4993-40e9-8015-fdd40d44f814}', 'HOME': '/home/ubuntu24', 'CONDA_SHLVL': '1', 'OLDPWD': '/home/ubuntu24/idmec/src', 'RANGER_LEVEL': '1', 'NO_PROXY': '127.0.0.1,192.168.*,172.31.*,172.30.*,172.29.*,172.28.*,172.27.*,172.26.*,172.25.*,172.24.*,172.23.*,172.22.*,172.21.*,172.20.*,172.19.*,172.18.*,172.17.*,172.16.*,10.*,127.*,localhost,<local>', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', '_CE_M': '', 'WSL_DISTRO_NAME': 'Ubuntu24', '_CONDA_ROOT': '/home/ubuntu24/miniconda3', 'ESCDELAY': '25', 'WAYLAND_DISPLAY': 'wayland-0', 'https_proxy': 'http://127.0.0.1:7890', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ubuntu24', 'NAME': 'cyc', 'WSL_INTEROP': '/run/WSL/12267_interop', 'http_proxy': 'http://127.0.0.1:7890', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', '_CE_CONDA': '', 'PATH': '/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/home/ubuntu24/miniconda3/bin:/home/ubuntu24/miniconda3/condabin:/home/ubuntu24/.local/bin:/home/ubuntu24/.local/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/c/Program Files (x86)/Tesseract-OCR:/mnt/d/Program Files/MATLAB/R2022b/runtime/win64:/mnt/d/Program Files/MATLAB/R2022b/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn:/mnt/d/Program Files/Git/cmd:/mnt/d/MinGW64/mingw64/bin:/mnt/c/Program Files/NVIDIA Corporation/Nsight Compute 2023.3.1:/mnt/e/Users/86187/anaconda3:/mnt/e/Users/86187/anaconda3/Scripts:/mnt/e/Users/86187/anaconda3/Library/bin:/mnt/e/Users/86187/anaconda3/Library/mingw-w64/bin:/mnt/e/Users/86187/anaconda3/Library/usr/bin:/mnt/e/Program Files/XPipe/bin:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit:/mnt/c/Program Files/Wolfram Research/WolframScript:/mnt/c/Program Files/usbipd-win:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/e/Program Files/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/d/Users/86187/Microsoft VS Code/bin:/mnt/c/Users/86187/AppData/Local/Microsoft/WindowsApps:/mnt/e/Program Files/texlive/2025/bin/windows:/mnt/c/Users/86187/.dotnet/tools:/mnt/f/Program Files/Qoder/bin:/snap/bin', 'WT_SESSION': '17fca563-0922-49c5-8543-c4328b0924ae', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'CONDA_PYTHON_EXE': '/home/ubuntu24/miniconda3/bin/python', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': 'base', '_CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/ubuntu24/idmec/build/multi_ergodic_search', 'CONDA_EXE': '/home/ubuntu24/miniconda3/bin/conda', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/ubuntu24/idmec/build/multi_ergodic_search/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:7890', 'CONDA_PREFIX': '/home/ubuntu24/miniconda3', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}, 'shell': False}
+[1.403499] (-) TimerEvent: {}
+[1.503888] (-) TimerEvent: {}
+[1.604337] (-) TimerEvent: {}
+[1.687231] (multi_ergodic_search) StdoutLine: {'line': b'running egg_info\n'}
+[1.687814] (multi_ergodic_search) StdoutLine: {'line': b'creating ../../build/multi_ergodic_search/multi_ergodic_search.egg-info\n'}
+[1.704445] (map_generator) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[1.704801] (-) TimerEvent: {}
+[1.715796] (multi_ergodic_search) StdoutLine: {'line': b'writing ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/PKG-INFO\n'}
+[1.716222] (multi_ergodic_search) StdoutLine: {'line': b'writing dependency_links to ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/dependency_links.txt\n'}
+[1.716602] (multi_ergodic_search) StdoutLine: {'line': b'writing requirements to ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/requires.txt\n'}
+[1.716952] (multi_ergodic_search) StdoutLine: {'line': b'writing top-level names to ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/top_level.txt\n'}
+[1.717249] (multi_ergodic_search) StdoutLine: {'line': b"writing manifest file '../../build/multi_ergodic_search/multi_ergodic_search.egg-info/SOURCES.txt'\n"}
+[1.782395] (multi_ergodic_search) StdoutLine: {'line': b"reading manifest file '../../build/multi_ergodic_search/multi_ergodic_search.egg-info/SOURCES.txt'\n"}
+[1.783700] (multi_ergodic_search) StdoutLine: {'line': b"writing manifest file '../../build/multi_ergodic_search/multi_ergodic_search.egg-info/SOURCES.txt'\n"}
+[1.784110] (multi_ergodic_search) StdoutLine: {'line': b'running build\n'}
+[1.784346] (multi_ergodic_search) StdoutLine: {'line': b'running build_py\n'}
+[1.784612] (fly_order) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[1.784949] (multi_ergodic_search) StdoutLine: {'line': b'creating /home/ubuntu24/idmec/build/multi_ergodic_search/build\n'}
+[1.785908] (pose_utils) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[1.786280] (multi_ergodic_search) StdoutLine: {'line': b'creating /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib\n'}
+[1.786749] (multi_ergodic_search) StdoutLine: {'line': b'creating /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search\n'}
+[1.787582] (multi_ergodic_search) StdoutLine: {'line': b'copying multi_ergodic_search/__init__.py -> /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search\n'}
+[1.788218] (multi_ergodic_search) StdoutLine: {'line': b'running install\n'}
+[1.789117] (quadrotor_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[1.797901] (multi_ergodic_search) StdoutLine: {'line': b'running install_lib\n'}
+[1.800342] (cmake_utils) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[1.804950] (-) TimerEvent: {}
+[1.830675] (multi_ergodic_search) StdoutLine: {'line': b'creating /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search\n'}
+[1.831602] (multi_ergodic_search) StdoutLine: {'line': b'copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/__init__.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search\n'}
+[1.832882] (multi_ergodic_search) StdoutLine: {'line': b'byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/__init__.py to __init__.cpython-312.pyc\n'}
+[1.833986] (multi_ergodic_search) StdoutLine: {'line': b'running install_data\n'}
+[1.834278] (multi_ergodic_search) StdoutLine: {'line': b'creating /home/ubuntu24/idmec/install/multi_ergodic_search/share/ament_index\n'}
+[1.834755] (multi_ergodic_search) StdoutLine: {'line': b'creating /home/ubuntu24/idmec/install/multi_ergodic_search/share/ament_index/resource_index\n'}
+[1.835344] (multi_ergodic_search) StdoutLine: {'line': b'creating /home/ubuntu24/idmec/install/multi_ergodic_search/share/ament_index/resource_index/packages\n'}
+[1.835933] (multi_ergodic_search) StdoutLine: {'line': b'copying resource/multi_ergodic_search -> /home/ubuntu24/idmec/install/multi_ergodic_search/share/ament_index/resource_index/packages\n'}
+[1.836212] (multi_ergodic_search) StdoutLine: {'line': b'copying package.xml -> /home/ubuntu24/idmec/install/multi_ergodic_search/share/multi_ergodic_search\n'}
+[1.836448] (multi_ergodic_search) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.838465] (waypoint_generator) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[1.873368] (multi_ergodic_search) StdoutLine: {'line': b'Copying ../../build/multi_ergodic_search/multi_ergodic_search.egg-info to /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search-0.0.0-py3.12.egg-info\n'}
+[1.876016] (multi_ergodic_search) StdoutLine: {'line': b'running install_scripts\n'}
+[1.902940] (mockamap) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[1.905083] (-) TimerEvent: {}
+[2.005635] (-) TimerEvent: {}
+[2.095174] (multi_ergodic_search) StdoutLine: {'line': b"writing list of installed files to '/home/ubuntu24/idmec/build/multi_ergodic_search/install.log'\n"}
+[2.105794] (-) TimerEvent: {}
+[2.139135] (multi_ergodic_search) CommandEnded: {'returncode': 0}
+[2.163754] (multi_ergodic_search) JobEnded: {'identifier': 'multi_ergodic_search', 'rc': 0}
+[2.205943] (-) TimerEvent: {}
+[2.306386] (-) TimerEvent: {}
+[2.406760] (-) TimerEvent: {}
+[2.507165] (-) TimerEvent: {}
+[2.607541] (-) TimerEvent: {}
+[2.707942] (-) TimerEvent: {}
+[2.808377] (-) TimerEvent: {}
+[2.908759] (-) TimerEvent: {}
+[2.926629] (pose_utils) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[3.008889] (-) TimerEvent: {}
+[3.057541] (waypoint_generator) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[3.058059] (quadrotor_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[3.058432] (mockamap) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[3.068542] (map_generator) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[3.109019] (-) TimerEvent: {}
+[3.111721] (fly_order) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[3.173610] (cmake_utils) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[3.209164] (-) TimerEvent: {}
+[3.309574] (-) TimerEvent: {}
+[3.410011] (-) TimerEvent: {}
+[3.412397] (pose_utils) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[3.423902] (pose_utils) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[3.424579] (pose_utils) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[3.425266] (pose_utils) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[3.510203] (-) TimerEvent: {}
+[3.514816] (waypoint_generator) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[3.519767] (quadrotor_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[3.525433] (waypoint_generator) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[3.525851] (waypoint_generator) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[3.526199] (waypoint_generator) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[3.529935] (quadrotor_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[3.530302] (quadrotor_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[3.530939] (quadrotor_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[3.566637] (map_generator) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[3.566874] (mockamap) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[3.576060] (map_generator) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[3.576343] (map_generator) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[3.576659] (map_generator) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[3.576943] (mockamap) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[3.577288] (mockamap) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[3.577870] (mockamap) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[3.610382] (-) TimerEvent: {}
+[3.611163] (pose_utils) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[3.631032] (fly_order) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[3.643156] (fly_order) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[3.643576] (fly_order) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[3.644179] (fly_order) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[3.678246] (cmake_utils) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[3.691068] (cmake_utils) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[3.691391] (cmake_utils) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[3.692003] (cmake_utils) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[3.710526] (-) TimerEvent: {}
+[3.719848] (quadrotor_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[3.732803] (waypoint_generator) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[3.759079] (map_generator) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[3.771107] (mockamap) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[3.810668] (-) TimerEvent: {}
+[3.841766] (fly_order) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[3.910852] (-) TimerEvent: {}
+[3.915293] (cmake_utils) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[4.010985] (-) TimerEvent: {}
+[4.089569] (pose_utils) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.101137] (pose_utils) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[4.101557] (pose_utils) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.102559] (pose_utils) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.111144] (-) TimerEvent: {}
+[4.168225] (waypoint_generator) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.177132] (quadrotor_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.181429] (waypoint_generator) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[4.181869] (waypoint_generator) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.182590] (waypoint_generator) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.187276] (waypoint_generator) StdoutLine: {'line': b'-- Performing Test COMPILER_SUPPORTS_CXX11\n'}
+[4.191290] (quadrotor_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[4.191671] (quadrotor_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.192302] (quadrotor_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.211278] (-) TimerEvent: {}
+[4.267770] (map_generator) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.272891] (mockamap) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.281620] (map_generator) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[4.282045] (map_generator) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.283014] (map_generator) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.290506] (mockamap) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[4.290947] (mockamap) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.291532] (mockamap) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.311412] (-) TimerEvent: {}
+[4.401209] (fly_order) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.411595] (-) TimerEvent: {}
+[4.412133] (fly_order) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[4.412532] (fly_order) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.413184] (fly_order) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.476024] (cmake_utils) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.485224] (fly_order) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found suitable version "1.83.0", minimum required is "1.65.0") found components: system filesystem iostreams serialization \n'}
+[4.489453] (fly_order) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):\n'}
+[4.489867] (fly_order) StderrLine: {'line': b'  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT\n'}
+[4.490071] (fly_order) StderrLine: {'line': b'  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the\n'}
+[4.490382] (fly_order) StderrLine: {'line': b'  cmake_policy command to set the policy and suppress this warning.\n'}
+[4.490624] (fly_order) StderrLine: {'line': b'\n'}
+[4.490795] (fly_order) StderrLine: {'line': b'  CMake variable FLANN_ROOT is set to:\n'}
+[4.490990] (fly_order) StderrLine: {'line': b'\n'}
+[4.491314] (fly_order) StderrLine: {'line': b'    /usr\n'}
+[4.491479] (fly_order) StderrLine: {'line': b'\n'}
+[4.491637] (fly_order) StderrLine: {'line': b'  For compatibility, find_package is ignoring the variable, but code in a\n'}
+[4.491793] (fly_order) StderrLine: {'line': b'  .cmake module might still use it.\n'}
+[4.491937] (fly_order) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[4.492055] (fly_order) StderrLine: {'line': b'  /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)\n'}
+[4.492189] (fly_order) StderrLine: {'line': b'  /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)\n'}
+[4.492368] (fly_order) StderrLine: {'line': b'  /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)\n'}
+[4.492480] (fly_order) StderrLine: {'line': b'  CMakeLists.txt:10 (find_package)\n'}
+[4.492587] (fly_order) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[4.492695] (fly_order) StderrLine: {'line': b'\x1b[0m\n'}
+[4.492996] (cmake_utils) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[4.493173] (cmake_utils) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.493376] (cmake_utils) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.493555] (fly_order) StdoutLine: {'line': b'-- Found flann version 1.9.2\n'}
+[4.511738] (-) TimerEvent: {}
+[4.545645] (waypoint_generator) StdoutLine: {'line': b'-- Performing Test COMPILER_SUPPORTS_CXX11 - Success\n'}
+[4.547155] (waypoint_generator) StdoutLine: {'line': b'-- Performing Test COMPILER_SUPPORTS_CXX0X\n'}
+[4.611890] (-) TimerEvent: {}
+[4.712321] (-) TimerEvent: {}
+[4.812739] (-) TimerEvent: {}
+[4.913148] (-) TimerEvent: {}
+[4.928140] (waypoint_generator) StdoutLine: {'line': b'-- Performing Test COMPILER_SUPPORTS_CXX0X - Success\n'}
+[5.013288] (-) TimerEvent: {}
+[5.113682] (-) TimerEvent: {}
+[5.214154] (-) TimerEvent: {}
+[5.314576] (-) TimerEvent: {}
+[5.391196] (pose_utils) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:9 (find_package):\n'}
+[5.391921] (pose_utils) StderrLine: {'line': b'  By not providing "Findcatkin.cmake" in CMAKE_MODULE_PATH this project has\n'}
+[5.392146] (pose_utils) StderrLine: {'line': b'  asked CMake to find a package configuration file provided by "catkin", but\n'}
+[5.392375] (pose_utils) StderrLine: {'line': b'  CMake did not find one.\n'}
+[5.392534] (pose_utils) StderrLine: {'line': b'\n'}
+[5.392715] (pose_utils) StderrLine: {'line': b'  Could not find a package configuration file provided by "catkin" with any\n'}
+[5.393043] (pose_utils) StderrLine: {'line': b'  of the following names:\n'}
+[5.393346] (pose_utils) StderrLine: {'line': b'\n'}
+[5.393478] (pose_utils) StderrLine: {'line': b'    catkinConfig.cmake\n'}
+[5.393568] (pose_utils) StderrLine: {'line': b'    catkin-config.cmake\n'}
+[5.393641] (pose_utils) StderrLine: {'line': b'\n'}
+[5.393722] (pose_utils) StderrLine: {'line': b'  Add the installation prefix of "catkin" to CMAKE_PREFIX_PATH or set\n'}
+[5.393915] (pose_utils) StderrLine: {'line': b'  "catkin_DIR" to a directory containing one of the above files.  If "catkin"\n'}
+[5.394119] (pose_utils) StderrLine: {'line': b'  provides a separate development package or SDK, be sure it has been\n'}
+[5.394288] (pose_utils) StderrLine: {'line': b'  installed.\n'}
+[5.394389] (pose_utils) StderrLine: {'line': b'\n'}
+[5.394475] (pose_utils) StderrLine: {'line': b'\x1b[0m\n'}
+[5.394624] (pose_utils) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[5.394869] (quadrotor_msgs) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:46 (find_package):\n'}
+[5.395130] (quadrotor_msgs) StderrLine: {'line': b'  By not providing "Findcatkin.cmake" in CMAKE_MODULE_PATH this project has\n'}
+[5.395304] (quadrotor_msgs) StderrLine: {'line': b'  asked CMake to find a package configuration file provided by "catkin", but\n'}
+[5.395440] (quadrotor_msgs) StderrLine: {'line': b'  CMake did not find one.\n'}
+[5.395608] (quadrotor_msgs) StderrLine: {'line': b'\n'}
+[5.395790] (quadrotor_msgs) StderrLine: {'line': b'  Could not find a package configuration file provided by "catkin" with any\n'}
+[5.395919] (quadrotor_msgs) StderrLine: {'line': b'  of the following names:\n'}
+[5.396149] (quadrotor_msgs) StderrLine: {'line': b'\n'}
+[5.396386] (quadrotor_msgs) StderrLine: {'line': b'    catkinConfig.cmake\n'}
+[5.396546] (quadrotor_msgs) StderrLine: {'line': b'    catkin-config.cmake\n'}
+[5.396712] (quadrotor_msgs) StderrLine: {'line': b'\n'}
+[5.396867] (quadrotor_msgs) StderrLine: {'line': b'  Add the installation prefix of "catkin" to CMAKE_PREFIX_PATH or set\n'}
+[5.397081] (quadrotor_msgs) StderrLine: {'line': b'  "catkin_DIR" to a directory containing one of the above files.  If "catkin"\n'}
+[5.397258] (quadrotor_msgs) StderrLine: {'line': b'  provides a separate development package or SDK, be sure it has been\n'}
+[5.397424] (quadrotor_msgs) StderrLine: {'line': b'  installed.\n'}
+[5.397545] (quadrotor_msgs) StderrLine: {'line': b'\n'}
+[5.397673] (quadrotor_msgs) StderrLine: {'line': b'\x1b[0m\n'}
+[5.397944] (quadrotor_msgs) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[5.398143] (mockamap) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:15 (find_package):\n'}
+[5.398399] (mockamap) StderrLine: {'line': b'  By not providing "Findcatkin.cmake" in CMAKE_MODULE_PATH this project has\n'}
+[5.398781] (mockamap) StderrLine: {'line': b'  asked CMake to find a package configuration file provided by "catkin", but\n'}
+[5.399833] (mockamap) StderrLine: {'line': b'  CMake did not find one.\n'}
+[5.401212] (mockamap) StderrLine: {'line': b'\n'}
+[5.402987] (mockamap) StderrLine: {'line': b'  Could not find a package configuration file provided by "catkin" with any\n'}
+[5.403640] (mockamap) StderrLine: {'line': b'  of the following names:\n'}
+[5.403742] (mockamap) StderrLine: {'line': b'\n'}
+[5.403816] (mockamap) StderrLine: {'line': b'    catkinConfig.cmake\n'}
+[5.404315] (mockamap) StderrLine: {'line': b'    catkin-config.cmake\n'}
+[5.405322] (mockamap) StderrLine: {'line': b'\n'}
+[5.405646] (mockamap) StderrLine: {'line': b'  Add the installation prefix of "catkin" to CMAKE_PREFIX_PATH or set\n'}
+[5.406372] (mockamap) StderrLine: {'line': b'  "catkin_DIR" to a directory containing one of the above files.  If "catkin"\n'}
+[5.407090] (mockamap) StderrLine: {'line': b'  provides a separate development package or SDK, be sure it has been\n'}
+[5.407368] (mockamap) StderrLine: {'line': b'  installed.\n'}
+[5.407859] (mockamap) StderrLine: {'line': b'\n'}
+[5.408234] (mockamap) StderrLine: {'line': b'\x1b[0m\n'}
+[5.408370] (mockamap) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[5.408650] (quadrotor_msgs) CommandEnded: {'returncode': 1}
+[5.410017] (pose_utils) CommandEnded: {'returncode': 1}
+[5.410515] (mockamap) CommandEnded: {'returncode': 1}
+[5.414720] (-) TimerEvent: {}
+[5.429089] (pose_utils) JobEnded: {'identifier': 'pose_utils', 'rc': 1}
+[5.436899] (quadrotor_msgs) JobEnded: {'identifier': 'quadrotor_msgs', 'rc': 1}
+[5.438148] (mockamap) JobEnded: {'identifier': 'mockamap', 'rc': 'SIGINT'}
+[5.514853] (-) TimerEvent: {}
+[5.588504] (fly_order) StdoutLine: {'line': b'-- Found OpenMP_CXX: -fopenmp (found version "4.5") \n'}
+[5.588908] (fly_order) StdoutLine: {'line': b'-- Found OpenMP: TRUE (found version "4.5") found components: CXX \n'}
+[5.615045] (-) TimerEvent: {}
+[5.638224] (fly_order) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[5.715164] (-) TimerEvent: {}
+[5.815559] (-) TimerEvent: {}
+[5.915903] (-) TimerEvent: {}
+[5.940827] (fly_order) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[5.941776] (fly_order) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[5.945137] (fly_order) StdoutLine: {'line': b'-- Found GLEW: /usr/lib/x86_64-linux-gnu/libGLEW.so  \n'}
+[6.016061] (-) TimerEvent: {}
+[6.095404] (map_generator) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:10 (find_package):\n'}
+[6.095718] (map_generator) StderrLine: {'line': b'  By not providing "Findcatkin.cmake" in CMAKE_MODULE_PATH this project has\n'}
+[6.095797] (map_generator) StderrLine: {'line': b'  asked CMake to find a package configuration file provided by "catkin", but\n'}
+[6.095865] (map_generator) StderrLine: {'line': b'  CMake did not find one.\n'}
+[6.095930] (map_generator) StderrLine: {'line': b'\n'}
+[6.096041] (map_generator) StderrLine: {'line': b'  Could not find a package configuration file provided by "catkin" with any\n'}
+[6.096115] (map_generator) StderrLine: {'line': b'  of the following names:\n'}
+[6.096180] (map_generator) StderrLine: {'line': b'\n'}
+[6.096243] (map_generator) StderrLine: {'line': b'    catkinConfig.cmake\n'}
+[6.096305] (map_generator) StderrLine: {'line': b'    catkin-config.cmake\n'}
+[6.096365] (map_generator) StderrLine: {'line': b'\n'}
+[6.096425] (map_generator) StderrLine: {'line': b'  Add the installation prefix of "catkin" to CMAKE_PREFIX_PATH or set\n'}
+[6.096486] (map_generator) StderrLine: {'line': b'  "catkin_DIR" to a directory containing one of the above files.  If "catkin"\n'}
+[6.096545] (map_generator) StderrLine: {'line': b'  provides a separate development package or SDK, be sure it has been\n'}
+[6.096604] (map_generator) StderrLine: {'line': b'  installed.\n'}
+[6.096663] (map_generator) StderrLine: {'line': b'\n'}
+[6.096723] (map_generator) StderrLine: {'line': b'\x1b[0m\n'}
+[6.096781] (map_generator) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[6.100939] (map_generator) JobEnded: {'identifier': 'map_generator', 'rc': 'SIGINT'}
+[6.116196] (-) TimerEvent: {}
+[6.216533] (-) TimerEvent: {}
+[6.288043] (fly_order) StdoutLine: {'line': b'-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so  found components: OpenGL GLX \n'}
+[6.316675] (-) TimerEvent: {}
+[6.417012] (-) TimerEvent: {}
+[6.517352] (-) TimerEvent: {}
+[6.617707] (-) TimerEvent: {}
+[6.694678] (cmake_utils) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:4 (find_package):\n'}
+[6.694909] (cmake_utils) StderrLine: {'line': b'  By not providing "Findcatkin.cmake" in CMAKE_MODULE_PATH this project has\n'}
+[6.695050] (cmake_utils) StderrLine: {'line': b'  asked CMake to find a package configuration file provided by "catkin", but\n'}
+[6.695220] (cmake_utils) StderrLine: {'line': b'  CMake did not find one.\n'}
+[6.695386] (cmake_utils) StderrLine: {'line': b'\n'}
+[6.695490] (cmake_utils) StderrLine: {'line': b'  Could not find a package configuration file provided by "catkin" with any\n'}
+[6.695567] (cmake_utils) StderrLine: {'line': b'  of the following names:\n'}
+[6.695638] (cmake_utils) StderrLine: {'line': b'\n'}
+[6.695722] (cmake_utils) StderrLine: {'line': b'    catkinConfig.cmake\n'}
+[6.695785] (cmake_utils) StderrLine: {'line': b'    catkin-config.cmake\n'}
+[6.695869] (cmake_utils) StderrLine: {'line': b'\n'}
+[6.695988] (cmake_utils) StderrLine: {'line': b'  Add the installation prefix of "catkin" to CMAKE_PREFIX_PATH or set\n'}
+[6.696160] (cmake_utils) StderrLine: {'line': b'  "catkin_DIR" to a directory containing one of the above files.  If "catkin"\n'}
+[6.696232] (cmake_utils) StderrLine: {'line': b'  provides a separate development package or SDK, be sure it has been\n'}
+[6.696315] (cmake_utils) StderrLine: {'line': b'  installed.\n'}
+[6.696411] (cmake_utils) StderrLine: {'line': b'\n'}
+[6.696508] (cmake_utils) StderrLine: {'line': b'\x1b[0m\n'}
+[6.696576] (cmake_utils) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[6.700333] (cmake_utils) JobEnded: {'identifier': 'cmake_utils', 'rc': 'SIGINT'}
+[6.705115] (fly_order) StdoutLine: {'line': b'-- Found MPI_C: /usr/lib/x86_64-linux-gnu/libmpi.so (found version "3.1") \n'}
+[6.705414] (fly_order) StdoutLine: {'line': b'-- Found MPI: TRUE (found version "3.1") found components: C \n'}
+[6.709216] (fly_order) StdoutLine: {'line': b'-- Found JsonCpp: /usr/lib/x86_64-linux-gnu/libjsoncpp.so (found suitable version "1.9.5", minimum required is "0.7.0") \n'}
+[6.717841] (-) TimerEvent: {}
+[6.818227] (-) TimerEvent: {}
+[6.918624] (-) TimerEvent: {}
+[6.999783] (waypoint_generator) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:19 (find_package):\n'}
+[7.000031] (waypoint_generator) StderrLine: {'line': b'  By not providing "Findcatkin.cmake" in CMAKE_MODULE_PATH this project has\n'}
+[7.000115] (waypoint_generator) StderrLine: {'line': b'  asked CMake to find a package configuration file provided by "catkin", but\n'}
+[7.000210] (waypoint_generator) StderrLine: {'line': b'  CMake did not find one.\n'}
+[7.000329] (waypoint_generator) StderrLine: {'line': b'\n'}
+[7.000472] (waypoint_generator) StderrLine: {'line': b'  Could not find a package configuration file provided by "catkin" with any\n'}
+[7.000613] (waypoint_generator) StderrLine: {'line': b'  of the following names:\n'}
+[7.000719] (waypoint_generator) StderrLine: {'line': b'\n'}
+[7.000925] (waypoint_generator) StderrLine: {'line': b'    catkinConfig.cmake\n'}
+[7.001089] (waypoint_generator) StderrLine: {'line': b'    catkin-config.cmake\n'}
+[7.001239] (waypoint_generator) StderrLine: {'line': b'\n'}
+[7.001355] (waypoint_generator) StderrLine: {'line': b'  Add the installation prefix of "catkin" to CMAKE_PREFIX_PATH or set\n'}
+[7.001445] (waypoint_generator) StderrLine: {'line': b'  "catkin_DIR" to a directory containing one of the above files.  If "catkin"\n'}
+[7.001571] (waypoint_generator) StderrLine: {'line': b'  provides a separate development package or SDK, be sure it has been\n'}
+[7.001688] (waypoint_generator) StderrLine: {'line': b'  installed.\n'}
+[7.001823] (waypoint_generator) StderrLine: {'line': b'\n'}
+[7.001988] (waypoint_generator) StderrLine: {'line': b'\x1b[0m\n'}
+[7.002105] (waypoint_generator) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[7.006265] (waypoint_generator) JobEnded: {'identifier': 'waypoint_generator', 'rc': 'SIGINT'}
+[7.018757] (-) TimerEvent: {}
+[7.119080] (-) TimerEvent: {}
+[7.219404] (-) TimerEvent: {}
+[7.319773] (-) TimerEvent: {}
+[7.420136] (-) TimerEvent: {}
+[7.520487] (-) TimerEvent: {}
+[7.620822] (-) TimerEvent: {}
+[7.721174] (-) TimerEvent: {}
+[7.821537] (-) TimerEvent: {}
+[7.921900] (-) TimerEvent: {}
+[8.022256] (-) TimerEvent: {}
+[8.122605] (-) TimerEvent: {}
+[8.191870] (fly_order) StdoutLine: {'line': b'-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3")  \n'}
+[8.222720] (-) TimerEvent: {}
+[8.323093] (-) TimerEvent: {}
+[8.423432] (-) TimerEvent: {}
+[8.523902] (-) TimerEvent: {}
+[8.624373] (-) TimerEvent: {}
+[8.724700] (-) TimerEvent: {}
+[8.825128] (-) TimerEvent: {}
+[8.925482] (-) TimerEvent: {}
+[9.025837] (-) TimerEvent: {}
+[9.126197] (-) TimerEvent: {}
+[9.226640] (-) TimerEvent: {}
+[9.327506] (-) TimerEvent: {}
+[9.377279] (fly_order) StdoutLine: {'line': b'-- Found PNG: /usr/lib/x86_64-linux-gnu/libpng.so (found version "1.6.43") \n'}
+[9.411569] (fly_order) StdoutLine: {'line': b'-- Found Eigen3: /usr/include/eigen3 (found version "3.4.0") \n'}
+[9.427740] (-) TimerEvent: {}
+[9.528220] (-) TimerEvent: {}
+[9.628667] (-) TimerEvent: {}
+[9.729117] (-) TimerEvent: {}
+[9.829499] (-) TimerEvent: {}
+[9.929986] (-) TimerEvent: {}
+[10.030552] (-) TimerEvent: {}
+[10.131015] (-) TimerEvent: {}
+[10.231477] (-) TimerEvent: {}
+[10.331928] (-) TimerEvent: {}
+[10.432394] (-) TimerEvent: {}
+[10.532853] (-) TimerEvent: {}
+[10.633364] (-) TimerEvent: {}
+[10.733765] (-) TimerEvent: {}
+[10.834363] (-) TimerEvent: {}
+[10.935415] (-) TimerEvent: {}
+[11.036176] (-) TimerEvent: {}
+[11.137141] (-) TimerEvent: {}
+[11.237897] (-) TimerEvent: {}
+[11.338862] (-) TimerEvent: {}
+[11.439687] (-) TimerEvent: {}
+[11.540261] (-) TimerEvent: {}
+[11.641012] (-) TimerEvent: {}
+[11.741380] (-) TimerEvent: {}
+[11.842063] (-) TimerEvent: {}
+[11.943098] (-) TimerEvent: {}
+[12.043835] (-) TimerEvent: {}
+[12.144458] (-) TimerEvent: {}
+[12.245184] (-) TimerEvent: {}
+[12.346230] (-) TimerEvent: {}
+[12.446952] (-) TimerEvent: {}
+[12.547643] (-) TimerEvent: {}
+[12.648492] (-) TimerEvent: {}
+[12.748931] (-) TimerEvent: {}
+[12.849666] (-) TimerEvent: {}
+[12.950208] (-) TimerEvent: {}
+[13.050724] (-) TimerEvent: {}
+[13.151216] (-) TimerEvent: {}
+[13.251558] (-) TimerEvent: {}
+[13.351932] (-) TimerEvent: {}
+[13.452436] (-) TimerEvent: {}
+[13.552773] (-) TimerEvent: {}
+[13.653378] (-) TimerEvent: {}
+[13.753712] (-) TimerEvent: {}
+[13.854221] (-) TimerEvent: {}
+[13.954576] (-) TimerEvent: {}
+[14.055051] (-) TimerEvent: {}
+[14.155393] (-) TimerEvent: {}
+[14.255954] (-) TimerEvent: {}
+[14.356339] (-) TimerEvent: {}
+[14.456863] (-) TimerEvent: {}
+[14.557254] (-) TimerEvent: {}
+[14.657770] (-) TimerEvent: {}
+[14.758378] (-) TimerEvent: {}
+[14.858774] (-) TimerEvent: {}
+[14.959162] (-) TimerEvent: {}
+[15.059541] (-) TimerEvent: {}
+[15.159924] (-) TimerEvent: {}
+[15.260306] (-) TimerEvent: {}
+[15.360714] (-) TimerEvent: {}
+[15.461108] (-) TimerEvent: {}
+[15.561460] (-) TimerEvent: {}
+[15.661830] (-) TimerEvent: {}
+[15.762250] (-) TimerEvent: {}
+[15.862644] (-) TimerEvent: {}
+[15.963010] (-) TimerEvent: {}
+[16.063341] (-) TimerEvent: {}
+[16.163694] (-) TimerEvent: {}
+[16.264071] (-) TimerEvent: {}
+[16.364430] (-) TimerEvent: {}
+[16.446640] (fly_order) StdoutLine: {'line': b'-- Found X11: /usr/include   \n'}
+[16.447181] (fly_order) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so\n'}
+[16.464570] (-) TimerEvent: {}
+[16.564940] (-) TimerEvent: {}
+[16.665354] (-) TimerEvent: {}
+[16.722895] (fly_order) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found\n'}
+[16.723298] (fly_order) StdoutLine: {'line': b'-- Looking for gethostbyname\n'}
+[16.765500] (-) TimerEvent: {}
+[16.865865] (-) TimerEvent: {}
+[16.966213] (-) TimerEvent: {}
+[17.004921] (fly_order) StdoutLine: {'line': b'-- Looking for gethostbyname - found\n'}
+[17.005110] (fly_order) StdoutLine: {'line': b'-- Looking for connect\n'}
+[17.066381] (-) TimerEvent: {}
+[17.166700] (-) TimerEvent: {}
+[17.267117] (-) TimerEvent: {}
+[17.270689] (fly_order) StdoutLine: {'line': b'-- Looking for connect - found\n'}
+[17.271052] (fly_order) StdoutLine: {'line': b'-- Looking for remove\n'}
+[17.367190] (-) TimerEvent: {}
+[17.467566] (-) TimerEvent: {}
+[17.553488] (fly_order) StdoutLine: {'line': b'-- Looking for remove - found\n'}
+[17.553697] (fly_order) StdoutLine: {'line': b'-- Looking for shmat\n'}
+[17.567706] (-) TimerEvent: {}
+[17.668245] (-) TimerEvent: {}
+[17.768604] (-) TimerEvent: {}
+[17.826848] (fly_order) StdoutLine: {'line': b'-- Looking for shmat - found\n'}
+[17.827233] (fly_order) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE\n'}
+[17.868774] (-) TimerEvent: {}
+[17.969145] (-) TimerEvent: {}
+[18.070003] (-) TimerEvent: {}
+[18.094750] (fly_order) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE - found\n'}
+[18.170193] (-) TimerEvent: {}
+[18.271159] (-) TimerEvent: {}
+[18.371521] (-) TimerEvent: {}
+[18.472133] (-) TimerEvent: {}
+[18.572460] (-) TimerEvent: {}
+[18.672794] (-) TimerEvent: {}
+[18.773151] (-) TimerEvent: {}
+[18.873503] (-) TimerEvent: {}
+[18.973860] (-) TimerEvent: {}
+[19.074220] (-) TimerEvent: {}
+[19.174556] (-) TimerEvent: {}
+[19.275571] (-) TimerEvent: {}
+[19.375930] (-) TimerEvent: {}
+[19.476367] (-) TimerEvent: {}
+[19.576753] (-) TimerEvent: {}
+[19.677124] (-) TimerEvent: {}
+[19.777490] (-) TimerEvent: {}
+[19.877856] (-) TimerEvent: {}
+[19.978249] (-) TimerEvent: {}
+[20.078607] (-) TimerEvent: {}
+[20.178962] (-) TimerEvent: {}
+[20.279305] (-) TimerEvent: {}
+[20.379684] (-) TimerEvent: {}
+[20.480030] (-) TimerEvent: {}
+[20.580439] (-) TimerEvent: {}
+[20.680803] (-) TimerEvent: {}
+[20.781146] (-) TimerEvent: {}
+[20.881526] (-) TimerEvent: {}
+[20.981837] (-) TimerEvent: {}
+[21.082232] (-) TimerEvent: {}
+[21.182552] (-) TimerEvent: {}
+[21.282875] (-) TimerEvent: {}
+[21.383185] (-) TimerEvent: {}
+[21.483490] (-) TimerEvent: {}
+[21.583768] (-) TimerEvent: {}
+[21.684135] (-) TimerEvent: {}
+[21.784493] (-) TimerEvent: {}
+[21.884842] (-) TimerEvent: {}
+[21.985334] (-) TimerEvent: {}
+[22.085850] (-) TimerEvent: {}
+[22.186211] (-) TimerEvent: {}
+[22.286573] (-) TimerEvent: {}
+[22.386900] (-) TimerEvent: {}
+[22.487234] (-) TimerEvent: {}
+[22.587536] (-) TimerEvent: {}
+[22.687869] (-) TimerEvent: {}
+[22.788188] (-) TimerEvent: {}
+[22.888442] (-) TimerEvent: {}
+[22.988741] (-) TimerEvent: {}
+[23.089116] (-) TimerEvent: {}
+[23.189429] (-) TimerEvent: {}
+[23.289817] (-) TimerEvent: {}
+[23.390156] (-) TimerEvent: {}
+[23.490537] (-) TimerEvent: {}
+[23.590904] (-) TimerEvent: {}
+[23.691184] (-) TimerEvent: {}
+[23.791586] (-) TimerEvent: {}
+[23.891979] (-) TimerEvent: {}
+[23.992326] (-) TimerEvent: {}
+[24.092660] (-) TimerEvent: {}
+[24.192948] (-) TimerEvent: {}
+[24.293342] (-) TimerEvent: {}
+[24.393642] (-) TimerEvent: {}
+[24.493986] (-) TimerEvent: {}
+[24.594444] (-) TimerEvent: {}
+[24.694844] (-) TimerEvent: {}
+[24.795268] (-) TimerEvent: {}
+[24.895660] (-) TimerEvent: {}
+[24.906466] (fly_order) StdoutLine: {'line': b'-- Found EXPAT: /usr/lib/x86_64-linux-gnu/libexpat.so (found version "2.6.1") \n'}
+[24.909012] (fly_order) StdoutLine: {'line': b'-- Found double-conversion: /usr/lib/x86_64-linux-gnu/libdouble-conversion.so  \n'}
+[24.912239] (fly_order) StdoutLine: {'line': b'-- Found LZ4: /usr/lib/x86_64-linux-gnu/liblz4.so (found version "1.9.4") \n'}
+[24.915040] (fly_order) StdoutLine: {'line': b'-- Found LZMA: /usr/lib/x86_64-linux-gnu/liblzma.so (found version "5.4.5") \n'}
+[24.995790] (-) TimerEvent: {}
+[25.096184] (-) TimerEvent: {}
+[25.196535] (-) TimerEvent: {}
+[25.280910] (fly_order) StdoutLine: {'line': b'-- Found JPEG: /usr/lib/x86_64-linux-gnu/libjpeg.so (found version "80") \n'}
+[25.296665] (-) TimerEvent: {}
+[25.397038] (-) TimerEvent: {}
+[25.497389] (-) TimerEvent: {}
+[25.597793] (-) TimerEvent: {}
+[25.698176] (-) TimerEvent: {}
+[25.798530] (-) TimerEvent: {}
+[25.898939] (-) TimerEvent: {}
+[25.999307] (-) TimerEvent: {}
+[26.099753] (-) TimerEvent: {}
+[26.200105] (-) TimerEvent: {}
+[26.300504] (-) TimerEvent: {}
+[26.400906] (-) TimerEvent: {}
+[26.501427] (-) TimerEvent: {}
+[26.601888] (-) TimerEvent: {}
+[26.702379] (-) TimerEvent: {}
+[26.802809] (-) TimerEvent: {}
+[26.903280] (-) TimerEvent: {}
+[27.003638] (-) TimerEvent: {}
+[27.104155] (-) TimerEvent: {}
+[27.204679] (-) TimerEvent: {}
+[27.305192] (-) TimerEvent: {}
+[27.405689] (-) TimerEvent: {}
+[27.506025] (-) TimerEvent: {}
+[27.606433] (-) TimerEvent: {}
+[27.706780] (-) TimerEvent: {}
+[27.756575] (fly_order) StdoutLine: {'line': b'-- Found TIFF: /usr/lib/x86_64-linux-gnu/libtiff.so (found version "4.5.1")  \n'}
+[27.760857] (fly_order) StdoutLine: {'line': b'-- Found Freetype: /usr/lib/x86_64-linux-gnu/libfreetype.so (found version "2.13.2") \n'}
+[27.767734] (fly_order) StdoutLine: {'line': b'-- Found utf8cpp: /usr/include/utf8cpp  \n'}
+[27.806902] (-) TimerEvent: {}
+[27.881676] (fly_order) StdoutLine: {'line': b"-- Checking for module 'libusb-1.0'\n"}
+[27.901880] (fly_order) StdoutLine: {'line': b'--   Found libusb-1.0, version 1.0.27\n'}
+[27.907020] (-) TimerEvent: {}
+[28.007382] (-) TimerEvent: {}
+[28.107799] (-) TimerEvent: {}
+[28.130719] (fly_order) StdoutLine: {'line': b'-- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  \n'}
+[28.132508] (fly_order) StdoutLine: {'line': b'-- Found OpenNI: /usr/lib/libOpenNI.so;libusb::libusb (found version "1.5.4.0") \n'}
+[28.132760] (fly_order) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[28.207948] (-) TimerEvent: {}
+[28.308373] (-) TimerEvent: {}
+[28.408720] (-) TimerEvent: {}
+[28.509196] (-) TimerEvent: {}
+[28.551538] (fly_order) StdoutLine: {'line': b'-- Found OpenNI2: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb (found version "2.2.0.33") \n'}
+[28.551857] (fly_order) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[28.609339] (-) TimerEvent: {}
+[28.709926] (-) TimerEvent: {}
+[28.798956] (fly_order) StdoutLine: {'line': b'-- Could NOT find Pcap (missing: PCAP_LIBRARIES PCAP_INCLUDE_DIRS) \n'}
+[28.799334] (fly_order) StderrLine: {'line': b'\x1b[0m** WARNING ** io features related to pcap will be disabled\x1b[0m\n'}
+[28.810057] (-) TimerEvent: {}
+[28.910456] (-) TimerEvent: {}
+[29.010959] (-) TimerEvent: {}
+[29.111358] (-) TimerEvent: {}
+[29.211703] (-) TimerEvent: {}
+[29.312139] (-) TimerEvent: {}
+[29.412510] (-) TimerEvent: {}
+[29.512868] (-) TimerEvent: {}
+[29.613174] (-) TimerEvent: {}
+[29.713501] (-) TimerEvent: {}
+[29.813824] (-) TimerEvent: {}
+[29.914189] (-) TimerEvent: {}
+[30.014551] (-) TimerEvent: {}
+[30.114914] (-) TimerEvent: {}
+[30.215288] (-) TimerEvent: {}
+[30.315640] (-) TimerEvent: {}
+[30.416021] (-) TimerEvent: {}
+[30.516383] (-) TimerEvent: {}
+[30.616771] (-) TimerEvent: {}
+[30.717170] (-) TimerEvent: {}
+[30.817621] (-) TimerEvent: {}
+[30.917969] (-) TimerEvent: {}
+[31.018329] (-) TimerEvent: {}
+[31.118700] (-) TimerEvent: {}
+[31.219198] (-) TimerEvent: {}
+[31.319637] (-) TimerEvent: {}
+[31.419990] (-) TimerEvent: {}
+[31.520314] (-) TimerEvent: {}
+[31.620632] (-) TimerEvent: {}
+[31.720953] (-) TimerEvent: {}
+[31.821305] (-) TimerEvent: {}
+[31.921643] (-) TimerEvent: {}
+[32.021988] (-) TimerEvent: {}
+[32.122420] (-) TimerEvent: {}
+[32.222731] (-) TimerEvent: {}
+[32.323141] (-) TimerEvent: {}
+[32.423520] (-) TimerEvent: {}
+[32.523881] (-) TimerEvent: {}
+[32.624226] (-) TimerEvent: {}
+[32.724573] (-) TimerEvent: {}
+[32.824990] (-) TimerEvent: {}
+[32.925338] (-) TimerEvent: {}
+[33.025671] (-) TimerEvent: {}
+[33.126028] (-) TimerEvent: {}
+[33.226412] (-) TimerEvent: {}
+[33.326736] (-) TimerEvent: {}
+[33.427096] (-) TimerEvent: {}
+[33.527451] (-) TimerEvent: {}
+[33.627805] (-) TimerEvent: {}
+[33.728149] (-) TimerEvent: {}
+[33.828538] (-) TimerEvent: {}
+[33.928852] (-) TimerEvent: {}
+[34.029174] (-) TimerEvent: {}
+[34.129497] (-) TimerEvent: {}
+[34.229844] (-) TimerEvent: {}
+[34.330228] (-) TimerEvent: {}
+[34.430597] (-) TimerEvent: {}
+[34.530937] (-) TimerEvent: {}
+[34.631281] (-) TimerEvent: {}
+[34.731633] (-) TimerEvent: {}
+[34.831990] (-) TimerEvent: {}
+[34.932386] (-) TimerEvent: {}
+[35.032737] (-) TimerEvent: {}
+[35.133072] (-) TimerEvent: {}
+[35.233400] (-) TimerEvent: {}
+[35.334010] (-) TimerEvent: {}
+[35.434419] (-) TimerEvent: {}
+[35.534747] (-) TimerEvent: {}
+[35.635068] (-) TimerEvent: {}
+[35.735403] (-) TimerEvent: {}
+[35.835695] (-) TimerEvent: {}
+[35.936023] (-) TimerEvent: {}
+[36.036356] (-) TimerEvent: {}
+[36.136699] (-) TimerEvent: {}
+[36.237085] (-) TimerEvent: {}
+[36.337571] (-) TimerEvent: {}
+[36.438022] (-) TimerEvent: {}
+[36.538417] (-) TimerEvent: {}
+[36.638785] (-) TimerEvent: {}
+[36.739106] (-) TimerEvent: {}
+[36.839428] (-) TimerEvent: {}
+[36.939799] (-) TimerEvent: {}
+[37.040136] (-) TimerEvent: {}
+[37.140450] (-) TimerEvent: {}
+[37.240792] (-) TimerEvent: {}
+[37.341078] (-) TimerEvent: {}
+[37.441453] (-) TimerEvent: {}
+[37.541811] (-) TimerEvent: {}
+[37.642177] (-) TimerEvent: {}
+[37.742494] (-) TimerEvent: {}
+[37.842829] (-) TimerEvent: {}
+[37.943150] (-) TimerEvent: {}
+[38.043442] (-) TimerEvent: {}
+[38.143813] (-) TimerEvent: {}
+[38.244197] (-) TimerEvent: {}
+[38.344576] (-) TimerEvent: {}
+[38.444970] (-) TimerEvent: {}
+[38.545449] (-) TimerEvent: {}
+[38.646055] (-) TimerEvent: {}
+[38.746578] (-) TimerEvent: {}
+[38.846966] (-) TimerEvent: {}
+[38.947317] (-) TimerEvent: {}
+[39.047717] (-) TimerEvent: {}
+[39.148138] (-) TimerEvent: {}
+[39.248496] (-) TimerEvent: {}
+[39.348970] (-) TimerEvent: {}
+[39.449464] (-) TimerEvent: {}
+[39.550075] (-) TimerEvent: {}
+[39.650677] (-) TimerEvent: {}
+[39.751017] (-) TimerEvent: {}
+[39.851379] (-) TimerEvent: {}
+[39.951734] (-) TimerEvent: {}
+[40.052103] (-) TimerEvent: {}
+[40.152461] (-) TimerEvent: {}
+[40.252793] (-) TimerEvent: {}
+[40.353108] (-) TimerEvent: {}
+[40.453477] (-) TimerEvent: {}
+[40.553876] (-) TimerEvent: {}
+[40.654201] (-) TimerEvent: {}
+[40.754537] (-) TimerEvent: {}
+[40.854903] (-) TimerEvent: {}
+[40.955264] (-) TimerEvent: {}
+[41.055708] (-) TimerEvent: {}
+[41.156062] (-) TimerEvent: {}
+[41.256408] (-) TimerEvent: {}
+[41.356796] (-) TimerEvent: {}
+[41.457138] (-) TimerEvent: {}
+[41.557516] (-) TimerEvent: {}
+[41.657869] (-) TimerEvent: {}
+[41.758222] (-) TimerEvent: {}
+[41.858553] (-) TimerEvent: {}
+[41.958877] (-) TimerEvent: {}
+[42.059258] (-) TimerEvent: {}
+[42.159611] (-) TimerEvent: {}
+[42.260176] (-) TimerEvent: {}
+[42.360676] (-) TimerEvent: {}
+[42.460991] (-) TimerEvent: {}
+[42.561345] (-) TimerEvent: {}
+[42.661714] (-) TimerEvent: {}
+[42.762078] (-) TimerEvent: {}
+[42.862456] (-) TimerEvent: {}
+[42.962856] (-) TimerEvent: {}
+[43.063236] (-) TimerEvent: {}
+[43.163604] (-) TimerEvent: {}
+[43.263947] (-) TimerEvent: {}
+[43.364308] (-) TimerEvent: {}
+[43.464677] (-) TimerEvent: {}
+[43.565049] (-) TimerEvent: {}
+[43.665421] (-) TimerEvent: {}
+[43.765772] (-) TimerEvent: {}
+[43.866171] (-) TimerEvent: {}
+[43.966618] (-) TimerEvent: {}
+[44.066976] (-) TimerEvent: {}
+[44.167369] (-) TimerEvent: {}
+[44.267695] (-) TimerEvent: {}
+[44.368038] (-) TimerEvent: {}
+[44.468408] (-) TimerEvent: {}
+[44.568819] (-) TimerEvent: {}
+[44.669185] (-) TimerEvent: {}
+[44.769518] (-) TimerEvent: {}
+[44.869910] (-) TimerEvent: {}
+[44.970240] (-) TimerEvent: {}
+[45.070646] (-) TimerEvent: {}
+[45.170997] (-) TimerEvent: {}
+[45.271360] (-) TimerEvent: {}
+[45.371731] (-) TimerEvent: {}
+[45.472096] (-) TimerEvent: {}
+[45.572473] (-) TimerEvent: {}
+[45.672830] (-) TimerEvent: {}
+[45.773161] (-) TimerEvent: {}
+[45.873495] (-) TimerEvent: {}
+[45.973858] (-) TimerEvent: {}
+[46.074224] (-) TimerEvent: {}
+[46.174627] (-) TimerEvent: {}
+[46.274976] (-) TimerEvent: {}
+[46.375328] (-) TimerEvent: {}
+[46.475674] (-) TimerEvent: {}
+[46.576010] (-) TimerEvent: {}
+[46.676358] (-) TimerEvent: {}
+[46.776722] (-) TimerEvent: {}
+[46.877130] (-) TimerEvent: {}
+[46.977537] (-) TimerEvent: {}
+[47.077883] (-) TimerEvent: {}
+[47.178241] (-) TimerEvent: {}
+[47.278572] (-) TimerEvent: {}
+[47.378946] (-) TimerEvent: {}
+[47.479288] (-) TimerEvent: {}
+[47.579640] (-) TimerEvent: {}
+[47.680039] (-) TimerEvent: {}
+[47.780424] (-) TimerEvent: {}
+[47.880828] (-) TimerEvent: {}
+[47.981673] (-) TimerEvent: {}
+[48.082181] (-) TimerEvent: {}
+[48.182545] (-) TimerEvent: {}
+[48.283183] (-) TimerEvent: {}
+[48.383577] (-) TimerEvent: {}
+[48.483923] (-) TimerEvent: {}
+[48.584319] (-) TimerEvent: {}
+[48.684701] (-) TimerEvent: {}
+[48.785056] (-) TimerEvent: {}
+[48.885383] (-) TimerEvent: {}
+[48.985756] (-) TimerEvent: {}
+[49.086159] (-) TimerEvent: {}
+[49.186477] (-) TimerEvent: {}
+[49.286848] (-) TimerEvent: {}
+[49.387274] (-) TimerEvent: {}
+[49.487637] (-) TimerEvent: {}
+[49.588052] (-) TimerEvent: {}
+[49.688419] (-) TimerEvent: {}
+[49.788775] (-) TimerEvent: {}
+[49.889181] (-) TimerEvent: {}
+[49.989554] (-) TimerEvent: {}
+[50.089943] (-) TimerEvent: {}
+[50.190371] (-) TimerEvent: {}
+[50.290761] (-) TimerEvent: {}
+[50.391113] (-) TimerEvent: {}
+[50.491454] (-) TimerEvent: {}
+[50.591797] (-) TimerEvent: {}
+[50.692173] (-) TimerEvent: {}
+[50.792571] (-) TimerEvent: {}
+[50.892930] (-) TimerEvent: {}
+[50.993293] (-) TimerEvent: {}
+[51.093626] (-) TimerEvent: {}
+[51.194025] (-) TimerEvent: {}
+[51.234776] (fly_order) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[51.241635] (fly_order) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[51.294196] (-) TimerEvent: {}
+[51.394549] (-) TimerEvent: {}
+[51.494902] (-) TimerEvent: {}
+[51.595250] (-) TimerEvent: {}
+[51.695601] (-) TimerEvent: {}
+[51.796020] (-) TimerEvent: {}
+[51.896414] (-) TimerEvent: {}
+[51.996801] (-) TimerEvent: {}
+[52.097197] (-) TimerEvent: {}
+[52.197600] (-) TimerEvent: {}
+[52.297981] (-) TimerEvent: {}
+[52.398322] (-) TimerEvent: {}
+[52.498661] (-) TimerEvent: {}
+[52.598989] (-) TimerEvent: {}
+[52.699324] (-) TimerEvent: {}
+[52.799682] (-) TimerEvent: {}
+[52.839868] (fly_order) JobEnded: {'identifier': 'fly_order', 'rc': 'SIGINT'}
+[52.850924] (local_sensing_node) JobSkipped: {'identifier': 'local_sensing_node'}
+[52.851189] (multi_map_server) JobSkipped: {'identifier': 'multi_map_server'}
+[52.851239] (odom_visualization) JobSkipped: {'identifier': 'odom_visualization'}
+[52.851263] (poscmd_2_odom) JobSkipped: {'identifier': 'poscmd_2_odom'}
+[52.851278] (so3_control) JobSkipped: {'identifier': 'so3_control'}
+[52.851412] (uav_utils) JobSkipped: {'identifier': 'uav_utils'}
+[52.851583] (rviz_plugins) JobSkipped: {'identifier': 'rviz_plugins'}
+[52.851755] (so3_quadrotor_simulator) JobSkipped: {'identifier': 'so3_quadrotor_simulator'}
+[52.851929] (-) EventReactorShutdown: {}

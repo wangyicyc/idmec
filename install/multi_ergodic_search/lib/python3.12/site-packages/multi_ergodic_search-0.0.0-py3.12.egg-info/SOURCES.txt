@@ -1,0 +1,15 @@
+README.md
+package.xml
+setup.cfg
+setup.py
+../../build/multi_ergodic_search/multi_ergodic_search.egg-info/PKG-INFO
+../../build/multi_ergodic_search/multi_ergodic_search.egg-info/SOURCES.txt
+../../build/multi_ergodic_search/multi_ergodic_search.egg-info/dependency_links.txt
+../../build/multi_ergodic_search/multi_ergodic_search.egg-info/requires.txt
+../../build/multi_ergodic_search/multi_ergodic_search.egg-info/top_level.txt
+../../build/multi_ergodic_search/multi_ergodic_search.egg-info/zip-safe
+multi_ergodic_search/__init__.py
+resource/multi_ergodic_search
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py

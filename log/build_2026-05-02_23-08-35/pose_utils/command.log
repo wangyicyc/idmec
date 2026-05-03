@@ -1,0 +1,2 @@
+Invoking command in '/home/ubuntu24/idmec/build/pose_utils': CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/ubuntu24/idmec/src/uav_simulator/Utils/pose_utils -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/ubuntu24/idmec/install/pose_utils
+Invoked command in '/home/ubuntu24/idmec/build/pose_utils' returned '1': CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/ubuntu24/idmec/src/uav_simulator/Utils/pose_utils -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/ubuntu24/idmec/install/pose_utils

@@ -1,4 +1,0 @@
- <launch>
-    <include file="$(find fly_order)/launch/rviz.launch"/>
-    <include file="$(find fly_order)/launch/swarm.launch"/>
- </launch> 

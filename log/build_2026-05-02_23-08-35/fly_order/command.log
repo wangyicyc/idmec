@@ -1,0 +1,1 @@
+Invoking command in '/home/ubuntu24/idmec/build/fly_order': CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/ubuntu24/idmec/src/fly_order -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/ubuntu24/idmec/install/fly_order

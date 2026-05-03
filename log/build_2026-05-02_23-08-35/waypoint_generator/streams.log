@@ -1,0 +1,43 @@
+[0.271s] Invoking command in '/home/ubuntu24/idmec/build/waypoint_generator': CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/ubuntu24/idmec/src/uav_simulator/Utils/waypoint_generator -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/ubuntu24/idmec/install/waypoint_generator
+[0.279s] [0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.279s]   Compatibility with CMake < 3.5 will be removed from a future version of
+[0.279s]   CMake.
+[0.279s] 
+[0.279s]   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+[0.280s]   CMake that the project does not need compatibility with older versions.
+[0.280s] 
+[0.280s] [0m
+[0.552s] -- The C compiler identification is GNU 13.3.0
+[1.802s] -- The CXX compiler identification is GNU 13.3.0
+[3.022s] -- Detecting C compiler ABI info
+[3.479s] -- Detecting C compiler ABI info - done
+[3.489s] -- Check for working C compiler: /usr/bin/cc - skipped
+[3.490s] -- Detecting C compile features
+[3.490s] -- Detecting C compile features - done
+[3.697s] -- Detecting CXX compiler ABI info
+[4.132s] -- Detecting CXX compiler ABI info - done
+[4.145s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[4.146s] -- Detecting CXX compile features
+[4.146s] -- Detecting CXX compile features - done
+[4.151s] -- Performing Test COMPILER_SUPPORTS_CXX11
+[4.510s] -- Performing Test COMPILER_SUPPORTS_CXX11 - Success
+[4.511s] -- Performing Test COMPILER_SUPPORTS_CXX0X
+[4.892s] -- Performing Test COMPILER_SUPPORTS_CXX0X - Success
+[6.964s] [31mCMake Error at CMakeLists.txt:19 (find_package):
+[6.964s]   By not providing "Findcatkin.cmake" in CMAKE_MODULE_PATH this project has
+[6.964s]   asked CMake to find a package configuration file provided by "catkin", but
+[6.964s]   CMake did not find one.
+[6.964s] 
+[6.964s]   Could not find a package configuration file provided by "catkin" with any
+[6.964s]   of the following names:
+[6.965s] 
+[6.965s]     catkinConfig.cmake
+[6.965s]     catkin-config.cmake
+[6.965s] 
+[6.965s]   Add the installation prefix of "catkin" to CMAKE_PREFIX_PATH or set
+[6.965s]   "catkin_DIR" to a directory containing one of the above files.  If "catkin"
+[6.965s]   provides a separate development package or SDK, be sure it has been
+[6.965s]   installed.
+[6.966s] 
+[6.966s] [0m
+[6.966s] -- Configuring incomplete, errors occurred!

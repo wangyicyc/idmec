@@ -1,4 +1,4 @@
-name: uavPlan
+name: jaxlib
 channels:
   - defaults
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
