@@ -5,12 +5,15 @@ import yaml
 import copy
 import sys 
 from functools import partial
-sys.path.append('..')
+from pathlib import Path
+
+PACKAGE_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PACKAGE_ROOT))
 from multiRobots_lib.target_distribution import TargetDistribution # 构建目标分布
 from multiRobots_lib.dynamics import DoubleIntegrator, SingleIntegrator, HomoDynamics
 from multiRobots_lib.metric_utils import gaussian_function
 
-with open("../datas/config/config.yaml", "r") as f:
+with open(PACKAGE_ROOT / "datas" / "config" / "config.yaml", "r") as f:
     loaded = yaml.safe_load(f)
 # 提取 opt_args 子字典
 config = loaded["opt_args"]

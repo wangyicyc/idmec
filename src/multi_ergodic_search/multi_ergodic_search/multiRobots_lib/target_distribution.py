@@ -5,7 +5,10 @@ import math
 import time
 from jax import random
 import sys 
-sys.path.append('..')
+from pathlib import Path
+
+PACKAGE_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PACKAGE_ROOT))
 from multiRobots_lib.data_collect import export_map_to_jsonl, load_map_history_jsonl
 # 提取 opt_args 子字典
 class TargetDistribution(object):
@@ -19,7 +22,7 @@ class TargetDistribution(object):
             *[jnp.linspace(0, self.size, self.grids_points)]*self.n
         )
         self._s = jnp.stack([X.ravel() for X in self.domain]).T
-        self.file_path = "../datas/config/random_map_history.jsonl"
+        self.file_path = PACKAGE_ROOT / "datas" / "config" / "random_map_history.jsonl"
         self.history = load_map_history_jsonl(self.file_path)
         self._history_index = 0 
         self._dist_params = {

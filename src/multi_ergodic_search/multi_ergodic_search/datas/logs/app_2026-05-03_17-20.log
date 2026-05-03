@@ -1,0 +1,673 @@
+2026-05-03 17:20:31,855 [INFO] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-05-03 17:20:31,859 [INFO] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-05-03 17:20:39,706 [INFO] my_strategy
+2026-05-03 17:20:48,524 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:20:51,074 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:20:53,485 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:20:55,827 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:20:55,829 [INFO] have warm up
+2026-05-03 17:21:29,060 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.444:
+2026-05-03 17:22:00,666 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 10000.000 and violations:0.444:
+2026-05-03 17:22:32,090 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.444:
+2026-05-03 17:23:03,435 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.444:
+2026-05-03 17:23:04,961 [INFO] merge map
+2026-05-03 17:23:04,964 [INFO] merge map
+2026-05-03 17:23:04,966 [INFO] merge map
+2026-05-03 17:23:04,968 [INFO] merge map
+2026-05-03 17:23:05,473 [WARNING] connect time:10, accumulated time:10, and the robot pair:[]
+2026-05-03 17:23:09,635 [INFO] iter:3, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:23:12,268 [INFO] iter:2, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:23:14,688 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:23:17,345 [INFO] iter:3, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:23:17,347 [INFO] have warm up
+2026-05-03 17:23:22,249 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:23:26,042 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:23:29,911 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:23:33,649 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:23:35,535 [INFO] merge map
+2026-05-03 17:23:35,538 [INFO] merge map
+2026-05-03 17:23:35,540 [INFO] merge map
+2026-05-03 17:23:35,543 [INFO] merge map
+2026-05-03 17:23:35,935 [WARNING] connect time:10, accumulated time:20, and the robot pair:[]
+2026-05-03 17:23:39,757 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:23:42,315 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:23:44,573 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:23:47,115 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:23:47,117 [INFO] have warm up
+2026-05-03 17:23:52,027 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:23:55,820 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:23:59,721 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:24:03,638 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:24:04,896 [WARNING] connect time:7, accumulated time:27, and the robot pair:[(2, 3)]
+2026-05-03 17:24:08,927 [INFO] iter:0, id:2, r:1.000 and violateion:0.028
+2026-05-03 17:24:11,321 [INFO] iter:0, id:3, r:1.000 and violateion:0.028
+2026-05-03 17:24:11,323 [INFO] have warm up
+2026-05-03 17:24:16,229 [INFO] iter:0, id:2, r:1.000 and violateion:0.028
+2026-05-03 17:24:20,474 [INFO] iter:0, id:3, r:1.000 and violateion:0.028
+2026-05-03 17:24:20,988 [INFO] merge map
+2026-05-03 17:24:20,991 [INFO] merge map
+2026-05-03 17:24:20,994 [INFO] merge map
+2026-05-03 17:24:20,997 [INFO] merge map
+2026-05-03 17:24:21,380 [WARNING] connect time:3, accumulated time:30, and the robot pair:[]
+2026-05-03 17:24:25,251 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:24:27,866 [INFO] iter:2, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:24:30,468 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:24:32,866 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:24:32,868 [INFO] have warm up
+2026-05-03 17:24:37,635 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:24:41,480 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:24:45,455 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:24:49,491 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:24:51,031 [WARNING] connect time:1, accumulated time:31, and the robot pair:[(2, 3)]
+2026-05-03 17:24:54,761 [INFO] iter:0, id:2, r:1.000 and violateion:0.028
+2026-05-03 17:24:57,195 [INFO] iter:0, id:3, r:1.000 and violateion:0.028
+2026-05-03 17:24:57,197 [INFO] have warm up
+2026-05-03 17:25:02,631 [INFO] iter:0, id:2, r:1.000 and violateion:0.028
+2026-05-03 17:25:06,833 [INFO] iter:0, id:3, r:1.000 and violateion:0.028
+2026-05-03 17:25:08,201 [WARNING] connect time:4, accumulated time:35, and the robot pair:[(1, 2), (1, 3), (2, 3)]
+2026-05-03 17:25:30,224 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 1436.169 and violations:0.694:
+2026-05-03 17:25:49,994 [INFO] iter:141, id:2, r:881.683 and violateion:0.000
+2026-05-03 17:26:09,920 [INFO] iter:141, id:3, r:881.683 and violateion:0.000
+2026-05-03 17:26:09,933 [INFO] have warm up
+2026-05-03 17:26:40,380 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 10000.000 and violations:0.232:
+2026-05-03 17:27:09,508 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.444:
+2026-05-03 17:27:38,830 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.387:
+2026-05-03 17:27:41,152 [WARNING] connect time:4, accumulated time:39, and the robot pair:[(1, 2), (1, 3), (2, 3)]
+2026-05-03 17:27:45,481 [INFO] iter:1, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:27:48,062 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:27:50,687 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:27:50,690 [INFO] have warm up
+2026-05-03 17:28:10,041 [INFO] iter:116, id:1, r:194.287 and violateion:0.000
+2026-05-03 17:28:28,795 [INFO] iter:118, id:2, r:214.202 and violateion:0.000
+2026-05-03 17:28:51,342 [INFO] iter:145, id:3, r:799.713 and violateion:0.000
+2026-05-03 17:28:52,937 [INFO] merge map
+2026-05-03 17:28:52,940 [INFO] merge map
+2026-05-03 17:28:52,943 [INFO] merge map
+2026-05-03 17:28:52,946 [INFO] merge map
+2026-05-03 17:28:53,286 [WARNING] connect time:1, accumulated time:40, and the robot pair:[]
+2026-05-03 17:28:56,886 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:28:59,905 [INFO] iter:3, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:29:02,901 [INFO] iter:5, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:29:05,475 [INFO] iter:1, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:29:05,477 [INFO] have warm up
+2026-05-03 17:29:10,212 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:29:14,133 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:29:18,868 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:29:22,991 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:29:24,809 [WARNING] connect time:3, accumulated time:43, and the robot pair:[(2, 3)]
+2026-05-03 17:29:28,735 [INFO] iter:2, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:29:31,128 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:29:31,130 [INFO] have warm up
+2026-05-03 17:29:36,177 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:29:40,561 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:29:42,025 [WARNING] connect time:4, accumulated time:47, and the robot pair:[(2, 3)]
+2026-05-03 17:29:46,043 [INFO] iter:3, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:29:48,450 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:29:48,452 [INFO] have warm up
+2026-05-03 17:29:52,965 [INFO] iter:0, id:2, r:1.000 and violateion:0.015
+2026-05-03 17:29:56,911 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:29:57,584 [INFO] merge map
+2026-05-03 17:29:57,587 [INFO] merge map
+2026-05-03 17:29:57,590 [INFO] merge map
+2026-05-03 17:29:57,593 [INFO] merge map
+2026-05-03 17:29:57,981 [WARNING] connect time:3, accumulated time:50, and the robot pair:[]
+2026-05-03 17:30:02,229 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:30:05,016 [INFO] iter:3, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:30:07,270 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:30:09,791 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:30:09,793 [INFO] have warm up
+2026-05-03 17:30:14,707 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:30:18,939 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:30:23,127 [INFO] iter:0, id:2, r:1.000 and violateion:0.011
+2026-05-03 17:30:27,556 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:30:29,023 [WARNING] connect time:1, accumulated time:51, and the robot pair:[(2, 3)]
+2026-05-03 17:30:32,988 [INFO] iter:2, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:30:35,436 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:30:35,439 [INFO] have warm up
+2026-05-03 17:30:40,637 [INFO] iter:0, id:2, r:1.000 and violateion:0.023
+2026-05-03 17:30:44,954 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:30:46,226 [WARNING] connect time:4, accumulated time:55, and the robot pair:[(2, 3)]
+2026-05-03 17:30:50,170 [INFO] iter:2, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:30:52,551 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:30:52,553 [INFO] have warm up
+2026-05-03 17:30:58,102 [INFO] iter:0, id:2, r:1.000 and violateion:0.018
+2026-05-03 17:31:02,548 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:31:04,026 [WARNING] connect time:4, accumulated time:59, and the robot pair:[(2, 3)]
+2026-05-03 17:31:07,791 [INFO] iter:1, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:31:10,184 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:31:10,186 [INFO] have warm up
+2026-05-03 17:31:14,982 [INFO] iter:0, id:2, r:1.000 and violateion:0.024
+2026-05-03 17:31:19,194 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:31:20,093 [INFO] merge map
+2026-05-03 17:31:20,095 [INFO] merge map
+2026-05-03 17:31:20,098 [INFO] merge map
+2026-05-03 17:31:20,101 [INFO] merge map
+2026-05-03 17:31:21,183 [INFO] update map
+2026-05-03 17:31:21,606 [WARNING] connect time:1, accumulated time:60, and the robot pair:[]
+2026-05-03 17:31:25,202 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:31:27,581 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:31:29,836 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:31:32,271 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:31:32,273 [INFO] have warm up
+2026-05-03 17:31:36,934 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:31:40,946 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:31:44,709 [INFO] iter:0, id:2, r:1.000 and violateion:0.027
+2026-05-03 17:31:48,758 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:31:50,035 [WARNING] connect time:3, accumulated time:63, and the robot pair:[(2, 3)]
+2026-05-03 17:31:53,960 [INFO] iter:2, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:31:56,309 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:31:56,311 [INFO] have warm up
+2026-05-03 17:32:02,024 [INFO] iter:0, id:2, r:1.000 and violateion:0.029
+2026-05-03 17:32:06,225 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:32:07,687 [WARNING] connect time:4, accumulated time:67, and the robot pair:[(2, 3)]
+2026-05-03 17:32:11,606 [INFO] iter:2, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:32:13,982 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:32:13,984 [INFO] have warm up
+2026-05-03 17:32:18,882 [INFO] iter:0, id:2, r:1.000 and violateion:0.023
+2026-05-03 17:32:23,145 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:32:24,035 [INFO] merge map
+2026-05-03 17:32:24,038 [INFO] merge map
+2026-05-03 17:32:24,041 [INFO] merge map
+2026-05-03 17:32:24,043 [INFO] merge map
+2026-05-03 17:32:24,433 [WARNING] connect time:3, accumulated time:70, and the robot pair:[]
+2026-05-03 17:32:28,131 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:32:30,537 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:32:32,788 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:32:35,185 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:32:35,188 [INFO] have warm up
+2026-05-03 17:32:39,850 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:32:43,863 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:32:47,629 [INFO] iter:0, id:2, r:1.000 and violateion:0.021
+2026-05-03 17:32:51,693 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:32:52,920 [WARNING] connect time:1, accumulated time:71, and the robot pair:[(2, 3)]
+2026-05-03 17:32:56,748 [INFO] iter:2, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:32:59,136 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:32:59,139 [INFO] have warm up
+2026-05-03 17:33:03,864 [INFO] iter:0, id:2, r:1.000 and violateion:0.028
+2026-05-03 17:33:07,883 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:33:09,174 [WARNING] connect time:4, accumulated time:75, and the robot pair:[(2, 3)]
+2026-05-03 17:33:13,962 [INFO] iter:2, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:33:16,363 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:33:16,366 [INFO] have warm up
+2026-05-03 17:33:30,315 [INFO] iter:84, id:2, r:33.545 and violateion:0.000
+2026-05-03 17:33:34,480 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:33:36,102 [WARNING] connect time:3, accumulated time:78, and the robot pair:[(0, 3)]
+2026-05-03 17:33:55,410 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1436.169 and violations:0.295:
+2026-05-03 17:34:14,030 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1507.977 and violations:0.509:
+2026-05-03 17:34:14,033 [INFO] have warm up
+2026-05-03 17:34:40,345 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.295:
+2026-05-03 17:35:05,693 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.525:
+2026-05-03 17:35:07,030 [WARNING] connect time:1, accumulated time:79, and the robot pair:[(2, 3)]
+2026-05-03 17:35:26,875 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1436.169 and violations:0.141:
+2026-05-03 17:35:45,095 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1507.977 and violations:0.123:
+2026-05-03 17:35:45,098 [INFO] have warm up
+2026-05-03 17:36:11,472 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.344:
+2026-05-03 17:36:37,293 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.605:
+2026-05-03 17:36:38,316 [INFO] merge map
+2026-05-03 17:36:38,319 [INFO] merge map
+2026-05-03 17:36:38,321 [INFO] merge map
+2026-05-03 17:36:38,323 [INFO] merge map
+2026-05-03 17:36:38,648 [WARNING] connect time:1, accumulated time:80, and the robot pair:[]
+2026-05-03 17:36:58,195 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1507.977 and violations:0.281:
+2026-05-03 17:37:16,358 [INFO] iter:149, id:1, r:1125.276 and violateion:0.000
+2026-05-03 17:37:34,498 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.330:
+2026-05-03 17:37:52,613 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1507.977 and violations:0.588:
+2026-05-03 17:37:52,616 [INFO] have warm up
+2026-05-03 17:38:19,135 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.281:
+2026-05-03 17:38:35,449 [INFO] iter:115, id:1, r:159.841 and violateion:0.000
+2026-05-03 17:39:00,419 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.330:
+2026-05-03 17:39:25,987 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.588:
+2026-05-03 17:39:27,955 [WARNING] connect time:2, accumulated time:82, and the robot pair:[(0, 3)]
+2026-05-03 17:39:48,736 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1020.659 and violations:0.357:
+2026-05-03 17:40:06,934 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1507.977 and violations:0.269:
+2026-05-03 17:40:06,937 [INFO] have warm up
+2026-05-03 17:40:33,124 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.298:
+2026-05-03 17:40:57,975 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.085:
+2026-05-03 17:40:59,755 [WARNING] connect time:4, accumulated time:86, and the robot pair:[(0, 3)]
+2026-05-03 17:41:19,480 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1240.617 and violations:0.082:
+2026-05-03 17:41:37,413 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1181.540 and violations:0.107:
+2026-05-03 17:41:37,417 [INFO] have warm up
+2026-05-03 17:42:03,686 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.081:
+2026-05-03 17:42:28,602 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.082:
+2026-05-03 17:42:29,733 [INFO] merge map
+2026-05-03 17:42:29,735 [INFO] merge map
+2026-05-03 17:42:29,738 [INFO] merge map
+2026-05-03 17:42:29,740 [INFO] merge map
+2026-05-03 17:42:30,129 [WARNING] connect time:4, accumulated time:90, and the robot pair:[]
+2026-05-03 17:42:48,947 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1507.977 and violations:0.051:
+2026-05-03 17:42:51,441 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:43:08,721 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.223:
+2026-05-03 17:43:26,241 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1507.977 and violations:0.052:
+2026-05-03 17:43:26,246 [INFO] have warm up
+2026-05-03 17:43:51,487 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.051:
+2026-05-03 17:43:55,794 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:44:20,288 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.223:
+2026-05-03 17:44:44,757 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.052:
+2026-05-03 17:44:45,560 [WARNING] connect time:0, accumulated time:90, and the robot pair:[(0, 3)]
+2026-05-03 17:45:02,888 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 799.713 and violations:0.056:
+2026-05-03 17:45:20,350 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1507.977 and violations:0.056:
+2026-05-03 17:45:20,354 [INFO] have warm up
+2026-05-03 17:45:44,496 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.321:
+2026-05-03 17:46:08,888 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.056:
+2026-05-03 17:46:09,983 [WARNING] connect time:4, accumulated time:94, and the robot pair:[(0, 3)]
+2026-05-03 17:46:28,301 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1302.648 and violations:0.076:
+2026-05-03 17:46:30,999 [INFO] iter:0, id:3, r:1.000 and violateion:0.011
+2026-05-03 17:46:31,002 [INFO] have warm up
+2026-05-03 17:46:44,657 [INFO] iter:87, id:0, r:57.374 and violateion:0.011
+2026-05-03 17:46:48,840 [INFO] iter:0, id:3, r:1.000 and violateion:0.011
+2026-05-03 17:46:50,057 [WARNING] connect time:4, accumulated time:98, and the robot pair:[(0, 3)]
+2026-05-03 17:46:53,856 [INFO] iter:2, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:46:56,644 [INFO] iter:3, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:46:56,647 [INFO] have warm up
+2026-05-03 17:47:01,568 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:47:05,861 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:47:08,277 [INFO] merge map
+2026-05-03 17:47:08,280 [INFO] merge map
+2026-05-03 17:47:08,282 [INFO] merge map
+2026-05-03 17:47:08,285 [INFO] merge map
+2026-05-03 17:47:08,693 [WARNING] connect time:2, accumulated time:100, and the robot pair:[]
+2026-05-03 17:47:12,169 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:47:14,528 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:47:31,223 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.106:
+2026-05-03 17:47:33,720 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:47:33,722 [INFO] have warm up
+2026-05-03 17:47:38,396 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:47:42,408 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:48:05,676 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.134:
+2026-05-03 17:48:09,805 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:48:11,233 [WARNING] connect time:8, accumulated time:108, and the robot pair:[(0, 2)]
+2026-05-03 17:48:23,588 [INFO] iter:95, id:0, r:98.128 and violateion:0.011
+2026-05-03 17:48:39,832 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1125.276 and violations:0.101:
+2026-05-03 17:48:39,835 [INFO] have warm up
+2026-05-03 17:48:44,655 [INFO] iter:0, id:0, r:1.000 and violateion:0.023
+2026-05-03 17:48:49,068 [INFO] iter:1, id:2, r:1.000 and violateion:0.014
+2026-05-03 17:48:49,947 [INFO] merge map
+2026-05-03 17:48:49,949 [INFO] merge map
+2026-05-03 17:48:49,952 [INFO] merge map
+2026-05-03 17:48:49,954 [INFO] merge map
+2026-05-03 17:48:50,352 [WARNING] connect time:2, accumulated time:110, and the robot pair:[]
+2026-05-03 17:48:53,768 [INFO] iter:0, id:0, r:1.000 and violateion:0.005
+2026-05-03 17:48:56,124 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:48:58,772 [INFO] iter:1, id:2, r:1.000 and violateion:0.002
+2026-05-03 17:49:01,299 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:49:01,302 [INFO] have warm up
+2026-05-03 17:49:06,408 [INFO] iter:0, id:0, r:1.000 and violateion:0.006
+2026-05-03 17:49:10,696 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:49:14,969 [INFO] iter:0, id:2, r:1.000 and violateion:0.002
+2026-05-03 17:49:19,407 [INFO] iter:0, id:3, r:1.000 and violateion:0.030
+2026-05-03 17:49:20,566 [WARNING] connect time:2, accumulated time:112, and the robot pair:[(0, 2)]
+2026-05-03 17:49:34,586 [INFO] iter:117, id:0, r:273.382 and violateion:0.026
+2026-05-03 17:49:50,524 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.080:
+2026-05-03 17:49:50,527 [INFO] have warm up
+2026-05-03 17:49:55,256 [INFO] iter:0, id:0, r:1.000 and violateion:0.026
+2026-05-03 17:50:17,643 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.080:
+2026-05-03 17:50:18,971 [INFO] merge map
+2026-05-03 17:50:18,974 [INFO] merge map
+2026-05-03 17:50:18,976 [INFO] merge map
+2026-05-03 17:50:18,978 [INFO] merge map
+2026-05-03 17:50:19,191 [INFO] update map
+2026-05-03 17:50:19,598 [WARNING] connect time:8, accumulated time:120, and the robot pair:[]
+2026-05-03 17:50:23,070 [INFO] iter:0, id:0, r:1.000 and violateion:0.014
+2026-05-03 17:50:25,432 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:50:40,918 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.049:
+2026-05-03 17:50:43,477 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:50:43,480 [INFO] have warm up
+2026-05-03 17:50:51,035 [INFO] iter:28, id:0, r:3.733 and violateion:0.019
+2026-05-03 17:50:55,147 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:51:16,894 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.049:
+2026-05-03 17:51:31,058 [INFO] iter:110, id:3, r:194.287 and violateion:0.000
+2026-05-03 17:51:31,901 [INFO] merge map
+2026-05-03 17:51:31,903 [INFO] merge map
+2026-05-03 17:51:31,905 [INFO] merge map
+2026-05-03 17:51:31,907 [INFO] merge map
+2026-05-03 17:51:32,300 [WARNING] connect time:10, accumulated time:130, and the robot pair:[]
+2026-05-03 17:51:37,333 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:51:39,747 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:51:54,442 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.035:
+2026-05-03 17:51:56,952 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:51:56,955 [INFO] have warm up
+2026-05-03 17:52:02,000 [INFO] iter:0, id:0, r:1.000 and violateion:0.010
+2026-05-03 17:52:06,235 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:52:27,278 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.035:
+2026-05-03 17:52:31,927 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:52:32,498 [INFO] merge map
+2026-05-03 17:52:32,500 [INFO] merge map
+2026-05-03 17:52:32,502 [INFO] merge map
+2026-05-03 17:52:32,504 [INFO] merge map
+2026-05-03 17:52:32,912 [WARNING] connect time:10, accumulated time:140, and the robot pair:[]
+2026-05-03 17:52:36,375 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:52:38,752 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:52:41,169 [INFO] iter:0, id:2, r:1.000 and violateion:0.025
+2026-05-03 17:52:43,640 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:52:43,643 [INFO] have warm up
+2026-05-03 17:52:50,910 [INFO] iter:30, id:0, r:3.556 and violateion:0.009
+2026-05-03 17:52:55,226 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:53:08,123 [INFO] iter:110, id:2, r:89.005 and violateion:0.020
+2026-05-03 17:53:12,547 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:53:13,727 [INFO] merge map
+2026-05-03 17:53:13,729 [INFO] merge map
+2026-05-03 17:53:13,731 [INFO] merge map
+2026-05-03 17:53:13,734 [INFO] merge map
+2026-05-03 17:53:14,142 [WARNING] connect time:10, accumulated time:150, and the robot pair:[]
+2026-05-03 17:53:17,579 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:53:19,984 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:53:22,660 [INFO] iter:2, id:2, r:1.000 and violateion:0.011
+2026-05-03 17:53:25,196 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:53:25,199 [INFO] have warm up
+2026-05-03 17:53:32,034 [INFO] iter:25, id:0, r:2.925 and violateion:0.000
+2026-05-03 17:53:36,342 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:53:40,589 [INFO] iter:0, id:2, r:1.000 and violateion:0.011
+2026-05-03 17:53:44,989 [INFO] iter:0, id:3, r:1.000 and violateion:0.019
+2026-05-03 17:53:46,144 [WARNING] connect time:2, accumulated time:152, and the robot pair:[(0, 2)]
+2026-05-03 17:54:00,457 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1507.977 and violations:0.072:
+2026-05-03 17:54:13,832 [INFO] satisfy constraint, but not converge, id: 2 and r_penalty: 1071.691 and violations:0.000:
+2026-05-03 17:54:13,836 [INFO] have warm up
+2026-05-03 17:54:31,770 [INFO] iter:172, id:0, r:3629.128 and violateion:0.000
+2026-05-03 17:54:46,620 [INFO] iter:141, id:2, r:445.310 and violateion:0.012
+2026-05-03 17:54:48,094 [WARNING] connect time:4, accumulated time:156, and the robot pair:[(0, 2)]
+2026-05-03 17:55:02,166 [INFO] satisfy constraint, but not converge, id: 0 and r_penalty: 1436.169 and violations:0.000:
+2026-05-03 17:55:05,314 [INFO] iter:9, id:2, r:1.407 and violateion:0.017
+2026-05-03 17:55:05,317 [INFO] have warm up
+2026-05-03 17:55:10,315 [INFO] iter:1, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:55:17,039 [INFO] iter:34, id:2, r:3.556 and violateion:0.000
+2026-05-03 17:55:18,355 [INFO] merge map
+2026-05-03 17:55:18,358 [INFO] merge map
+2026-05-03 17:55:18,360 [INFO] merge map
+2026-05-03 17:55:18,362 [INFO] merge map
+2026-05-03 17:55:18,771 [WARNING] connect time:4, accumulated time:160, and the robot pair:[]
+2026-05-03 17:55:22,204 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:55:24,668 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:55:27,148 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:55:29,753 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:55:29,756 [INFO] have warm up
+2026-05-03 17:55:34,361 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:55:38,375 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:55:42,404 [INFO] iter:0, id:2, r:1.000 and violateion:0.000
+2026-05-03 17:55:46,670 [INFO] iter:0, id:3, r:1.000 and violateion:0.019
+2026-05-03 17:55:47,497 [WARNING] connect time:0, accumulated time:160, and the robot pair:[(0, 2)]
+2026-05-03 17:55:51,369 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:56:03,910 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 17.790 and violations:0.051:
+2026-05-03 17:56:03,914 [INFO] have warm up
+2026-05-03 17:56:07,745 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:56:25,635 [INFO] satisfy constraint, but not converge, id: 2 and r_penalty: 20.594 and violations:0.005:
+2026-05-03 17:56:26,396 [WARNING] connect time:4, accumulated time:164, and the robot pair:[(0, 2)]
+2026-05-03 17:56:30,016 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:56:40,508 [INFO] iter:116, id:2, r:236.157 and violateion:0.001
+2026-05-03 17:56:40,511 [INFO] have warm up
+2026-05-03 17:56:45,361 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:56:50,038 [INFO] iter:1, id:2, r:1.000 and violateion:0.001
+2026-05-03 17:56:51,467 [WARNING] connect time:4, accumulated time:168, and the robot pair:[(0, 2)]
+2026-05-03 17:56:55,009 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:56:57,807 [INFO] iter:2, id:2, r:1.000 and violateion:0.011
+2026-05-03 17:56:57,810 [INFO] have warm up
+2026-05-03 17:57:02,601 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:57:06,698 [INFO] iter:0, id:2, r:1.000 and violateion:0.023
+2026-05-03 17:57:07,281 [INFO] merge map
+2026-05-03 17:57:07,284 [INFO] merge map
+2026-05-03 17:57:07,287 [INFO] merge map
+2026-05-03 17:57:07,289 [INFO] merge map
+2026-05-03 17:57:07,695 [WARNING] connect time:2, accumulated time:170, and the robot pair:[]
+2026-05-03 17:57:11,134 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:57:13,572 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:57:16,078 [INFO] iter:0, id:2, r:1.000 and violateion:0.010
+2026-05-03 17:57:18,752 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 17:57:18,755 [INFO] have warm up
+2026-05-03 17:57:23,688 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:57:27,705 [INFO] iter:0, id:1, r:1.000 and violateion:0.000
+2026-05-03 17:57:32,056 [INFO] iter:0, id:2, r:1.000 and violateion:0.012
+2026-05-03 17:57:38,259 [INFO] iter:20, id:3, r:2.183 and violateion:0.024
+2026-05-03 17:57:39,457 [WARNING] connect time:2, accumulated time:172, and the robot pair:[(0, 2)]
+2026-05-03 17:57:42,939 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:57:45,585 [INFO] iter:1, id:2, r:1.000 and violateion:0.009
+2026-05-03 17:57:45,588 [INFO] have warm up
+2026-05-03 17:57:50,092 [INFO] iter:0, id:0, r:1.000 and violateion:0.000
+2026-05-03 17:57:53,952 [INFO] iter:0, id:2, r:1.000 and violateion:0.009
+2026-05-03 17:57:55,410 [WARNING] connect time:1, accumulated time:173, and the robot pair:[(0, 2), (0, 3), (2, 3)]
+2026-05-03 17:58:08,310 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1507.977 and violations:0.164:
+2026-05-03 17:58:20,415 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.164:
+2026-05-03 17:58:32,639 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1507.977 and violations:0.164:
+2026-05-03 17:58:32,643 [INFO] have warm up
+2026-05-03 17:58:49,351 [INFO] iter:183, id:0, r:5361.874 and violateion:0.015
+2026-05-03 17:59:06,286 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.162:
+2026-05-03 17:59:23,490 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.207:
+2026-05-03 17:59:24,950 [WARNING] connect time:3, accumulated time:176, and the robot pair:[(1, 2)]
+2026-05-03 17:59:37,927 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 1436.169 and violations:0.336:
+2026-05-03 17:59:49,678 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.492:
+2026-05-03 17:59:49,682 [INFO] have warm up
+2026-05-03 18:00:07,162 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 10000.000 and violations:0.197:
+2026-05-03 18:00:23,646 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.109:
+2026-05-03 18:00:24,846 [WARNING] connect time:1, accumulated time:177, and the robot pair:[(0, 2), (0, 3), (2, 3)]
+2026-05-03 18:00:37,796 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1436.169 and violations:0.265:
+2026-05-03 18:00:49,577 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1436.169 and violations:0.188:
+2026-05-03 18:01:01,572 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1240.617 and violations:0.099:
+2026-05-03 18:01:01,576 [INFO] have warm up
+2026-05-03 18:01:18,593 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.255:
+2026-05-03 18:01:34,997 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.187:
+2026-05-03 18:01:53,825 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.099:
+2026-05-03 18:01:54,636 [INFO] merge map
+2026-05-03 18:01:54,639 [INFO] merge map
+2026-05-03 18:01:54,642 [INFO] merge map
+2026-05-03 18:01:54,644 [INFO] merge map
+2026-05-03 18:01:54,856 [INFO] update map
+2026-05-03 18:01:55,248 [WARNING] connect time:3, accumulated time:180, and the robot pair:[]
+2026-05-03 18:02:08,069 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1507.977 and violations:0.244:
+2026-05-03 18:02:19,664 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 1436.169 and violations:0.088:
+2026-05-03 18:02:31,312 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.171:
+2026-05-03 18:02:43,205 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1507.977 and violations:0.090:
+2026-05-03 18:02:43,209 [INFO] have warm up
+2026-05-03 18:03:00,279 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.244:
+2026-05-03 18:03:16,592 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 10000.000 and violations:0.089:
+2026-05-03 18:03:33,030 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.171:
+2026-05-03 18:03:49,644 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.090:
+2026-05-03 18:03:50,778 [WARNING] connect time:0, accumulated time:180, and the robot pair:[(1, 2)]
+2026-05-03 18:04:01,974 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 925.767 and violations:0.282:
+2026-05-03 18:04:13,452 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1240.617 and violations:0.179:
+2026-05-03 18:04:13,456 [INFO] have warm up
+2026-05-03 18:04:29,334 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 2121.876 and violations:0.283:
+2026-05-03 18:04:45,451 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.176:
+2026-05-03 18:04:46,149 [WARNING] connect time:1, accumulated time:181, and the robot pair:[(0, 2), (0, 3), (2, 3)]
+2026-05-03 18:04:58,870 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1507.977 and violations:0.312:
+2026-05-03 18:05:10,463 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.338:
+2026-05-03 18:05:22,201 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1181.540 and violations:0.283:
+2026-05-03 18:05:22,205 [INFO] have warm up
+2026-05-03 18:05:38,921 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 5106.547 and violations:0.059:
+2026-05-03 18:05:55,196 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.338:
+2026-05-03 18:06:11,628 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 5911.467 and violations:0.063:
+2026-05-03 18:06:13,369 [WARNING] connect time:3, accumulated time:184, and the robot pair:[(1, 2)]
+2026-05-03 18:06:25,928 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 925.767 and violations:0.320:
+2026-05-03 18:06:37,417 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.314:
+2026-05-03 18:06:37,421 [INFO] have warm up
+2026-05-03 18:06:54,045 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 10000.000 and violations:0.246:
+2026-05-03 18:07:10,126 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.314:
+2026-05-03 18:07:11,471 [WARNING] connect time:1, accumulated time:185, and the robot pair:[(0, 2), (0, 3), (2, 3)]
+2026-05-03 18:07:23,765 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1367.780 and violations:0.155:
+2026-05-03 18:07:35,135 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 925.767 and violations:0.142:
+2026-05-03 18:07:46,614 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1436.169 and violations:0.160:
+2026-05-03 18:07:46,618 [INFO] have warm up
+2026-05-03 18:08:02,843 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.155:
+2026-05-03 18:08:18,657 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.135:
+2026-05-03 18:08:34,660 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.160:
+2026-05-03 18:08:35,995 [WARNING] connect time:3, accumulated time:188, and the robot pair:[(0, 1), (0, 2), (1, 2)]
+2026-05-03 18:08:47,908 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1367.780 and violations:0.109:
+2026-05-03 18:08:58,912 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 1302.648 and violations:0.114:
+2026-05-03 18:09:10,018 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1302.648 and violations:0.109:
+2026-05-03 18:09:10,022 [INFO] have warm up
+2026-05-03 18:09:26,203 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.109:
+2026-05-03 18:09:41,696 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 10000.000 and violations:0.114:
+2026-05-03 18:09:57,298 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.109:
+2026-05-03 18:09:58,957 [WARNING] connect time:1, accumulated time:189, and the robot pair:[(0, 2), (0, 3), (2, 3)]
+2026-05-03 18:10:11,215 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1507.977 and violations:0.099:
+2026-05-03 18:10:22,208 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.099:
+2026-05-03 18:10:33,649 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1507.977 and violations:0.069:
+2026-05-03 18:10:33,653 [INFO] have warm up
+2026-05-03 18:10:49,575 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.099:
+2026-05-03 18:11:05,210 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.099:
+2026-05-03 18:11:20,990 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.069:
+2026-05-03 18:11:22,475 [INFO] merge map
+2026-05-03 18:11:22,478 [INFO] merge map
+2026-05-03 18:11:22,481 [INFO] merge map
+2026-05-03 18:11:22,483 [INFO] merge map
+2026-05-03 18:11:22,887 [WARNING] connect time:1, accumulated time:190, and the robot pair:[]
+2026-05-03 18:11:35,161 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1507.977 and violations:0.091:
+2026-05-03 18:11:46,051 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 1507.977 and violations:0.097:
+2026-05-03 18:11:57,114 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.091:
+2026-05-03 18:12:08,383 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1507.977 and violations:0.055:
+2026-05-03 18:12:08,388 [INFO] have warm up
+2026-05-03 18:12:24,283 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.091:
+2026-05-03 18:12:39,327 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 10000.000 and violations:0.097:
+2026-05-03 18:12:54,788 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.091:
+2026-05-03 18:13:10,509 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.055:
+2026-05-03 18:13:12,350 [WARNING] connect time:2, accumulated time:192, and the robot pair:[(0, 1), (0, 2), (1, 2)]
+2026-05-03 18:13:26,895 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1507.977 and violations:0.096:
+2026-05-03 18:13:37,560 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 1507.977 and violations:0.096:
+2026-05-03 18:13:48,589 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.096:
+2026-05-03 18:13:48,593 [INFO] have warm up
+2026-05-03 18:14:04,027 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.096:
+2026-05-03 18:14:19,069 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 10000.000 and violations:0.096:
+2026-05-03 18:14:34,330 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.096:
+2026-05-03 18:14:35,674 [WARNING] connect time:1, accumulated time:193, and the robot pair:[(0, 2), (0, 3), (2, 3)]
+2026-05-03 18:14:47,796 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1507.977 and violations:0.095:
+2026-05-03 18:14:58,800 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.095:
+2026-05-03 18:15:09,591 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1507.977 and violations:0.087:
+2026-05-03 18:15:09,596 [INFO] have warm up
+2026-05-03 18:15:25,363 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.095:
+2026-05-03 18:15:40,528 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.095:
+2026-05-03 18:15:55,955 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.087:
+2026-05-03 18:15:57,333 [WARNING] connect time:3, accumulated time:196, and the robot pair:[(0, 1), (0, 2), (1, 2)]
+2026-05-03 18:16:09,182 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 568.341 and violations:0.082:
+2026-05-03 18:16:19,820 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 1020.659 and violations:0.089:
+2026-05-03 18:16:30,411 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1125.276 and violations:0.089:
+2026-05-03 18:16:30,415 [INFO] have warm up
+2026-05-03 18:16:45,827 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.082:
+2026-05-03 18:17:00,617 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 10000.000 and violations:0.089:
+2026-05-03 18:17:15,605 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.089:
+2026-05-03 18:17:17,114 [WARNING] connect time:1, accumulated time:197, and the robot pair:[(0, 3)]
+2026-05-03 18:17:29,085 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1507.977 and violations:0.082:
+2026-05-03 18:17:39,812 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1507.977 and violations:0.076:
+2026-05-03 18:17:39,816 [INFO] have warm up
+2026-05-03 18:17:55,137 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 8733.928 and violations:0.077:
+2026-05-03 18:18:10,267 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.076:
+2026-05-03 18:18:10,894 [INFO] merge map
+2026-05-03 18:18:10,896 [INFO] merge map
+2026-05-03 18:18:10,898 [INFO] merge map
+2026-05-03 18:18:10,900 [INFO] merge map
+2026-05-03 18:18:11,355 [WARNING] connect time:3, accumulated time:200, and the robot pair:[]
+2026-05-03 18:18:23,010 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1436.169 and violations:0.048:
+2026-05-03 18:18:33,328 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 972.056 and violations:0.051:
+2026-05-03 18:18:43,670 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1367.780 and violations:0.051:
+2026-05-03 18:18:54,349 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 1507.977 and violations:0.050:
+2026-05-03 18:18:54,354 [INFO] have warm up
+2026-05-03 18:19:09,573 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.054:
+2026-05-03 18:19:23,741 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 10000.000 and violations:0.052:
+2026-05-03 18:19:38,371 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.051:
+2026-05-03 18:19:53,187 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.050:
+2026-05-03 18:19:54,071 [WARNING] connect time:0, accumulated time:200, and the robot pair:[(0, 1), (0, 2), (1, 2)]
+2026-05-03 18:20:04,133 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 1507.977 and violations:0.053:
+2026-05-03 18:20:14,407 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 1436.169 and violations:0.053:
+2026-05-03 18:20:24,871 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 1507.977 and violations:0.053:
+2026-05-03 18:20:24,875 [INFO] have warm up
+2026-05-03 18:20:38,873 [INFO] failed to satisfy constraint, id: 0 and r_penalty: 10000.000 and violations:0.058:
+2026-05-03 18:20:53,476 [INFO] failed to satisfy constraint, id: 1 and r_penalty: 8733.928 and violations:0.052:
+2026-05-03 18:21:08,073 [INFO] failed to satisfy constraint, id: 2 and r_penalty: 10000.000 and violations:0.053:
+2026-05-03 18:21:08,944 [WARNING] connect time:4, accumulated time:204, and the robot pair:[(0, 1)]
+2026-05-03 18:21:20,326 [INFO] satisfy constraint, but not converge, id: 0 and r_penalty: 839.698 and violations:0.017:
+2026-05-03 18:21:23,139 [INFO] iter:6, id:1, r:1.000 and violateion:0.017
+2026-05-03 18:21:23,142 [INFO] have warm up
+2026-05-03 18:21:28,112 [INFO] iter:5, id:0, r:1.000 and violateion:0.023
+2026-05-03 18:21:32,355 [INFO] iter:7, id:1, r:1.000 and violateion:0.028
+2026-05-03 18:21:33,522 [WARNING] connect time:4, accumulated time:208, and the robot pair:[(0, 1)]
+2026-05-03 18:21:38,365 [INFO] iter:26, id:0, r:1.000 and violateion:0.001
+2026-05-03 18:21:42,013 [INFO] iter:25, id:1, r:1.000 and violateion:0.014
+2026-05-03 18:21:42,015 [INFO] have warm up
+2026-05-03 18:21:46,372 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-05-03 18:21:50,155 [INFO] iter:0, id:1, r:1.000 and violateion:0.020
+2026-05-03 18:21:50,618 [INFO] merge map
+2026-05-03 18:21:50,620 [INFO] merge map
+2026-05-03 18:21:50,622 [INFO] merge map
+2026-05-03 18:21:50,624 [INFO] merge map
+2026-05-03 18:21:51,047 [WARNING] connect time:2, accumulated time:210, and the robot pair:[]
+2026-05-03 18:21:54,510 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-05-03 18:21:56,933 [INFO] iter:0, id:1, r:1.000 and violateion:0.014
+2026-05-03 18:22:01,414 [INFO] iter:35, id:2, r:1.000 and violateion:0.004
+2026-05-03 18:22:11,023 [INFO] satisfy constraint, but not converge, id: 3 and r_penalty: 1.477 and violations:0.000:
+2026-05-03 18:22:11,027 [INFO] have warm up
+2026-05-03 18:22:15,477 [INFO] iter:0, id:0, r:1.000 and violateion:0.024
+2026-05-03 18:22:26,374 [INFO] iter:144, id:1, r:1.886 and violateion:0.003
+2026-05-03 18:22:30,847 [INFO] iter:7, id:2, r:1.000 and violateion:0.025
+2026-05-03 18:22:44,496 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.115:
+2026-05-03 18:22:44,999 [INFO] merge map
+2026-05-03 18:22:45,002 [INFO] merge map
+2026-05-03 18:22:45,005 [INFO] merge map
+2026-05-03 18:22:45,007 [INFO] merge map
+2026-05-03 18:22:45,386 [WARNING] connect time:10, accumulated time:220, and the robot pair:[]
+2026-05-03 18:22:51,712 [INFO] iter:62, id:0, r:1.158 and violateion:0.003
+2026-05-03 18:22:59,000 [INFO] iter:111, id:1, r:1.477 and violateion:0.003
+2026-05-03 18:23:03,921 [INFO] iter:53, id:2, r:1.000 and violateion:0.016
+2026-05-03 18:23:14,008 [INFO] iter:110, id:3, r:1.000 and violateion:0.011
+2026-05-03 18:23:14,012 [INFO] have warm up
+2026-05-03 18:23:21,912 [INFO] iter:76, id:0, r:1.477 and violateion:0.007
+2026-05-03 18:23:29,692 [INFO] iter:89, id:1, r:2.079 and violateion:0.006
+2026-05-03 18:23:36,463 [INFO] iter:63, id:2, r:1.551 and violateion:0.000
+2026-05-03 18:23:49,334 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.182:
+2026-05-03 18:23:50,344 [WARNING] connect time:1, accumulated time:221, and the robot pair:[(0, 2)]
+2026-05-03 18:23:55,109 [INFO] iter:27, id:0, r:1.980 and violateion:0.018
+2026-05-03 18:23:58,988 [INFO] iter:27, id:2, r:2.183 and violateion:0.014
+2026-05-03 18:23:58,991 [INFO] have warm up
+2026-05-03 18:24:06,673 [INFO] iter:73, id:0, r:28.978 and violateion:0.000
+2026-05-03 18:24:13,968 [INFO] iter:76, id:2, r:13.275 and violateion:0.001
+2026-05-03 18:24:14,982 [WARNING] connect time:4, accumulated time:225, and the robot pair:[(0, 2)]
+2026-05-03 18:24:21,092 [INFO] iter:65, id:0, r:1.000 and violateion:0.000
+2026-05-03 18:24:29,749 [INFO] satisfy constraint, but not converge, id: 2 and r_penalty: 1.407 and violations:0.004:
+2026-05-03 18:24:29,753 [INFO] have warm up
+2026-05-03 18:24:35,988 [INFO] iter:42, id:0, r:1.796 and violateion:0.018
+2026-05-03 18:24:42,663 [INFO] iter:67, id:2, r:2.407 and violateion:0.000
+2026-05-03 18:24:43,718 [WARNING] connect time:4, accumulated time:229, and the robot pair:[(0, 2)]
+2026-05-03 18:24:48,257 [INFO] iter:27, id:0, r:1.000 and violateion:0.014
+2026-05-03 18:24:52,146 [INFO] iter:32, id:2, r:1.000 and violateion:0.016
+2026-05-03 18:24:52,149 [INFO] have warm up
+2026-05-03 18:24:57,062 [INFO] iter:12, id:0, r:1.000 and violateion:0.018
+2026-05-03 18:25:01,759 [INFO] iter:19, id:2, r:1.000 and violateion:0.019
+2026-05-03 18:25:02,225 [INFO] merge map
+2026-05-03 18:25:02,227 [INFO] merge map
+2026-05-03 18:25:02,230 [INFO] merge map
+2026-05-03 18:25:02,233 [INFO] merge map
+2026-05-03 18:25:02,604 [WARNING] connect time:1, accumulated time:230, and the robot pair:[]
+2026-05-03 18:25:06,897 [INFO] iter:17, id:0, r:1.000 and violateion:0.020
+2026-05-03 18:25:10,299 [INFO] iter:21, id:1, r:1.000 and violateion:0.012
+2026-05-03 18:25:13,510 [INFO] iter:16, id:2, r:1.000 and violateion:0.025
+2026-05-03 18:25:17,784 [INFO] iter:39, id:3, r:5.003 and violateion:0.029
+2026-05-03 18:25:17,787 [INFO] have warm up
+2026-05-03 18:25:25,575 [INFO] iter:93, id:0, r:1.000 and violateion:0.001
+2026-05-03 18:25:30,522 [INFO] iter:29, id:1, r:1.000 and violateion:0.001
+2026-05-03 18:25:36,496 [INFO] iter:54, id:2, r:1.629 and violateion:0.004
+2026-05-03 18:25:48,831 [INFO] failed to satisfy constraint, id: 3 and r_penalty: 10000.000 and violations:0.228:
+2026-05-03 18:25:49,881 [WARNING] connect time:1, accumulated time:231, and the robot pair:[(1, 3)]
+2026-05-03 18:25:54,623 [INFO] iter:27, id:1, r:1.000 and violateion:0.007
+2026-05-03 18:25:58,442 [INFO] iter:28, id:3, r:1.000 and violateion:0.012
+2026-05-03 18:25:58,445 [INFO] have warm up
+2026-05-03 18:26:03,206 [INFO] iter:9, id:1, r:1.000 and violateion:0.009
+2026-05-03 18:26:07,640 [INFO] iter:5, id:3, r:1.000 and violateion:0.014
+2026-05-03 18:26:08,691 [WARNING] connect time:2, accumulated time:233, and the robot pair:[(0, 2)]
+2026-05-03 18:26:12,166 [INFO] iter:0, id:0, r:1.000 and violateion:0.005
+2026-05-03 18:26:14,669 [INFO] iter:0, id:2, r:1.000 and violateion:0.005
+2026-05-03 18:26:14,672 [INFO] have warm up
+2026-05-03 18:26:18,519 [INFO] iter:0, id:0, r:1.000 and violateion:0.005
+2026-05-03 18:26:22,051 [INFO] iter:0, id:2, r:1.000 and violateion:0.005
+2026-05-03 18:26:23,045 [WARNING] connect time:2, accumulated time:235, and the robot pair:[(1, 3)]
+2026-05-03 18:26:26,315 [INFO] iter:0, id:1, r:1.000 and violateion:0.005
+2026-05-03 18:26:29,436 [INFO] iter:10, id:3, r:1.000 and violateion:0.005
+2026-05-03 18:26:29,439 [INFO] have warm up
+2026-05-03 18:26:33,447 [INFO] iter:0, id:1, r:1.000 and violateion:0.005
+2026-05-03 18:26:37,362 [INFO] iter:1, id:3, r:1.000 and violateion:0.005
+2026-05-03 18:26:38,470 [WARNING] connect time:2, accumulated time:237, and the robot pair:[(0, 2)]
+2026-05-03 18:26:42,139 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-05-03 18:26:44,611 [INFO] iter:0, id:2, r:1.000 and violateion:0.001
+2026-05-03 18:26:44,614 [INFO] have warm up
+2026-05-03 18:26:48,374 [INFO] iter:0, id:0, r:1.000 and violateion:0.001
+2026-05-03 18:26:51,924 [INFO] iter:0, id:2, r:1.000 and violateion:0.001
+2026-05-03 18:26:52,970 [WARNING] connect time:2, accumulated time:239, and the robot pair:[(1, 3)]
+2026-05-03 18:26:55,953 [INFO] iter:0, id:1, r:1.000 and violateion:0.001
+2026-05-03 18:26:58,037 [INFO] iter:0, id:3, r:1.000 and violateion:0.000
+2026-05-03 18:26:58,043 [INFO] have warm up
+2026-05-03 18:27:07,994 [INFO] satisfy constraint, but not converge, id: 1 and r_penalty: 1.000 and violations:nan:
+2026-05-03 18:27:17,724 [INFO] satisfy constraint, but not converge, id: 3 and r_penalty: 1.000 and violations:nan:

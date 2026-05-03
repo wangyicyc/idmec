@@ -3,11 +3,14 @@ import numpy as np
 import jax.numpy as jnp
 from openpyxl import Workbook, load_workbook
 import json
+from pathlib import Path
 # import rospy
 # import rosbag
 import yaml
 from geometry_msgs.msg import PoseStamped, TwistStamped
-with open("../datas/config/config.yaml", "r") as f:
+
+PACKAGE_ROOT = Path(__file__).resolve().parents[1]
+with open(PACKAGE_ROOT / "datas" / "config" / "config.yaml", "r") as f:
     loaded = yaml.safe_load(f)
 # 提取 opt_args 子字典
 config = loaded["opt_args"]

@@ -8,15 +8,20 @@ from jax.lax import scan
 from multiRobots_lib.class_types import *
 import logging
 from datetime import datetime
+from pathlib import Path
+
+PACKAGE_ROOT = Path(__file__).resolve().parents[1]
 # 生成包含年月日_时分的日志文件名，例如：app_2026-01-16_15-06.log
-log_filename = f"../datas/logs/app_{datetime.now().strftime('%Y-%m-%d_%H-%M')}.log"
+log_dir = PACKAGE_ROOT / "datas" / "logs"
+log_dir.mkdir(parents=True, exist_ok=True)
+log_filename = log_dir / f"app_{datetime.now().strftime('%Y-%m-%d_%H-%M')}.log"
 logging.basicConfig(
     filename=log_filename,          # 日志文件名
     level=logging.INFO,          # 日志等级
     format='%(asctime)s [%(levelname)s] %(message)s',  # 格式
 )
 import yaml
-with open("../datas/config/config.yaml", "r") as f:
+with open(PACKAGE_ROOT / "datas" / "config" / "config.yaml", "r") as f:
     loaded = yaml.safe_load(f)
 # 提取 opt_args 子字典
 config = loaded["opt_args"]
