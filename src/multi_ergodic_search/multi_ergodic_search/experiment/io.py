@@ -5,6 +5,12 @@ import time
 
 import numpy as np
 
+from utils.ros_messages import (
+    CONTROL_COMMAND_MSG,
+    build_control_command,
+    control_topic,
+)
+
 
 VALID_OUTPUT_MODES = {"none", "bag", "topic", "both"}
 
@@ -93,17 +99,16 @@ class ExperimentOutput:
             self.map_saver = MapINfoToMarkers(bag_dir=self.bag_dir)
         if self.publish_topic:
             import rclpy
-            from trajectory_msgs.msg import MultiDOFJointTrajectoryPoint
 
             if not rclpy.ok():
                 rclpy.init(args=None)
             self.rclpy = rclpy
             self.node = rclpy.create_node("idmed_trajectory_publisher")
-            self.position_command_type = MultiDOFJointTrajectoryPoint
+            self.position_command_type = CONTROL_COMMAND_MSG
             self.publishers = [
                 self.node.create_publisher(
-                    MultiDOFJointTrajectoryPoint,
-                    self.output_topic.format(robot_id=r_id),
+                    CONTROL_COMMAND_MSG,
+                    control_topic(self.output_topic, r_id),
                     10,
                 )
                 for r_id in range(self.robot_number)
@@ -145,8 +150,6 @@ class ExperimentOutput:
             time.sleep(sleep_dt)
 
     def build_position_command(self, context, robot_id, step):
-        from geometry_msgs.msg import Transform, Twist, Vector3
-
         x_slice = slice(
             robot_id * self.state_dim,
             robot_id * self.state_dim + self.state_dim,
@@ -155,17 +158,4 @@ class ExperimentOutput:
         x_data = np.asarray(context.sol_trajs[robot_id]["x"][step, x_slice])
         u_data = np.asarray(context.sol_trajs[robot_id]["u"][step, u_slice])
 
-        command = self.position_command_type()
-        transform = Transform()
-        transform.translation = Vector3(x=float(x_data[0]), y=float(x_data[1]), z=0.0)
-        transform.rotation.w = 1.0
-        velocity = Twist()
-        velocity.linear.x = float(x_data[2])
-        velocity.linear.y = float(x_data[3])
-        acceleration = Twist()
-        acceleration.linear.x = float(u_data[0])
-        acceleration.linear.y = float(u_data[1])
-        command.transforms = [transform]
-        command.velocities = [velocity]
-        command.accelerations = [acceleration]
-        return command
+        return build_control_command(x_data, u_data)

@@ -5,33 +5,18 @@ from pathlib import Path
 
 import numpy as np
 import rosbag2_py
-from builtin_interfaces.msg import Duration, Time
-from geometry_msgs.msg import Point, PoseStamped, Transform, Twist, Vector3
+from geometry_msgs.msg import Point, PoseStamped
 from nav_msgs.msg import Path as PathMsg
 from rclpy.serialization import serialize_message
 from scipy.ndimage import gaussian_filter
 from std_msgs.msg import ColorRGBA
-from trajectory_msgs.msg import MultiDOFJointTrajectoryPoint
 from visualization_msgs.msg import Marker
 
-
-def seconds_to_nanoseconds(seconds):
-    return int(round(float(seconds) * 1_000_000_000))
-
-
-def seconds_to_time_msg(seconds):
-    seconds = float(seconds)
-    sec = int(seconds)
-    nanosec = int(round((seconds - sec) * 1_000_000_000))
-    if nanosec >= 1_000_000_000:
-        sec += 1
-        nanosec -= 1_000_000_000
-    return Time(sec=sec, nanosec=nanosec)
-
-
-def seconds_to_duration_msg(seconds):
-    time_msg = seconds_to_time_msg(seconds)
-    return Duration(sec=time_msg.sec, nanosec=time_msg.nanosec)
+from utils.ros_messages import (
+    build_control_command,
+    seconds_to_nanoseconds,
+    seconds_to_time_msg,
+)
 
 
 def message_type_name(message):
@@ -140,24 +125,7 @@ class CommandToRosbag:
         time_offset = 0.0 if mode == "w" else self.writer_pool.start_time(bag_filename, dt)
 
         for i in range(len(x_data)):
-            command = MultiDOFJointTrajectoryPoint()
-            transform = Transform()
-            transform.translation = Vector3(
-                x=float(x_data[i][0]),
-                y=float(x_data[i][1]),
-                z=0.0,
-            )
-            transform.rotation.w = 1.0
-            velocity = Twist()
-            velocity.linear.x = float(x_data[i][2])
-            velocity.linear.y = float(x_data[i][3])
-            acceleration = Twist()
-            acceleration.linear.x = float(u_data[i, 0])
-            acceleration.linear.y = float(u_data[i, 1])
-            command.transforms = [transform]
-            command.velocities = [velocity]
-            command.accelerations = [acceleration]
-            command.time_from_start = seconds_to_duration_msg(i * dt)
+            command = build_control_command(x_data[i], u_data[i], time_from_start=i * dt)
             self.writer_pool.write(
                 bag_filename,
                 f"/robot_{robot_id}/trajectory/control_sequence",
