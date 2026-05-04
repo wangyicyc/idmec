@@ -44,14 +44,14 @@ class ExperimentOutput:
         self,
         output_mode,
         bag_dir,
-        topic_template,
+        output_topic,
         publish_rate,
         robot_number,
         state_dim,
     ):
         self.output_mode = str(output_mode).strip().lower()
         self.bag_dir = str(Path(bag_dir).expanduser())
-        self.topic_template = topic_template
+        self.output_topic = output_topic
         self.publish_rate = publish_rate
         self.robot_number = robot_number
         self.state_dim = state_dim
@@ -103,7 +103,7 @@ class ExperimentOutput:
             self.publishers = [
                 self.node.create_publisher(
                     MultiDOFJointTrajectoryPoint,
-                    self.topic_template.format(robot_id=r_id),
+                    self.output_topic.format(robot_id=r_id),
                     10,
                 )
                 for r_id in range(self.robot_number)

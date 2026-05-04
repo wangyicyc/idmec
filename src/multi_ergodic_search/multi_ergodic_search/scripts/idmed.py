@@ -104,7 +104,7 @@ def prepare_experiment():
     output = ExperimentOutput(
         output_mode=opt_args["output_mode"],
         bag_dir=PACKAGE_ROOT / opt_args["output_bag_dir"],
-        topic_template=opt_args["output_topic_template"],
+        output_topic=opt_args["output_topic"],
         publish_rate=opt_args["output_publish_rate"],
         robot_number=robot_number,
         state_dim=state_dim,

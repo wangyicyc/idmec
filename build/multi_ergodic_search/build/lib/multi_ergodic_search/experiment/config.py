@@ -40,10 +40,9 @@ opt_args = {
     "map_merge_freq": config["map_merge_freq"],
     "output_mode": config.get("output_mode", "none"),
     "output_bag_dir": config.get("output_bag_dir", "./datas/bags/my_strategy"),
-    "output_topic_template": config.get(
-        "output_topic_template",
-        "/trajectory/robot_{robot_id}/control_sequence",
-    ),
+    "output_topic": config.get("output_topic")
+    or config.get("output_topic")
+    or "/trajectory/robot_{robot_id}/control_sequence",
     "output_publish_rate": config.get("output_publish_rate", 20.0),
     "enable_plot": config.get("enable_plot", False),
     "connect_threshold": config["connect_threshold"],
