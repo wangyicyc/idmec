@@ -9,11 +9,11 @@ from jax.lax import scan
 import jax.numpy as jnp
 import numpy as np
 from scipy.special import comb
-from multiRobots_lib.ergodic_metric import ErgodicMetric # 计算遍历度指标
+from ergodic_planning.ergodic_metric import ErgodicMetric # 计算遍历度指标
 # 增广拉格朗日法优化器
-from multiRobots_lib.solver import al_iLQR 
-from multiRobots_lib.augument_lagrange_func import loss_traj_multi, eq_constr, ineq_constr_multi, loss_compare_multi
-from multiRobots_lib.data_collect import save_ergodic_metrics_to_excel, append_metric
+from ergodic_planning.solver import al_iLQR 
+from ergodic_planning.augument_lagrange_func import loss_traj_multi, eq_constr, ineq_constr_multi, loss_compare_multi
+from utils.data_collect import save_ergodic_metrics_to_excel, append_metric
 import yaml
 import pickle as pkl
 import copy
@@ -24,7 +24,7 @@ logging.basicConfig(
     level=logging.INFO,          # 日志等级
     format='%(asctime)s [%(levelname)s] %(message)s',  # 格式
 )
-from multiRobots_lib.hyper_params import (
+from experiment.config import (
     opt_args,
     target_distr,
     robot_distr,
@@ -74,9 +74,9 @@ for _id in range(n):
     traj_warmUp.append(warmup)
 
 
-from multiRobots_lib.plot_utils import plot_trajs, plot_line_graph
-from multiRobots_lib.tools import find_first_connected, exchange_info, optimize_trajs, update_accumulated_time
-from multiRobots_lib.decay_utils import update_beta
+from utils.plot_utils import plot_trajs, plot_line_graph
+from ergodic_planning.tools import find_first_connected, exchange_info, optimize_trajs, update_accumulated_time
+from ergodic_planning.decay_utils import update_beta
 from IPython.display import clear_output
 itera = 3
 itera_cnt = 0

@@ -2,25 +2,24 @@ import os
 os.environ["JAX_ENABLE_X64"] = "True"
 import sys
 from pathlib import Path
-from dataclasses import dataclass
-from typing import Any
 
 PACKAGE_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PACKAGE_ROOT))
 # 增广拉格朗日法优化器
-from multiRobots_lib.multi_solver import al_iLQR 
-from multiRobots_lib.augument_lagrange_func import loss_traj_multi, eq_constr, ineq_constr_multi, loss_compare_multi
-from multiRobots_lib.data_collect import append_metric
-from multiRobots_lib.plot_utils import plot_trajs
-# from multiRobots_lib.plot_utils_paper import plot_trajs
-from multiRobots_lib.tools import find_first_connected, exchange_info, update_accumulated_time
-from multiRobots_lib.decay_utils import update_beta
+from ergodic_planning.multi_solver import al_iLQR 
+from ergodic_planning.augument_lagrange_func import loss_traj_multi, eq_constr, ineq_constr_multi, loss_compare_multi
+from utils.data_collect import append_metric
+from utils.plot_utils import plot_trajs
+# from utils.plot_utils_paper import plot_trajs
+from ergodic_planning.tools import find_first_connected, exchange_info, update_accumulated_time
+from ergodic_planning.decay_utils import update_beta
+from experiment.io import ExperimentContext, ExperimentOutput
 
 from IPython.display import clear_output
 import logging
 from jax import jit
 from functools import partial
-from multiRobots_lib.hyper_params import (
+from experiment.config import (
     opt_args,
     target_distr,
     robot_distr,
@@ -29,35 +28,6 @@ from multiRobots_lib.hyper_params import (
     multi_betas,
     robot_model_single,
 )
-
-
-@dataclass
-class ExperimentContext:
-    update_map_freq: int
-    map_merge_freq: int
-    state_dim: int
-    robot_number: int
-    tsteps: int
-    init_state: Any
-    sol_trajs: Any
-    multi_betas: Any
-    target_distr: Any
-    robot_distr: Any
-    start_pos: Any
-    end_pos: Any
-    traj_solver: list
-    traj_warmup: list
-    connection_threshold: float
-    map_merge_cnt: int
-    decay_type: str
-    init_dual: bool
-    save_path: str
-    involved_robots: set
-    accumulated_time: int
-    be_num: int
-    global_metric: dict
-    last_exchange_time: dict
-    warm_up: bool
 
 
 def prepare_experiment():
@@ -108,7 +78,9 @@ def prepare_experiment():
     map_merge_cnt = 0
     decay_type = 'linear'
     init_dual = True
-    save_path = str(PACKAGE_ROOT / 'figures' / 'my_strategy.png')
+    save_path = str(
+        PACKAGE_ROOT / 'datas' / 'results' / 'my_strategy' / 'figures' / 'my_strategy.png'
+    )
     involved_robots = set(range(robot_number))
     accumulated_time = 0
     be_num = 1
@@ -117,6 +89,15 @@ def prepare_experiment():
             'values': [],
         }
     last_exchange_time = {}
+    output = ExperimentOutput(
+        mode=opt_args["output_mode"],
+        bag_dir=PACKAGE_ROOT / opt_args["output_bag_dir"],
+        topic_template=opt_args["output_topic_template"],
+        publish_rate=opt_args["output_publish_rate"],
+        robot_number=robot_number,
+        state_dim=state_dim,
+    )
+    output.setup()
     # 迭代优化并动态可视化轨迹与障碍物分布
     warm_up = True
     # warm_up = False
@@ -149,6 +130,7 @@ def prepare_experiment():
         global_metric=global_metric,
         last_exchange_time=last_exchange_time,
         warm_up=warm_up,
+        output=output,
     )
 
 
@@ -219,6 +201,7 @@ def apply_map_merge_if_needed(context, current_time, robot_pair):
 
     if context.accumulated_time >= context.tsteps:
         append_current_metric(context, current_time)
+        context.output.emit_map_snapshot(context)
         return current_time, robot_pair, True
 
     robot_pair = []
@@ -240,6 +223,7 @@ def apply_target_update_if_needed(context, current_time, robot_pair):
         return current_time, robot_pair, False
 
     append_current_metric(context, current_time)
+    context.output.emit_map_snapshot(context)
     logging.info("update map")
     robot_pair = []
     # 更新目标地图
@@ -301,6 +285,7 @@ def run_experiment(context):
             current_time,
             robot_pair,
         )
+        context.output.emit_segment(context, current_time)
         if done:
             break
         # 处理机器人信息交换事件
@@ -323,6 +308,7 @@ def run_experiment(context):
 def main():
     # 准备实验相关参数
     context = prepare_experiment()
+    # 运行实验
     run_experiment(context)
 
 

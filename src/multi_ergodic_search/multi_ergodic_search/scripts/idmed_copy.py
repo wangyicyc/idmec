@@ -3,19 +3,19 @@ os.environ["JAX_ENABLE_X64"] = "True"
 import sys 
 sys.path.append('..')
 # 增广拉格朗日法优化器
-from multiRobots_lib.multi_solver import al_iLQR 
-from multiRobots_lib.augument_lagrange_func import loss_traj_multi, eq_constr, ineq_constr_multi, loss_compare_multi
-from multiRobots_lib.data_collect import save_ergodic_metrics_to_excel, append_metric, multi_traj_to_rosbag, multi_path_to_rosbag, multi_map_to_rosbag
-from multiRobots_lib.plot_utils import plot_trajs
-# from multiRobots_lib.plot_utils_paper import plot_trajs
-from multiRobots_lib.tools import find_first_connected, exchange_info, multi_robot_optimize_trajs, update_accumulated_time
-from multiRobots_lib.decay_utils import update_beta
-from multiRobots_lib.data2bag import CommandToRosbag, PathToRosbag, MapINfoToMarkers
+from ergodic_planning.multi_solver import al_iLQR 
+from ergodic_planning.augument_lagrange_func import loss_traj_multi, eq_constr, ineq_constr_multi, loss_compare_multi
+from utils.data_collect import save_ergodic_metrics_to_excel, append_metric, multi_traj_to_rosbag, multi_path_to_rosbag, multi_map_to_rosbag
+from utils.plot_utils import plot_trajs
+# from utils.plot_utils_paper import plot_trajs
+from ergodic_planning.tools import find_first_connected, exchange_info, multi_robot_optimize_trajs, update_accumulated_time
+from ergodic_planning.decay_utils import update_beta
+from utils.data2bag import CommandToRosbag, PathToRosbag, MapINfoToMarkers
 from IPython.display import clear_output
 import logging
 from jax import jit
 from functools import partial
-from multiRobots_lib.hyper_params import (
+from experiment.config import (
     opt_args,
     target_distr,
     robot_distr,
@@ -75,7 +75,7 @@ map_merge_cnt = 0
 decay_type = 'linear'
 # decay_type = 'nodecay'
 init_dual = True
-save_path = '../figures/my_strategy.png'
+save_path = '../datas/results/my_strategy/figures/my_strategy.png'
 involved_robots = list(range(robot_number))
 involved_robots = set(involved_robots)
 flag = True
