@@ -6,137 +6,108 @@
 
 ```text
 idmec/
-├── environment.yml                         # Python/JAX/绘图环境
+├── environment.yml                                       # (legacy) Conda 环境导出文件
 ├── src/
-│   ├── ergodic_search/                     # 多机器人 ergodic search 规划代码
-│   │   ├── datas/config/config.yaml        # 主要实验参数
-│   │   ├── multiRobots_lib/                # 优化器、动力学、地图、bag 工具
-│   │   ├── scripts/idmed.py                # 当前推荐的模块化实验入口
-│   │   ├── launch/pub_bag.launch           # 将轨迹 bag 发布成控制话题
-│   │   └── figures/                        # 轨迹图输出目录
-│   ├── fly_order/                          # 接收轨迹命令并转发给可视化/飞控接口
-│   │   ├── launch/simple_run.launch        # 四机 ROS 可视化入口
-│   │   ├── launch/swarm.launch             # 四机启动配置
-│   │   └── src/offboard.cpp                # PositionCommand 转发节点
-│   └── uav_simulator/                      # 四旋翼模型、地图、控制器等 ROS 包
+│   └── multi_ergodic_search/                             # ROS2 (jazzy) 主包
+│       ├── setup.py                                      # 包安装入口, 注册 idmed 控制台脚本
+│       ├── package.xml                                   # ROS2 包元信息与依赖声明
+│       ├── multi_ergodic_search/
+│       │   ├── datas/config/config.yaml                  # 主要实验参数
+│       │   ├── scripts/idmed.py                          # 实验主入口 (离线规划 + topic/bag 输出)
+│       │   ├── experiment/                               # 实验上下文、配置加载、IO 输出模块
+│       │   │   ├── settings.py                           # config.yaml 读取
+│       │   │   ├── config.py                             # 参数解析与初始化 (动力学、轨迹、分布)
+│       │   │   └── io.py                                 # ExperimentOutput: bag 写入 & topic 发布
+│       │   ├── ergodic_planning/                         # ergodic search 核心算法
+│       │   │   ├── multi_solver.py                       # 增广拉格朗日 iLQR 多机器人求解器
+│       │   │   ├── solver.py                             # iLQR 模板基类
+│       │   │   ├── augument_lagrange_func.py             # 增广拉格朗日目标函数与约束
+│       │   │   ├── target_distribution.py                # 目标分布与贝叶斯地图更新
+│       │   │   ├── ergodic_metric.py                     # ergodic metric 计算
+│       │   │   ├── fourier_utils.py                      # 傅里叶基函数
+│       │   │   ├── tools.py                              # 通信检测、信息交换、轨迹优化
+│       │   │   ├── decay_utils.py                        # beta 衰减系数更新
+│       │   │   ├── metric_utils.py                       # 度量工具函数
+│       │   │   ├── class_types.py                        # NamedTuple 类型定义
+│       │   │   └── dynamics/                             # 动力学模型
+│       │   │       ├── models.py                         # DoubleIntegrator, HomoDynamics
+│       │   │       └── integrator.py                     # RK4 数值积分
+│       │   ├── utils/                                    # 工具模块
+│       │   │   ├── ros_messages.py                       # ROS2 消息构造 (MultiDOFJointTrajectoryPoint)
+│       │   │   ├── data2bag.py                           # ROS2 bag 写入器 (轨迹/路径/地图热力图)
+│       │   │   ├── data_collect.py                       # 批量写入 bag 与指标导出
+│       │   │   └── plot_utils.py                         # 轨迹可视化
+│       │   ├── src/                                      # C++ 辅助节点
+│       │   │   ├── bag2pub.cpp                           # ROS1 bag → topic 回放
+│       │   │   └── distribution_2d_publisher.cpp         # 二维分布可视化发布
+│       │   └── launch/pub_bag.launch                     # ROS1 bag 回放 launch 文件
 ```
 
 ## 2. 环境准备
 
-Conda 环境已经导出到仓库根目录的 `environment.yml`。
-
-创建环境：
+本项目依赖 ROS2 (jazzy) 自带的系统 Python，无需额外创建虚拟环境。相对关键的 Python 包是 JAX：
+```bash
+pip install jax[cpu]
+```
+如有 GPU 可安装对应版本：
 
 ```bash
-cd /home/cyc/idmec
-conda env create -f environment.yml
-conda activate uavPlan
+pip install jax[cudaxx]
 ```
 
-如果环境已经存在：
+## 3. 实验参数
 
-```bash
-conda activate uavPlan
-conda env update -f environment.yml --prune
-```
-
-## 3. 修改实验参数
-
-主要参数在：
-
-```text
-src/ergodic_search/datas/config/config.yaml
-```
-
-常用字段：
-
-| 字段 | 含义 |
-| --- | --- |
-| `workspace` | 搜索区域边长，当前默认 4.0 |
-| `dt` | 规划时间步长 |
-| `tsteps` | 总规划步数 |
-| `robot_number` | 机器人数量，当前默认 4 |
-| `x0` | 所有机器人初始二维位置，格式 `[x0,y0,x1,y1,...]` |
-| `xf` | 所有机器人终点二维位置 |
-| `U_max/U_min` | 控制输入上/下限 |
-| `V_max/V_min` | 速度上/下限 |
-| `avoidance_radius` | 避障安全半径 |
-| `com_radius` | 通信半径相关参数 |
-| `connect_threshold` | 判定机器人相遇/可交换信息的距离阈值 |
-| `update_map_freq` | 目标地图更新周期 |
-| `map_merge_freq` | 机器人地图融合周期 |
-| `mapinfo_point` | 目标分布的高斯点和协方差 |
-
-注意：`idmed.py` 依赖相对路径，运行时请进入 `src/ergodic_search/scripts` 目录。
-
-首次运行前创建日志目录：
-
-```bash
-mkdir -p /home/cyc/idmec/src/ergodic_search/scripts/datas/logs
-```
-
-## 4. 离线规划
-
-当前推荐入口是模块化后的：
-
-```bash
-cd /home/cyc/idmec/src/ergodic_search/scripts
-python idmed.py
-```
-
-运行结束后会输出轨迹图：
-
-```text
-src/ergodic_search/figures/my_strategy.png
-```
-
-日志默认写入：
-
-```text
-src/ergodic_search/scripts/datas/logs/app.log
-```
-
-## 5. 回放轨迹 bag
-
-如果已经生成了 `traj0.bag` 到 `traj3.bag`，可以用 `pub_bag.launch` 发布控制序列。
-
-回放：
-
-```bash
-cd /home/cyc/idmec
-source /opt/ros/noetic/setup.bash
-source devel/setup.bash
-roslaunch ergodic_search pub_bag.launch bag_dir:=/home/cyc/idmec/src/ergodic_search/scripts publish_rate:=20.0 frame_id:=world
-```
-
-该 launch 会读取每个机器人的 bag 文件，并发布到：
-
-```text
-/trajectory/robot_0/control_sequence
-/trajectory/robot_1/control_sequence
-/trajectory/robot_2/control_sequence
-/trajectory/robot_3/control_sequence
-```
-
-如果需要接入 `fly_order/offboard`，请确认话题名和 `src/fly_order/launch/run_in_sim.launch` 中的 remap 一致。
-
-## 5.1 ROS2 Topic 模式
-
-当前 ROS2 版本可以通过配置直接发布轨迹控制话题。相关参数在：
+所有参数集中在：
 
 ```text
 src/multi_ergodic_search/multi_ergodic_search/datas/config/config.yaml
 ```
 
-典型配置：
+文件中已包含各字段的中文注释，按分组说明：搜索空间、iLQR 优化权重、控制/速度约束、初始/终点位置、安全与通信、优化目标权重、地图更新、输出配置及目标分布定义。修改参数后直接运行即可，无需额外操作。
 
-```yaml
-output_mode: topic  # none | bag | topic | both
-output_topic: /trajectory/robot_{robot_id}/control_sequence
-output_publish_rate: 20.0
+## 4. 构建与运行
+
+构建：
+
+```bash
+cd ~/idmec
+source /opt/ros/jazzy/setup.bash
+colcon build --packages-select multi_ergodic_search
+source install/setup.bash
+```
+运行：
+
+```bash
+ros2 run multi_ergodic_search idmed
 ```
 
-`output_mode: topic` 会发布：
+## 5. 输出模式说明
+
+### 5.1 模式概览
+
+核心参数：
+
+| 参数 | 含义 | 可选值 |
+| --- | --- | --- |
+| `output_mode` | 输出模式 | `none` / `bag` / `topic` / `both` |
+| `output_bag_dir` | bag 文件输出目录 | 默认 `./datas/bags/my_strategy` |
+| `output_topic` | 话题名称模板，`{robot_id}` 会被替换为机器人编号 | 默认 `/trajectory/robot_{robot_id}/control_sequence` |
+| `output_publish_rate` | topic 发布频率 (Hz) | 默认 `20.0` |
+
+四种模式的含义：
+
+- **`none`**：不输出任何数据，仅运行规划算法。
+- **`bag`**：将轨迹、路径和地图数据写入 ROS2 bag 文件，供离线回放分析。
+- **`topic`**：实时发布控制指令到 ROS2 话题，适合对接飞控或可视化节点。
+- **`both`**：同时输出 bag 文件和发布话题。
+
+修改方式：编辑 `config.yaml` 中的 `output_mode` 字段即可切换，详见[第 3 节](#3-实验参数)。
+
+> **为什么需要 bag 回放？** iLQR 在线求解的 wall clock time 较长（笔记本 RTX3060 上单轮最长达 2-3 分钟），规划周期远慢于实际控制周期。因此实际工作流为：先以 `bag` 或 `both` 模式运行规划，将轨迹写入 rosbag，再通过 `ros2 bag play` 按真实时间节奏回放，对接下游飞控或可视化节点。
+
+### 5.2 话题消息格式
+
+`output_mode` 为 `topic` 或 `both` 时，会为每台机器人发布到：
 
 ```text
 /trajectory/robot_0/control_sequence
@@ -145,99 +116,49 @@ output_publish_rate: 20.0
 /trajectory/robot_3/control_sequence
 ```
 
-消息类型为 ROS2 官方消息：
+消息类型为 `trajectory_msgs/msg/MultiDOFJointTrajectoryPoint`，字段对应关系：
 
 ```text
-trajectory_msgs/msg/MultiDOFJointTrajectoryPoint
+transforms[0].translation.x     -> 二维位置 x (m)
+transforms[0].translation.y     -> 二维位置 y (m)
+velocities[0].linear.x          -> 二维速度 v_x (m/s)
+velocities[0].linear.y          -> 二维速度 v_y (m/s)
+accelerations[0].linear.x       -> 二维控制输入 u_x (m/s²)
+accelerations[0].linear.y       -> 二维控制输入 u_y (m/s²)
 ```
 
-字段含义：
+（`translation.z`、`rotation.w` 为固定占位值，二维规划不使用。）
+
+### 5.3 发布机制
+
+Topic 模式不是一次发布完整全局轨迹，而是随着规划循环逐段发布已确定要执行的控制序列。主循环流程为：
 
 ```text
-transforms[0].translation.x/y  -> 二维位置 x, y
-velocities[0].linear.x/y       -> 二维速度 vx, vy
-accelerations[0].linear.x/y    -> 二维控制输入 ux, uy
+┌─ 求解所有机器人当前段轨迹 (iLQR 优化)
+├─ 查找最早通信事件时间点 current_time (机器人间距 < connect_threshold)
+├─ 检查地图融合 / 目标更新事件，调整 current_time
+├─ emit_segment: 按 publish_rate 频率, 从 step=0 逐条发布到 current_time-1
+├─ 裁掉已执行片段 (sol_trajs 只保留 current_time 之后的部分)
+├─ 机器人信息交换 (共享彼此轨迹和地图)
+└─ 回到循环起点, 重新规划 ─┘
 ```
 
-Topic 模式不是一次发布完整全局轨迹，而是发布当前规划周期内实际要执行的事件片段。每轮流程可以理解为：
+其中 `current_time` 由以下事件中最早的一个决定：
+- 任意两台机器人的间距小于 `connect_threshold`（触发通信）
+- 累计时间达到 `map_merge_freq`（触发地图融合）
+- 累计时间达到 `update_map_freq`（触发目标地图更新）
 
-```text
-规划一段轨迹 -> 发布 step=0 到 current_time-1 -> 裁掉已执行片段 -> 地图/通信更新 -> 重新规划下一段
-```
+因此 topic 中的数据本质是**在线滚动重规划的控制命令**：参数变化、通信事件和地图更新都会导致重规划，新规划结果会替代之前尚未发布的轨迹段。
 
-其中 `current_time` 由当前触发事件决定，例如机器人通信、地图更新或地图融合。因此 topic 中的数据更接近在线滚动重规划的控制命令，而不是离线完整轨迹文件。
+### 5.4 Bag 文件输出
 
-ROS2 下运行：
+`output_mode` 为 `bag` 或 `both` 时，会在 `output_bag_dir` 下生成以下 bag 文件：
 
-```bash
-cd ~/idmec
-source /opt/ros/jazzy/setup.bash
-source install/setup.bash
-ros2 run multi_ergodic_search idmed
-```
-
-另开终端查看：
-
-```bash
-source /opt/ros/jazzy/setup.bash
-source ~/idmec/install/setup.bash
-ros2 node list
-ros2 topic list
-ros2 topic info /trajectory/robot_0/control_sequence
-ros2 topic echo /trajectory/robot_0/control_sequence
-```
-
-## 6. 启动 ROS bag 可视化功能包
-
-另开一个终端：
-
-```bash
-cd /home/cyc/idmec
-source /opt/ros/noetic/setup.bash
-source devel/setup.bash
-roslaunch fly_order simple_run.launch
-```
-
-这个 launch 用于启动 ROS 可视化和命令转发相关节点：
-
-- RViz
-- `fly_order/offboard` 节点
-- 地图/无人机状态可视化相关节点
-
-`fly_order/offboard` 订阅每个机器人的轨迹命令，并发布给对应的可视化/控制接口。话题映射在：
-
-```text
-src/fly_order/launch/run_in_sim.launch
-```
-
-`fly_order/offboard` 侧使用的关键话题：
-
-```text
-/robot_0/trajectory/control_sequence
-/robot_1/trajectory/control_sequence
-/robot_2/trajectory/control_sequence
-/robot_3/trajectory/control_sequence
-
-/drone_0_planning/pos_cmd
-/drone_1_planning/pos_cmd
-/drone_2_planning/pos_cmd
-/drone_3_planning/pos_cmd
-```
-
-## 7. 实机实验流程建议
-
-实机前请按顺序完成：
-
-1. 离线运行 `idmed.py`，确认轨迹图合理。
-2. 用 `pub_bag.launch` 回放轨迹 bag，并用 `simple_run.launch` 启动 ROS 可视化，确认四机轨迹、速度和加速度没有异常。
-3. 检查 `config.yaml` 中的 `x0/xf`、速度限制、控制限制、安全半径是否与真实场地一致。
-4. 确认真实定位话题与 `run_in_sim.launch` 中的 `odom_topic` 对应。
-5. 实机只先测试单机或低速短轨迹，再逐步切换到四机。
-
-实机相关注意事项：
-
-- 当前规划是二维轨迹，飞行高度由 `fly_order` 的 `fly_height` 参数固定。
-- `offboard.cpp` 会将输入 `PositionCommand` 的 `x/y` 和速度/加速度转发出去，`z` 使用 `fly_height`。
-- 起飞点必须与 `config.yaml` 的 `x0` 以及 launch 中的 `init_x/init_y/init_z` 保持一致。
-- 实机前务必确认急停、遥控接管、保护网/安全区域和电池状态。
-- 不要直接在实机上第一次运行新参数；先检查 bag 回放可视化，再小范围低速测试。
+| 文件 | 内容 | 消息类型 |
+| --- | --- | --- |
+| `traj0.bag` ~ `traj3.bag` | 各机器人从自身视角的联合控制序列 | `MultiDOFJointTrajectoryPoint` |
+| `traj0-0.bag` ~ `traj3-3.bag` | 每轮规划中机器人 i 视角下的机器人 j 轨迹 | `MultiDOFJointTrajectoryPoint` |
+| `path0.bag` ~ `path3.bag` | 各机器人已执行的历史路径 | `nav_msgs/Path` |
+| `path0-0.bag` ~ `path3-3.bag` | 每轮规划中机器人 i 视角下的机器人 j 路径 | `nav_msgs/Path` |
+| `map_r0.bag` ~ `map_r3.bag` | 各机器人维护的belief概率地图 (热力图 Marker) | `visualization_msgs/Marker` |
+| `map.bag` | 全局目标分布热力图 | `visualization_msgs/Marker` |
