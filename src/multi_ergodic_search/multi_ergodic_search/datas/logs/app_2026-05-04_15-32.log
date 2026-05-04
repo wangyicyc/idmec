@@ -1,2 +1,0 @@
-2026-05-04 15:32:35,179 [WARNING] Matplotlib created a temporary cache directory at /tmp/matplotlib-edf2bnpc because the default path (/home/ubuntu24/.config/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
-2026-05-04 15:32:35,858 [INFO] generated new fontManager
