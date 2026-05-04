@@ -27,7 +27,7 @@ opt_args:
   weight_avoidance: 0.10
   update_map_freq: 60 
   map_merge_freq: 10
-  output_mode: none  # none | bag | topic | both
+  output_mode: bag  # none | bag | topic | both
   output_bag_dir: ./datas/bags/my_strategy
   output_topic_template: /trajectory/robot_{robot_id}/control_sequence
   output_publish_rate: 20.0

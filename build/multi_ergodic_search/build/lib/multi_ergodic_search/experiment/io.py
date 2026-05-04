@@ -82,24 +82,27 @@ class ExperimentOutput:
                 f"Invalid output_mode '{self.output_mode}'. Use one of: {valid_modes}"
             )
         if self.write_bag:
-            raise NotImplementedError(
-                "output_mode='bag' and output_mode='both' still use the legacy ROS1 "
-                "rosbag writer. For ROS2, use output_mode='topic' and record with "
-                "`ros2 bag record`, or migrate the bag writer to rosbag2_py."
+            from utils.data2bag import (
+                CommandToRosbag,
+                MapINfoToMarkers,
+                PathToRosbag,
             )
 
+            self.command_saver = CommandToRosbag(bag_dir=self.bag_dir)
+            self.path_saver = PathToRosbag(bag_dir=self.bag_dir)
+            self.map_saver = MapINfoToMarkers(bag_dir=self.bag_dir)
         if self.publish_topic:
             import rclpy
-            from quadrotor_msgs.msg import PositionCommand
+            from trajectory_msgs.msg import MultiDOFJointTrajectoryPoint
 
             if not rclpy.ok():
                 rclpy.init(args=None)
             self.rclpy = rclpy
             self.node = rclpy.create_node("idmed_trajectory_publisher")
-            self.position_command_type = PositionCommand
+            self.position_command_type = MultiDOFJointTrajectoryPoint
             self.publishers = [
                 self.node.create_publisher(
-                    PositionCommand,
+                    MultiDOFJointTrajectoryPoint,
                     self.topic_template.format(robot_id=r_id),
                     10,
                 )
@@ -142,6 +145,8 @@ class ExperimentOutput:
             time.sleep(sleep_dt)
 
     def build_position_command(self, context, robot_id, step):
+        from geometry_msgs.msg import Transform, Twist, Vector3
+
         x_slice = slice(
             robot_id * self.state_dim,
             robot_id * self.state_dim + self.state_dim,
@@ -151,10 +156,16 @@ class ExperimentOutput:
         u_data = np.asarray(context.sol_trajs[robot_id]["u"][step, u_slice])
 
         command = self.position_command_type()
-        command.position.x = float(x_data[0])
-        command.position.y = float(x_data[1])
-        command.velocity.x = float(x_data[2])
-        command.velocity.y = float(x_data[3])
-        command.acceleration.x = float(u_data[0])
-        command.acceleration.y = float(u_data[1])
+        transform = Transform()
+        transform.translation = Vector3(x=float(x_data[0]), y=float(x_data[1]), z=0.0)
+        transform.rotation.w = 1.0
+        velocity = Twist()
+        velocity.linear.x = float(x_data[2])
+        velocity.linear.y = float(x_data[3])
+        acceleration = Twist()
+        acceleration.linear.x = float(u_data[0])
+        acceleration.linear.y = float(u_data[1])
+        command.transforms = [transform]
+        command.velocities = [velocity]
+        command.accelerations = [acceleration]
         return command
