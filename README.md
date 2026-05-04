@@ -120,6 +120,73 @@ roslaunch ergodic_search pub_bag.launch bag_dir:=/home/cyc/idmec/src/ergodic_sea
 
 如果需要接入 `fly_order/offboard`，请确认话题名和 `src/fly_order/launch/run_in_sim.launch` 中的 remap 一致。
 
+## 5.1 ROS2 Topic 模式
+
+当前 ROS2 版本可以通过配置直接发布轨迹控制话题。相关参数在：
+
+```text
+src/multi_ergodic_search/multi_ergodic_search/datas/config/config.yaml
+```
+
+典型配置：
+
+```yaml
+output_mode: topic  # none | bag | topic | both
+output_topic: /trajectory/robot_{robot_id}/control_sequence
+output_publish_rate: 20.0
+```
+
+`output_mode: topic` 会发布：
+
+```text
+/trajectory/robot_0/control_sequence
+/trajectory/robot_1/control_sequence
+/trajectory/robot_2/control_sequence
+/trajectory/robot_3/control_sequence
+```
+
+消息类型为 ROS2 官方消息：
+
+```text
+trajectory_msgs/msg/MultiDOFJointTrajectoryPoint
+```
+
+字段含义：
+
+```text
+transforms[0].translation.x/y  -> 二维位置 x, y
+velocities[0].linear.x/y       -> 二维速度 vx, vy
+accelerations[0].linear.x/y    -> 二维控制输入 ux, uy
+```
+
+Topic 模式不是一次发布完整全局轨迹，而是发布当前规划周期内实际要执行的事件片段。每轮流程可以理解为：
+
+```text
+规划一段轨迹 -> 发布 step=0 到 current_time-1 -> 裁掉已执行片段 -> 地图/通信更新 -> 重新规划下一段
+```
+
+其中 `current_time` 由当前触发事件决定，例如机器人通信、地图更新或地图融合。因此 topic 中的数据更接近在线滚动重规划的控制命令，而不是离线完整轨迹文件。
+
+ROS2 下运行：
+
+```bash
+cd ~/idmec
+source /opt/ros/jazzy/setup.bash
+source install/setup.bash
+ros2 run multi_ergodic_search idmed
+```
+
+另开终端查看：
+
+```bash
+source /opt/ros/jazzy/setup.bash
+source ~/idmec/install/setup.bash
+ros2 node list
+ros2 topic list
+ros2 topic info /trajectory/robot_0/control_sequence
+ros2 topic echo /trajectory/robot_0/control_sequence
+```
+
 ## 6. 启动 ROS bag 可视化功能包
 
 另开一个终端：
