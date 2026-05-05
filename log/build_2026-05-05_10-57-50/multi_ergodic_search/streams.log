@@ -1,0 +1,35 @@
+[0.904s] Invoking command in '/home/ubuntu24/idmec/src/multi_ergodic_search': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/ubuntu24/idmec/build/multi_ergodic_search/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/multi_ergodic_search build --build-base /home/ubuntu24/idmec/build/multi_ergodic_search/build install --record /home/ubuntu24/idmec/build/multi_ergodic_search/install.log --single-version-externally-managed install_data
+[1.145s] running egg_info
+[1.162s] writing ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/PKG-INFO
+[1.162s] writing dependency_links to ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/dependency_links.txt
+[1.162s] writing entry points to ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/entry_points.txt
+[1.162s] writing requirements to ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/requires.txt
+[1.162s] writing top-level names to ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/top_level.txt
+[1.197s] reading manifest file '../../build/multi_ergodic_search/multi_ergodic_search.egg-info/SOURCES.txt'
+[1.198s] writing manifest file '../../build/multi_ergodic_search/multi_ergodic_search.egg-info/SOURCES.txt'
+[1.198s] running build
+[1.198s] running build_py
+[1.198s] copying multi_ergodic_search/scripts/idmed.py -> /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/scripts
+[1.199s] copying multi_ergodic_search/experiment/io.py -> /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/experiment
+[1.199s] copying multi_ergodic_search/utils/data2bag.py -> /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/utils
+[1.200s] copying multi_ergodic_search/utils/ros_messages.py -> /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/utils
+[1.201s] copying multi_ergodic_search/datas/config/config.yaml -> /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/datas/config
+[1.201s] running install
+[1.206s] running install_lib
+[1.226s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/scripts/idmed.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/scripts
+[1.226s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/experiment/io.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/experiment
+[1.227s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/utils/data2bag.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils
+[1.227s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/utils/ros_messages.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils
+[1.227s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/datas/config/config.yaml -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/config
+[1.228s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/scripts/idmed.py to idmed.cpython-312.pyc
+[1.231s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/experiment/io.py to io.cpython-312.pyc
+[1.232s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils/data2bag.py to data2bag.cpython-312.pyc
+[1.234s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils/ros_messages.py to ros_messages.cpython-312.pyc
+[1.235s] running install_data
+[1.235s] running install_egg_info
+[1.253s] removing '/home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search-0.0.0-py3.12.egg-info' (and everything under it)
+[1.254s] Copying ../../build/multi_ergodic_search/multi_ergodic_search.egg-info to /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search-0.0.0-py3.12.egg-info
+[1.255s] running install_scripts
+[1.370s] Installing idmed script to /home/ubuntu24/idmec/install/multi_ergodic_search/lib/multi_ergodic_search
+[1.370s] writing list of installed files to '/home/ubuntu24/idmec/build/multi_ergodic_search/install.log'
+[1.395s] Invoked command in '/home/ubuntu24/idmec/src/multi_ergodic_search' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/ubuntu24/idmec/build/multi_ergodic_search/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/multi_ergodic_search build --build-base /home/ubuntu24/idmec/build/multi_ergodic_search/build install --record /home/ubuntu24/idmec/build/multi_ergodic_search/install.log --single-version-externally-managed install_data

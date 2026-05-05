@@ -9,7 +9,7 @@ sys.path.insert(0, str(PACKAGE_ROOT))
 from ergodic_planning.multi_solver import al_iLQR 
 from ergodic_planning.augument_lagrange_func import loss_traj_multi, eq_constr, ineq_constr_multi, loss_compare_multi
 from utils.data_collect import append_metric
-# from utils.plot_utils_paper import plot_trajs
+from utils.plot_utils import plot_trajs
 from ergodic_planning.tools import find_first_connected, exchange_info, update_accumulated_time
 from ergodic_planning.decay_utils import update_beta
 from experiment.io import ExperimentContext, ExperimentOutput

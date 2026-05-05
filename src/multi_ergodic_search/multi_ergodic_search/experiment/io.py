@@ -39,7 +39,6 @@ class ExperimentContext:
     involved_robots: set
     accumulated_time: int
     be_num: int
-    global_metric: dict
     last_exchange_time: dict
     warm_up: bool
     output: Any

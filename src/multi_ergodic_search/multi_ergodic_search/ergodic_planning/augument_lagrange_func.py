@@ -114,20 +114,6 @@ def loss_traj_multi(sol, beta, target_distr, multi_R):
         + bar_cost_upper
     )
     
-
-def loss_compare_multi(sol, target_distr, current_time):
-    total_state_dim = robot_number * state_dim
-    x_traj = jnp.zeros((time_span, total_state_dim))
-    phik = get_phik(target_distr, basis)     # 目标分布的傅里叶系数 
-    arr = jnp.full(time_span, 1.0)
-    beta_x = arr / (jnp.sum(arr))
-    for i in range(robot_number):
-        x_traj = x_traj.at[-current_time:, i * state_dim : i * state_dim + 2].set(sol[i]['x'][:current_time, i * state_dim : i * state_dim + 2])
-        x_traj = x_traj.at[:time_span - current_time, i * state_dim : i * state_dim + 2].set(sol[i]['px'][i][-(time_span - current_time):, :])
-    ckx = get_ck_avg(trajectory=x_traj, beta=beta_x, basis=basis)
-    erg_met = erg_metric(ckx, phik)
-    return erg_met
-
 def loss_traj_single(sol, beta, target_distr):
     x_traj = sol.x         # 轨迹点序列
     past_traj = sol.px

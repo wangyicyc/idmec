@@ -40,6 +40,7 @@ multi_ergodic_search/utils/__init__.py
 multi_ergodic_search/utils/data2bag.py
 multi_ergodic_search/utils/data_collect.py
 multi_ergodic_search/utils/plot_utils.py
+multi_ergodic_search/utils/ros_messages.py
 resource/multi_ergodic_search
 test/test_copyright.py
 test/test_flake8.py

@@ -55,6 +55,58 @@ pip install jax[cpu]
 pip install jax[cudaxx]
 ```
 
+### 2.1 NumPy / Matplotlib 兼容问题
+
+ROS2 运行时通常使用系统 Python，例如 `/usr/bin/python3`。但如果用户目录 `~/.local/lib/python3.12/site-packages` 中安装了新版 NumPy，系统 Python 仍可能优先加载用户目录中的包，导致系统 `matplotlib` 与用户目录 NumPy 发生 ABI 不兼容。
+
+典型报错如下：
+
+```text
+A module that was compiled using NumPy 1.x cannot be run in NumPy 2.x
+ImportError: numpy.core.multiarray failed to import
+```
+
+可先检查当前系统 Python 实际加载的 NumPy 和 Matplotlib：
+
+```bash
+/usr/bin/python3 -c "import numpy; print(numpy.__version__, numpy.__file__)"
+/usr/bin/python3 -c "import matplotlib; print(matplotlib.__version__, matplotlib.__file__)"
+```
+
+如果 NumPy 来自 `~/.local/lib/python3.12/site-packages`，而 Matplotlib 来自 `/usr/lib/python3/dist-packages`，说明当前环境混用了用户 pip 包和系统 apt 包。
+
+不修改现有 NumPy 的临时运行方式：
+
+```bash
+PYTHONNOUSERSITE=1 ros2 run multi_ergodic_search idmed
+```
+
+该命令只在本次运行中忽略用户目录 `site-packages`，不会卸载或降级任何包。
+
+如果希望继续使用用户目录中的 NumPy 2.x，也可以升级用户目录中的 Matplotlib，使二者来自同一套 pip 环境：
+
+```bash
+/usr/bin/python3 -m pip install --user --upgrade "matplotlib>=3.9" --break-system-packages
+```
+
+安装后再次确认 Matplotlib 路径：
+
+```bash
+/usr/bin/python3 -c "import matplotlib; print(matplotlib.__version__, matplotlib.__file__)"
+```
+
+如果出现以下警告：
+
+```text
+UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed
+```
+
+通常表示系统版和 pip 版 Matplotlib 的 `mpl_toolkits` 仍有混用。若程序不使用 3D 绘图，该警告一般不影响 2D 轨迹可视化；如需修复，可强制重装 pip 版 Matplotlib：
+
+```bash
+/usr/bin/python3 -m pip install --user --force-reinstall "matplotlib>=3.9" --break-system-packages
+```
+
 ## 3. 实验参数
 
 所有参数集中在：

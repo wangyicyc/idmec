@@ -10,6 +10,7 @@
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils/__init__.py
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils/plot_utils.py
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils/data2bag.py
+/home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils/ros_messages.py
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/fourier_utils.py
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/ergodic_metric.py
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/metric_utils.py
@@ -41,6 +42,7 @@
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils/__pycache__/__init__.cpython-312.pyc
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils/__pycache__/plot_utils.cpython-312.pyc
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils/__pycache__/data2bag.cpython-312.pyc
+/home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils/__pycache__/ros_messages.cpython-312.pyc
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/__pycache__/fourier_utils.cpython-312.pyc
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/__pycache__/ergodic_metric.cpython-312.pyc
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/__pycache__/metric_utils.cpython-312.pyc
