@@ -190,6 +190,21 @@ source install/setup.bash
 ros2 run multi_ergodic_search idmed
 ```
 
+### 4.1 运行产物位置
+
+通过 `ros2 run multi_ergodic_search idmed` 运行时，程序执行的是 `install/` 下的已安装 Python 包。因此 log、bag 和最终轨迹图片都会写入 `install` 目录中的包路径，而不是 `src` 目录。
+
+默认位置如下：
+
+| 产物 | 默认路径 |
+| --- | --- |
+| 运行 log | `~/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/logs/app.log` |
+| solver log | `~/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/logs/app_YYYY-MM-DD_HH-MM.log` |
+| ROS2 bag | `~/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/bags/my_strategy/` |
+| 最终轨迹图片 | `~/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/results/my_strategy/figures/my_strategy.png` |
+
+如果直接用源码路径运行脚本，产物才会落在 `src/multi_ergodic_search/multi_ergodic_search/datas/...` 下。日常 ROS2 工作流建议以 `install/` 下的产物为准。
+
 ## 5. 输出模式说明
 
 ### 5.1 模式概览
@@ -199,7 +214,7 @@ ros2 run multi_ergodic_search idmed
 | 参数 | 含义 | 可选值 |
 | --- | --- | --- |
 | `output_mode` | 输出模式 | `none` / `bag` / `topic` / `both` |
-| `output_bag_dir` | bag 文件输出目录 | 默认 `./datas/bags/my_strategy` |
+| `output_bag_dir` | bag 文件输出目录，相对于已安装的 `multi_ergodic_search` 包根目录 | 默认 `./datas/bags/my_strategy` |
 | `output_topic` | 话题名称模板，`{robot_id}` 会被替换为机器人编号 | 默认 `/trajectory/robot_{robot_id}/control_sequence` |
 | `output_publish_rate` | topic 发布频率 (Hz) | 默认 `20.0` |
 
