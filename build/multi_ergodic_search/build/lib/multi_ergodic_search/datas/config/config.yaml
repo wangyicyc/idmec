@@ -55,7 +55,6 @@ opt_args:
   output_bag_dir: ./datas/bags/my_strategy  # bag 文件输出目录 (相对于 multi_ergodic_search 包根目录)
   output_topic: /trajectory/robot_{robot_id}/control_sequence  # 话题模板, {robot_id} 会被替换为 0,1,2,3
   output_publish_rate: 20.0 # 话题发布频率 (Hz)
-  enable_plot: false        # 是否在运行结束后绘制轨迹图
 
   # ---------- 机器人数量 ----------
   robot_number: 4

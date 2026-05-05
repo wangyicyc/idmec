@@ -91,11 +91,22 @@ class ExperimentOutput:
                 CommandToRosbag,
                 MapINfoToMarkers,
                 PathToRosbag,
+                Rosbag2WriterPool,
             )
 
-            self.command_saver = CommandToRosbag(bag_dir=self.bag_dir)
-            self.path_saver = PathToRosbag(bag_dir=self.bag_dir)
-            self.map_saver = MapINfoToMarkers(bag_dir=self.bag_dir)
+            writer_pool = Rosbag2WriterPool(self.bag_dir)
+            self.command_saver = CommandToRosbag(
+                bag_dir=self.bag_dir,
+                writer_pool=writer_pool,
+            )
+            self.path_saver = PathToRosbag(
+                bag_dir=self.bag_dir,
+                writer_pool=writer_pool,
+            )
+            self.map_saver = MapINfoToMarkers(
+                bag_dir=self.bag_dir,
+                writer_pool=writer_pool,
+            )
         if self.publish_topic:
             import rclpy
 
@@ -117,25 +128,27 @@ class ExperimentOutput:
         if not self.enabled or current_time <= 0:
             return
         if self.write_bag:
-            from utils.data_collect import multi_path_to_rosbag, multi_traj_to_rosbag
+            from utils.data_collect import save_consolidated_segments
 
-            multi_traj_to_rosbag(context.sol_trajs, self.command_saver, current_time)
-            multi_path_to_rosbag(context.sol_trajs, self.path_saver, current_time)
+            save_consolidated_segments(
+                context.sol_trajs,
+                self.command_saver,
+                self.path_saver,
+                current_time,
+            )
         if self.publish_topic:
             self.publish_control_topics(context, current_time)
 
     def emit_map_snapshot(self, context):
         if not self.write_bag:
             return
-        from utils.data_collect import multi_map_to_rosbag
+        from utils.data_collect import save_consolidated_maps
 
-        multi_map_to_rosbag(context.robot_distr, self.map_saver, context.update_map_freq)
-        self.map_saver.save_probmap_to_bag(
-            context.target_distr.evals[1],
-            context.target_distr.evals[0],
-            0.05,
+        save_consolidated_maps(
+            context.target_distr,
+            context.robot_distr,
+            self.map_saver,
             context.update_map_freq,
-            ["#ffffff", "#000000"],
         )
 
     def publish_control_topics(self, context, current_time):

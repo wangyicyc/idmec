@@ -67,17 +67,18 @@ class Rosbag2WriterPool:
 
         timestamp_ns = seconds_to_nanoseconds(timestamp_sec)
         writer.write(topic_name, serialize_message(message), timestamp_ns)
-        self.next_time[bag_uri] = max(
-            self.next_time.get(bag_uri, 0.0),
+        self.next_time[topic_key] = max(
+            self.next_time.get(topic_key, 0.0),
             float(timestamp_sec),
         )
         return bag_uri
 
-    def start_time(self, bag_filename, dt):
+    def start_time(self, bag_filename, dt, topic_name=None):
         bag_uri = self.bag_uri_for(bag_filename)
-        if bag_uri not in self.next_time:
+        time_key = (bag_uri, topic_name) if topic_name is not None else bag_uri
+        if time_key not in self.next_time:
             return 0.0
-        return self.next_time[bag_uri] + dt
+        return self.next_time[time_key] + dt
 
     def bag_uri_for(self, bag_filename):
         if bag_filename in self.bag_uris:
@@ -108,8 +109,8 @@ class Rosbag2WriterPool:
 
 
 class CommandToRosbag:
-    def __init__(self, bag_dir="~/ros_data/trajectories"):
-        self.writer_pool = Rosbag2WriterPool(bag_dir)
+    def __init__(self, bag_dir="~/ros_data/trajectories", writer_pool=None):
+        self.writer_pool = writer_pool or Rosbag2WriterPool(bag_dir)
 
     def save_traj2bag(
         self,
@@ -122,13 +123,18 @@ class CommandToRosbag:
         x_data = np.asarray(trajectory_dict["x"])
         u_data = np.asarray(trajectory_dict["u"])
         bag_filename = bag_filename or f"trajectory_robot_{robot_id}.bag"
-        time_offset = 0.0 if mode == "w" else self.writer_pool.start_time(bag_filename, dt)
+        topic_name = f"/robot_{robot_id}/trajectory/control_sequence"
+        time_offset = (
+            0.0
+            if mode == "w"
+            else self.writer_pool.start_time(bag_filename, dt, topic_name)
+        )
 
         for i in range(len(x_data)):
             command = build_control_command(x_data[i], u_data[i], time_from_start=i * dt)
             self.writer_pool.write(
                 bag_filename,
-                f"/robot_{robot_id}/trajectory/control_sequence",
+                topic_name,
                 command,
                 time_offset + i * dt,
             )
@@ -136,8 +142,8 @@ class CommandToRosbag:
 
 
 class PathToRosbag:
-    def __init__(self, bag_dir="~/ros_data/paths"):
-        self.writer_pool = Rosbag2WriterPool(bag_dir)
+    def __init__(self, bag_dir="~/ros_data/paths", writer_pool=None):
+        self.writer_pool = writer_pool or Rosbag2WriterPool(bag_dir)
 
     def save_path_to_bag(
         self,
@@ -148,7 +154,8 @@ class PathToRosbag:
         frame_id="world",
     ):
         x_traj = np.asarray(x_traj)
-        time_offset = self.writer_pool.start_time(bag_filename, dt)
+        topic_name = f"/robot_{robot_id}/planned_path"
+        time_offset = self.writer_pool.start_time(bag_filename, dt, topic_name)
         path_msg = PathMsg()
         path_msg.header.frame_id = frame_id
         path_msg.header.stamp = seconds_to_time_msg(time_offset)
@@ -168,7 +175,7 @@ class PathToRosbag:
         path_msg.poses = poses
         self.writer_pool.write(
             bag_filename,
-            f"/robot_{robot_id}/planned_path",
+            topic_name,
             path_msg,
             time_offset,
         )
@@ -176,8 +183,8 @@ class PathToRosbag:
 
 
 class MapINfoToMarkers:
-    def __init__(self, bag_dir, frame_id="world"):
-        self.writer_pool = Rosbag2WriterPool(bag_dir)
+    def __init__(self, bag_dir, frame_id="world", writer_pool=None):
+        self.writer_pool = writer_pool or Rosbag2WriterPool(bag_dir)
         self.frame_id = frame_id
         self.topic_name = "/map_distribution"
 
@@ -255,7 +262,11 @@ class MapINfoToMarkers:
         bag_filename="map.bag",
         mode="w",
     ):
-        time_offset = 0.0 if mode == "w" else self.writer_pool.start_time(bag_filename, dt)
+        time_offset = (
+            0.0
+            if mode == "w"
+            else self.writer_pool.start_time(bag_filename, dt, self.topic_name)
+        )
         marker = self.generate_probmap_marker(points, probs, stamp=time_offset, colors_hex=color)
         for i in range(timesteps):
             timestamp = time_offset + i * dt

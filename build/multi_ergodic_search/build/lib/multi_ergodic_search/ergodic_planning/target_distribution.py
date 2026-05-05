@@ -65,13 +65,13 @@ class TargetDistribution(object):
     #     plt.contour(self.domain[0], self.domain[1], 
     #                self.evals[0].reshape(self.domain[0].shape))
 
-    def update_map(self, update_times, mode="reset", w_or_r = 'write',perturb_scale=0.3):
+    def update_map(self, update_times, mode="reset", w_or_r = 'write', perturb_scale=0.3):
         """
         更新地图参数，生成有界的新means。
         mode:
             "perturb"       —— 在当前means附近随机扰动
             "reset"         —— 完全随机生成新的means
-        bounds: (min_val, max_val)，每个mean分量的取值范围
+        w_or_r: 写入或读取地图参数
         perturb_scale: 控制扰动强度（仅用于perturb模式）
         """
         if w_or_r == 'write':

@@ -1,6 +1,5 @@
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/__init__.py
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/scripts/__init__.py
-/home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/scripts/idmed_copy.py
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/scripts/idmed.py
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/experiment/__init__.py
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/experiment/io.py
@@ -32,7 +31,6 @@
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/config/random_map_history1.jsonl
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/__pycache__/__init__.cpython-312.pyc
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/scripts/__pycache__/__init__.cpython-312.pyc
-/home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/scripts/__pycache__/idmed_copy.cpython-312.pyc
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/scripts/__pycache__/idmed.cpython-312.pyc
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/experiment/__pycache__/__init__.cpython-312.pyc
 /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/experiment/__pycache__/io.cpython-312.pyc

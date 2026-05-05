@@ -7,8 +7,7 @@ PACKAGE_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PACKAGE_ROOT))
 # 增广拉格朗日法优化器
 from ergodic_planning.multi_solver import al_iLQR 
-from ergodic_planning.augument_lagrange_func import loss_traj_multi, eq_constr, ineq_constr_multi, loss_compare_multi
-from utils.data_collect import append_metric
+from ergodic_planning.augument_lagrange_func import loss_traj_multi, eq_constr, ineq_constr_multi
 from utils.plot_utils import plot_trajs
 from ergodic_planning.tools import find_first_connected, exchange_info, update_accumulated_time
 from ergodic_planning.decay_utils import update_beta
@@ -32,14 +31,6 @@ from experiment.config import (
     multi_betas,
     robot_model_single,
 )
-
-
-def plot_trajs_if_enabled(start_pos, end_pos, sol_trajs, betas, robot_distr, save_path):
-    if not opt_args["enable_plot"]:
-        return
-    from utils.plot_utils import plot_trajs
-
-    plot_trajs(start_pos, end_pos, sol_trajs, betas, robot_distr, save_path)
 
 
 def prepare_experiment():
@@ -96,10 +87,6 @@ def prepare_experiment():
     involved_robots = set(range(robot_number))
     accumulated_time = 0
     be_num = 1
-    global_metric = {
-            'time': [],
-            'values': [],
-        }
     last_exchange_time = {}
     output = ExperimentOutput(
         output_mode=opt_args["output_mode"],
@@ -114,7 +101,7 @@ def prepare_experiment():
     warm_up = True
     # warm_up = False
     logging.info('my_strategy')
-    plot_trajs_if_enabled(
+    plot_trajs(
         start_pos,
         end_pos,
         sol_trajs,
@@ -146,7 +133,6 @@ def prepare_experiment():
         involved_robots=involved_robots,
         accumulated_time=accumulated_time,
         be_num=be_num,
-        global_metric=global_metric,
         last_exchange_time=last_exchange_time,
         warm_up=warm_up,
         output=output,
@@ -202,13 +188,6 @@ def find_connection_event(context):
     return current_time, robot_pair
 
 
-def append_current_metric(context, current_time):
-    append_metric(
-        context.global_metric,
-        loss_compare_multi(context.sol_trajs, context.target_distr.evals, current_time),
-    )
-
-
 def apply_map_merge_if_needed(context, current_time, robot_pair):
     if context.map_merge_cnt < context.map_merge_freq:
         return current_time, robot_pair, False
@@ -219,7 +198,6 @@ def apply_map_merge_if_needed(context, current_time, robot_pair):
     context.map_merge_cnt = 0
 
     if context.accumulated_time >= context.tsteps:
-        append_current_metric(context, current_time)
         context.output.emit_map_snapshot(context)
         return current_time, robot_pair, True
 
@@ -241,12 +219,15 @@ def apply_target_update_if_needed(context, current_time, robot_pair):
     if context.accumulated_time != context.update_map_freq * context.be_num:
         return current_time, robot_pair, False
 
-    append_current_metric(context, current_time)
     context.output.emit_map_snapshot(context)
     logging.info("update map")
     robot_pair = []
     # 更新目标地图
-    context.target_distr.update_map(context.accumulated_time, "reset", "read")
+    # mode:
+    #     "perturb"       —— 在当前means附近随机扰动
+    #     "reset"         —— 完全随机生成新的means
+    # w_or_r: 写入或读取地图参数
+    context.target_distr.update_map(context.accumulated_time, mode="reset", w_or_r="read")
     context.be_num += 1
     return current_time, robot_pair, context.accumulated_time >= context.tsteps
 
@@ -315,7 +296,7 @@ def run_experiment(context):
         )
 
     # 绘制轨迹图
-    plot_trajs_if_enabled(
+    plot_trajs(
         context.start_pos,
         context.end_pos,
         context.sol_trajs,

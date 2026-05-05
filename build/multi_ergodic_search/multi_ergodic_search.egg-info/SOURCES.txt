@@ -35,7 +35,6 @@ multi_ergodic_search/experiment/io.py
 multi_ergodic_search/experiment/settings.py
 multi_ergodic_search/scripts/__init__.py
 multi_ergodic_search/scripts/idmed.py
-multi_ergodic_search/scripts/idmed_copy.py
 multi_ergodic_search/utils/__init__.py
 multi_ergodic_search/utils/data2bag.py
 multi_ergodic_search/utils/data_collect.py

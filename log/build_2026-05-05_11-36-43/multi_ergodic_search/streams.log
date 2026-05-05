@@ -1,0 +1,99 @@
+[0.853s] Invoking command in '/home/ubuntu24/idmec/src/multi_ergodic_search': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/ubuntu24/idmec/build/multi_ergodic_search/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/multi_ergodic_search build --build-base /home/ubuntu24/idmec/build/multi_ergodic_search/build install --record /home/ubuntu24/idmec/build/multi_ergodic_search/install.log --single-version-externally-managed install_data
+[1.088s] running egg_info
+[1.105s] writing ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/PKG-INFO
+[1.105s] writing dependency_links to ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/dependency_links.txt
+[1.105s] writing entry points to ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/entry_points.txt
+[1.106s] writing requirements to ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/requires.txt
+[1.106s] writing top-level names to ../../build/multi_ergodic_search/multi_ergodic_search.egg-info/top_level.txt
+[1.143s] reading manifest file '../../build/multi_ergodic_search/multi_ergodic_search.egg-info/SOURCES.txt'
+[1.144s] writing manifest file '../../build/multi_ergodic_search/multi_ergodic_search.egg-info/SOURCES.txt'
+[1.144s] running build
+[1.144s] running build_py
+[1.145s] copying multi_ergodic_search/scripts/idmed.py -> /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/scripts
+[1.145s] copying multi_ergodic_search/experiment/io.py -> /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/experiment
+[1.145s] copying multi_ergodic_search/experiment/config.py -> /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/experiment
+[1.146s] copying multi_ergodic_search/utils/data_collect.py -> /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/utils
+[1.147s] copying multi_ergodic_search/ergodic_planning/target_distribution.py -> /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning
+[1.148s] copying multi_ergodic_search/ergodic_planning/augument_lagrange_func.py -> /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning
+[1.148s] copying multi_ergodic_search/datas/config/config.yaml -> /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/datas/config
+[1.149s] running install
+[1.154s] running install_lib
+[1.175s] creating /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search
+[1.176s] creating /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/scripts
+[1.176s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/scripts/__init__.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/scripts
+[1.176s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/scripts/idmed_copy.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/scripts
+[1.177s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/scripts/idmed.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/scripts
+[1.177s] creating /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/experiment
+[1.178s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/experiment/__init__.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/experiment
+[1.178s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/experiment/io.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/experiment
+[1.178s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/experiment/settings.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/experiment
+[1.178s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/experiment/config.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/experiment
+[1.179s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/__init__.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search
+[1.179s] creating /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils
+[1.180s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/utils/data_collect.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils
+[1.180s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/utils/__init__.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils
+[1.180s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/utils/plot_utils.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils
+[1.180s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/utils/data2bag.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils
+[1.181s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/utils/ros_messages.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils
+[1.181s] creating /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas
+[1.181s] creating /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/config
+[1.182s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/datas/config/random_map_history.jsonl -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/config
+[1.182s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/datas/config/random_map_history2.jsonl -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/config
+[1.182s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/datas/config/config.yaml -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/config
+[1.183s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/datas/config/random_map_history3.jsonl -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/config
+[1.183s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/datas/config/random_map_history1.jsonl -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/config
+[1.183s] creating /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning
+[1.184s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning/fourier_utils.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning
+[1.184s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning/ergodic_metric.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning
+[1.184s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning/metric_utils.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning
+[1.185s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning/solver.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning
+[1.185s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning/tools.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning
+[1.186s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning/__init__.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning
+[1.186s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning/target_distribution.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning
+[1.186s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning/multi_solver.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning
+[1.187s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning/class_types.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning
+[1.187s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning/augument_lagrange_func.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning
+[1.188s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning/decay_utils.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning
+[1.188s] creating /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/dynamics
+[1.189s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning/dynamics/models.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/dynamics
+[1.189s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning/dynamics/__init__.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/dynamics
+[1.189s] copying /home/ubuntu24/idmec/build/multi_ergodic_search/build/lib/multi_ergodic_search/ergodic_planning/dynamics/integrator.py -> /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/dynamics
+[1.190s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/scripts/__init__.py to __init__.cpython-312.pyc
+[1.191s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/scripts/idmed_copy.py to idmed_copy.cpython-312.pyc
+[1.192s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/scripts/idmed.py to idmed.cpython-312.pyc
+[1.194s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/experiment/__init__.py to __init__.cpython-312.pyc
+[1.195s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/experiment/io.py to io.cpython-312.pyc
+[1.196s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/experiment/settings.py to settings.cpython-312.pyc
+[1.196s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/experiment/config.py to config.cpython-312.pyc
+[1.197s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/__init__.py to __init__.cpython-312.pyc
+[1.198s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils/data_collect.py to data_collect.cpython-312.pyc
+[1.200s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils/__init__.py to __init__.cpython-312.pyc
+[1.200s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils/plot_utils.py to plot_utils.cpython-312.pyc
+[1.204s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils/data2bag.py to data2bag.cpython-312.pyc
+[1.206s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/utils/ros_messages.py to ros_messages.cpython-312.pyc
+[1.206s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/fourier_utils.py to fourier_utils.cpython-312.pyc
+[1.208s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/ergodic_metric.py to ergodic_metric.cpython-312.pyc
+[1.208s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/metric_utils.py to metric_utils.cpython-312.pyc
+[1.209s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/solver.py to solver.cpython-312.pyc
+[1.211s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/tools.py to tools.cpython-312.pyc
+[1.214s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/__init__.py to __init__.cpython-312.pyc
+[1.214s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/target_distribution.py to target_distribution.cpython-312.pyc
+[1.215s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/multi_solver.py to multi_solver.cpython-312.pyc
+[1.217s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/class_types.py to class_types.cpython-312.pyc
+[1.218s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/augument_lagrange_func.py to augument_lagrange_func.cpython-312.pyc
+[1.220s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/decay_utils.py to decay_utils.cpython-312.pyc
+[1.221s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/dynamics/models.py to models.cpython-312.pyc
+[1.222s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/dynamics/__init__.py to __init__.cpython-312.pyc
+[1.222s] byte-compiling /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/ergodic_planning/dynamics/integrator.py to integrator.cpython-312.pyc
+[1.223s] running install_data
+[1.223s] creating /home/ubuntu24/idmec/install/multi_ergodic_search/share/ament_index
+[1.223s] creating /home/ubuntu24/idmec/install/multi_ergodic_search/share/ament_index/resource_index
+[1.224s] creating /home/ubuntu24/idmec/install/multi_ergodic_search/share/ament_index/resource_index/packages
+[1.224s] copying resource/multi_ergodic_search -> /home/ubuntu24/idmec/install/multi_ergodic_search/share/ament_index/resource_index/packages
+[1.224s] copying package.xml -> /home/ubuntu24/idmec/install/multi_ergodic_search/share/multi_ergodic_search
+[1.224s] running install_egg_info
+[1.246s] Copying ../../build/multi_ergodic_search/multi_ergodic_search.egg-info to /home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search-0.0.0-py3.12.egg-info
+[1.249s] running install_scripts
+[1.367s] Installing idmed script to /home/ubuntu24/idmec/install/multi_ergodic_search/lib/multi_ergodic_search
+[1.369s] writing list of installed files to '/home/ubuntu24/idmec/build/multi_ergodic_search/install.log'
+[1.400s] Invoked command in '/home/ubuntu24/idmec/src/multi_ergodic_search' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/ubuntu24/idmec/build/multi_ergodic_search/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ubuntu24/idmec/install/multi_ergodic_search/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/multi_ergodic_search build --build-base /home/ubuntu24/idmec/build/multi_ergodic_search/build install --record /home/ubuntu24/idmec/build/multi_ergodic_search/install.log --single-version-externally-managed install_data
