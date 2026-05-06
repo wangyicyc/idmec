@@ -92,7 +92,7 @@ def prepare_experiment():
         output_mode=opt_args["output_mode"],
         bag_dir=PACKAGE_ROOT / opt_args["output_bag_dir"],
         output_topic=opt_args["output_topic"],
-        publish_rate=opt_args["output_publish_rate"],
+        dt=opt_args["dt"],
         robot_number=robot_number,
         state_dim=state_dim,
     )

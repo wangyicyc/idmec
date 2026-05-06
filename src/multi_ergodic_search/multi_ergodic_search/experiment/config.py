@@ -43,7 +43,6 @@ opt_args = {
     "output_topic": config.get("output_topic")
     or config.get("output_topic")
     or "/trajectory/robot_{robot_id}/control_sequence",
-    "output_publish_rate": config.get("output_publish_rate", 20.0),
     "connect_threshold": config["connect_threshold"],
     "robot_pair": [tuple(pair) for pair in config["robot_pair"]],
 }

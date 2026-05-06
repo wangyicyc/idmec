@@ -50,14 +50,14 @@ class ExperimentOutput:
         output_mode,
         bag_dir,
         output_topic,
-        publish_rate,
+        dt,
         robot_number,
         state_dim,
     ):
         self.output_mode = str(output_mode).strip().lower()
         self.bag_dir = str(Path(bag_dir).expanduser())
         self.output_topic = output_topic
-        self.publish_rate = publish_rate
+        self.dt = float(dt)
         self.robot_number = robot_number
         self.state_dim = state_dim
         self.command_saver = None
@@ -152,14 +152,13 @@ class ExperimentOutput:
         )
 
     def publish_control_topics(self, context, current_time):
-        sleep_dt = 1.0 / self.publish_rate
         for step in range(current_time):
             if not self.rclpy.ok():
                 return
             for r_id, publisher in enumerate(self.publishers):
                 publisher.publish(self.build_position_command(context, r_id, step))
             self.rclpy.spin_once(self.node, timeout_sec=0.0)
-            time.sleep(sleep_dt)
+            time.sleep(self.dt)
 
     def build_position_command(self, context, robot_id, step):
         x_slice = slice(

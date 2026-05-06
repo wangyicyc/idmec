@@ -54,7 +54,7 @@ opt_args:
   output_mode: both         # 输出模式: none (不输出) | bag (写入 bag 文件) | topic (发布 ROS2 话题) | both (同时)
   output_bag_dir: ./datas/bags/my_strategy  # bag 文件输出目录 (相对于 multi_ergodic_search 包根目录)
   output_topic: /trajectory/robot_{robot_id}/control_sequence  # 话题模板, {robot_id} 会被替换为 0,1,2,3
-  output_publish_rate: 20.0 # 话题发布频率 (Hz)
+  # topic 发布周期与 dt 绑定，即每个仿真步发布一个控制点
 
   # ---------- 机器人数量 ----------
   robot_number: 4
