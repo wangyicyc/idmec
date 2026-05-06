@@ -46,7 +46,7 @@ idmec/
 
 ## 2. 环境准备
 
-本项目依赖 ROS2 (jazzy) 自带的系统 Python，无需额外创建虚拟环境。相对关键的 Python 包是 JAX：
+本项目依赖 ROS2 (jazzy) / Ubuntu24 系统 Python，无需额外创建虚拟环境。相对关键的 Python 包是 JAX：
 ```bash
 pip install jax[cpu]
 ```
@@ -58,7 +58,7 @@ pip install jax[cudaxx]
 
 ### 2.1 NumPy / Matplotlib 兼容问题
 
-ROS2 运行时通常使用系统 Python，例如 `/usr/bin/python3`。但如果用户目录 `~/.local/lib/python3.12/site-packages` 中安装了新版 NumPy，系统 Python 仍可能优先加载用户目录中的包，导致系统 `matplotlib` 与用户目录 NumPy 发生 ABI 不兼容。
+ROS2 运行时使用系统 Python，例如 `/usr/bin/python3`，可能导致用户目录 `~/.local/lib/python3.12/site-packages` 中安装的新版 NumPy，与 `matplotlib` 包发生 ABI 不兼容。
 
 典型报错如下：
 
@@ -73,9 +73,6 @@ ImportError: numpy.core.multiarray failed to import
 /usr/bin/python3 -c "import numpy; print(numpy.__version__, numpy.__file__)"
 /usr/bin/python3 -c "import matplotlib; print(matplotlib.__version__, matplotlib.__file__)"
 ```
-
-如果 NumPy 来自 `~/.local/lib/python3.12/site-packages`，而 Matplotlib 来自 `/usr/lib/python3/dist-packages`，说明当前环境混用了用户 pip 包和系统 apt 包。
-
 
 我采取的方案：继续使用用户目录中的 NumPy 2.x，同时升级用户目录中的 Matplotlib，使二者来自同一套 pip 环境：
 
@@ -107,9 +104,10 @@ UserWarning: Unable to import Axes3D. This may be due to multiple versions of Ma
 src/multi_ergodic_search/multi_ergodic_search/datas/config/config.yaml
 ```
 
-文件中已包含各字段的中文注释，按分组说明：搜索空间、iLQR 优化权重、控制/速度约束、初始/终点位置、安全与通信、优化目标权重、地图更新、输出配置及目标分布定义。修改参数后直接运行即可，无需额外操作。
+文件中已包含各字段的中文注释。修改参数后直接运行即可，无需额外操作。
 
 > 需要注意真机实验与仿真中机器人半径(膨胀半径)的差异，避免在仿真中使用过小的半径，导致真机实验中机器人碰撞。
+
 > 同时中间部分规划可能存在约束不满足，这将导致避障失效，因此真机实验时需要提前检查效果。
 
 ### 3.1 动态目标地图与历史文件
@@ -133,7 +131,7 @@ src/multi_ergodic_search/multi_ergodic_search/ergodic_planning/target_distributi
 src/multi_ergodic_search/multi_ergodic_search/datas/config/random_map_history.jsonl
 ```
 
-注意它是 `.jsonl`，不是普通 `.json`。JSON Lines 的含义是：每一行都是一条完整的 JSON 记录，对应一次目标地图更新后的参数。例如一行包含：
+其中：每一行都是一条完整的 JSON 记录，对应一次目标地图更新后的参数。例如一行包含：
 
 ```json
 {"means": [[1.2, 2.6], [0.7, 1.1]], "covs": [[[0.08, 0.0], [0.0, 0.1]], [[0.08, 0.0], [0.0, 0.1]]]}
@@ -192,18 +190,16 @@ ros2 run multi_ergodic_search idmed
 
 ### 4.1 运行产物位置
 
-通过 `ros2 run multi_ergodic_search idmed` 运行时，程序执行的是 `install/` 下的已安装 Python 包。因此 log、bag 和最终轨迹图片都会写入 `install` 目录中的包路径，而不是 `src` 目录。
+通过 `ros2 run multi_ergodic_search idmed` 运行时，程序执行的是 `install/` 下的已安装 Python 包。因此 log、bag 和最终轨迹图片都会写入 `install` 目录中的包路径。
 
 默认位置如下：
 
 | 产物 | 默认路径 |
 | --- | --- |
-| 运行 log | `~/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/logs/app.log` |
 | solver log | `~/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/logs/app_YYYY-MM-DD_HH-MM.log` |
 | ROS2 bag | `~/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/bags/my_strategy/` |
 | 最终轨迹图片 | `~/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/results/my_strategy/figures/my_strategy.png` |
 
-如果直接用源码路径运行脚本，产物才会落在 `src/multi_ergodic_search/multi_ergodic_search/datas/...` 下。日常 ROS2 工作流建议以 `install/` 下的产物为准。
 
 ## 5. 输出模式说明
 
