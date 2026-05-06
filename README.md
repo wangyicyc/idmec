@@ -1,11 +1,11 @@
-# IDMEC
+# IDMED
 
 本仓库用于多机器人 Decay-Ergodic Search 轨迹规划、ROS bag 回放可视化和实机实验对接。请先完整检查离线轨迹和 bag 可视化结果，再接入真实无人机。
 
 ## 1. 仓库结构
 
 ```text
-idmec/
+idmed/
 ├── environment.yml                                       # (legacy) Conda 环境导出文件
 ├── src/
 │   └── multi_ergodic_search/                             # ROS2 (jazzy) 主包
@@ -151,7 +151,7 @@ src/multi_ergodic_search/multi_ergodic_search/datas/config/random_map_history.js
 | 读取历史地图 | `update_map(..., w_or_r="read")` | 从 `random_map_history.jsonl` 按行读取下一条地图 | 复现实验、对比算法 |
 | 写入随机地图 | `update_map(..., w_or_r="write")` | 随机生成新地图，并追加写入 `random_map_history.jsonl` | 生成新的动态地图序列 |
 
-当前主入口 [idmed.py](/home/ubuntu24/idmec/src/multi_ergodic_search/multi_ergodic_search/scripts/idmed.py) 默认使用读取模式：
+当前主入口 [idmed.py](~/idmed/src/multi_ergodic_search/multi_ergodic_search/scripts/idmed.py) 默认使用读取模式：
 
 ```python
 context.target_distr.update_map(context.accumulated_time, "reset", "read")
@@ -177,7 +177,7 @@ context.target_distr.update_map(context.accumulated_time, "reset", "write")
 构建：
 
 ```bash
-cd ~/idmec
+cd ~/idmed
 source /opt/ros/jazzy/setup.bash
 colcon build --packages-select multi_ergodic_search
 source install/setup.bash
@@ -197,9 +197,9 @@ ros2 run multi_ergodic_search idmed
 
 | 产物 | 默认路径 |
 | --- | --- |
-| solver log | `~/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/logs/app_YYYY-MM-DD_HH-MM.log` |
-| ROS2 bag | `~/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/bags/my_strategy/` |
-| 最终轨迹图片 | `~/idmec/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/results/my_strategy/figures/my_strategy.png` |
+| solver log | `~/idmed/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/logs/app_YYYY-MM-DD_HH-MM.log` |
+| ROS2 bag | `~/idmed/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/bags/my_strategy/` |
+| 最终轨迹图片 | `~/idmed/install/multi_ergodic_search/lib/python3.12/site-packages/multi_ergodic_search/datas/results/my_strategy/figures/my_strategy.png` |
 
 
 ## 5. 输出模式说明
