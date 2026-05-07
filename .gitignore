@@ -1,0 +1,10 @@
+install/
+log/
+build/
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyc
+# Image files
+*.png
+*.log
