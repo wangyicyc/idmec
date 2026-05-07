@@ -8,3 +8,4 @@ __pycache__/
 # Image files
 *.png
 *.log
+.codex
