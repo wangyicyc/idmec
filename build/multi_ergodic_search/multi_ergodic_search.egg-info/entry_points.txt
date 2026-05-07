@@ -1,2 +1,0 @@
-[console_scripts]
-idmed = multi_ergodic_search.scripts.idmed:main
